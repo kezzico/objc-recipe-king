@@ -1,0 +1,936 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B08FAA114EF5F6C00AE961D /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAA014EF5F6C00AE961D /* Category.m */; };
+		9B08FAA414EF5FCB00AE961D /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAA314EF5FCB00AE961D /* Recipe.m */; };
+		9B08FAA714EF5FCB00AE961D /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAA614EF5FCB00AE961D /* Ingredient.m */; };
+		9B08FAAA14EF67B300AE961D /* CategoryRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAA914EF67B300AE961D /* CategoryRepositoryTests.m */; };
+		9B08FAB614F0CFEE00AE961D /* IngredientRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAB114F0BDD300AE961D /* IngredientRepository.m */; };
+		9B08FAB714F0D00500AE961D /* RecipeMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08FAB414F0C0B400AE961D /* RecipeMapper.m */; };
+		9B08FAB814F0D02B00AE961D /* RecipeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFAAF114DF1D0000E4F74C /* RecipeViewModel.m */; };
+		9B08FAB914F0D02F00AE961D /* IngredientViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFAAF414DF1EE500E4F74C /* IngredientViewModel.m */; };
+		9B385BC6151E40320021E716 /* EditRecipeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B385BC5151E40320021E716 /* EditRecipeTableController.m */; };
+		9B385BCC151ED2090021E716 /* CategoryPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B385BCB151ED2090021E716 /* CategoryPickerController.m */; };
+		9B3BE061151EE5FF005C146B /* TimePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE060151EE5FF005C146B /* TimePickerController.m */; };
+		9B3BE066151F84C5005C146B /* TimeStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE065151F84C5005C146B /* TimeStringConverter.m */; };
+		9B3BE069151F863F005C146B /* TimeStringConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE068151F863F005C146B /* TimeStringConverterTests.m */; };
+		9B3BE06D151F9697005C146B /* CategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE06C151F9697005C146B /* CategoryListController.m */; };
+		9B3BE06F151FACBE005C146B /* CategoryListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE06E151FACBE005C146B /* CategoryListController.xib */; };
+		9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE071151FD03F005C146B /* EditCategoryController.m */; };
+		9B3BE074151FD040005C146B /* EditCategoryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE072151FD03F005C146B /* EditCategoryController.xib */; };
+		9B46BEC814F4721000A5827B /* UINavigationControllerSkinned.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */; };
+		9B46BECB14F4745000A5827B /* UINavigationBarSkinned.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */; };
+		9B71023714F5748C003871E4 /* navlandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022714F5748C003871E4 /* navlandscape.png */; };
+		9B71023814F5748C003871E4 /* navlandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022814F5748C003871E4 /* navlandscape@2x.png */; };
+		9B71023914F5748C003871E4 /* navportrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022914F5748C003871E4 /* navportrait.png */; };
+		9B71023A14F5748C003871E4 /* navportrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022A14F5748C003871E4 /* navportrait@2x.png */; };
+		9B71024514F57AA7003871E4 /* toolbarportrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024114F57AA7003871E4 /* toolbarportrait@2x.png */; };
+		9B71024614F57AA7003871E4 /* toolbarportrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024214F57AA7003871E4 /* toolbarportrait.png */; };
+		9B71024714F57AA7003871E4 /* toolbarlandscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024314F57AA7003871E4 /* toolbarlandscape@2x.png */; };
+		9B71024814F57AA7003871E4 /* toolbarlandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024414F57AA7003871E4 /* toolbarlandscape.png */; };
+		9B71024B14F73AC9003871E4 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024914F73AC9003871E4 /* clock@2x.png */; };
+		9B71024C14F73AC9003871E4 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024A14F73AC9003871E4 /* clock.png */; };
+		9B71025014F73E71003871E4 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71024E14F73E71003871E4 /* CategoryCell.m */; };
+		9B71025114F73E71003871E4 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B71024F14F73E71003871E4 /* CategoryCell.xib */; };
+		9B71025414F74002003871E4 /* categoryback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71025214F74002003871E4 /* categoryback@2x.png */; };
+		9B71025514F74002003871E4 /* categoryback.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71025314F74002003871E4 /* categoryback.png */; };
+		9B80643515277D8900B71114 /* EditRecipeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B80643415277D8900B71114 /* EditRecipeTests.m */; };
+		9B806438152781DB00B71114 /* EditIngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B806437152781DB00B71114 /* EditIngredientCell.m */; };
+		9B8064731528AA2500B71114 /* editRecipeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8064711528AA2500B71114 /* editRecipeBackground.png */; };
+		9B8064741528AA2500B71114 /* editRecipeBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */; };
+		9B84A844152010F90036A5F0 /* EditIngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B84A843152010F90036A5F0 /* EditIngredientCell.xib */; };
+		9B84A84C15217A960036A5F0 /* UIRemoveControlPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */; };
+		9B961373151512E5003E68E2 /* EditRecipeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B961371151512E5003E68E2 /* EditRecipeController.m */; };
+		9B961374151512E5003E68E2 /* EditRecipeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B961372151512E5003E68E2 /* EditRecipeController.xib */; };
+		9BB829D914ECBC2100BC2101 /* RecipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB829D814ECBC2100BC2101 /* RecipeCell.m */; };
+		9BB829DB14ECBC3700BC2101 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB829DA14ECBC3700BC2101 /* RecipeCell.xib */; };
+		9BBDF4F214F16681000AAE25 /* RecipeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBDF4F014F16681000AAE25 /* RecipeListController.m */; };
+		9BBDF4F314F16681000AAE25 /* RecipeListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BBDF4F114F16681000AAE25 /* RecipeListController.xib */; };
+		9BC2C68E1530D873002983BB /* ExtraFieldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC2C68D1530D873002983BB /* ExtraFieldsController.m */; };
+		9BC2C69315311BB2002983BB /* EditPreperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC2C69115311BB2002983BB /* EditPreperationController.m */; };
+		9BC2C69415311BB2002983BB /* EditPreperationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2C69215311BB2002983BB /* EditPreperationController.xib */; };
+		9BCA5EBD14F16C36006C1374 /* UIToolbarSkinned.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA5EBC14F16C36006C1374 /* UIToolbarSkinned.m */; };
+		9BCA5EC014F17354006C1374 /* RecipeListMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA5EBF14F17354006C1374 /* RecipeListMapper.m */; };
+		9BCA5EC314F173DD006C1374 /* ListRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA5EC214F173DD006C1374 /* ListRecipe.m */; };
+		9BCA5EC614F17574006C1374 /* MapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA5EC514F17574006C1374 /* MapperTests.m */; };
+		9BCA5ECB14F1846F006C1374 /* RecipeListTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA5EC914F1809B006C1374 /* RecipeListTableController.m */; };
+		9BCF83D714EEAD6B00D087EA /* RecipeRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83D414EEAD5F00D087EA /* RecipeRepositoryTests.m */; };
+		9BCF83DB14EEAF9900D087EA /* RecipeRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83DA14EEAF9900D087EA /* RecipeRepository.m */; };
+		9BCF83DE14EEAFA600D087EA /* CategoryRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83DD14EEAFA600D087EA /* CategoryRepository.m */; };
+		9BCF83E114EEAFCE00D087EA /* ManagedContextFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83E014EEAFCE00D087EA /* ManagedContextFactory.m */; };
+		9BCF83E814EEB24300D087EA /* RecipeKing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83E614EEB24200D087EA /* RecipeKing.xcdatamodeld */; };
+		9BCF83EA14EEB28100D087EA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCF83E914EEB28100D087EA /* CoreData.framework */; };
+		9BF310321505BDF200A02898 /* RecipeSearchTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF310311505BDF200A02898 /* RecipeSearchTableController.m */; };
+		9BFFAA9114DCF83200E4F74C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9014DCF83200E4F74C /* UIKit.framework */; };
+		9BFFAA9314DCF83200E4F74C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9214DCF83200E4F74C /* Foundation.framework */; };
+		9BFFAA9514DCF83200E4F74C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9414DCF83200E4F74C /* CoreGraphics.framework */; };
+		9BFFAA9B14DCF83200E4F74C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFAA9914DCF83200E4F74C /* InfoPlist.strings */; };
+		9BFFAA9D14DCF83200E4F74C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFAA9C14DCF83200E4F74C /* main.m */; };
+		9BFFAAA114DCF83200E4F74C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFAAA014DCF83200E4F74C /* AppDelegate.m */; };
+		9BFFAAA914DCF83200E4F74C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAAA814DCF83200E4F74C /* SenTestingKit.framework */; };
+		9BFFAAAA14DCF83200E4F74C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9014DCF83200E4F74C /* UIKit.framework */; };
+		9BFFAAAB14DCF83200E4F74C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9214DCF83200E4F74C /* Foundation.framework */; };
+		9BFFAAB314DCF83200E4F74C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFAAB114DCF83200E4F74C /* InfoPlist.strings */; };
+		9BFFAAE314DF07F800E4F74C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAADF14DF07F000E4F74C /* libOCMock.a */; };
+		9BFFAAEE14DF1C8C00E4F74C /* RecipeListControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFAAED14DF1C8C00E4F74C /* RecipeListControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BFFAAAC14DCF83200E4F74C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BFFAA8314DCF83100E4F74C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BFFAA8B14DCF83100E4F74C;
+			remoteInfo = RecipeKing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B08FA9914EF503200AE961D /* PCategoryRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCategoryRepository.h; sourceTree = "<group>"; };
+		9B08FA9F14EF5F6C00AE961D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		9B08FAA014EF5F6C00AE961D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		9B08FAA214EF5FCB00AE961D /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		9B08FAA314EF5FCB00AE961D /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		9B08FAA514EF5FCB00AE961D /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		9B08FAA614EF5FCB00AE961D /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		9B08FAA814EF67B300AE961D /* CategoryRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryRepositoryTests.h; sourceTree = "<group>"; };
+		9B08FAA914EF67B300AE961D /* CategoryRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryRepositoryTests.m; sourceTree = "<group>"; };
+		9B08FAAF14F0BD0200AE961D /* PIngredientRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIngredientRepository.h; sourceTree = "<group>"; };
+		9B08FAB014F0BDD300AE961D /* IngredientRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientRepository.h; sourceTree = "<group>"; };
+		9B08FAB114F0BDD300AE961D /* IngredientRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientRepository.m; sourceTree = "<group>"; };
+		9B08FAB314F0C0B400AE961D /* RecipeMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeMapper.h; sourceTree = "<group>"; };
+		9B08FAB414F0C0B400AE961D /* RecipeMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeMapper.m; sourceTree = "<group>"; };
+		9B385BC4151E40320021E716 /* EditRecipeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeTableController.h; sourceTree = "<group>"; };
+		9B385BC5151E40320021E716 /* EditRecipeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeTableController.m; sourceTree = "<group>"; };
+		9B385BCA151ED2090021E716 /* CategoryPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryPickerController.h; sourceTree = "<group>"; };
+		9B385BCB151ED2090021E716 /* CategoryPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryPickerController.m; sourceTree = "<group>"; };
+		9B3BE05F151EE5FF005C146B /* TimePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerController.h; sourceTree = "<group>"; };
+		9B3BE060151EE5FF005C146B /* TimePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerController.m; sourceTree = "<group>"; };
+		9B3BE064151F84C5005C146B /* TimeStringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeStringConverter.h; sourceTree = "<group>"; };
+		9B3BE065151F84C5005C146B /* TimeStringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeStringConverter.m; sourceTree = "<group>"; };
+		9B3BE067151F863F005C146B /* TimeStringConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeStringConverterTests.h; sourceTree = "<group>"; };
+		9B3BE068151F863F005C146B /* TimeStringConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeStringConverterTests.m; sourceTree = "<group>"; };
+		9B3BE06B151F9697005C146B /* CategoryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryListController.h; sourceTree = "<group>"; };
+		9B3BE06C151F9697005C146B /* CategoryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryListController.m; sourceTree = "<group>"; };
+		9B3BE06E151FACBE005C146B /* CategoryListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryListController.xib; sourceTree = "<group>"; };
+		9B3BE070151FD03F005C146B /* EditCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCategoryController.h; sourceTree = "<group>"; };
+		9B3BE071151FD03F005C146B /* EditCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCategoryController.m; sourceTree = "<group>"; };
+		9B3BE072151FD03F005C146B /* EditCategoryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCategoryController.xib; sourceTree = "<group>"; };
+		9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UINavigationControllerSkinned.xib; sourceTree = "<group>"; };
+		9B46BEC914F4745000A5827B /* UINavigationBarSkinned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarSkinned.h; sourceTree = "<group>"; };
+		9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationBarSkinned.m; sourceTree = "<group>"; };
+		9B71021F14F5746E003871E4 /* PRecipeRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRecipeRepository.h; sourceTree = "<group>"; };
+		9B71022714F5748C003871E4 /* navlandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navlandscape.png; sourceTree = "<group>"; };
+		9B71022814F5748C003871E4 /* navlandscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navlandscape@2x.png"; sourceTree = "<group>"; };
+		9B71022914F5748C003871E4 /* navportrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navportrait.png; sourceTree = "<group>"; };
+		9B71022A14F5748C003871E4 /* navportrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navportrait@2x.png"; sourceTree = "<group>"; };
+		9B71024114F57AA7003871E4 /* toolbarportrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarportrait@2x.png"; sourceTree = "<group>"; };
+		9B71024214F57AA7003871E4 /* toolbarportrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarportrait.png; sourceTree = "<group>"; };
+		9B71024314F57AA7003871E4 /* toolbarlandscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarlandscape@2x.png"; sourceTree = "<group>"; };
+		9B71024414F57AA7003871E4 /* toolbarlandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarlandscape.png; sourceTree = "<group>"; };
+		9B71024914F73AC9003871E4 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		9B71024A14F73AC9003871E4 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		9B71024D14F73E70003871E4 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		9B71024E14F73E71003871E4 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		9B71024F14F73E71003871E4 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		9B71025214F74002003871E4 /* categoryback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "categoryback@2x.png"; sourceTree = "<group>"; };
+		9B71025314F74002003871E4 /* categoryback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categoryback.png; sourceTree = "<group>"; };
+		9B80643315277D8900B71114 /* EditRecipeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeTests.h; sourceTree = "<group>"; };
+		9B80643415277D8900B71114 /* EditRecipeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeTests.m; sourceTree = "<group>"; };
+		9B806436152781DB00B71114 /* EditIngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditIngredientCell.h; sourceTree = "<group>"; };
+		9B806437152781DB00B71114 /* EditIngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditIngredientCell.m; sourceTree = "<group>"; };
+		9B8064711528AA2500B71114 /* editRecipeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editRecipeBackground.png; sourceTree = "<group>"; };
+		9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editRecipeBackground@2x.png"; sourceTree = "<group>"; };
+		9B84A843152010F90036A5F0 /* EditIngredientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditIngredientCell.xib; sourceTree = "<group>"; };
+		9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIRemoveControlPlus@2x.png"; sourceTree = "<group>"; };
+		9B961370151512E5003E68E2 /* EditRecipeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeController.h; sourceTree = "<group>"; };
+		9B961371151512E5003E68E2 /* EditRecipeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeController.m; sourceTree = "<group>"; };
+		9B961372151512E5003E68E2 /* EditRecipeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRecipeController.xib; sourceTree = "<group>"; };
+		9BB829D714ECBC2100BC2101 /* RecipeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCell.h; sourceTree = "<group>"; };
+		9BB829D814ECBC2100BC2101 /* RecipeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCell.m; sourceTree = "<group>"; };
+		9BB829DA14ECBC3700BC2101 /* RecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		9BBDF4EF14F16681000AAE25 /* RecipeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeListController.h; sourceTree = "<group>"; };
+		9BBDF4F014F16681000AAE25 /* RecipeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListController.m; sourceTree = "<group>"; };
+		9BBDF4F114F16681000AAE25 /* RecipeListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeListController.xib; sourceTree = "<group>"; };
+		9BC2C68C1530D873002983BB /* ExtraFieldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraFieldsController.h; sourceTree = "<group>"; };
+		9BC2C68D1530D873002983BB /* ExtraFieldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraFieldsController.m; sourceTree = "<group>"; };
+		9BC2C69015311BB2002983BB /* EditPreperationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPreperationController.h; sourceTree = "<group>"; };
+		9BC2C69115311BB2002983BB /* EditPreperationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPreperationController.m; sourceTree = "<group>"; };
+		9BC2C69215311BB2002983BB /* EditPreperationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPreperationController.xib; sourceTree = "<group>"; };
+		9BCA5EBB14F16C36006C1374 /* UIToolbarSkinned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIToolbarSkinned.h; sourceTree = "<group>"; };
+		9BCA5EBC14F16C36006C1374 /* UIToolbarSkinned.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIToolbarSkinned.m; sourceTree = "<group>"; };
+		9BCA5EBE14F17354006C1374 /* RecipeListMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeListMapper.h; sourceTree = "<group>"; };
+		9BCA5EBF14F17354006C1374 /* RecipeListMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListMapper.m; sourceTree = "<group>"; };
+		9BCA5EC114F173DD006C1374 /* ListRecipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListRecipe.h; sourceTree = "<group>"; };
+		9BCA5EC214F173DD006C1374 /* ListRecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListRecipe.m; sourceTree = "<group>"; };
+		9BCA5EC414F17574006C1374 /* MapperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapperTests.h; sourceTree = "<group>"; };
+		9BCA5EC514F17574006C1374 /* MapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapperTests.m; sourceTree = "<group>"; };
+		9BCA5EC814F1809B006C1374 /* RecipeListTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeListTableController.h; sourceTree = "<group>"; };
+		9BCA5EC914F1809B006C1374 /* RecipeListTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListTableController.m; sourceTree = "<group>"; };
+		9BCF83D314EEAD5F00D087EA /* RecipeRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeRepositoryTests.h; sourceTree = "<group>"; };
+		9BCF83D414EEAD5F00D087EA /* RecipeRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeRepositoryTests.m; sourceTree = "<group>"; };
+		9BCF83D914EEAF9900D087EA /* RecipeRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeRepository.h; sourceTree = "<group>"; };
+		9BCF83DA14EEAF9900D087EA /* RecipeRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeRepository.m; sourceTree = "<group>"; };
+		9BCF83DC14EEAFA600D087EA /* CategoryRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryRepository.h; sourceTree = "<group>"; };
+		9BCF83DD14EEAFA600D087EA /* CategoryRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryRepository.m; sourceTree = "<group>"; };
+		9BCF83DF14EEAFCE00D087EA /* ManagedContextFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedContextFactory.h; sourceTree = "<group>"; };
+		9BCF83E014EEAFCE00D087EA /* ManagedContextFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedContextFactory.m; sourceTree = "<group>"; };
+		9BCF83E714EEB24300D087EA /* RecipeKing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeKing.xcdatamodel; sourceTree = "<group>"; };
+		9BCF83E914EEB28100D087EA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9BF310301505BDF200A02898 /* RecipeSearchTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchTableController.h; sourceTree = "<group>"; };
+		9BF310311505BDF200A02898 /* RecipeSearchTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchTableController.m; sourceTree = "<group>"; };
+		9BFFAA8C14DCF83200E4F74C /* RecipeKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFFAA9014DCF83200E4F74C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9BFFAA9214DCF83200E4F74C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9BFFAA9414DCF83200E4F74C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BFFAA9814DCF83200E4F74C /* RecipeKing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecipeKing-Info.plist"; sourceTree = "<group>"; };
+		9BFFAA9A14DCF83200E4F74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BFFAA9C14DCF83200E4F74C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BFFAA9E14DCF83200E4F74C /* RecipeKing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipeKing-Prefix.pch"; sourceTree = "<group>"; };
+		9BFFAA9F14DCF83200E4F74C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9BFFAAA014DCF83200E4F74C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9BFFAAA714DCF83200E4F74C /* RecipeKingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeKingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFFAAA814DCF83200E4F74C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9BFFAAB014DCF83200E4F74C /* RecipeKingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecipeKingTests-Info.plist"; sourceTree = "<group>"; };
+		9BFFAAB214DCF83200E4F74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BFFAADF14DF07F000E4F74C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = Library/libOCMock.a; sourceTree = "<group>"; };
+		9BFFAAE614DF096B00E4F74C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		9BFFAAE714DF096B00E4F74C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		9BFFAAE814DF096B00E4F74C /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		9BFFAAE914DF096B00E4F74C /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		9BFFAAEA14DF096B00E4F74C /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		9BFFAAEB14DF096B00E4F74C /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		9BFFAAEC14DF1C8C00E4F74C /* RecipeListControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeListControllerTests.h; sourceTree = "<group>"; };
+		9BFFAAED14DF1C8C00E4F74C /* RecipeListControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeListControllerTests.m; sourceTree = "<group>"; };
+		9BFFAAF014DF1D0000E4F74C /* RecipeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewModel.h; sourceTree = "<group>"; };
+		9BFFAAF114DF1D0000E4F74C /* RecipeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewModel.m; sourceTree = "<group>"; };
+		9BFFAAF314DF1EE500E4F74C /* IngredientViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientViewModel.h; sourceTree = "<group>"; };
+		9BFFAAF414DF1EE500E4F74C /* IngredientViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientViewModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BFFAA8914DCF83100E4F74C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BCF83EA14EEB28100D087EA /* CoreData.framework in Frameworks */,
+				9BFFAA9114DCF83200E4F74C /* UIKit.framework in Frameworks */,
+				9BFFAA9314DCF83200E4F74C /* Foundation.framework in Frameworks */,
+				9BFFAA9514DCF83200E4F74C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BFFAAA314DCF83200E4F74C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFFAAA914DCF83200E4F74C /* SenTestingKit.framework in Frameworks */,
+				9BFFAAAA14DCF83200E4F74C /* UIKit.framework in Frameworks */,
+				9BFFAAAB14DCF83200E4F74C /* Foundation.framework in Frameworks */,
+				9BFFAAE314DF07F800E4F74C /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B08FA9E14EF5F1E00AE961D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9B08FA9F14EF5F6C00AE961D /* Category.h */,
+				9B08FAA014EF5F6C00AE961D /* Category.m */,
+				9B08FAA514EF5FCB00AE961D /* Ingredient.h */,
+				9B08FAA614EF5FCB00AE961D /* Ingredient.m */,
+				9B08FAA214EF5FCB00AE961D /* Recipe.h */,
+				9B08FAA314EF5FCB00AE961D /* Recipe.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		9B08FAAB14F09FCE00AE961D /* ObjectMappers */ = {
+			isa = PBXGroup;
+			children = (
+				9B08FAB314F0C0B400AE961D /* RecipeMapper.h */,
+				9B08FAB414F0C0B400AE961D /* RecipeMapper.m */,
+				9BCA5EBE14F17354006C1374 /* RecipeListMapper.h */,
+				9BCA5EBF14F17354006C1374 /* RecipeListMapper.m */,
+			);
+			name = ObjectMappers;
+			sourceTree = "<group>";
+		};
+		9B385BC8151ED1800021E716 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				9BBDF4EF14F16681000AAE25 /* RecipeListController.h */,
+				9BBDF4F014F16681000AAE25 /* RecipeListController.m */,
+				9BCA5EC814F1809B006C1374 /* RecipeListTableController.h */,
+				9BCA5EC914F1809B006C1374 /* RecipeListTableController.m */,
+				9BF310301505BDF200A02898 /* RecipeSearchTableController.h */,
+				9BF310311505BDF200A02898 /* RecipeSearchTableController.m */,
+				9BBDF4F114F16681000AAE25 /* RecipeListController.xib */,
+			);
+			name = RecipeList;
+			sourceTree = "<group>";
+		};
+		9B385BC9151ED1BF0021E716 /* EditRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				9B961370151512E5003E68E2 /* EditRecipeController.h */,
+				9B961371151512E5003E68E2 /* EditRecipeController.m */,
+				9B385BC4151E40320021E716 /* EditRecipeTableController.h */,
+				9B385BC5151E40320021E716 /* EditRecipeTableController.m */,
+				9B385BCA151ED2090021E716 /* CategoryPickerController.h */,
+				9B385BCB151ED2090021E716 /* CategoryPickerController.m */,
+				9B3BE05F151EE5FF005C146B /* TimePickerController.h */,
+				9B3BE060151EE5FF005C146B /* TimePickerController.m */,
+				9BC2C68C1530D873002983BB /* ExtraFieldsController.h */,
+				9BC2C68D1530D873002983BB /* ExtraFieldsController.m */,
+				9BC2C69015311BB2002983BB /* EditPreperationController.h */,
+				9BC2C69115311BB2002983BB /* EditPreperationController.m */,
+				9B961372151512E5003E68E2 /* EditRecipeController.xib */,
+				9BC2C69215311BB2002983BB /* EditPreperationController.xib */,
+			);
+			name = EditRecipe;
+			sourceTree = "<group>";
+		};
+		9B3BE063151F8410005C146B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BCF83D814EEAE8000D087EA /* DataLayer */,
+				9BFFAACD14DD037000E4F74C /* Protocols */,
+				9B08FAAB14F09FCE00AE961D /* ObjectMappers */,
+				9BFFAAEF14DF1CE800E4F74C /* ViewModels */,
+				9B3BE064151F84C5005C146B /* TimeStringConverter.h */,
+				9B3BE065151F84C5005C146B /* TimeStringConverter.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9B3BE06A151F9661005C146B /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BE06B151F9697005C146B /* CategoryListController.h */,
+				9B3BE06C151F9697005C146B /* CategoryListController.m */,
+				9B3BE06E151FACBE005C146B /* CategoryListController.xib */,
+				9B3BE070151FD03F005C146B /* EditCategoryController.h */,
+				9B3BE071151FD03F005C146B /* EditCategoryController.m */,
+				9B3BE072151FD03F005C146B /* EditCategoryController.xib */,
+			);
+			name = CategoryList;
+			sourceTree = "<group>";
+		};
+		9B71022014F5748C003871E4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9B8064711528AA2500B71114 /* editRecipeBackground.png */,
+				9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */,
+				9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */,
+				9B71025214F74002003871E4 /* categoryback@2x.png */,
+				9B71025314F74002003871E4 /* categoryback.png */,
+				9B71024914F73AC9003871E4 /* clock@2x.png */,
+				9B71024A14F73AC9003871E4 /* clock.png */,
+				9B71024114F57AA7003871E4 /* toolbarportrait@2x.png */,
+				9B71024214F57AA7003871E4 /* toolbarportrait.png */,
+				9B71024314F57AA7003871E4 /* toolbarlandscape@2x.png */,
+				9B71024414F57AA7003871E4 /* toolbarlandscape.png */,
+				9B71022714F5748C003871E4 /* navlandscape.png */,
+				9B71022814F5748C003871E4 /* navlandscape@2x.png */,
+				9B71022914F5748C003871E4 /* navportrait.png */,
+				9B71022A14F5748C003871E4 /* navportrait@2x.png */,
+			);
+			name = Images;
+			path = images_iphone;
+			sourceTree = "<group>";
+		};
+		9BB829D614ECBBE700BC2101 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9BB829D714ECBC2100BC2101 /* RecipeCell.h */,
+				9BB829D814ECBC2100BC2101 /* RecipeCell.m */,
+				9BB829DA14ECBC3700BC2101 /* RecipeCell.xib */,
+				9B71024D14F73E70003871E4 /* CategoryCell.h */,
+				9B71024E14F73E71003871E4 /* CategoryCell.m */,
+				9B71024F14F73E71003871E4 /* CategoryCell.xib */,
+				9B806436152781DB00B71114 /* EditIngredientCell.h */,
+				9B806437152781DB00B71114 /* EditIngredientCell.m */,
+				9B84A843152010F90036A5F0 /* EditIngredientCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		9BCA5EB914F16C0B006C1374 /* UI Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BCA5EBB14F16C36006C1374 /* UIToolbarSkinned.h */,
+				9B46BEC914F4745000A5827B /* UINavigationBarSkinned.h */,
+				9BCA5EBC14F16C36006C1374 /* UIToolbarSkinned.m */,
+				9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */,
+				9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */,
+			);
+			name = "UI Extensions";
+			sourceTree = "<group>";
+		};
+		9BCF83D814EEAE8000D087EA /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9B08FA9E14EF5F1E00AE961D /* Entities */,
+				9BCF83D914EEAF9900D087EA /* RecipeRepository.h */,
+				9BCF83DA14EEAF9900D087EA /* RecipeRepository.m */,
+				9BCF83DC14EEAFA600D087EA /* CategoryRepository.h */,
+				9BCF83DD14EEAFA600D087EA /* CategoryRepository.m */,
+				9B08FAB014F0BDD300AE961D /* IngredientRepository.h */,
+				9B08FAB114F0BDD300AE961D /* IngredientRepository.m */,
+				9BCF83DF14EEAFCE00D087EA /* ManagedContextFactory.h */,
+				9BCF83E014EEAFCE00D087EA /* ManagedContextFactory.m */,
+				9BCF83E614EEB24200D087EA /* RecipeKing.xcdatamodeld */,
+			);
+			name = DataLayer;
+			sourceTree = "<group>";
+		};
+		9BFFAA8114DCF83100E4F74C = {
+			isa = PBXGroup;
+			children = (
+				9BFFAADE14DF07E300E4F74C /* Library */,
+				9BFFAA9614DCF83200E4F74C /* RecipeKing */,
+				9BFFAAAE14DCF83200E4F74C /* RecipeKingTests */,
+				9BFFAA8F14DCF83200E4F74C /* Frameworks */,
+				9BFFAA8D14DCF83200E4F74C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BFFAA8D14DCF83200E4F74C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAA8C14DCF83200E4F74C /* RecipeKing.app */,
+				9BFFAAA714DCF83200E4F74C /* RecipeKingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BFFAA8F14DCF83200E4F74C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BCF83E914EEB28100D087EA /* CoreData.framework */,
+				9BFFAA9014DCF83200E4F74C /* UIKit.framework */,
+				9BFFAA9214DCF83200E4F74C /* Foundation.framework */,
+				9BFFAA9414DCF83200E4F74C /* CoreGraphics.framework */,
+				9BFFAAA814DCF83200E4F74C /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BFFAA9614DCF83200E4F74C /* RecipeKing */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAA9714DCF83200E4F74C /* Supporting Files */,
+				9B3BE063151F8410005C146B /* Model */,
+				9BFFAB0514DF94C200E4F74C /* iPhone UI */,
+				9BFFAA9F14DCF83200E4F74C /* AppDelegate.h */,
+				9BFFAAA014DCF83200E4F74C /* AppDelegate.m */,
+			);
+			path = RecipeKing;
+			sourceTree = "<group>";
+		};
+		9BFFAA9714DCF83200E4F74C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAA9814DCF83200E4F74C /* RecipeKing-Info.plist */,
+				9BFFAA9914DCF83200E4F74C /* InfoPlist.strings */,
+				9BFFAA9C14DCF83200E4F74C /* main.m */,
+				9BFFAA9E14DCF83200E4F74C /* RecipeKing-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BFFAAAE14DCF83200E4F74C /* RecipeKingTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAAAF14DCF83200E4F74C /* Supporting Files */,
+				9BFFAAEC14DF1C8C00E4F74C /* RecipeListControllerTests.h */,
+				9BFFAAED14DF1C8C00E4F74C /* RecipeListControllerTests.m */,
+				9BCF83D314EEAD5F00D087EA /* RecipeRepositoryTests.h */,
+				9BCF83D414EEAD5F00D087EA /* RecipeRepositoryTests.m */,
+				9B08FAA814EF67B300AE961D /* CategoryRepositoryTests.h */,
+				9B08FAA914EF67B300AE961D /* CategoryRepositoryTests.m */,
+				9BCA5EC414F17574006C1374 /* MapperTests.h */,
+				9BCA5EC514F17574006C1374 /* MapperTests.m */,
+				9B3BE067151F863F005C146B /* TimeStringConverterTests.h */,
+				9B3BE068151F863F005C146B /* TimeStringConverterTests.m */,
+				9B80643315277D8900B71114 /* EditRecipeTests.h */,
+				9B80643415277D8900B71114 /* EditRecipeTests.m */,
+			);
+			path = RecipeKingTests;
+			sourceTree = "<group>";
+		};
+		9BFFAAAF14DCF83200E4F74C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAAB014DCF83200E4F74C /* RecipeKingTests-Info.plist */,
+				9BFFAAB114DCF83200E4F74C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BFFAACD14DD037000E4F74C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9B08FA9914EF503200AE961D /* PCategoryRepository.h */,
+				9B08FAAF14F0BD0200AE961D /* PIngredientRepository.h */,
+				9B71021F14F5746E003871E4 /* PRecipeRepository.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		9BFFAADE14DF07E300E4F74C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAAE514DF096B00E4F74C /* OCMock */,
+				9BFFAADF14DF07F000E4F74C /* libOCMock.a */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		9BFFAAE514DF096B00E4F74C /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAAE614DF096B00E4F74C /* NSNotificationCenter+OCMAdditions.h */,
+				9BFFAAE714DF096B00E4F74C /* OCMArg.h */,
+				9BFFAAE814DF096B00E4F74C /* OCMConstraint.h */,
+				9BFFAAE914DF096B00E4F74C /* OCMock.h */,
+				9BFFAAEA14DF096B00E4F74C /* OCMockObject.h */,
+				9BFFAAEB14DF096B00E4F74C /* OCMockRecorder.h */,
+			);
+			name = OCMock;
+			path = Library/OCMock;
+			sourceTree = "<group>";
+		};
+		9BFFAAEF14DF1CE800E4F74C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFAAF014DF1D0000E4F74C /* RecipeViewModel.h */,
+				9BFFAAF114DF1D0000E4F74C /* RecipeViewModel.m */,
+				9BFFAAF314DF1EE500E4F74C /* IngredientViewModel.h */,
+				9BFFAAF414DF1EE500E4F74C /* IngredientViewModel.m */,
+				9BCA5EC114F173DD006C1374 /* ListRecipe.h */,
+				9BCA5EC214F173DD006C1374 /* ListRecipe.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		9BFFAAFA14DF220900E4F74C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BE06A151F9661005C146B /* CategoryList */,
+				9B385BC9151ED1BF0021E716 /* EditRecipe */,
+				9B385BC8151ED1800021E716 /* RecipeList */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9BFFAB0514DF94C200E4F74C /* iPhone UI */ = {
+			isa = PBXGroup;
+			children = (
+				9B71022014F5748C003871E4 /* Images */,
+				9BCA5EB914F16C0B006C1374 /* UI Extensions */,
+				9BB829D614ECBBE700BC2101 /* Cells */,
+				9BFFAAFA14DF220900E4F74C /* Controllers */,
+			);
+			name = "iPhone UI";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BFFAA8B14DCF83100E4F74C /* RecipeKing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BFFAAB914DCF83200E4F74C /* Build configuration list for PBXNativeTarget "RecipeKing" */;
+			buildPhases = (
+				9BFFAA8814DCF83100E4F74C /* Sources */,
+				9BFFAA8914DCF83100E4F74C /* Frameworks */,
+				9BFFAA8A14DCF83100E4F74C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecipeKing;
+			productName = RecipeKing;
+			productReference = 9BFFAA8C14DCF83200E4F74C /* RecipeKing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BFFAAA614DCF83200E4F74C /* RecipeKingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BFFAABC14DCF83200E4F74C /* Build configuration list for PBXNativeTarget "RecipeKingTests" */;
+			buildPhases = (
+				9BFFAAA214DCF83200E4F74C /* Sources */,
+				9BFFAAA314DCF83200E4F74C /* Frameworks */,
+				9BFFAAA414DCF83200E4F74C /* Resources */,
+				9BFFAAA514DCF83200E4F74C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BFFAAAD14DCF83200E4F74C /* PBXTargetDependency */,
+			);
+			name = RecipeKingTests;
+			productName = RecipeKingTests;
+			productReference = 9BFFAAA714DCF83200E4F74C /* RecipeKingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BFFAA8314DCF83100E4F74C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = leescode;
+			};
+			buildConfigurationList = 9BFFAA8614DCF83100E4F74C /* Build configuration list for PBXProject "RecipeKing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BFFAA8114DCF83100E4F74C;
+			productRefGroup = 9BFFAA8D14DCF83200E4F74C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BFFAA8B14DCF83100E4F74C /* RecipeKing */,
+				9BFFAAA614DCF83200E4F74C /* RecipeKingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BFFAA8A14DCF83100E4F74C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFFAA9B14DCF83200E4F74C /* InfoPlist.strings in Resources */,
+				9BB829DB14ECBC3700BC2101 /* RecipeCell.xib in Resources */,
+				9BBDF4F314F16681000AAE25 /* RecipeListController.xib in Resources */,
+				9B46BEC814F4721000A5827B /* UINavigationControllerSkinned.xib in Resources */,
+				9B71023714F5748C003871E4 /* navlandscape.png in Resources */,
+				9B71023814F5748C003871E4 /* navlandscape@2x.png in Resources */,
+				9B71023914F5748C003871E4 /* navportrait.png in Resources */,
+				9B71023A14F5748C003871E4 /* navportrait@2x.png in Resources */,
+				9B71024514F57AA7003871E4 /* toolbarportrait@2x.png in Resources */,
+				9B71024614F57AA7003871E4 /* toolbarportrait.png in Resources */,
+				9B71024714F57AA7003871E4 /* toolbarlandscape@2x.png in Resources */,
+				9B71024814F57AA7003871E4 /* toolbarlandscape.png in Resources */,
+				9B71024B14F73AC9003871E4 /* clock@2x.png in Resources */,
+				9B71024C14F73AC9003871E4 /* clock.png in Resources */,
+				9B71025114F73E71003871E4 /* CategoryCell.xib in Resources */,
+				9B71025414F74002003871E4 /* categoryback@2x.png in Resources */,
+				9B71025514F74002003871E4 /* categoryback.png in Resources */,
+				9B961374151512E5003E68E2 /* EditRecipeController.xib in Resources */,
+				9B3BE06F151FACBE005C146B /* CategoryListController.xib in Resources */,
+				9B3BE074151FD040005C146B /* EditCategoryController.xib in Resources */,
+				9B84A844152010F90036A5F0 /* EditIngredientCell.xib in Resources */,
+				9B84A84C15217A960036A5F0 /* UIRemoveControlPlus@2x.png in Resources */,
+				9B8064731528AA2500B71114 /* editRecipeBackground.png in Resources */,
+				9B8064741528AA2500B71114 /* editRecipeBackground@2x.png in Resources */,
+				9BC2C69415311BB2002983BB /* EditPreperationController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BFFAAA414DCF83200E4F74C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFFAAB314DCF83200E4F74C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BFFAAA514DCF83200E4F74C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\" -SenTest Self\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BFFAA8814DCF83100E4F74C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFFAA9D14DCF83200E4F74C /* main.m in Sources */,
+				9BFFAAA114DCF83200E4F74C /* AppDelegate.m in Sources */,
+				9BB829D914ECBC2100BC2101 /* RecipeCell.m in Sources */,
+				9BCF83DB14EEAF9900D087EA /* RecipeRepository.m in Sources */,
+				9BCF83DE14EEAFA600D087EA /* CategoryRepository.m in Sources */,
+				9BCF83E114EEAFCE00D087EA /* ManagedContextFactory.m in Sources */,
+				9BCF83E814EEB24300D087EA /* RecipeKing.xcdatamodeld in Sources */,
+				9B08FAA114EF5F6C00AE961D /* Category.m in Sources */,
+				9B08FAA414EF5FCB00AE961D /* Recipe.m in Sources */,
+				9B08FAA714EF5FCB00AE961D /* Ingredient.m in Sources */,
+				9B08FAB614F0CFEE00AE961D /* IngredientRepository.m in Sources */,
+				9B08FAB714F0D00500AE961D /* RecipeMapper.m in Sources */,
+				9B08FAB814F0D02B00AE961D /* RecipeViewModel.m in Sources */,
+				9B08FAB914F0D02F00AE961D /* IngredientViewModel.m in Sources */,
+				9BBDF4F214F16681000AAE25 /* RecipeListController.m in Sources */,
+				9BCA5EBD14F16C36006C1374 /* UIToolbarSkinned.m in Sources */,
+				9BCA5EC014F17354006C1374 /* RecipeListMapper.m in Sources */,
+				9BCA5EC314F173DD006C1374 /* ListRecipe.m in Sources */,
+				9BCA5ECB14F1846F006C1374 /* RecipeListTableController.m in Sources */,
+				9B46BECB14F4745000A5827B /* UINavigationBarSkinned.m in Sources */,
+				9B71025014F73E71003871E4 /* CategoryCell.m in Sources */,
+				9BF310321505BDF200A02898 /* RecipeSearchTableController.m in Sources */,
+				9B961373151512E5003E68E2 /* EditRecipeController.m in Sources */,
+				9B385BC6151E40320021E716 /* EditRecipeTableController.m in Sources */,
+				9B385BCC151ED2090021E716 /* CategoryPickerController.m in Sources */,
+				9B3BE061151EE5FF005C146B /* TimePickerController.m in Sources */,
+				9B3BE066151F84C5005C146B /* TimeStringConverter.m in Sources */,
+				9B3BE06D151F9697005C146B /* CategoryListController.m in Sources */,
+				9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */,
+				9B806438152781DB00B71114 /* EditIngredientCell.m in Sources */,
+				9BC2C68E1530D873002983BB /* ExtraFieldsController.m in Sources */,
+				9BC2C69315311BB2002983BB /* EditPreperationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BFFAAA214DCF83200E4F74C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BFFAAEE14DF1C8C00E4F74C /* RecipeListControllerTests.m in Sources */,
+				9BCF83D714EEAD6B00D087EA /* RecipeRepositoryTests.m in Sources */,
+				9B08FAAA14EF67B300AE961D /* CategoryRepositoryTests.m in Sources */,
+				9BCA5EC614F17574006C1374 /* MapperTests.m in Sources */,
+				9B3BE069151F863F005C146B /* TimeStringConverterTests.m in Sources */,
+				9B80643515277D8900B71114 /* EditRecipeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BFFAAAD14DCF83200E4F74C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BFFAA8B14DCF83100E4F74C /* RecipeKing */;
+			targetProxy = 9BFFAAAC14DCF83200E4F74C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9BFFAA9914DCF83200E4F74C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BFFAA9A14DCF83200E4F74C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9BFFAAB114DCF83200E4F74C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BFFAAB214DCF83200E4F74C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BFFAAB714DCF83200E4F74C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BFFAAB814DCF83200E4F74C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BFFAABA14DCF83200E4F74C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RecipeKing/RecipeKing-Prefix.pch";
+				INFOPLIST_FILE = "RecipeKing/RecipeKing-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Library\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9BFFAABB14DCF83200E4F74C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RecipeKing/RecipeKing-Prefix.pch";
+				INFOPLIST_FILE = "RecipeKing/RecipeKing-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Library\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9BFFAABD14DCF83200E4F74C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RecipeKing.app/RecipeKing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RecipeKing/RecipeKing-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Library\"/**";
+				INFOPLIST_FILE = "RecipeKingTests/RecipeKingTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Library\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/Library/libOCMock.a\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9BFFAABE14DCF83200E4F74C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RecipeKing.app/RecipeKing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RecipeKing/RecipeKing-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Library\"/**";
+				INFOPLIST_FILE = "RecipeKingTests/RecipeKingTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Library\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/Library/libOCMock.a\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BFFAA8614DCF83100E4F74C /* Build configuration list for PBXProject "RecipeKing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BFFAAB714DCF83200E4F74C /* Debug */,
+				9BFFAAB814DCF83200E4F74C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BFFAAB914DCF83200E4F74C /* Build configuration list for PBXNativeTarget "RecipeKing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BFFAABA14DCF83200E4F74C /* Debug */,
+				9BFFAABB14DCF83200E4F74C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BFFAABC14DCF83200E4F74C /* Build configuration list for PBXNativeTarget "RecipeKingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BFFAABD14DCF83200E4F74C /* Debug */,
+				9BFFAABE14DCF83200E4F74C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9BCF83E614EEB24200D087EA /* RecipeKing.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9BCF83E714EEB24300D087EA /* RecipeKing.xcdatamodel */,
+			);
+			currentVersion = 9BCF83E714EEB24300D087EA /* RecipeKing.xcdatamodel */;
+			path = RecipeKing.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9BFFAA8314DCF83100E4F74C /* Project object */;
+}
