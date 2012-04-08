@@ -93,8 +93,8 @@
 
 /* Begin PBXFileReference section */
 		9B08FA9914EF503200AE961D /* PCategoryRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCategoryRepository.h; sourceTree = "<group>"; };
-		9B08FA9F14EF5F6C00AE961D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		9B08FAA014EF5F6C00AE961D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		9B08FA9F14EF5F6C00AE961D /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Category.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9B08FAA014EF5F6C00AE961D /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Category.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9B08FAA214EF5FCB00AE961D /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		9B08FAA314EF5FCB00AE961D /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		9B08FAA514EF5FCB00AE961D /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		9B08FAB414F0C0B400AE961D /* RecipeMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeMapper.m; sourceTree = "<group>"; };
 		9B385BC4151E40320021E716 /* EditRecipeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeTableController.h; sourceTree = "<group>"; };
 		9B385BC5151E40320021E716 /* EditRecipeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeTableController.m; sourceTree = "<group>"; };
-		9B385BCA151ED2090021E716 /* CategoryPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryPickerController.h; sourceTree = "<group>"; };
+		9B385BCA151ED2090021E716 /* CategoryPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CategoryPickerController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9B385BCB151ED2090021E716 /* CategoryPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryPickerController.m; sourceTree = "<group>"; };
 		9B3BE05F151EE5FF005C146B /* TimePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerController.h; sourceTree = "<group>"; };
 		9B3BE060151EE5FF005C146B /* TimePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerController.m; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 		9B71024414F57AA7003871E4 /* toolbarlandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarlandscape.png; sourceTree = "<group>"; };
 		9B71024914F73AC9003871E4 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		9B71024A14F73AC9003871E4 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
-		9B71024D14F73E70003871E4 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
-		9B71024E14F73E71003871E4 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		9B71024D14F73E70003871E4 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CategoryCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9B71024E14F73E71003871E4 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CategoryCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9B71024F14F73E71003871E4 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		9B71025214F74002003871E4 /* categoryback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "categoryback@2x.png"; sourceTree = "<group>"; };
 		9B71025314F74002003871E4 /* categoryback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categoryback.png; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		9BFFAA9A14DCF83200E4F74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BFFAA9C14DCF83200E4F74C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BFFAA9E14DCF83200E4F74C /* RecipeKing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipeKing-Prefix.pch"; sourceTree = "<group>"; };
-		9BFFAA9F14DCF83200E4F74C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9BFFAAA014DCF83200E4F74C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9BFFAA9F14DCF83200E4F74C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9BFFAAA014DCF83200E4F74C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9BFFAAA714DCF83200E4F74C /* RecipeKingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeKingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFFAAA814DCF83200E4F74C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9BFFAAB014DCF83200E4F74C /* RecipeKingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RecipeKingTests-Info.plist"; sourceTree = "<group>"; };
