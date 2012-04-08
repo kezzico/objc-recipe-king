@@ -72,4 +72,6 @@ NSString *noCategoryName = @"None";
   else _categoryInput.text = [_categories objectAtIndex: selectedRow - 1];  
 }
 
+
+
 @end

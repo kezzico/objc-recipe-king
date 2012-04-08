@@ -11,9 +11,11 @@
 #import "IngredientViewModel.h"
 
 const int kIngredientsSection = 2;
+const int kMiscFieldSection = 1;
 
 @interface EditRecipeTableController ()
 - (UITableViewCell *) tableView:(UITableView *)tableView ingredientCellForRow: (NSInteger) row;
+- (void) removeExtraFieldButton:(UITableView *) tableView;
 @end
 
 @implementation EditRecipeTableController
@@ -29,8 +31,10 @@ const int kIngredientsSection = 2;
 @synthesize servingsCell=_servingsCell;
 @synthesize addIngredientCell = _addIngredientCell;
 @synthesize ingredients=_ingredients;
+@synthesize extraFields=_extraFields;
 
 - (void)dealloc {
+  [_extraFields release];
   [_recipeNameCell release];
   [_totalPrepTimeCell release];
   [_cookTimeCell release];
@@ -49,9 +53,34 @@ const int kIngredientsSection = 2;
 - (void) setupSections {
   _sections = [[NSArray arrayWithObjects:
     [NSArray arrayWithObjects: _recipeNameCell, _totalPrepTimeCell, nil], 
-    [NSArray arrayWithObjects: _categoryCell, _preperationCell, _addFieldCell, nil], 
+    [NSMutableArray arrayWithObjects: _categoryCell, _preperationCell, _addFieldCell, nil],
     _ingredients, 
     nil] retain];
+  
+  self.extraFields = [NSMutableDictionary 
+    dictionaryWithObjects: [NSArray arrayWithObjects:_temperatureCell, _cookTimeCell, _sitTimeCell, _servingsCell, _photoCell, nil]
+                  forKeys: [NSArray arrayWithObjects:@"Cook Temperature", @"Cook Time", @"Sit Time", @"Servings", @"Photo", nil]];
+}
+
+- (void) table:(UITableView *) tableView addExtraField:(NSString *) fieldName {
+  UITableViewCell *extraField = [_extraFields valueForKey: fieldName];
+  [_extraFields removeObjectForKey: fieldName];
+  
+  NSMutableArray *section = [_sections objectAtIndex: kMiscFieldSection];
+  [section insertObject:extraField atIndex: [section count] - 1];
+
+  [tableView reloadData];
+  if([_extraFields count] == 0) {
+    [self removeExtraFieldButton: tableView];
+  }
+  
+}
+
+- (void) removeExtraFieldButton:(UITableView *) tableView {
+  NSMutableArray *section = [_sections objectAtIndex: kMiscFieldSection];
+  [section removeObjectAtIndex: [section count] - 1];
+  NSIndexPath *index = [NSIndexPath indexPathForRow:[section count] - 1 inSection: kMiscFieldSection];
+  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:NO];  
 }
 
 - (void) addIngredient: (UITableView *) tableView {
@@ -117,6 +146,5 @@ const int kIngredientsSection = 2;
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
   return indexPath.section == kIngredientsSection && indexPath.row != [_ingredients count];
 }
-
 
 @end

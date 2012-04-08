@@ -13,6 +13,7 @@
 }
 
 - (void) setupSections;
+- (void) table:(UITableView *) tableView addExtraField:(NSString *) fieldName;
 - (void) addIngredient: (UITableView *) tableView;
 @property (retain, nonatomic) IBOutlet UITableViewCell *recipeNameCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *totalPrepTimeCell;
@@ -25,5 +26,6 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *temperatureCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *servingsCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *addIngredientCell;
+@property (retain, nonatomic) NSMutableDictionary *extraFields;
 @property (retain, nonatomic) NSMutableArray *ingredients;
 @end

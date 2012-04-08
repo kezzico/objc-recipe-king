@@ -11,6 +11,6 @@
 @interface ExtraFieldsController : UITableViewController
 
 @property (nonatomic, retain) NSArray *fields;
-@property (nonatomic, copy) void (^onFieldChosen)(NSObject *field);
+@property (nonatomic, copy) void (^onFieldChosen)(NSString *field);
 
 @end

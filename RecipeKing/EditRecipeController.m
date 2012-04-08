@@ -73,7 +73,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+  return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (void)viewDidLoad {
@@ -160,6 +160,7 @@
 
 - (IBAction)categoryChanged:(UITextField *)sender {
   _viewModel.category = sender.text;
+  [sender resignFirstResponder];
 }
 
 - (IBAction)servingsChanged:(UITextField *)sender {
@@ -186,7 +187,11 @@
 
 - (IBAction)addFieldReleased:(UIButton *)sender {
   ExtraFieldsController *vc = [[ExtraFieldsController alloc] init];
-  [self.navigationController pushViewController: vc animated: YES];  
+  vc.fields = [_editRecipeTable.extraFields allKeys];
+  vc.onFieldChosen = ^(NSString *field) {
+    [_editRecipeTable table:self.tableView addExtraField: field];
+  };
+  [self.navigationController pushViewController: vc animated: YES];
 }
 
 - (IBAction)addIngredientReleased:(UIButton *)sender {
@@ -196,5 +201,11 @@
 - (IBAction)timeFieldTouched:(id)sender {
   [_timePickerController setTimeInput: sender];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return NO;
+}
+
 
 @end

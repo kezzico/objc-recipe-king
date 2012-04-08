@@ -47,4 +47,10 @@
   _quantity.text = viewModel.quantity;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return NO;
+}
+
+
 @end

@@ -58,7 +58,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSObject *selection = [_fields objectAtIndex: indexPath.row];
+  NSString *selection = [_fields objectAtIndex: indexPath.row];
   onFieldChosen(selection);
   [self.navigationController popViewControllerAnimated: YES];
 }
