@@ -108,6 +108,15 @@ const int kMiscFieldSection = 1;
   return @"";
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if(indexPath.section == kMiscFieldSection) {
+    NSArray *section = [_sections objectAtIndex: indexPath.section];
+    if([section objectAtIndex: indexPath.row] == _photoCell) return 240.0f;    
+  }
+  
+  return 40.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = nil;
   if(indexPath.section == kIngredientsSection) {
