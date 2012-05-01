@@ -25,6 +25,8 @@
 		9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE071151FD03F005C146B /* EditCategoryController.m */; };
 		9B3BE074151FD040005C146B /* EditCategoryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE072151FD03F005C146B /* EditCategoryController.xib */; };
 		9B45B728154F626C00BFA61E /* bread.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B727154F626C00BFA61E /* bread.jpg */; };
+		9B45B72F154F85D800BFA61E /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B72E154F85D800BFA61E /* appicon.png */; };
+		9B45B731154F85DD00BFA61E /* appicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B730154F85DD00BFA61E /* appicon@2x.png */; };
 		9B46BEC814F4721000A5827B /* UINavigationControllerSkinned.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */; };
 		9B46BECB14F4745000A5827B /* UINavigationBarSkinned.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */; };
 		9B71023714F5748C003871E4 /* navlandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022714F5748C003871E4 /* navlandscape.png */; };
@@ -130,6 +132,8 @@
 		9B3BE071151FD03F005C146B /* EditCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCategoryController.m; sourceTree = "<group>"; };
 		9B3BE072151FD03F005C146B /* EditCategoryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCategoryController.xib; sourceTree = "<group>"; };
 		9B45B727154F626C00BFA61E /* bread.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bread.jpg; sourceTree = "<group>"; };
+		9B45B72E154F85D800BFA61E /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		9B45B730154F85DD00BFA61E /* appicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon@2x.png"; sourceTree = "<group>"; };
 		9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UINavigationControllerSkinned.xib; sourceTree = "<group>"; };
 		9B46BEC914F4745000A5827B /* UINavigationBarSkinned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarSkinned.h; sourceTree = "<group>"; };
 		9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationBarSkinned.m; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 		9BFFAA8114DCF83100E4F74C = {
 			isa = PBXGroup;
 			children = (
+				9B45B730154F85DD00BFA61E /* appicon@2x.png */,
+				9B45B72E154F85D800BFA61E /* appicon.png */,
 				9BFFAADE14DF07E300E4F74C /* Library */,
 				9BFFAA9614DCF83200E4F74C /* RecipeKing */,
 				9BFFAAAE14DCF83200E4F74C /* RecipeKingTests */,
@@ -688,6 +694,8 @@
 				9B8C0EB4153B87D80033F183 /* UIRemoveControlPlus.png in Resources */,
 				9BF9BC9E1548DA3600DBADFD /* RecipeViewController.xib in Resources */,
 				9B45B728154F626C00BFA61E /* bread.jpg in Resources */,
+				9B45B72F154F85D800BFA61E /* appicon.png in Resources */,
+				9B45B731154F85DD00BFA61E /* appicon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
