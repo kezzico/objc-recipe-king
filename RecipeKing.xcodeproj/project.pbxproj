@@ -24,6 +24,7 @@
 		9B3BE06F151FACBE005C146B /* CategoryListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE06E151FACBE005C146B /* CategoryListController.xib */; };
 		9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE071151FD03F005C146B /* EditCategoryController.m */; };
 		9B3BE074151FD040005C146B /* EditCategoryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE072151FD03F005C146B /* EditCategoryController.xib */; };
+		9B45B728154F626C00BFA61E /* bread.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B727154F626C00BFA61E /* bread.jpg */; };
 		9B46BEC814F4721000A5827B /* UINavigationControllerSkinned.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */; };
 		9B46BECB14F4745000A5827B /* UINavigationBarSkinned.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */; };
 		9B71023714F5748C003871E4 /* navlandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B71022714F5748C003871E4 /* navlandscape.png */; };
@@ -46,6 +47,10 @@
 		9B8064741528AA2500B71114 /* editRecipeBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */; };
 		9B84A844152010F90036A5F0 /* EditIngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B84A843152010F90036A5F0 /* EditIngredientCell.xib */; };
 		9B84A84C15217A960036A5F0 /* UIRemoveControlPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */; };
+		9B8C0EB4153B87D80033F183 /* UIRemoveControlPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8C0EB3153B87D80033F183 /* UIRemoveControlPlus.png */; };
+		9B8C0EB9153BBE5B0033F183 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0EB8153BBE5B0033F183 /* UIView+Extensions.m */; };
+		9B8C0EBC153BC24B0033F183 /* TouchableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0EBB153BC24B0033F183 /* TouchableTableView.m */; };
+		9B8C0EC7153BD0190033F183 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0EC6153BD0190033F183 /* UIImage+Extensions.m */; };
 		9B961373151512E5003E68E2 /* EditRecipeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B961371151512E5003E68E2 /* EditRecipeController.m */; };
 		9B961374151512E5003E68E2 /* EditRecipeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B961372151512E5003E68E2 /* EditRecipeController.xib */; };
 		9BB829D914ECBC2100BC2101 /* RecipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB829D814ECBC2100BC2101 /* RecipeCell.m */; };
@@ -67,6 +72,8 @@
 		9BCF83E814EEB24300D087EA /* RecipeKing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF83E614EEB24200D087EA /* RecipeKing.xcdatamodeld */; };
 		9BCF83EA14EEB28100D087EA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCF83E914EEB28100D087EA /* CoreData.framework */; };
 		9BF310321505BDF200A02898 /* RecipeSearchTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF310311505BDF200A02898 /* RecipeSearchTableController.m */; };
+		9BF9BC9D1548DA3600DBADFD /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF9BC9B1548DA3600DBADFD /* RecipeViewController.m */; };
+		9BF9BC9E1548DA3600DBADFD /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BF9BC9C1548DA3600DBADFD /* RecipeViewController.xib */; };
 		9BFFAA9114DCF83200E4F74C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9014DCF83200E4F74C /* UIKit.framework */; };
 		9BFFAA9314DCF83200E4F74C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9214DCF83200E4F74C /* Foundation.framework */; };
 		9BFFAA9514DCF83200E4F74C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFFAA9414DCF83200E4F74C /* CoreGraphics.framework */; };
@@ -122,6 +129,7 @@
 		9B3BE070151FD03F005C146B /* EditCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCategoryController.h; sourceTree = "<group>"; };
 		9B3BE071151FD03F005C146B /* EditCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCategoryController.m; sourceTree = "<group>"; };
 		9B3BE072151FD03F005C146B /* EditCategoryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCategoryController.xib; sourceTree = "<group>"; };
+		9B45B727154F626C00BFA61E /* bread.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bread.jpg; sourceTree = "<group>"; };
 		9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UINavigationControllerSkinned.xib; sourceTree = "<group>"; };
 		9B46BEC914F4745000A5827B /* UINavigationBarSkinned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarSkinned.h; sourceTree = "<group>"; };
 		9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationBarSkinned.m; sourceTree = "<group>"; };
@@ -149,6 +157,13 @@
 		9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editRecipeBackground@2x.png"; sourceTree = "<group>"; };
 		9B84A843152010F90036A5F0 /* EditIngredientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditIngredientCell.xib; sourceTree = "<group>"; };
 		9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIRemoveControlPlus@2x.png"; sourceTree = "<group>"; };
+		9B8C0EB3153B87D80033F183 /* UIRemoveControlPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIRemoveControlPlus.png; sourceTree = "<group>"; };
+		9B8C0EB7153BBE5B0033F183 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
+		9B8C0EB8153BBE5B0033F183 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
+		9B8C0EBA153BC24B0033F183 /* TouchableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchableTableView.h; sourceTree = "<group>"; };
+		9B8C0EBB153BC24B0033F183 /* TouchableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchableTableView.m; sourceTree = "<group>"; };
+		9B8C0EC5153BD0190033F183 /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
+		9B8C0EC6153BD0190033F183 /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		9B961370151512E5003E68E2 /* EditRecipeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeController.h; sourceTree = "<group>"; };
 		9B961371151512E5003E68E2 /* EditRecipeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeController.m; sourceTree = "<group>"; };
 		9B961372151512E5003E68E2 /* EditRecipeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRecipeController.xib; sourceTree = "<group>"; };
@@ -185,6 +200,9 @@
 		9BCF83E914EEB28100D087EA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BF310301505BDF200A02898 /* RecipeSearchTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSearchTableController.h; sourceTree = "<group>"; };
 		9BF310311505BDF200A02898 /* RecipeSearchTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSearchTableController.m; sourceTree = "<group>"; };
+		9BF9BC9A1548DA3600DBADFD /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
+		9BF9BC9B1548DA3600DBADFD /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
+		9BF9BC9C1548DA3600DBADFD /* RecipeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
 		9BFFAA8C14DCF83200E4F74C /* RecipeKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFFAA9014DCF83200E4F74C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BFFAA9214DCF83200E4F74C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -302,6 +320,7 @@
 		9B3BE063151F8410005C146B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B8C0EB6153BBE340033F183 /* Categories */,
 				9BCF83D814EEAE8000D087EA /* DataLayer */,
 				9BFFAACD14DD037000E4F74C /* Protocols */,
 				9B08FAAB14F09FCE00AE961D /* ObjectMappers */,
@@ -328,8 +347,10 @@
 		9B71022014F5748C003871E4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9B45B727154F626C00BFA61E /* bread.jpg */,
 				9B8064711528AA2500B71114 /* editRecipeBackground.png */,
 				9B8064721528AA2500B71114 /* editRecipeBackground@2x.png */,
+				9B8C0EB3153B87D80033F183 /* UIRemoveControlPlus.png */,
 				9B84A84A15217A960036A5F0 /* UIRemoveControlPlus@2x.png */,
 				9B71025214F74002003871E4 /* categoryback@2x.png */,
 				9B71025314F74002003871E4 /* categoryback.png */,
@@ -346,6 +367,17 @@
 			);
 			name = Images;
 			path = images_iphone;
+			sourceTree = "<group>";
+		};
+		9B8C0EB6153BBE340033F183 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9B8C0EC5153BD0190033F183 /* UIImage+Extensions.h */,
+				9B8C0EC6153BD0190033F183 /* UIImage+Extensions.m */,
+				9B8C0EB7153BBE5B0033F183 /* UIView+Extensions.h */,
+				9B8C0EB8153BBE5B0033F183 /* UIView+Extensions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		9BB829D614ECBBE700BC2101 /* Cells */ = {
@@ -372,6 +404,8 @@
 				9BCA5EBC14F16C36006C1374 /* UIToolbarSkinned.m */,
 				9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */,
 				9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */,
+				9B8C0EBA153BC24B0033F183 /* TouchableTableView.h */,
+				9B8C0EBB153BC24B0033F183 /* TouchableTableView.m */,
 			);
 			name = "UI Extensions";
 			sourceTree = "<group>";
@@ -391,6 +425,16 @@
 				9BCF83E614EEB24200D087EA /* RecipeKing.xcdatamodeld */,
 			);
 			name = DataLayer;
+			sourceTree = "<group>";
+		};
+		9BF9BC981548D9FE00DBADFD /* ViewRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				9BF9BC9A1548DA3600DBADFD /* RecipeViewController.h */,
+				9BF9BC9B1548DA3600DBADFD /* RecipeViewController.m */,
+				9BF9BC9C1548DA3600DBADFD /* RecipeViewController.xib */,
+			);
+			name = ViewRecipe;
 			sourceTree = "<group>";
 		};
 		9BFFAA8114DCF83100E4F74C = {
@@ -526,6 +570,7 @@
 		9BFFAAFA14DF220900E4F74C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BF9BC981548D9FE00DBADFD /* ViewRecipe */,
 				9B3BE06A151F9661005C146B /* CategoryList */,
 				9B385BC9151ED1BF0021E716 /* EditRecipe */,
 				9B385BC8151ED1800021E716 /* RecipeList */,
@@ -640,6 +685,9 @@
 				9B8064731528AA2500B71114 /* editRecipeBackground.png in Resources */,
 				9B8064741528AA2500B71114 /* editRecipeBackground@2x.png in Resources */,
 				9BC2C69415311BB2002983BB /* EditPreperationController.xib in Resources */,
+				9B8C0EB4153B87D80033F183 /* UIRemoveControlPlus.png in Resources */,
+				9BF9BC9E1548DA3600DBADFD /* RecipeViewController.xib in Resources */,
+				9B45B728154F626C00BFA61E /* bread.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +754,10 @@
 				9B806438152781DB00B71114 /* EditIngredientCell.m in Sources */,
 				9BC2C68E1530D873002983BB /* ExtraFieldsController.m in Sources */,
 				9BC2C69315311BB2002983BB /* EditPreperationController.m in Sources */,
+				9B8C0EB9153BBE5B0033F183 /* UIView+Extensions.m in Sources */,
+				9B8C0EBC153BC24B0033F183 /* TouchableTableView.m in Sources */,
+				9B8C0EC7153BD0190033F183 /* UIImage+Extensions.m in Sources */,
+				9BF9BC9D1548DA3600DBADFD /* RecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

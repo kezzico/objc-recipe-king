@@ -15,7 +15,8 @@
 
 @protocol PCategoryRepository;
 @protocol PRecipeRepository;
-@interface EditRecipeController : UITableViewController
+
+@interface EditRecipeController : UITableViewController <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 - (IBAction)listCategoriesTouched;
 - (IBAction)recipeNameChanging: (UITextField *)field;
 - (IBAction)recipeNameChanged:(UITextField *)sender;
@@ -30,7 +31,7 @@
 - (IBAction)addIngredientReleased:(UIButton *)sender;
 - (IBAction)preperationTouched;
 - (IBAction)timeFieldTouched:(UITextField *)sender;
-
+- (IBAction)photoFieldTouched:(UIButton *)sender;
 @property (retain, nonatomic) IBOutlet UILabel *preperationLabel;
 @property (retain, nonatomic) IBOutlet RecipeViewModel *viewModel;
 @property (retain, nonatomic) UIBarButtonItem *doneButton;
@@ -44,4 +45,5 @@
 @property (retain, nonatomic) IBOutlet NSObject<PRecipeRepository> *recipeRepository;
 @property (retain, nonatomic) IBOutlet EditRecipeTableController *editRecipeTable;
 @property (retain, nonatomic) IBOutlet UIImageView *backgroundView;
+@property (retain, nonatomic) IBOutlet UIActionSheet *photoSourceOptions;
 @end

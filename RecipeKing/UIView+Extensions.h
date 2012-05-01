@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView_Extensions : UIView
+@interface UIView (Extensions)
+- (UIView *)findFirstResponder;
 
 @end

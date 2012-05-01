@@ -8,24 +8,22 @@
 
 #import "UIView+Extensions.h"
 
-@implementation UIView_Extensions
+@implementation UIView (Extensions)
 
-- (id)initWithFrame:(CGRect)frame
+- (UIView *)findFirstResponder
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+  if (self.isFirstResponder) {        
+    return self;     
+  }
+  
+  for (UIView *subView in self.subviews) {
+    UIView *firstResponder = [subView findFirstResponder];
+    
+    if (firstResponder != nil) {
+      return firstResponder;
     }
-    return self;
+  }
+  
+  return nil;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 @end

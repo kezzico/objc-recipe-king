@@ -1,4 +1,4 @@
-#import "UIImageExtras.h"
+#import "UIImage+Extensions.h"
 
 @implementation UIImage (Extras)
 

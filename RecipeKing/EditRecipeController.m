@@ -16,6 +16,7 @@
 #import "IngredientViewModel.h"
 #import "ExtraFieldsController.h"
 #import "EditPreperationController.h"
+#import "UIView+Extensions.h"
 
 @interface EditRecipeController()
 - (void) setupNavigationBar;
@@ -30,6 +31,7 @@
 @synthesize doneButton = _doneButton;
 @synthesize editRecipeTable = _editRecipeTable;
 @synthesize backgroundView = _backgroundView;
+@synthesize photoSourceOptions = _photoSourceOptions;
 @synthesize totalPrepTimeInput = _totalPrepTimeInput;
 @synthesize categoryInput = _categoryInput;
 @synthesize cookTimeInput = _cookTimeInput;
@@ -53,6 +55,7 @@
   [_backgroundView release];
   [_recipeRepository release];
   [_preperationLabel release];
+  [_photoSourceOptions release];
   [super dealloc];
 }
 
@@ -69,16 +72,18 @@
   [self setBackgroundView:nil];
   [self setViewModel:nil];
   [self setPreperationLabel:nil];
+  [self setPhotoSourceOptions:nil];
   [super viewDidUnload];  
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+  return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.tableView.backgroundView = _backgroundView;
+  [self.tableView setBackgroundView: _backgroundView];
+  [self setupPhotoSourceOptions];
   [self setupNavigationBar];
     
   _editRecipeTable.ingredients = _viewModel.ingredients;
@@ -89,6 +94,14 @@
   
   [_categoryPickerController setCategories: [_categoryRepository list]];
   [_categoryPickerController setCategoryInput: _categoryInput];
+}
+
+- (void) setupPhotoSourceOptions {
+  [_photoSourceOptions addButtonWithTitle: @"Take Photo"];
+  [_photoSourceOptions addButtonWithTitle: @"Choose Photo"];
+  [_photoSourceOptions addButtonWithTitle: @"Cancel"];
+  _photoSourceOptions.cancelButtonIndex = 2;
+  _photoSourceOptions.delegate = self;  
 }
 
 - (void) setupNavigationBar {
@@ -103,12 +116,34 @@
   [_doneButton setEnabled: NO];
 }
 
+- (void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger) buttonIndex {
+  if(buttonIndex > 1) return;
+  UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+  imagePicker.delegate = self;  
+  imagePicker.sourceType = buttonIndex == 0 ? 
+  UIImagePickerControllerSourceTypeCamera : 
+  UIImagePickerControllerSourceTypePhotoLibrary;
+  
+  [self presentModalViewController: imagePicker animated:YES];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) imagePicker {
+  [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) imagePickerController:(UIImagePickerController *) imagePicker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+//  UIImage *output = [image imageByScalingAndCroppingForSize: CGSizeMake(40, 40)];
+  [self dismissModalViewControllerAnimated: YES];    
+}
+
 - (void) categoryListChanged {
   [_categoryPickerController setCategories: [_categoryRepository list]];
   [_categoryPickerController categoriesDidChange];
 }
 
 - (IBAction)preperationTouched {
+  [self removeKeyboard];
+  
   EditPreperationController *vc = [[[EditPreperationController alloc] 
     initWithNibName: @"EditPreperationController" bundle: nil] autorelease];
   
@@ -207,5 +242,23 @@
   return NO;
 }
 
+- (IBAction)photoFieldTouched:(UIButton *)sender {
+  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    [_photoSourceOptions showInView: self.view];
+  } else {
+    UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+    imagePicker.delegate = self;
+    [self presentModalViewController: imagePicker animated:YES];
+  }
+}
+
+- (void) removeKeyboard {
+  UIView *firstResponder = [self.view findFirstResponder];
+  [firstResponder resignFirstResponder];  
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  [self removeKeyboard];
+}
 
 @end

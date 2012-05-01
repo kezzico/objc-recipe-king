@@ -10,4 +10,6 @@
 
 @interface TouchableTableView : UITableView
 
+@property (nonatomic, assign) IBOutlet id touchDelegate;
+
 @end

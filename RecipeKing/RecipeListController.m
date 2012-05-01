@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   _mapper = [[RecipeListMapper alloc] init];
-  [self refreshRecipes];
+  [self refreshRecipes];  
   
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self 
@@ -52,7 +52,7 @@
 }
 
 - (void) recipeTouched: (ListRecipe *) recipe {
-  
+
 }
 
 - (void) addRecipeTouched {
