@@ -12,6 +12,7 @@
 #import "RecipeSearchTableController.h"
 #import "EditRecipeController.h" 
 #import "UINavigationBarSkinned.h"
+#import "RecipeViewController.h"
 #import "ListRecipe.h"
 
 @interface RecipeListController()
@@ -52,7 +53,9 @@
 }
 
 - (void) recipeTouched: (ListRecipe *) recipe {
-
+  RecipeViewController *vc = [[[RecipeViewController alloc] initWithNibName:@"RecipeViewController" bundle:nil] autorelease];
+  vc.recipe = [_repository recipeWithId: recipe.recipeId];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void) addRecipeTouched {

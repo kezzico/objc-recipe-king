@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RecipeViewController : UIViewController
-
+@class Recipe;
+@interface RecipeViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+  NSArray *_cells;
+}
+@property (retain, nonatomic) Recipe *recipe;
+@property (retain, nonatomic) IBOutlet UITableViewCell *titleCell;
+@property (retain, nonatomic) IBOutlet UITableViewCell *imageCell;
 @end
