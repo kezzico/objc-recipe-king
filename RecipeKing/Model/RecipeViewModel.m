@@ -25,7 +25,7 @@
 
 - (id) init {
   if(self = [super init]) {
-    self.ingredients = [[NSMutableArray alloc] init];
+    self.ingredients = [[[NSMutableArray alloc] init] autorelease];
   }
   return self;
 }

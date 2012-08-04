@@ -17,10 +17,6 @@ static ManagedContextFactory *contextfactory;
 
 - (id) init {
   if((self = [super init])) {
-    if(![[NSFileManager defaultManager] fileExistsAtPath: [[self storeUrl] path]]) {
-      [self copyDatabaseToDocuments];
-    }
-    
     [self setupObjectModel];
     [self setupStoreCoordinator];
   }

@@ -49,8 +49,7 @@
   [rrepository release];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
   [_data release];
   [super tearDown];
 }
@@ -63,6 +62,10 @@
   STAssertEqualObjects([result objectAtIndex: 0], @"Fruit", @"Did not map category to first cell");
   STAssertEqualObjects([[result objectAtIndex: 1] name], @"Apple", @"Did not map recipe to second cell");
   STAssertEqualObjects([result objectAtIndex: 4], @"Vegetable", @"Did not map category to fifth cell");
+}
+
+- (void) testMappingRecipeViewModelToRecipe {
+  
 }
 
 @end

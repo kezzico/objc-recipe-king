@@ -42,6 +42,7 @@
 		9B3E886E15CD9BAB000941ED /* toolbarportrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E885C15CD9BAB000941ED /* toolbarportrait@2x.png */; };
 		9B3E886F15CD9BAB000941ED /* UIRemoveControlPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E885D15CD9BAB000941ED /* UIRemoveControlPlus.png */; };
 		9B3E887015CD9BAB000941ED /* UIRemoveControlPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3E885E15CD9BAB000941ED /* UIRemoveControlPlus@2x.png */; };
+		9B3E887215CDA0E6000941ED /* TouchableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3E887115CDA0E6000941ED /* TouchableTableView.m */; };
 		9B45B72F154F85D800BFA61E /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B72E154F85D800BFA61E /* appicon.png */; };
 		9B45B731154F85DD00BFA61E /* appicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B45B730154F85DD00BFA61E /* appicon@2x.png */; };
 		9B46BEC814F4721000A5827B /* UINavigationControllerSkinned.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */; };
@@ -149,6 +150,7 @@
 		9B3E885C15CD9BAB000941ED /* toolbarportrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarportrait@2x.png"; sourceTree = "<group>"; };
 		9B3E885D15CD9BAB000941ED /* UIRemoveControlPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIRemoveControlPlus.png; sourceTree = "<group>"; };
 		9B3E885E15CD9BAB000941ED /* UIRemoveControlPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIRemoveControlPlus@2x.png"; sourceTree = "<group>"; };
+		9B3E887115CDA0E6000941ED /* TouchableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchableTableView.m; sourceTree = "<group>"; };
 		9B45B72E154F85D800BFA61E /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		9B45B730154F85DD00BFA61E /* appicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon@2x.png"; sourceTree = "<group>"; };
 		9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UINavigationControllerSkinned.xib; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				9BCA5EBC14F16C36006C1374 /* UIToolbarSkinned.m */,
 				9B46BECA14F4745000A5827B /* UINavigationBarSkinned.m */,
 				9B46BEC714F4720F00A5827B /* UINavigationControllerSkinned.xib */,
+				9B3E887115CDA0E6000941ED /* TouchableTableView.m */,
 				9B8C0EBA153BC24B0033F183 /* TouchableTableView.h */,
 			);
 			path = UIKitExtensions;
@@ -774,6 +777,7 @@
 				9B8C0EB9153BBE5B0033F183 /* UIView+Extensions.m in Sources */,
 				9B8C0EC7153BD0190033F183 /* UIImage+Extensions.m in Sources */,
 				9BF9BC9D1548DA3600DBADFD /* RecipeViewController.m in Sources */,
+				9B3E887215CDA0E6000941ED /* TouchableTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
