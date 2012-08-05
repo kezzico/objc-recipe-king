@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class RecipeViewModel;
 @class RecipeCategoryView;
+@class PreperationCell;
 @interface RecipeViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (retain, nonatomic) RecipeViewModel *viewModel;
 @property (retain, nonatomic) IBOutlet UITableViewCell *titleCell;
@@ -17,5 +18,5 @@
 @property (retain, nonatomic) IBOutlet RecipeCategoryView *categoryView;
 @property (retain, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *preperationTimeLabel;
-@property (retain, nonatomic) IBOutlet UITableViewCell *preperationCell;
+@property (retain, nonatomic) IBOutlet PreperationCell *preperationCell;
 @end

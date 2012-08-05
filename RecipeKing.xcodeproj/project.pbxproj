@@ -16,6 +16,7 @@
 		9B23179415CE19FC000CADFD /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23179315CE19FC000CADFD /* ControllerFactory.m */; };
 		9B23179515CE281F000CADFD /* RecipeListSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D0CBE15CE160A0039F35F /* RecipeListSearchController.m */; };
 		9B23179715CE3873000CADFD /* EditRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B23179615CE3872000CADFD /* EditRecipeViewController.xib */; };
+		9B23179A15CEBFCD000CADFD /* PreperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23179915CEBFCD000CADFD /* PreperationCell.m */; };
 		9B385BC6151E40320021E716 /* EditRecipeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B385BC5151E40320021E716 /* EditRecipeTableController.m */; };
 		9B3BE061151EE5FF005C146B /* TimePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE060151EE5FF005C146B /* TimePickerController.m */; };
 		9B3BE06D151F9697005C146B /* CategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE06C151F9697005C146B /* CategoryListController.m */; };
@@ -119,6 +120,8 @@
 		9B23179215CE19FC000CADFD /* ControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFactory.h; sourceTree = "<group>"; };
 		9B23179315CE19FC000CADFD /* ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFactory.m; sourceTree = "<group>"; };
 		9B23179615CE3872000CADFD /* EditRecipeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRecipeViewController.xib; sourceTree = "<group>"; };
+		9B23179815CEBFCD000CADFD /* PreperationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreperationCell.h; sourceTree = "<group>"; };
+		9B23179915CEBFCD000CADFD /* PreperationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreperationCell.m; sourceTree = "<group>"; };
 		9B385BC4151E40320021E716 /* EditRecipeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeTableController.h; sourceTree = "<group>"; };
 		9B385BC5151E40320021E716 /* EditRecipeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeTableController.m; sourceTree = "<group>"; };
 		9B3BE05F151EE5FF005C146B /* TimePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerController.h; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				9B7D0CB115CDE9760039F35F /* IngredientCell.h */,
 				9B7D0CB215CDE9760039F35F /* IngredientCell.m */,
 				9B7D0CB415CDE98A0039F35F /* IngredientCell.xib */,
+				9B23179815CEBFCD000CADFD /* PreperationCell.h */,
+				9B23179915CEBFCD000CADFD /* PreperationCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -799,6 +804,7 @@
 				9B7D0CBB15CE15540039F35F /* RecipeListViewController.m in Sources */,
 				9B23179415CE19FC000CADFD /* ControllerFactory.m in Sources */,
 				9B23179515CE281F000CADFD /* RecipeListSearchController.m in Sources */,
+				9B23179A15CEBFCD000CADFD /* PreperationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
