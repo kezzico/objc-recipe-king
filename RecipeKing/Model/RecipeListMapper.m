@@ -9,27 +9,31 @@
 #import "RecipeListMapper.h"
 #import "Recipe.h"
 #import "ListRecipe.h"
+#import "NSArray-Extensions.h"
+#import "RecipeCategory.h"
 
 @implementation RecipeListMapper
 
 - (NSArray *) recipeListToViewModel: (NSArray *) recipes {
-  NSMutableArray *output = [[NSMutableArray alloc] initWithCapacity: [recipes count] + 5];
+  NSMutableArray *output = [[[NSMutableArray alloc] init] autorelease];
   NSString *lastCategory = nil;
+  
   for(Recipe *r in recipes) {
-    if(lastCategory != [r.category name]) {
-      lastCategory = [r.category name];
+    NSString *categoryName = r.category.name;
+    if(categoryName && categoryName != lastCategory) {
+      lastCategory = r.category.name;
       [output addObject: lastCategory];
     }
     
-    ListRecipe *rl = [[ListRecipe alloc] init];
-    [output addObject: rl];
-    
+    ListRecipe *rl = [[[ListRecipe alloc] init] autorelease];
     rl.name = r.name;
-    rl.cookTime = r.cookTime;
+    rl.preperationTime = [r.preperationTime integerValue];
     rl.recipeId = r.objectID;
+    
+    [output addObject: rl];
   }
   
-  return [output autorelease];
+  return [NSArray arrayWithArray: output];
 }
 
 @end

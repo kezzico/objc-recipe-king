@@ -9,23 +9,33 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Category, Ingredient;
+@class RecipeCategory, Ingredient;
 
 @interface Recipe : NSManagedObject
 
-@property (nonatomic, retain) NSString * cookTemperature;
-@property (nonatomic, retain) NSString * cookTime;
-@property (nonatomic, retain) NSData * image;
-@property (nonatomic, retain) NSString * instructions;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) Category *category;
+@property (nonatomic, retain) RecipeCategory *category;
+@property (nonatomic, retain) NSString * cookTemperature;
+@property (nonatomic, retain) NSData * image;
+@property (nonatomic, retain) NSString * preperation;
 @property (nonatomic, retain) NSSet *ingredients;
+@property (nonatomic, retain) NSNumber * preperationTime;
+@property (nonatomic, retain) NSNumber * cookTime;
+@property (nonatomic, retain) NSNumber * sitTime;
+@property (nonatomic, retain) NSNumber * servings;
 @end
 
 @interface Recipe (CoreDataGeneratedAccessors)
 
 - (void)addIngredientsObject:(Ingredient *)value;
+- (void)addIngredientWithName:(NSString *) name quantity:(NSString *) quantity;
+- (Ingredient *)ingredientAtIndex:(NSInteger) index;
 - (void)removeIngredientsObject:(Ingredient *)value;
 - (void)addIngredients:(NSSet *)values;
 - (void)removeIngredients:(NSSet *)values;
+- (void)removeAllIngredients;
 @end
+
+
+
+

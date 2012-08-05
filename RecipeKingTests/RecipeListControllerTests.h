@@ -7,7 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
-@interface RecipeListTests : SenTestCase
+@class RecipeListViewController;
+@interface RecipeListControllerTests : SenTestCase
 
 @end

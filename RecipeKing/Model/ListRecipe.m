@@ -11,13 +11,16 @@
 @implementation ListRecipe
 @synthesize recipeId;
 @synthesize name;
-@synthesize cookTime;
+@synthesize preperationTime;
 
 - (void) dealloc {
   [recipeId release];
   [name release];
-  [cookTime release];
   [super dealloc];
+}
+
+- (NSString *) description {
+  return self.name;
 }
 
 @end

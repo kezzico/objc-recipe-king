@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class UINavigationBarSkinned;
-@interface EditCategoryController : UIViewController <UINavigationBarDelegate>
+@interface EditCategoryController : UIViewController <UINavigationBarDelegate, UITextFieldDelegate>
 - (IBAction)categoryChanged;
 - (IBAction)doneTouched;
 - (IBAction)cancelTouched;

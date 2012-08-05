@@ -8,7 +8,14 @@
 
 #import "RecipeListControllerTests.h"
 
-@implementation RecipeListTests
+@implementation RecipeListControllerTests
 
+- (void) setUp {
+  
+}
+
+- (void) testRemovingRecipe {
+  
+}
 
 @end

@@ -24,6 +24,12 @@ static ManagedContextFactory *contextfactory;
   return self;
 }
 
++ (void) resetStoreCoordinator {
+  [contextfactory deleteStoreCoordinator];
+  [contextfactory setupObjectModel];
+  [contextfactory setupStoreCoordinator];
+}
+
 - (void) setupObjectModel {
   NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"RecipeKing" withExtension:@"momd"];
   _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];

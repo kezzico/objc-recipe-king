@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Category;
 @class Recipe;
 @protocol PCategoryRepository <NSObject>
-- (NSArray *) list;
+- (NSArray *) allCategories;
 - (void) add: (NSString *) name;
 - (void) remove: (NSString *) name;
 - (void) rename: (NSString *) oldname to: (NSString *) newname;

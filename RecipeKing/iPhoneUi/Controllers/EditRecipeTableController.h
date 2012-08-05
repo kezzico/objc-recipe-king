@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface EditRecipeTableController : NSObject <UITableViewDataSource, UITableViewDelegate> {
-  NSArray *_sections;
-}
-
+@class EditRecipeViewModel;
+@interface EditRecipeTableController : NSObject <UITableViewDataSource, UITableViewDelegate>
 - (void) setupSections;
-- (void) table:(UITableView *) tableView addExtraField:(NSString *) fieldName;
+- (void) addExtraField:(NSString *) fieldName;
 - (void) addIngredient: (UITableView *) tableView;
+@property (retain, nonatomic) EditRecipeViewModel *viewModel;
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UITableViewCell *recipeNameCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *totalPrepTimeCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *cookTimeCell;
@@ -26,6 +25,7 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *temperatureCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *servingsCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *addIngredientCell;
+
+@property (retain, nonatomic) NSArray *sections;
 @property (retain, nonatomic) NSMutableDictionary *extraFields;
-@property (retain, nonatomic) NSMutableArray *ingredients;
 @end

@@ -40,23 +40,36 @@
   [self categoryChanged];
 }
 
-- (IBAction)cancelTouched {
+- (IBAction) cancelTouched {
   [self dismissModalViewControllerAnimated: YES];  
 }
 
-- (IBAction)doneTouched {
+- (IBAction) doneTouched {
   [self dismissModalViewControllerAnimated: YES];
   if(onDoneTouched) onDoneTouched(_categoryInput.text);
 }
 
-- (IBAction)categoryChanged {
-  NSString *name = _categoryInput.text;
-  bool enableDoneButton = [name length] && ![name isEqualToString: _categoryValue];
-  [_doneButton setEnabled: enableDoneButton];
+- (IBAction) categoryChanged {
+  [_doneButton setEnabled: [self isCategoryNameValid]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  if([self isCategoryNameValid] == NO) {
+    return NO;
+  }
+  
+  [self dismissModalViewControllerAnimated: YES];
+  if(onDoneTouched) onDoneTouched(_categoryInput.text);  
+  return YES;
+}
+
+- (BOOL) isCategoryNameValid {
+  NSString *name = _categoryInput.text;
+  return [name length] && ![name isEqualToString: _categoryValue];
 }
 
 @end

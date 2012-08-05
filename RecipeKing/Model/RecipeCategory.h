@@ -11,13 +11,13 @@
 
 @class Recipe;
 
-@interface Category : NSManagedObject
+@interface RecipeCategory : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *recipes;
 @end
 
-@interface Category (CoreDataGeneratedAccessors)
+@interface RecipeCategory (CoreDataGeneratedAccessors)
 
 - (void)addRecipesObject:(Recipe *)value;
 - (void)removeRecipesObject:(Recipe *)value;

@@ -1,62 +1,59 @@
 #import "CategoryListController.h"
 #import "CategoryRepository.h"
 #import "EditCategoryController.h"
-
-@interface CategoryListController()
-- (void) showCategoryEditorWithValue: (NSString *) oldvalue;
-- (void) refreshCategories;
-@end
+#import "Container.h"
 
 @implementation CategoryListController
-@synthesize repository = _repository;
+@synthesize repository=_repository;
+@synthesize categories=_categories;
+@synthesize onCategorySelected;
 - (void) dealloc {
   [_categories release];
   [_repository release];
+  [onCategorySelected release];
   [super dealloc];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self refreshCategories];  
-  self.clearsSelectionOnViewWillAppear = YES;
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
-                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self 
-                                action:@selector(addCategoryTouched)];
+  
+  self.repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
+  [self refreshCategories];
+  [self createAddCategoryButton];
+}
+
+- (void) createAddCategoryButton {
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+    initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
+    action:@selector(addCategoryTouched)];
   
   self.navigationItem.rightBarButtonItem = [addButton autorelease];
-}
-
-- (void) showCategoryEditorWithValue: (NSString *) oldvalue {
-  EditCategoryController *editCategory = [[[EditCategoryController alloc] initWithNibName: @"EditCategoryController" bundle: nil] autorelease];  
   
-  editCategory.categoryValue = oldvalue;  
-  editCategory.onDoneTouched = ^(NSString *value) {
-    if([oldvalue length]) {
-      [_repository rename:oldvalue to:value];
-    } else {
-      [_repository add: value];      
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"categoryListChanged" object: self];
-    [self refreshCategories];
-    [self.tableView reloadData];
-  };
-  
-  [self presentModalViewController: editCategory animated: YES];
-}
-
-- (void) refreshCategories {
-  [_categories autorelease];
-  _categories = [[_repository list] retain];  
 }
 
 - (void) addCategoryTouched {
-  [self showCategoryEditorWithValue: @""];
+  [self showCategoryEditor];
+}
+
+- (void) showCategoryEditor {
+  EditCategoryController *editCategory = [[[EditCategoryController alloc] initWithNibName: @"EditCategoryController" bundle: nil] autorelease];  
+  [self presentModalViewController: editCategory animated: YES];
+  
+  editCategory.onDoneTouched = ^(NSString *value) {
+    [_repository add: value];
+    [self refreshCategories];
+  };
+}
+
+- (void) refreshCategories {
+  self.categories = [_repository allCategories];
+  [self.tableView reloadData];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSString *oldValue = [_categories objectAtIndex: indexPath.row];
-  [self showCategoryEditorWithValue: oldValue];
+  NSString *value = [self.categories objectAtIndex: indexPath.row];
+  [self.navigationController popViewControllerAnimated:YES];
+  onCategorySelected(value);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -64,7 +61,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [_categories count];
+  return [self.categories count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

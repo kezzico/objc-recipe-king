@@ -2,24 +2,26 @@
 //  RecipeViewModel.h
 //  RecipeKing
 //
-//  Created by Lee Irvine on 2/5/12.
-//  Copyright (c) 2012 leescode.com. All rights reserved.
+//  Created by Lee Irvine on 8/4/12.
+//  Copyright (c) 2012 leescode. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-@interface RecipeViewModel : NSObject
 
-@property (nonatomic, retain) NSString *preperationTime;
-@property (nonatomic, retain) NSString *sitTime;
+@interface RecipeViewModel : NSObject
 @property (nonatomic, retain) NSManagedObjectID *recipeId;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *category;
-@property (nonatomic, retain) NSString *cookTime;
 @property (nonatomic, retain) NSString *cookTemperature;
 @property (nonatomic, retain) NSString *preperation;
-@property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) UIImage *image_tn;
-@property (nonatomic, retain) NSMutableArray *ingredients;
+
+@property (nonatomic) NSInteger preperationTime;
+@property (nonatomic) NSInteger cookTime;
+@property (nonatomic) NSInteger sitTime;
 @property (nonatomic) NSInteger servings;
+
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) NSArray *ingredients;
+
 @end

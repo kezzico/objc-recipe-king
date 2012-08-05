@@ -9,71 +9,67 @@
 #import "ManagedContextFactory.h"
 #import "RecipeRepository.h"
 #import "Recipe.h"
+#import "NSString-Extensions.h"
 
+static NSString *recipeEntityName = @"Recipe";
 @implementation RecipeRepository
-
-- (id) init {
-  if((self = [super init])) {
-    _context = [[ManagedContextFactory buildContext] retain];
-    _entityName = @"Recipe";
-  }
-  
-  return self;
-}
+@synthesize context;
 
 - (void) dealloc {
-  [_context release];
+  [context release];
   [super dealloc];
 }
 
-- (NSArray *) list {
+- (id) init {
+  if((self = [super init])) {
+    self.context = [ManagedContextFactory buildContext];
+  }
+  return self;
+}
+
+- (NSArray *) allRecipes {
   return [self filter: nil];
 }
 
 - (NSArray *) filter: (NSString *) search {
-  NSError *error = nil;
-  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-  NSEntityDescription *entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext: _context];
+  NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:recipeEntityName inManagedObjectContext: self.context];
   [fetchRequest setEntity:entity];
   
-  if([search length] > 0) {
+  if([NSString isEmpty: search] == NO) {
     NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name contains[c] %@", search];
     [fetchRequest setPredicate:predicate];
   }
   
-  NSSortDescriptor *orderByCategory = [[NSSortDescriptor alloc] initWithKey:@"category.name" ascending:YES];
-  NSSortDescriptor *orderByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+  NSSortDescriptor *orderByCategory = [[[NSSortDescriptor alloc] initWithKey:@"category.name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
+  NSSortDescriptor *orderByName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
   [fetchRequest setSortDescriptors: [NSArray arrayWithObjects: orderByCategory, orderByName, nil]];
-  [orderByCategory release];
-  [orderByName release];
-  
-  NSArray *output = [_context executeFetchRequest:fetchRequest error: &error];
-  [fetchRequest release];
+  NSArray *output = [self.context executeFetchRequest:fetchRequest error: nil];
   
   return output;
 }
 
-- (void) save: (Recipe *) recipe {
+- (void) save {
   NSError *error = nil;
-  [_context save: &error];
+  [self.context save: &error];
   if(error) NSLog(@"%@", error);
 }
 
 - (void) remove: (NSManagedObjectID *) recipeId {
   NSError *error = nil;  
-  [_context deleteObject: [_context objectWithID: recipeId]];
-  [_context save: &error];
+  [self.context deleteObject: [self.context objectWithID: recipeId]];
+  [self.context save: &error];
   if(error) NSLog(@"%@", error);
 }
 
 - (Recipe *) recipeWithId: (NSManagedObjectID *) recipeId {
-  return (Recipe *)[_context objectWithID: recipeId];
+  return (Recipe *)[self.context objectWithID: recipeId];
 }
 
 - (Recipe *) newRecipe {
   Recipe *recipe = [NSEntityDescription
-    insertNewObjectForEntityForName: _entityName
-    inManagedObjectContext: _context];
+    insertNewObjectForEntityForName: recipeEntityName
+    inManagedObjectContext: self.context];
   return recipe;
 }
 

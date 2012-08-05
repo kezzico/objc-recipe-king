@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "PRecipeRepository.h"
-@interface RecipeRepository : NSObject <PRecipeRepository> {
-  NSManagedObjectContext *_context;
-  NSString *_entityName;
-}
+@interface RecipeRepository : NSObject <PRecipeRepository>
+@property (nonatomic, retain) NSManagedObjectContext *context;
 
 @end

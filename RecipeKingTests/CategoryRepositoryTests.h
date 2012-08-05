@@ -7,10 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "PCategoryRepository.h"
 
+@class CategoryRepository;
 @interface CategoryRepositoryTests : SenTestCase {
-  NSObject<PCategoryRepository> *_repository;
+  CategoryRepository *_repository;
 }
 
 @end

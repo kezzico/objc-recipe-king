@@ -10,6 +10,7 @@
 #import "EditRecipeTableController.h"
 #import "IngredientViewModel.h"
 #import "EditIngredientCell.h"
+#import "EditRecipeViewModel.h"
 
 @implementation EditRecipeTests
 
@@ -20,10 +21,11 @@
   ingredient.quantity = @"test quantity";
   
   EditRecipeTableController *controller = [[EditRecipeTableController alloc] init];
-  controller.ingredients = [NSArray arrayWithObject: ingredient];
+  controller.viewModel = [[[EditRecipeViewModel alloc] init] autorelease];
+  controller.viewModel.ingredients = [NSArray arrayWithObject: ingredient];
   EditIngredientCell *cell = (EditIngredientCell *)[controller tableView: nil cellForRowAtIndexPath: path];
   
-  STAssertTrue([cell.nameField.text isEqualToString: ingredient.name], @"Strings are not equal");
+  STAssertEqualObjects(cell.nameField.text, ingredient.name, @"got %@", cell.nameField.text);
 }
 
 @end

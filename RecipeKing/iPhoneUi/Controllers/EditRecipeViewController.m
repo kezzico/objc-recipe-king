@@ -6,73 +6,68 @@
 //  Copyright (c) 2012 leescode.com. All rights reserved.
 //
 
-#import "RecipeViewModel.h"
-#import "EditRecipeController.h"
+#import "EditRecipeViewModel.h"
+#import "EditRecipeViewController.h"
 #import "EditRecipeTableController.h"
 #import "TimePickerController.h"
-#import "CategoryPickerController.h"
-#import "CategoryRepository.h"
 #import "CategoryListController.h"
 #import "IngredientViewModel.h"
 #import "ExtraFieldsController.h"
 #import "EditPreperationController.h"
 #import "UIView+Extensions.h"
+#import "RecipeMapper.h"
+#import "Container.h"
+#import "ControllerFactory.h"
+#import "NSString-Extensions.h"
 
-@interface EditRecipeController()
-- (void) setupNavigationBar;
-- (void) doneTouched;
-- (void) cancelTouched;
-- (UITableViewCell *) findParentCell: (UIView *) view;
-@end
-
-@implementation EditRecipeController
+@implementation EditRecipeViewController
+@synthesize recipeNameField = _recipeNameField;
+@synthesize preperationTimeField = _preperationTimeField;
+@synthesize categoryLabel = _categoryLabel;
 @synthesize preperationLabel = _preperationLabel;
+@synthesize temperatureField = _temperatureField;
+@synthesize sitTimeField = _sitTimeField;
+@synthesize cookTimeField = _cookTimeField;
+@synthesize servingsField = _servingsField;
 @synthesize viewModel = _viewModel;
 @synthesize doneButton = _doneButton;
 @synthesize editRecipeTable = _editRecipeTable;
 @synthesize backgroundView = _backgroundView;
 @synthesize photoSourceOptions = _photoSourceOptions;
-@synthesize totalPrepTimeInput = _totalPrepTimeInput;
-@synthesize categoryInput = _categoryInput;
-@synthesize cookTimeInput = _cookTimeInput;
-@synthesize sitTimeInput = _sitTimeInput;
-@synthesize categoryPickerController = _categoryPickerController;
-@synthesize timePickerController = _timePickerController;
-@synthesize categoryRepository = _categoryRepository;
 @synthesize recipeRepository = _recipeRepository;
 
 - (void) dealloc {
   [_doneButton release];
   [_editRecipeTable release];
-  [_totalPrepTimeInput release];
-  [_categoryPickerController release];
-  [_categoryRepository release];
-  [_categoryInput release];
-  [_timePickerController release];
-  [_cookTimeInput release];
-  [_sitTimeInput release];
   [_viewModel release];
   [_backgroundView release];
   [_recipeRepository release];
   [_preperationLabel release];
   [_photoSourceOptions release];
+  [_categoryLabel release];
+  [_recipeNameField release];
+  [_preperationTimeField release];
+  [_temperatureField release];
+  [_sitTimeField release];
+  [_cookTimeField release];
+  [_servingsField release];
   [super dealloc];
 }
 
 - (void)viewDidUnload {
-  [[NSNotificationCenter defaultCenter] removeObserver: self];  
   [self setEditRecipeTable:nil];
-  [self setTotalPrepTimeInput:nil];
   [self setDoneButton: nil];
-  [self setCategoryPickerController:nil];
-  [self setCategoryInput:nil];
-  [self setTimePickerController:nil];
-  [self setCookTimeInput:nil];
-  [self setSitTimeInput:nil];
   [self setBackgroundView:nil];
   [self setViewModel:nil];
   [self setPreperationLabel:nil];
   [self setPhotoSourceOptions:nil];
+  [self setCategoryLabel:nil];
+  [self setRecipeNameField:nil];
+  [self setPreperationTimeField:nil];
+  [self setTemperatureField:nil];
+  [self setSitTimeField:nil];
+  [self setCookTimeField:nil];
+  [self setServingsField:nil];
   [super viewDidUnload];  
 }
 
@@ -82,18 +77,29 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
+  
   [self.tableView setBackgroundView: _backgroundView];
   [self setupPhotoSourceOptions];
   [self setupNavigationBar];
-    
-  _editRecipeTable.ingredients = _viewModel.ingredients;
+  
+  [self updateFields];
   [_editRecipeTable setupSections];
+}
+
+- (void) setViewModel:(EditRecipeViewModel *)viewModel {
+  _viewModel = viewModel;
+  self.editRecipeTable.viewModel = viewModel;
+}
+
+- (void) updateFields {
+  self.recipeNameField.text = _viewModel.name;
+  self.preperationTimeField.text = [NSString stringFromTime: _viewModel.preperationTime];
+  self.categoryLabel.text = _viewModel.category;
+  self.preperationLabel.text = _viewModel.preperation;
+  self.temperatureField.text = _viewModel.cookTemperature;
   
-  [[NSNotificationCenter defaultCenter] addObserver: self selector:@selector(categoryListChanged) 
-    name:@"categoryListChanged" object: nil];
-  
-  [_categoryPickerController setCategories: [_categoryRepository list]];
-  [_categoryPickerController setCategoryInput: _categoryInput];
+  // TODO: add integer fields and the image here
 }
 
 - (void) setupPhotoSourceOptions {
@@ -116,32 +122,12 @@
   [_doneButton setEnabled: NO];
 }
 
-- (void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger) buttonIndex {
-  if(buttonIndex > 1) return;
-  UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
-  imagePicker.delegate = self;  
-  imagePicker.sourceType = buttonIndex == 0 ? 
-  UIImagePickerControllerSourceTypeCamera : 
-  UIImagePickerControllerSourceTypePhotoLibrary;
-  
-  [self presentModalViewController: imagePicker animated:YES];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *) imagePicker {
-  [self dismissModalViewControllerAnimated:YES];
-}
-
 - (void) imagePickerController:(UIImagePickerController *) imagePicker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
 //  UIImage *output = [image imageByScalingAndCroppingForSize: CGSizeMake(40, 40)];
   [self dismissModalViewControllerAnimated: YES];    
 }
 
-- (void) categoryListChanged {
-  [_categoryPickerController setCategories: [_categoryRepository list]];
-  [_categoryPickerController categoriesDidChange];
-}
-
-- (IBAction)preperationTouched {
+- (IBAction) preperationTouched {
   [self removeKeyboard];
   
   EditPreperationController *vc = [[[EditPreperationController alloc] 
@@ -157,6 +143,7 @@
 }
 
 - (void)doneTouched {
+  [self saveRecipe];
   [self dismissModalViewControllerAnimated: YES];
 }
 
@@ -164,15 +151,32 @@
   [self dismissModalViewControllerAnimated: YES];  
 }
 
-- (IBAction)listCategoriesTouched {
-  CategoryListController *categoryList = [[[CategoryListController alloc] 
-    initWithNibName: @"CategoryListController" bundle: nil] autorelease];  
-  [self.navigationController pushViewController: categoryList animated: YES];
+- (void) saveRecipe {
+  Recipe *recipe = nil;
+  if(self.viewModel.recipeId != nil) {
+    recipe = [self.recipeRepository recipeWithId:self.viewModel.recipeId];
+  } else {
+    recipe = [self.recipeRepository newRecipe];
+  }
+  
+  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
+  [mapper editViewModel:self.viewModel toRecipe:recipe];
+  [self.recipeRepository save];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeListChanged" object:self];  
 }
 
-- (IBAction)recipeNameChanging: (UITextField *) field {
-  BOOL canPressDone = [field.text length] > 0;
-  [_doneButton setEnabled: canPressDone];
+- (IBAction) setCategoryTouched: (UIButton *) sender {
+  CategoryListController *vc = [ControllerFactory buildCategoryListViewController];
+  [self.navigationController pushViewController: vc animated: YES];
+  vc.onCategorySelected = ^(NSString *category) {
+    _viewModel.category = category;
+    self.categoryLabel.text = category;
+  };
+}
+
+- (IBAction)recipeNameChanged: (UITextField *) field {
+  self.viewModel.name = field.text;
+  [_doneButton setEnabled: [field.text length] > 0];
 }
 
 - (UITableViewCell *) findParentCell: (UIView *) view {
@@ -185,35 +189,25 @@
   return nil;
 }
 
-- (IBAction)recipeNameChanged:(UITextField *)sender {
-  _viewModel.name = sender.text;
-}
-
 - (IBAction)preperationTimeChanged:(UITextField *)sender {
   _viewModel.preperationTime = sender.text;
 }
-
 - (IBAction)categoryChanged:(UITextField *)sender {
   _viewModel.category = sender.text;
   [sender resignFirstResponder];
 }
-
 - (IBAction)servingsChanged:(UITextField *)sender {
   _viewModel.servings = [sender.text intValue];
 }
-
 - (IBAction)temperatureChanged:(UITextField *)sender {
   _viewModel.cookTemperature = sender.text;
 }
-
 - (IBAction)sitTimeChanged:(UITextField *)sender {
   _viewModel.sitTime = sender.text;
 }
-
 - (IBAction)cookTimeChanged:(UITextField *)sender {
   _viewModel.cookTime = sender.text;
 }
-
 - (IBAction)addButtonTouched:(UIButton *)sender {
   UITableViewCell *cell = [self findParentCell: sender];
   [cell setSelected:YES animated:NO];
@@ -224,7 +218,7 @@
   ExtraFieldsController *vc = [[ExtraFieldsController alloc] init];
   vc.fields = [_editRecipeTable.extraFields allKeys];
   vc.onFieldChosen = ^(NSString *field) {
-    [_editRecipeTable table:self.tableView addExtraField: field];
+    [_editRecipeTable addExtraField: field];
   };
   [self.navigationController pushViewController: vc animated: YES];
 }
@@ -233,14 +227,21 @@
   [_editRecipeTable addIngredient: self.tableView];
 }
 
-- (IBAction)timeFieldTouched:(id)sender {
-  [_timePickerController setTimeInput: sender];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return NO;
 }
+
+- (void) removeKeyboard {
+  UIView *firstResponder = [self.view findFirstResponder];
+  [firstResponder resignFirstResponder];  
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  [self removeKeyboard];
+}
+
+#pragma mark image picker
 
 - (IBAction)photoFieldTouched:(UIButton *)sender {
   if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -252,13 +253,19 @@
   }
 }
 
-- (void) removeKeyboard {
-  UIView *firstResponder = [self.view findFirstResponder];
-  [firstResponder resignFirstResponder];  
+- (void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger) buttonIndex {
+  if(buttonIndex > 1) return;
+  UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+  imagePicker.delegate = self;
+  imagePicker.sourceType = buttonIndex == 0 ?
+  UIImagePickerControllerSourceTypeCamera :
+  UIImagePickerControllerSourceTypePhotoLibrary;
+  
+  [self presentModalViewController: imagePicker animated:YES];
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  [self removeKeyboard];
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) imagePicker {
+  [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

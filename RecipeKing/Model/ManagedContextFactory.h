@@ -13,7 +13,7 @@
   NSManagedObjectModel *_managedObjectModel;
   NSPersistentStoreCoordinator *_persistentStoreCoordinator;
 }
-
++ (void) resetStoreCoordinator;
 + (NSManagedObjectContext *) buildContext;
 
 @end

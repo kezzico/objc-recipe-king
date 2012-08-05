@@ -7,20 +7,12 @@
 //
 
 #import "TimePickerController.h"
-#import "TimeStringConverter.h"
 
 const NSInteger kMaxHours = 48;
 const NSInteger kMaxMinutes = 60;
 
 @implementation TimePickerController
 @synthesize timePicker = _timePicker;
-
-- (id) init {
-  if((self = [super init])) {
-    _converter = [[TimeStringConverter alloc] init];
-  }
-  return self;
-}
 
 - (void)dealloc {
   [_timePicker release];
@@ -34,8 +26,8 @@ const NSInteger kMaxMinutes = 60;
   _timeInput = [input retain];
   _timeInput.inputView = _timePicker;
   
-  NSInteger hours = [_converter getHoursFromTimeString: input.text] % kMaxHours;
-  NSInteger minutes = [_converter getMinutesFromTimeString: input.text] % kMaxMinutes;
+  NSInteger hours = 0;//[_converter getHoursFromTimeString: input.text] % kMaxHours;
+  NSInteger minutes = 0;//[_converter getMinutesFromTimeString: input.text] % kMaxMinutes;
   [_timePicker selectRow: hours inComponent: 0  animated: YES];
   [_timePicker selectRow: minutes inComponent: 1  animated: YES];
 }
@@ -62,7 +54,7 @@ const NSInteger kMaxMinutes = 60;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
   NSInteger hours = [pickerView selectedRowInComponent: 0];
   NSInteger minutes = [pickerView selectedRowInComponent: 1];
-  _timeInput.text = [_converter stringWithHours: hours minutes: minutes];
+  _timeInput.text = 0;//[_converter stringWithHours: hours minutes: minutes];
 }
 
 @end

@@ -6,13 +6,11 @@
 //  Copyright (c) 2012 leescode.com. All rights reserved.
 //
 
-#import "Category.h"
+#import "RecipeCategory.h"
 #import "Recipe.h"
 
 
-@implementation Category
-
+@implementation RecipeCategory
 @dynamic name;
 @dynamic recipes;
-
 @end

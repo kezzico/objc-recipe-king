@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PIngredientRepository.h"
 #import "PCategoryRepository.h"
 
 @class Recipe;
+@class EditRecipeViewModel;
 @class RecipeViewModel;
 @interface RecipeMapper : NSObject
 
-- (void) recipe: (Recipe *) r toViewModel: (RecipeViewModel *) v;
-- (void) json: (NSDictionary *) data toViewModel: (RecipeViewModel *) v;
-- (void) viewModel: (RecipeViewModel *) v toRecipe: (Recipe *) r;
-- (NSDictionary *) viewModelToJson: (RecipeViewModel *) v;
+- (EditRecipeViewModel *) editViewModelFromRecipe: (Recipe *) r;
+- (RecipeViewModel *) viewModelFromRecipe: (Recipe *) r;
+- (void) editViewModel: (EditRecipeViewModel *) v toRecipe: (Recipe *) r;
 
-@property (nonatomic, retain) NSObject<PIngredientRepository> *ingredientRepository;
-@property (nonatomic, retain) NSObject<PCategoryRepository> *categoryRepository;
+@property (nonatomic, retain) id<PCategoryRepository> categoryRepository;
 
 @end

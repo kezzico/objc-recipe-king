@@ -1,34 +1,34 @@
 #import "CategoryRepository.h"
 #import "ManagedContextFactory.h"
 #import "Recipe.h"
-#import "Category.h"
+#import "RecipeCategory.h"
 
+static NSString *categoryEntityName = @"RecipeCategory";
 @implementation CategoryRepository
-
-- (id) init {
-  if((self = [super init])) {
-    _context = [[ManagedContextFactory buildContext] retain];
-    _entityName = @"Category";
-  }
-  
-  return self;
-}
+@synthesize context;
 
 - (void) dealloc {
-  [_context release];
+  [context release];
   [super dealloc];
 }
 
-- (NSArray *) list {
+- (id) init {
+  if((self = [super init])) {
+    self.context = [ManagedContextFactory buildContext];
+  }
+  return self;
+}
+
+- (NSArray *) allCategories {
   NSError *error = nil;
   NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-  NSEntityDescription *entity = [NSEntityDescription entityForName: _entityName inManagedObjectContext: _context];
+  NSEntityDescription *entity = [NSEntityDescription entityForName: categoryEntityName inManagedObjectContext: self.context];
   [fetchRequest setEntity:entity];
     
-  NSSortDescriptor *orderByName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES] autorelease];
+  NSSortDescriptor *orderByName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
   [fetchRequest setSortDescriptors: [NSArray arrayWithObject: orderByName]];
   
-  NSArray *fetchedObjects = [_context executeFetchRequest:fetchRequest error: &error];
+  NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error: &error];
   
   if(error) { 
     NSLog(@"%@", error);
@@ -36,7 +36,7 @@
   }
   
   NSMutableArray *output = [[[NSMutableArray alloc] init] autorelease];  
-  for (Category *c in fetchedObjects) {
+  for (RecipeCategory *c in fetchedObjects) {
     [output addObject: c.name];
   }
   
@@ -46,55 +46,55 @@
 - (void) add: (NSString *) name {
   if([self categoryForName: name] != nil) return;
   
-  Category *category = [NSEntityDescription
-    insertNewObjectForEntityForName: _entityName
-    inManagedObjectContext: _context];
+  RecipeCategory *category = [NSEntityDescription
+    insertNewObjectForEntityForName: categoryEntityName
+    inManagedObjectContext: self.context];
 
   NSError *error = nil;
   category.name = name;
-  [_context save: &error];
+  [self.context save: &error];
   if(error) NSLog(@"%@", error);
 }
 
 - (void) remove: (NSString *) name {
-  Category *c = [self categoryForName: name];
-  [_context deleteObject: c];
+  RecipeCategory *c = [self categoryForName: name];
+  [self.context deleteObject: c];
   
   NSError *error = nil;  
-  [_context save: &error];
+  [self.context save: &error];
   if(error) NSLog(@"%@", error);
 }
 
 - (void) rename: (NSString *) oldname to: (NSString *) newname {
-  Category *c = [self categoryForName: oldname];
+  RecipeCategory *c = [self categoryForName: oldname];
   if(c == nil) return;
   
   NSError *error = nil;
   c.name = newname;
-  [_context save: &error];
+  [self.context save: &error];
   if(error) NSLog(@"%@", error);
 
 }
 
 - (void) setCategory: (NSString *) name forRecipe: (Recipe *) recipe {
-  NSManagedObjectContext *context = recipe.managedObjectContext;
-  recipe.Category = [self categoryForName: name inContext: context];
+  NSManagedObjectContext *ctx = recipe.managedObjectContext;
+  recipe.Category = [self categoryForName: name inContext: ctx];
 }
 
-- (Category *) categoryForName: (NSString *) name {
-  return [self categoryForName: name inContext: _context];
+- (RecipeCategory *) categoryForName: (NSString *) name {
+  return [self categoryForName: name inContext: self.context];
 }
 
-- (Category *) categoryForName: (NSString *) name inContext: (NSManagedObjectContext *) context {
+- (RecipeCategory *) categoryForName: (NSString *) name inContext: (NSManagedObjectContext *) ctx {
   NSError *error = nil;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-  NSEntityDescription *entity = [NSEntityDescription entityForName: _entityName inManagedObjectContext: context];
+  NSEntityDescription *entity = [NSEntityDescription entityForName: categoryEntityName inManagedObjectContext: ctx];
   NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name matches[c] %@", name];
   
   [fetchRequest setEntity:entity];
   [fetchRequest setPredicate: predicate];
   
-  NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error: &error];
+  NSArray *fetchedObjects = [ctx executeFetchRequest:fetchRequest error: &error];
   [fetchRequest release];
   
   if(error) {

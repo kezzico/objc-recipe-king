@@ -7,12 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "PRecipeRepository.h"
-#import "PCategoryRepository.h"
-
+@class CategoryRepository;
+@class RecipeRepository;
 @interface RecipeRepositoryTests : SenTestCase {
-  NSObject<PRecipeRepository> *_repository;
-  NSObject<PCategoryRepository> *_categoryRepository;
+  RecipeRepository *_repository;
+  CategoryRepository *_categoryRepository;
 }
-
 @end

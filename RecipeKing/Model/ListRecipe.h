@@ -12,7 +12,7 @@
 @interface ListRecipe : NSObject
 
 @property (nonatomic, retain) NSManagedObjectID *recipeId;
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *cookTime;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) NSInteger preperationTime;
 
 @end

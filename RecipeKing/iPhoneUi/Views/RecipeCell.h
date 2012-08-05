@@ -12,7 +12,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView *recipeImage;
 @property (retain, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *cookTimeBox;
-@property (retain, nonatomic) IBOutlet UILabel *cookTimeLabel;
+@property (retain, nonatomic) IBOutlet UILabel *preperationTimeLabel;
 @property (retain, nonatomic) IBOutlet UIView *cv;
 
 - (id)initWithReuseIdentifier:(NSString *) reuseIdentifier;

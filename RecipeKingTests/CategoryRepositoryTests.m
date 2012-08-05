@@ -5,20 +5,21 @@
 //  Created by Lee Irvine on 2/17/12.
 //  Copyright (c) 2012 leescode.com. All rights reserved.
 //
-
+#import "ManagedContextFactory.h"
 #import "CategoryRepositoryTests.h"
 #import "CategoryRepository.h"
 
 @implementation CategoryRepositoryTests
 
-- (void)setUp
-{
-  [super setUp];
++ (void) setUp {
+  [ManagedContextFactory resetStoreCoordinator];
+}
+
+- (void) setUp {
   _repository = [[CategoryRepository alloc] init];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
   [_repository release];
   [super tearDown];
 }
@@ -26,17 +27,21 @@
 - (void) testShouldAddCategory {
   NSString *expectedResult = @"testcategory";
   [_repository add: expectedResult];
-  
-  STAssertTrue([[_repository list] containsObject: expectedResult], @"test category not listed");  
+  NSArray *result =[_repository allCategories];
+  STAssertTrue([result containsObject: expectedResult], @"test category not listed");
 }
 
-- (void) testShouldListCategories {
-  STAssertTrue([[_repository list] count] > 0, @"Could not list categories");  
+- (void) testShouldNotAddCategoryWithSameName {
+  NSString *categoryName = @"testcategory";
+  [_repository add: categoryName];
+  NSArray *result = [_repository allCategories];
+  STAssertTrue([result count] == 1, @"should be only 1");
 }
 
 - (void) testShouldRemoveCategory {
   [_repository remove: @"testcategory"];
-  STAssertFalse([[_repository list] containsObject: @"testcategory"], @"test category not removed");
+  NSArray *result =[_repository allCategories];
+  STAssertFalse([result containsObject: @"testcategory"], @"test category not removed");
 }
 
 @end

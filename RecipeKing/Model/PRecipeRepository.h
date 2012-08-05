@@ -12,9 +12,9 @@
 @class Recipe;
 @protocol PRecipeRepository <NSObject>
 @required
-- (NSArray *) list;
+- (NSArray *) allRecipes;
 - (NSArray *) filter: (NSString *) search;
-- (void) save: (Recipe *) recipe;
+- (void) save;
 - (void) remove: (NSManagedObjectID *) recipeId;
 - (Recipe *) recipeWithId: (NSManagedObjectID *) recipeId;
 - (Recipe *) newRecipe;

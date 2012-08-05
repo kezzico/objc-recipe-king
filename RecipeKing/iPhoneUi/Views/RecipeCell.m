@@ -12,7 +12,7 @@
 @synthesize recipeImage;
 @synthesize recipeNameLabel;
 @synthesize cookTimeBox;
-@synthesize cookTimeLabel;
+@synthesize preperationTimeLabel;
 @synthesize cv;
 
 - (id)initWithReuseIdentifier:(NSString *) reuseIdentifier {
@@ -24,7 +24,7 @@
 }
 
 - (void)dealloc {
-  [cookTimeLabel release];
+  [preperationTimeLabel release];
   [cookTimeBox release];
   [recipeNameLabel release];
   [recipeImage release];
