@@ -10,8 +10,8 @@
 #import "IngredientViewModel.h"
 
 @implementation EditIngredientCell
-@synthesize quantityField=_quantity;
-@synthesize nameField=_name;
+@synthesize quantityField=_quantityField;
+@synthesize nameField=_nameField;
 @synthesize view=_view;
 @synthesize viewModel=_viewModel;
 
@@ -26,25 +26,25 @@
 - (void) dealloc {
   [_viewModel release];
   [_view release];
-  [_quantity release];
-  [_name release];
+  [_quantityField release];
+  [_nameField release];
   [super dealloc];
 }
 
 - (IBAction)nameChanged {
-  _viewModel.name = _name.text;
+  _viewModel.name = _nameField.text;
 }
 
 - (IBAction)quantityChanged {
-  _viewModel.quantity = _quantity.text;
+  _viewModel.quantity = _quantityField.text;
 }
 
 - (void) setViewModel:(IngredientViewModel *)viewModel {
   [_viewModel release];
   _viewModel = [viewModel retain];
   
-  _name.text = viewModel.name;
-  _quantity.text = viewModel.quantity;
+  _nameField.text = viewModel.name;
+  _quantityField.text = viewModel.quantity;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

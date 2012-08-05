@@ -30,9 +30,8 @@
 - (IBAction)temperatureChanged:(UITextField *)sender;
 - (IBAction)sitTimeChanged:(UITextField *)sender;
 - (IBAction)cookTimeChanged:(UITextField *)sender;
-- (IBAction)addButtonTouched:(UIButton *)sender;
-- (IBAction)addFieldReleased:(UIButton *)sender;
-- (IBAction)addIngredientReleased:(UIButton *)sender;
+- (IBAction)addButtonTouchedDown:(UIButton *)sender;
+- (IBAction)addFieldTouched:(UIButton *)sender;
 - (IBAction)preperationTouched;
 - (IBAction)timeFieldTouched:(UITextField *)sender;
 - (IBAction)photoFieldTouched:(UIButton *)sender;

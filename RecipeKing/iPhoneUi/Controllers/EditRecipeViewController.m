@@ -208,23 +208,20 @@
 - (IBAction)cookTimeChanged:(UITextField *)sender {
   _viewModel.cookTime = sender.text;
 }
-- (IBAction)addButtonTouched:(UIButton *)sender {
+
+- (IBAction)addButtonTouchedDown:(UIButton *)sender {
   UITableViewCell *cell = [self findParentCell: sender];
   [cell setSelected:YES animated:NO];
   [cell setSelected:NO animated:YES];
 }
 
-- (IBAction)addFieldReleased:(UIButton *)sender {
+- (IBAction)addFieldTouched:(UIButton *)sender {
   ExtraFieldsController *vc = [[ExtraFieldsController alloc] init];
   vc.fields = [_editRecipeTable.extraFields allKeys];
   vc.onFieldChosen = ^(NSString *field) {
     [_editRecipeTable addExtraField: field];
   };
   [self.navigationController pushViewController: vc animated: YES];
-}
-
-- (IBAction)addIngredientReleased:(UIButton *)sender {
-  [_editRecipeTable addIngredient: self.tableView];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

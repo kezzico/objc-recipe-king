@@ -79,11 +79,17 @@ const int kMiscFieldSection = 1;
   [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:NO];
 }
 
-- (void) addIngredient: (UITableView *) tableView {
+- (IBAction)addIngredientTouched:(id)sender {
+  [self addIngredient];
+}
+
+- (IngredientViewModel *) addIngredient {
   IngredientViewModel *ingredient = [[[IngredientViewModel alloc] init] autorelease];
   [_viewModel.ingredients addObject: ingredient];
   NSIndexPath *index = [NSIndexPath indexPathForRow:[_viewModel.ingredients count] - 1 inSection: kIngredientsSection];
-  [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:YES];
+  [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:YES];
+  
+  return ingredient;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

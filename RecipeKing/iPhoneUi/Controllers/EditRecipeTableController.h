@@ -11,7 +11,7 @@
 @interface EditRecipeTableController : NSObject <UITableViewDataSource, UITableViewDelegate>
 - (void) setupSections;
 - (void) addExtraField:(NSString *) fieldName;
-- (void) addIngredient: (UITableView *) tableView;
+- (IBAction)addIngredientTouched:(id)sender;
 @property (retain, nonatomic) EditRecipeViewModel *viewModel;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UITableViewCell *recipeNameCell;
