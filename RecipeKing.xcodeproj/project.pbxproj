@@ -16,8 +16,8 @@
 		9B23179415CE19FC000CADFD /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23179315CE19FC000CADFD /* ControllerFactory.m */; };
 		9B23179515CE281F000CADFD /* RecipeListSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D0CBE15CE160A0039F35F /* RecipeListSearchController.m */; };
 		9B23179715CE3873000CADFD /* EditRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B23179615CE3872000CADFD /* EditRecipeViewController.xib */; };
+		9B23179A15CEBFCD000CADFD /* PreperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23179915CEBFCD000CADFD /* PreperationCell.m */; };
 		9B385BC6151E40320021E716 /* EditRecipeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B385BC5151E40320021E716 /* EditRecipeTableController.m */; };
-		9B3BE061151EE5FF005C146B /* TimePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE060151EE5FF005C146B /* TimePickerController.m */; };
 		9B3BE06D151F9697005C146B /* CategoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE06C151F9697005C146B /* CategoryListController.m */; };
 		9B3BE06F151FACBE005C146B /* CategoryListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3BE06E151FACBE005C146B /* CategoryListController.xib */; };
 		9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BE071151FD03F005C146B /* EditCategoryController.m */; };
@@ -65,8 +65,16 @@
 		9B8C0EB9153BBE5B0033F183 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0EB8153BBE5B0033F183 /* UIView+Extensions.m */; };
 		9B8C0EC7153BD0190033F183 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0EC6153BD0190033F183 /* UIImage+Extensions.m */; };
 		9B961373151512E5003E68E2 /* EditRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B961371151512E5003E68E2 /* EditRecipeViewController.m */; };
+		9B9AB38E15CEE7C800FC5450 /* ingredients.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9AB38C15CEE7C800FC5450 /* ingredients.png */; };
+		9B9AB38F15CEE7C800FC5450 /* ingredients@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9AB38D15CEE7C800FC5450 /* ingredients@2x.png */; };
+		9B9AB39315CEE93600FC5450 /* preperation.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9AB39115CEE93600FC5450 /* preperation.png */; };
+		9B9AB39415CEE93600FC5450 /* preperation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B9AB39215CEE93600FC5450 /* preperation@2x.png */; };
 		9BB829D914ECBC2100BC2101 /* RecipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB829D814ECBC2100BC2101 /* RecipeCell.m */; };
 		9BB829DB14ECBC3700BC2101 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB829DA14ECBC3700BC2101 /* RecipeCell.xib */; };
+		9BBB8B7C15CF44C500C8705A /* ActionSheetTimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB8B7B15CF44C500C8705A /* ActionSheetTimePicker.m */; };
+		9BBB8B7F15CF497700C8705A /* ActionSheetTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB8B7E15CF497700C8705A /* ActionSheetTimePicker.xib */; };
+		9BBB8B8215CF765600C8705A /* servings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB8B8015CF765600C8705A /* servings.png */; };
+		9BBB8B8315CF765600C8705A /* servings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBB8B8115CF765600C8705A /* servings@2x.png */; };
 		9BC2C68E1530D873002983BB /* ExtraFieldsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC2C68D1530D873002983BB /* ExtraFieldsController.m */; };
 		9BC2C69315311BB2002983BB /* EditPreperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC2C69115311BB2002983BB /* EditPreperationController.m */; };
 		9BC2C69415311BB2002983BB /* EditPreperationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2C69215311BB2002983BB /* EditPreperationController.xib */; };
@@ -119,10 +127,10 @@
 		9B23179215CE19FC000CADFD /* ControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFactory.h; sourceTree = "<group>"; };
 		9B23179315CE19FC000CADFD /* ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFactory.m; sourceTree = "<group>"; };
 		9B23179615CE3872000CADFD /* EditRecipeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRecipeViewController.xib; sourceTree = "<group>"; };
+		9B23179815CEBFCD000CADFD /* PreperationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreperationCell.h; sourceTree = "<group>"; };
+		9B23179915CEBFCD000CADFD /* PreperationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreperationCell.m; sourceTree = "<group>"; };
 		9B385BC4151E40320021E716 /* EditRecipeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeTableController.h; sourceTree = "<group>"; };
 		9B385BC5151E40320021E716 /* EditRecipeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeTableController.m; sourceTree = "<group>"; };
-		9B3BE05F151EE5FF005C146B /* TimePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerController.h; sourceTree = "<group>"; };
-		9B3BE060151EE5FF005C146B /* TimePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerController.m; sourceTree = "<group>"; };
 		9B3BE06B151F9697005C146B /* CategoryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryListController.h; sourceTree = "<group>"; };
 		9B3BE06C151F9697005C146B /* CategoryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryListController.m; sourceTree = "<group>"; };
 		9B3BE06E151FACBE005C146B /* CategoryListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryListController.xib; sourceTree = "<group>"; };
@@ -192,9 +200,18 @@
 		9B8C0EC6153BD0190033F183 /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		9B961370151512E5003E68E2 /* EditRecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecipeViewController.h; sourceTree = "<group>"; };
 		9B961371151512E5003E68E2 /* EditRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecipeViewController.m; sourceTree = "<group>"; };
+		9B9AB38C15CEE7C800FC5450 /* ingredients.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ingredients.png; sourceTree = "<group>"; };
+		9B9AB38D15CEE7C800FC5450 /* ingredients@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ingredients@2x.png"; sourceTree = "<group>"; };
+		9B9AB39115CEE93600FC5450 /* preperation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preperation.png; sourceTree = "<group>"; };
+		9B9AB39215CEE93600FC5450 /* preperation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preperation@2x.png"; sourceTree = "<group>"; };
 		9BB829D714ECBC2100BC2101 /* RecipeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCell.h; sourceTree = "<group>"; };
 		9BB829D814ECBC2100BC2101 /* RecipeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCell.m; sourceTree = "<group>"; };
 		9BB829DA14ECBC3700BC2101 /* RecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		9BBB8B7A15CF44C500C8705A /* ActionSheetTimePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetTimePicker.h; sourceTree = "<group>"; };
+		9BBB8B7B15CF44C500C8705A /* ActionSheetTimePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetTimePicker.m; sourceTree = "<group>"; };
+		9BBB8B7E15CF497700C8705A /* ActionSheetTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionSheetTimePicker.xib; sourceTree = "<group>"; };
+		9BBB8B8015CF765600C8705A /* servings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = servings.png; sourceTree = "<group>"; };
+		9BBB8B8115CF765600C8705A /* servings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "servings@2x.png"; sourceTree = "<group>"; };
 		9BC2C68C1530D873002983BB /* ExtraFieldsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraFieldsController.h; sourceTree = "<group>"; };
 		9BC2C68D1530D873002983BB /* ExtraFieldsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraFieldsController.m; sourceTree = "<group>"; };
 		9BC2C69015311BB2002983BB /* EditPreperationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPreperationController.h; sourceTree = "<group>"; };
@@ -317,8 +334,6 @@
 				9B961371151512E5003E68E2 /* EditRecipeViewController.m */,
 				9B385BC4151E40320021E716 /* EditRecipeTableController.h */,
 				9B385BC5151E40320021E716 /* EditRecipeTableController.m */,
-				9B3BE05F151EE5FF005C146B /* TimePickerController.h */,
-				9B3BE060151EE5FF005C146B /* TimePickerController.m */,
 				9BC2C68C1530D873002983BB /* ExtraFieldsController.h */,
 				9BC2C68D1530D873002983BB /* ExtraFieldsController.m */,
 				9BC2C69015311BB2002983BB /* EditPreperationController.h */,
@@ -371,6 +386,12 @@
 		9B3E884C15CD9BAB000941ED /* images_iphone */ = {
 			isa = PBXGroup;
 			children = (
+				9BBB8B8015CF765600C8705A /* servings.png */,
+				9BBB8B8115CF765600C8705A /* servings@2x.png */,
+				9B9AB39115CEE93600FC5450 /* preperation.png */,
+				9B9AB39215CEE93600FC5450 /* preperation@2x.png */,
+				9B9AB38C15CEE7C800FC5450 /* ingredients.png */,
+				9B9AB38D15CEE7C800FC5450 /* ingredients@2x.png */,
 				9B3E884D15CD9BAB000941ED /* bread.jpg */,
 				9B3E884E15CD9BAB000941ED /* categoryback.png */,
 				9B3E884F15CD9BAB000941ED /* categoryback@2x.png */,
@@ -425,6 +446,11 @@
 				9B7D0CB115CDE9760039F35F /* IngredientCell.h */,
 				9B7D0CB215CDE9760039F35F /* IngredientCell.m */,
 				9B7D0CB415CDE98A0039F35F /* IngredientCell.xib */,
+				9B23179815CEBFCD000CADFD /* PreperationCell.h */,
+				9B23179915CEBFCD000CADFD /* PreperationCell.m */,
+				9BBB8B7A15CF44C500C8705A /* ActionSheetTimePicker.h */,
+				9BBB8B7B15CF44C500C8705A /* ActionSheetTimePicker.m */,
+				9BBB8B7E15CF497700C8705A /* ActionSheetTimePicker.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -725,6 +751,13 @@
 				9B7D0CB515CDE98A0039F35F /* IngredientCell.xib in Resources */,
 				9B7D0CBD15CE15900039F35F /* RecipeListViewController.xib in Resources */,
 				9B23179715CE3873000CADFD /* EditRecipeViewController.xib in Resources */,
+				9B9AB38E15CEE7C800FC5450 /* ingredients.png in Resources */,
+				9B9AB38F15CEE7C800FC5450 /* ingredients@2x.png in Resources */,
+				9B9AB39315CEE93600FC5450 /* preperation.png in Resources */,
+				9B9AB39415CEE93600FC5450 /* preperation@2x.png in Resources */,
+				9BBB8B7F15CF497700C8705A /* ActionSheetTimePicker.xib in Resources */,
+				9BBB8B8215CF765600C8705A /* servings.png in Resources */,
+				9BBB8B8315CF765600C8705A /* servings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +810,6 @@
 				9B71025014F73E71003871E4 /* CategoryCell.m in Sources */,
 				9B961373151512E5003E68E2 /* EditRecipeViewController.m in Sources */,
 				9B385BC6151E40320021E716 /* EditRecipeTableController.m in Sources */,
-				9B3BE061151EE5FF005C146B /* TimePickerController.m in Sources */,
 				9B3BE06D151F9697005C146B /* CategoryListController.m in Sources */,
 				9B3BE073151FD040005C146B /* EditCategoryController.m in Sources */,
 				9B806438152781DB00B71114 /* EditIngredientCell.m in Sources */,
@@ -799,6 +831,8 @@
 				9B7D0CBB15CE15540039F35F /* RecipeListViewController.m in Sources */,
 				9B23179415CE19FC000CADFD /* ControllerFactory.m in Sources */,
 				9B23179515CE281F000CADFD /* RecipeListSearchController.m in Sources */,
+				9B23179A15CEBFCD000CADFD /* PreperationCell.m in Sources */,
+				9BBB8B7C15CF44C500C8705A /* ActionSheetTimePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

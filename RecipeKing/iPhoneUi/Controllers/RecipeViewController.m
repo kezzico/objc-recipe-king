@@ -12,12 +12,15 @@
 #import "RecipeCategoryView.h"
 #import "IngredientCell.h"
 #import "IngredientViewModel.h"
+#import "PreperationCell.h"
 
 @implementation RecipeViewController
 @synthesize titleCell;
 @synthesize ingredientsHeaderCell;
 @synthesize preperationHeaderCell;
 @synthesize categoryView;
+@synthesize servingsView;
+@synthesize servingsLabel;
 @synthesize recipeNameLabel;
 @synthesize preperationTimeLabel;
 @synthesize preperationCell;
@@ -32,6 +35,8 @@
   [recipeNameLabel release];
   [preperationTimeLabel release];
   [preperationCell release];
+    [servingsView release];
+    [servingsLabel release];
   [super dealloc];
 }
 
@@ -43,29 +48,49 @@
   [self setRecipeNameLabel:nil];
   [self setPreperationTimeLabel:nil];
   [self setPreperationCell:nil];
+    [self setServingsView:nil];
+    [self setServingsLabel:nil];
   [super viewDidUnload];
 }
 
 - (void) viewDidLoad {
-  self.recipeNameLabel.text = self.viewModel.name;
-  self.preperationTimeLabel.text = [NSString stringFromTime:self.viewModel.preperationTime];
+  self.recipeNameLabel.text = _viewModel.name;
+  self.preperationTimeLabel.text = [NSString stringFromTime:_viewModel.preperationTime];
   
   [self.categoryView setHidden: [NSString isEmpty: _viewModel.category]];
-  self.categoryView.nameLabel.text = self.viewModel.category;
+  [self.categoryView setCategory: _viewModel.category];
+  
+  [self.servingsView setHidden: _viewModel.servings == 0];
+  self.servingsLabel.text = [NSString stringWithFormat:@"x%d", _viewModel.servings];
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 2 + [_viewModel.ingredients count];
-}
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
 }
 
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return 1 + [self numIngredientCells] + [self numPreperationCells];
+}
+- (NSInteger) numIngredientCells {
+  NSInteger numIngredients = [_viewModel.ingredients count];
+  if(numIngredients > 0) return 1 + numIngredients;
+  return 0;
+}
+- (NSInteger) numPreperationCells {
+  NSInteger total = 0;
+  if([self shouldShowPreperationCell]) total++;
+  return total > 0 ? total + 1 : 0;
+}
+- (NSInteger) preperationIndex {
+  return 1 + [self numIngredientCells];
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if([self isIndexPathForTitleCell: indexPath]) return 90.f;
+  if([self isIndexPathForTitleCell: indexPath]) return 80.f;
   if([self isIndexPathForIngredientHeaderCell: indexPath]) return 30.f;
   if([self isIndexPathForIngredientCell: indexPath]) return [IngredientCell height];
   if([self isIndexPathForPreperationHeaderCell: indexPath]) return 30.f;
+  if([self isIndexPathForPreperationCell: indexPath]) return [PreperationCell heightWithText: _viewModel.preperation];
   return 0.f;
 }
 
@@ -73,7 +98,7 @@
   return indexPath.row == 0;
 }
 - (BOOL) isIndexPathForIngredientHeaderCell:(NSIndexPath *) indexPath {
-  return indexPath.row == 1;
+  return indexPath.row == 1 && [self numIngredientCells] > 0;
 }
 - (BOOL) isIndexPathForIngredientCell:(NSIndexPath *) indexPath {
   return indexPath.row > 1 && indexPath.row < [self preperationIndex];
@@ -81,16 +106,23 @@
 - (BOOL) isIndexPathForPreperationHeaderCell:(NSIndexPath *) indexPath {
   return indexPath.row == [self preperationIndex];
 }
-
-- (CGFloat) preperationIndex {
-  return 2 + [_viewModel.ingredients count];
+- (BOOL) isIndexPathForPreperationCell: (NSIndexPath *) indexPath {
+  return indexPath.row == [self preperationIndex] + 1 && [self shouldShowPreperationCell];
 }
+- (BOOL) shouldShowPreperationCell {
+  return [NSString isEmpty: _viewModel.preperation] == NO;
+}
+
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if([self isIndexPathForTitleCell: indexPath]) return self.titleCell;
   if([self isIndexPathForIngredientHeaderCell: indexPath]) return self.ingredientsHeaderCell;
   if([self isIndexPathForIngredientCell: indexPath]) return [self tableView: tableView ingredientCellForIndexPath: indexPath];
   if([self isIndexPathForPreperationHeaderCell: indexPath]) return self.preperationHeaderCell;
+  if([self isIndexPathForPreperationCell: indexPath]) {
+    [self.preperationCell setPreperation: _viewModel.preperation];
+    return self.preperationCell;
+  }
   return nil;
 }
 

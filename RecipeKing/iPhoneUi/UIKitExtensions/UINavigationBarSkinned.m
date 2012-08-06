@@ -15,7 +15,9 @@
     _backgroundImagePortrait = [[UIImage imageNamed: @"navportrait.png"] retain];
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth
     | UIViewAutoresizingFlexibleBottomMargin
-    | UIViewAutoresizingFlexibleRightMargin;    
+    | UIViewAutoresizingFlexibleRightMargin;
+    
+    self.tintColor = [UIColor colorWithRed:0.57f green:0.4f blue:0.24f alpha:1.f];
   }
   return self;
 }

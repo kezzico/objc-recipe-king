@@ -10,4 +10,5 @@
 
 @interface RecipeCategoryView : UIView
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
+- (void) setCategory:(NSString *) category;
 @end
