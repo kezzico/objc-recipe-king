@@ -20,4 +20,20 @@
   return self;
 }
 
+- (CGFloat) textWidth:(NSString *) text {
+  CGSize maxSize = CGSizeMake(220, 0);
+  UIFont *font = [UIFont systemFontOfSize:14];
+  UILineBreakMode lbm = UILineBreakModeTailTruncation;
+  
+  return [text sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lbm].width;
+}
+
+- (void) setCategory:(NSString *) category {
+  CGRect frame = self.frame;
+  frame.size.width = [self textWidth: category] + 20;
+  self.frame = frame;
+  
+  self.nameLabel.text = category;
+}
+
 @end

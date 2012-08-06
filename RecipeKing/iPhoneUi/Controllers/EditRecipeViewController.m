@@ -9,7 +9,6 @@
 #import "EditRecipeViewModel.h"
 #import "EditRecipeViewController.h"
 #import "EditRecipeTableController.h"
-#import "TimePickerController.h"
 #import "CategoryListController.h"
 #import "IngredientViewModel.h"
 #import "ExtraFieldsController.h"
@@ -19,15 +18,17 @@
 #import "Container.h"
 #import "ControllerFactory.h"
 #import "NSString-Extensions.h"
+#import "ActionSheetTimePicker.h"
 
 @implementation EditRecipeViewController
 @synthesize recipeNameField = _recipeNameField;
-@synthesize preperationTimeField = _preperationTimeField;
+@synthesize prepTimePlaceHolderLabel = _prepTimePlaceHolderLabel;
+@synthesize prepTimeLabel = _prepTimeLabel;
+@synthesize sitTimeLabel = _sitTimeLabel;
+@synthesize cookTimeLabel = _cookTimeLabel;
 @synthesize categoryLabel = _categoryLabel;
 @synthesize preperationLabel = _preperationLabel;
 @synthesize temperatureField = _temperatureField;
-@synthesize sitTimeField = _sitTimeField;
-@synthesize cookTimeField = _cookTimeField;
 @synthesize servingsField = _servingsField;
 @synthesize viewModel = _viewModel;
 @synthesize doneButton = _doneButton;
@@ -35,8 +36,10 @@
 @synthesize backgroundView = _backgroundView;
 @synthesize photoSourceOptions = _photoSourceOptions;
 @synthesize recipeRepository = _recipeRepository;
+@synthesize timePicker=_timePicker;
 
 - (void) dealloc {
+  [_timePicker release];
   [_doneButton release];
   [_editRecipeTable release];
   [_viewModel release];
@@ -46,11 +49,12 @@
   [_photoSourceOptions release];
   [_categoryLabel release];
   [_recipeNameField release];
-  [_preperationTimeField release];
   [_temperatureField release];
-  [_sitTimeField release];
-  [_cookTimeField release];
   [_servingsField release];
+  [_prepTimePlaceHolderLabel release];
+  [_prepTimeLabel release];
+  [_sitTimeLabel release];
+  [_cookTimeLabel release];
   [super dealloc];
 }
 
@@ -63,11 +67,12 @@
   [self setPhotoSourceOptions:nil];
   [self setCategoryLabel:nil];
   [self setRecipeNameField:nil];
-  [self setPreperationTimeField:nil];
   [self setTemperatureField:nil];
-  [self setSitTimeField:nil];
-  [self setCookTimeField:nil];
   [self setServingsField:nil];
+  [self setPrepTimePlaceHolderLabel:nil];
+  [self setPrepTimeLabel:nil];
+  [self setSitTimeLabel:nil];
+  [self setCookTimeLabel:nil];
   [super viewDidUnload];  
 }
 
@@ -94,12 +99,53 @@
 
 - (void) updateFields {
   self.recipeNameField.text = _viewModel.name;
-  self.preperationTimeField.text = [NSString stringFromTime: _viewModel.preperationTime];
   self.categoryLabel.text = _viewModel.category;
   self.preperationLabel.text = _viewModel.preperation;
   self.temperatureField.text = _viewModel.cookTemperature;
-  
+  [self updateServingsField];
+  [self updatePreperationTimeLabel];
   // TODO: add integer fields and the image here
+}
+
+- (void) updateServingsField {
+  NSInteger s = _viewModel.servings;
+  self.servingsField.text = s > 0 ? [[NSNumber numberWithInteger:s] description] : @"";
+}
+
+- (void) updatePreperationTimeLabel {
+  if(_viewModel.preperationTime == 0) {
+    [self.prepTimeLabel setHidden:YES];
+    [self.prepTimePlaceHolderLabel setHidden:NO];
+  } else {
+    [self.prepTimeLabel setHidden:NO];
+    [self.prepTimePlaceHolderLabel setHidden:YES];
+    self.prepTimeLabel.text = [NSString stringFromTime: _viewModel.preperationTime];
+  }
+}
+- (void) updateCookTimeLabel {
+  NSInteger time = _viewModel.cookTime;
+  _cookTimeLabel.text = time == 0 ? @"" : [NSString stringFromTime:time];
+}
+
+- (void) updateSitTimeLabel {
+  NSInteger time = _viewModel.sitTime;
+  _sitTimeLabel.text = time == 0 ? @"" : [NSString stringFromTime:time];
+}
+
+
+
+- (void) saveRecipe {
+  Recipe *recipe = nil;
+  if(self.viewModel.recipeId != nil) {
+    recipe = [self.recipeRepository recipeWithId:self.viewModel.recipeId];
+  } else {
+    recipe = [self.recipeRepository newRecipe];
+  }
+  
+  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
+  [mapper editViewModel:self.viewModel toRecipe:recipe];
+  [self.recipeRepository save];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeListChanged" object:self];
 }
 
 - (void) setupPhotoSourceOptions {
@@ -127,6 +173,14 @@
   [self dismissModalViewControllerAnimated: YES];    
 }
 
+- (void)doneTouched {
+  [self saveRecipe];
+  [self dismissModalViewControllerAnimated: YES];
+}
+- (void)cancelTouched {
+  [self dismissModalViewControllerAnimated: YES];
+}
+
 - (IBAction) preperationTouched {
   [self removeKeyboard];
   
@@ -142,30 +196,7 @@
   [self.navigationController pushViewController: vc animated: YES];
 }
 
-- (void)doneTouched {
-  [self saveRecipe];
-  [self dismissModalViewControllerAnimated: YES];
-}
-
-- (void)cancelTouched {
-  [self dismissModalViewControllerAnimated: YES];  
-}
-
-- (void) saveRecipe {
-  Recipe *recipe = nil;
-  if(self.viewModel.recipeId != nil) {
-    recipe = [self.recipeRepository recipeWithId:self.viewModel.recipeId];
-  } else {
-    recipe = [self.recipeRepository newRecipe];
-  }
-  
-  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
-  [mapper editViewModel:self.viewModel toRecipe:recipe];
-  [self.recipeRepository save];
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeListChanged" object:self];  
-}
-
-- (IBAction) setCategoryTouched: (UIButton *) sender {
+- (IBAction) categoryTouched: (UIButton *) sender {
   CategoryListController *vc = [ControllerFactory buildCategoryListViewController];
   [self.navigationController pushViewController: vc animated: YES];
   vc.onCategorySelected = ^(NSString *category) {
@@ -174,9 +205,55 @@
   };
 }
 
+- (IBAction) preperationTimeTouched:(UIButton *)sender {
+  _timePicker.title = @"Preperation Time";
+  _timePicker.value = _viewModel.preperationTime;
+  _timePicker.onTimeSelected = ^(NSInteger time) {
+    _viewModel.preperationTime = time;
+    [self updatePreperationTimeLabel];
+  };
+  
+  [_timePicker showInView:self.view];
+}
+
+- (IBAction)sitTimeTouched:(UIButton *)sender {
+  _timePicker.title = @"Sit Time";
+  _timePicker.value = _viewModel.sitTime;
+  _timePicker.onTimeSelected = ^(NSInteger time) {
+    _viewModel.sitTime = time;
+    [self updateSitTimeLabel];
+  };
+  
+  [_timePicker showInView:self.view];
+}
+
+- (IBAction)cookTimeTouched:(UIButton *)sender {
+  _timePicker.title = @"Cook Time";
+  _timePicker.value = _viewModel.cookTime;
+  _timePicker.onTimeSelected = ^(NSInteger time) {
+    _viewModel.cookTime = time;
+    [self updateCookTimeLabel];
+  };
+  
+  [_timePicker showInView:self.view];
+}
+
 - (IBAction)recipeNameChanged: (UITextField *) field {
   self.viewModel.name = field.text;
   [_doneButton setEnabled: [field.text length] > 0];
+}
+
+- (IBAction)servingsChanged:(UITextField *)sender {
+  _viewModel.servings = [sender.text intValue];
+}
+- (IBAction)temperatureChanged:(UITextField *)sender {
+  _viewModel.cookTemperature = sender.text;
+}
+
+- (IBAction)addButtonTouchedDown:(UIButton *)sender {
+  UITableViewCell *cell = [self findParentCell: sender];
+  [cell setSelected:YES animated:NO];
+  [cell setSelected:NO animated:YES];
 }
 
 - (UITableViewCell *) findParentCell: (UIView *) view {
@@ -187,32 +264,6 @@
     view = view.superview;
   }
   return nil;
-}
-
-- (IBAction)preperationTimeChanged:(UITextField *)sender {
-  _viewModel.preperationTime = sender.text;
-}
-- (IBAction)categoryChanged:(UITextField *)sender {
-  _viewModel.category = sender.text;
-  [sender resignFirstResponder];
-}
-- (IBAction)servingsChanged:(UITextField *)sender {
-  _viewModel.servings = [sender.text intValue];
-}
-- (IBAction)temperatureChanged:(UITextField *)sender {
-  _viewModel.cookTemperature = sender.text;
-}
-- (IBAction)sitTimeChanged:(UITextField *)sender {
-  _viewModel.sitTime = sender.text;
-}
-- (IBAction)cookTimeChanged:(UITextField *)sender {
-  _viewModel.cookTime = sender.text;
-}
-
-- (IBAction)addButtonTouchedDown:(UIButton *)sender {
-  UITableViewCell *cell = [self findParentCell: sender];
-  [cell setSelected:YES animated:NO];
-  [cell setSelected:NO animated:YES];
 }
 
 - (IBAction)addFieldTouched:(UIButton *)sender {
@@ -232,10 +283,6 @@
 - (void) removeKeyboard {
   UIView *firstResponder = [self.view findFirstResponder];
   [firstResponder resignFirstResponder];  
-}
-
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  [self removeKeyboard];
 }
 
 #pragma mark image picker

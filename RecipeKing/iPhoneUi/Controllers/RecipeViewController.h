@@ -16,6 +16,8 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *ingredientsHeaderCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *preperationHeaderCell;
 @property (retain, nonatomic) IBOutlet RecipeCategoryView *categoryView;
+@property (retain, nonatomic) IBOutlet UIView *servingsView;
+@property (retain, nonatomic) IBOutlet UILabel *servingsLabel;
 @property (retain, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *preperationTimeLabel;
 @property (retain, nonatomic) IBOutlet PreperationCell *preperationCell;

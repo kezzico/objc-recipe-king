@@ -78,7 +78,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {    
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [_repository remove: [_categories objectAtIndex: indexPath.row]];
-    [self refreshCategories];
+    self.categories = [_repository allCategories];
     [tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"categoryChange" object: self];
   }
