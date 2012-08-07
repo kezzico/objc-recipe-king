@@ -27,6 +27,7 @@
 @synthesize viewModel=_viewModel;
 
 - (void) dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
   [_tableView release];
   [_recipeSearchController release];
   [_viewModel release];
@@ -45,8 +46,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recipeListChanged:)
-     name:@"recipeListChanged" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recipeChanged:)
+     name:@"recipeChanged" object:nil];
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   [self createAddRecipeButton];
   [self refreshRecipes];
@@ -54,17 +55,19 @@
 }
 
 - (void) createAddRecipeButton {
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRecipeTouched)];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    target:self action:@selector(addRecipeTouched)];
+  
   self.navigationItem.rightBarButtonItem = [addButton autorelease];
 }
 
 - (void) addRecipeTouched {
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForNewRecipe];
   UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: [vc autorelease]];
-  [self.navigationController presentModalViewController: nc animated: YES];
+  [self presentViewController: nc animated: YES completion:nil];
 }
 
-- (void) recipeListChanged:(NSNotification *) notification {
+- (void) recipeChanged:(NSNotification *) notification {
   [self refreshRecipes];
 }
 

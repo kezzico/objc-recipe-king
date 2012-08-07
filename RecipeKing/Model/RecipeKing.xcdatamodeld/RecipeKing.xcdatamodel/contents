@@ -9,16 +9,10 @@
         </relationship>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES">
-        <attribute name="cookTemperature" optional="YES" attributeType="String">
-            <userInfo/>
-        </attribute>
-        <attribute name="cookTime" optional="YES" attributeType="Integer 32" defaultValueString="0">
-            <userInfo/>
-        </attribute>
-        <attribute name="image" optional="YES" attributeType="Binary">
-            <userInfo/>
-        </attribute>
         <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="photo" optional="YES" attributeType="Binary">
             <userInfo/>
         </attribute>
         <attribute name="preperation" optional="YES" attributeType="String">
@@ -26,7 +20,6 @@
         </attribute>
         <attribute name="preperationTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="servings" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="sitTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeCategory" inverseName="recipes" inverseEntity="RecipeCategory" syncable="YES"/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient" indexed="YES">
             <userInfo/>

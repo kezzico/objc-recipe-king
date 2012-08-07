@@ -11,6 +11,11 @@
 @implementation PreperationCell
 @synthesize preperationLabel;
 
+- (void)dealloc {
+  [preperationLabel release];
+  [super dealloc];
+}
+
 + (CGFloat) heightWithText: (NSString *) text {
   CGSize size = [self labelSize:text];
   return size.height + 20;
@@ -33,11 +38,6 @@
   CGRect frame = self.preperationLabel.frame;
   frame.size = [PreperationCell labelSize:preperation];
   self.preperationLabel.frame = frame;
-}
-
-- (void)dealloc {
-  [preperationLabel release];
-  [super dealloc];
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PRecipeRepository.h"
+
 @class RecipeViewModel;
 @class RecipeCategoryView;
 @class PreperationCell;
@@ -20,5 +22,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *servingsLabel;
 @property (retain, nonatomic) IBOutlet UILabel *recipeNameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *preperationTimeLabel;
+@property (retain, nonatomic) IBOutlet UIButton *recipePhotoButton;
 @property (retain, nonatomic) IBOutlet PreperationCell *preperationCell;
+@property (retain, nonatomic) IBOutlet UIView *titleView;
+@property (retain, nonatomic) id<PRecipeRepository> repository;
+- (IBAction)photoTouched:(id)sender;
 @end

@@ -18,7 +18,8 @@
 @synthesize cookTime;
 @synthesize sitTime;
 @synthesize servings;
-@synthesize image;
+@synthesize photo;
+@synthesize photoThumbnail;
 @synthesize ingredients;
 
 - (void) dealloc {
@@ -27,7 +28,8 @@
   [category release];
   [cookTemperature release];
   [preperation release];
-  [image release];
+  [photo release];
+  [photoThumbnail release];
   [ingredients release];
   [super dealloc];
 }

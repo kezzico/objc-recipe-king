@@ -11,11 +11,16 @@
 @class RecipeListViewController;
 @class EditRecipeViewController;
 @class CategoryListController;
+@class EditCategoryViewController;
+@class ImageViewController;
 @class Recipe;
 
 @interface ControllerFactory : NSObject
 + (RecipeViewController *) buildViewControllerForRecipe: (Recipe *) recipe;
-+ (RecipeListViewController *) buildViewControllerForRecipeList;
++ (EditRecipeViewController *) buildEditViewControllerForRecipe:(Recipe *) recipe;
 + (EditRecipeViewController *) buildEditViewControllerForNewRecipe;
++ (RecipeListViewController *) buildViewControllerForRecipeList;
 + (CategoryListController *) buildCategoryListViewController;
++ (EditCategoryViewController *) buildEditCategoryViewController;
++ (ImageViewController *) imageViewControllerWithImage: (UIImage *) image;
 @end

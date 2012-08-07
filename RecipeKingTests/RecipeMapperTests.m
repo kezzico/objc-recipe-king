@@ -39,10 +39,7 @@
   [recipe1 addIngredientWithName:@"Rice" quantity:@"1/4 cup"];
   recipe1.preperation = @"Stir hard and fry long";
   recipe1.preperationTime = [NSNumber numberWithInt: 100];
-  recipe1.cookTime = [NSNumber numberWithInt: 40];
-  recipe1.sitTime = [NSNumber numberWithInt: 20];
   recipe1.servings = [NSNumber numberWithInt:1];
-  recipe1.cookTemperature = @"Hot";
   
   recipe2.name = @"Cajun Cow Pie";
   [crepository setCategory: @"Desert" forRecipe: recipe2];
@@ -89,11 +86,8 @@
   
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
   STAssertEqualObjects(recipe.category.name, result.category, @"got %@", result.category);
-  STAssertEqualObjects(recipe.cookTemperature, result.cookTemperature, @"got %@", result.cookTemperature);
   STAssertEqualObjects(recipe.preperation, result.preperation, @"got %@", result.preperation);
   STAssertTrue([recipe.preperationTime integerValue] == result.preperationTime, @"got %d", result.preperationTime);
-  STAssertTrue([recipe.cookTime integerValue] == result.cookTime, @"got %d", result.cookTime);
-  STAssertTrue([recipe.sitTime integerValue] == result.sitTime, @"got %d", result.sitTime);
   STAssertTrue([recipe.servings integerValue] == result.servings, @"got %d", result.servings);
   STAssertTrue([result.ingredients count] == 2, @"got %d", [result.ingredients count]);
   
@@ -111,11 +105,8 @@
   
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
   STAssertEqualObjects(recipe.category.name, result.category, @"got %@", result.category);
-  STAssertEqualObjects(recipe.cookTemperature, result.cookTemperature, @"got %@", result.cookTemperature);
   STAssertEqualObjects(recipe.preperation, result.preperation, @"got %@", result.preperation);
   STAssertTrue([recipe.preperationTime integerValue] == result.preperationTime, @"got %d", result.preperationTime);
-  STAssertTrue([recipe.cookTime integerValue] == result.cookTime, @"got %d", result.cookTime);
-  STAssertTrue([recipe.sitTime integerValue] == result.sitTime, @"got %d", result.sitTime);
   STAssertTrue([recipe.servings integerValue] == result.servings, @"got %d", result.servings);
   STAssertTrue([result.ingredients count] == 2, @"got %d", [result.ingredients count]);
   
@@ -133,13 +124,10 @@
   
   recipe.name = @"Test Recipe";
   recipe.category = @"Desert";
-  recipe.cookTemperature = @"500";
   recipe.preperation = @"cook it all the way";
   
   recipe.servings = 1;
   recipe.preperationTime = 2;
-  recipe.cookTime = 3;
-  recipe.sitTime = 4;
   
   IngredientViewModel *ingredient = [[[IngredientViewModel alloc] init] autorelease];
   recipe.ingredients = [NSArray arrayWithObject: ingredient];
@@ -150,11 +138,8 @@
 
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
   STAssertEqualObjects(recipe.category, result.category.name, @"got %@", result.category.name);
-  STAssertEqualObjects(recipe.cookTemperature, result.cookTemperature, @"got %@", result.cookTemperature);
   STAssertEqualObjects(recipe.preperation, result.preperation, @"got %@", result.preperation);
   STAssertTrue(recipe.preperationTime == [result.preperationTime integerValue], @"got %d", result.preperationTime);
-  STAssertTrue(recipe.cookTime == [result.cookTime integerValue], @"got %d", result.cookTime);
-  STAssertTrue(recipe.sitTime == [result.sitTime integerValue], @"got %d", result.sitTime);
   STAssertTrue(recipe.servings == [result.servings integerValue], @"got %d", result.servings);
   STAssertTrue([result.ingredients count] == 1, @"got %d", [result.ingredients count]);
   

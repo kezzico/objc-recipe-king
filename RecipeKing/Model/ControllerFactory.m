@@ -15,13 +15,14 @@
 #import "EditRecipeViewController.h"
 #import "EditRecipeViewModel.h"
 #import "CategoryListController.h"
+#import "EditCategoryViewController.h"
+#import "ImageViewController.h"
 
 @implementation ControllerFactory
 + (RecipeViewController *) buildViewControllerForRecipe: (Recipe *) recipe {
   RecipeViewController *vc = [[[RecipeViewController alloc] initWithNibName:@"RecipeViewController" bundle:nil] autorelease];
   RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
   vc.viewModel = [mapper viewModelFromRecipe:recipe];
-  
   return vc;
 }
 
@@ -38,11 +39,28 @@
   return vc;
 }
 
++ (EditRecipeViewController *) buildEditViewControllerForRecipe:(Recipe *) recipe {
+  EditRecipeViewController *vc = [[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil];
+  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
+  vc.viewModel = [mapper editViewModelFromRecipe:recipe];
+  return vc;
+}
+
 + (CategoryListController *) buildCategoryListViewController {
   CategoryListController *categoryList = [[[CategoryListController alloc]
     initWithNibName: @"CategoryListController" bundle: nil] autorelease];
   
   return categoryList;
+}
+
++ (EditCategoryViewController *) buildEditCategoryViewController {
+  return [[[EditCategoryViewController alloc] initWithNibName: @"EditCategoryController" bundle: nil] autorelease];
+}
+
++ (ImageViewController *) imageViewControllerWithImage: (UIImage *) image {
+  ImageViewController *vc = [[[ImageViewController alloc] initWithNibName:@"RecipeImageViewController" bundle:nil] autorelease];
+  vc.imageView.image = image;
+  return vc;
 }
 
 @end

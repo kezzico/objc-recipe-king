@@ -1,6 +1,7 @@
 #import "CategoryListController.h"
 #import "CategoryRepository.h"
-#import "EditCategoryController.h"
+#import "EditCategoryViewController.h"
+#import "ControllerFactory.h"
 #import "Container.h"
 
 @implementation CategoryListController
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
+  [self.navigationItem setHidesBackButton:YES animated:NO];
   self.repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
   [self refreshCategories];
   [self createAddCategoryButton];
@@ -32,14 +33,11 @@
 }
 
 - (void) addCategoryTouched {
-  [self showCategoryEditor];
-}
-
-- (void) showCategoryEditor {
-  EditCategoryController *editCategory = [[[EditCategoryController alloc] initWithNibName: @"EditCategoryController" bundle: nil] autorelease];  
-  [self presentModalViewController: editCategory animated: YES];
+  EditCategoryViewController *vc = [ControllerFactory buildEditCategoryViewController];
+  [self presentViewController: vc animated: YES completion:nil];
   
-  editCategory.onDoneTouched = ^(NSString *value) {
+  vc.existingCategories = _categories;
+  vc.onDoneTouched = ^(NSString *value) {
     [_repository add: value];
     [self refreshCategories];
   };
@@ -51,7 +49,8 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSString *value = [self.categories objectAtIndex: indexPath.row];
+  NSInteger r = indexPath.row;
+  NSString *value = r == [_categories count] ? nil : [_categories objectAtIndex: r];
   [self.navigationController popViewControllerAnimated:YES];
   onCategorySelected(value);
 }
@@ -61,7 +60,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [self.categories count];
+  return [self.categories count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,7 +70,8 @@
     cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellIdentifier];
   }
   
-  cell.textLabel.text = [_categories objectAtIndex: indexPath.row];
+  NSInteger r = indexPath.row;
+  cell.textLabel.text = r == [_categories count] ? @"None" : [_categories objectAtIndex: r];
   return cell;
 }
 
@@ -85,7 +85,7 @@
 }
 
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-  return YES;
+  return indexPath.row != [_categories count];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

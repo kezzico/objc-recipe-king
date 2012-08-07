@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 leescode. All rights reserved.
 //
 
-#import "ActionSheetTimePicker.h"
+#import "TimePicker.h"
 
-@implementation ActionSheetTimePicker
+@implementation TimePicker
 @synthesize minsLabel = _minsLabel;
 @synthesize title=_title;
 @synthesize picker=_picker;
@@ -18,6 +18,7 @@
 @synthesize hour=_hour;
 @synthesize minute=_minute;
 @synthesize onTimeSelected;
+
 - (void) dealloc {
   [_picker release];
   [_title release];
@@ -31,7 +32,7 @@
 
 - (id) init {
   if(self = [super init]) {
-    [[NSBundle mainBundle] loadNibNamed: @"ActionSheetTimePicker" owner: self options: nil];
+    [[NSBundle mainBundle] loadNibNamed: @"TimePicker" owner: self options: nil];
   }
   return self;
 }
@@ -67,12 +68,10 @@
   _minsLabel.frame = minsLabelFrame;
 }
 
-- (IBAction)doneButtonPressed:(UIBarButtonItem *)sender {
+- (IBAction)doneButtonTouched:(UIBarButtonItem *)sender {
   onTimeSelected(_hour * 100 + _minute);
   [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
-
-
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
   _hour = [pickerView selectedRowInComponent: 0];

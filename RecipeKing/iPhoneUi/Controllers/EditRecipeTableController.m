@@ -18,29 +18,19 @@ const int kMiscFieldSection = 1;
 @synthesize tableView = _tableView;
 @synthesize recipeNameCell=_recipeNameCell;
 @synthesize totalPrepTimeCell=_totalPrepTimeCell;
-@synthesize cookTimeCell=_cookTimeCell;
-@synthesize sitTimeCell=_sitTimeCell;
 @synthesize categoryCell=_categoryCell;
-@synthesize addFieldCell=_addFieldCell;
 @synthesize preperationCell=_preperationCell;
 @synthesize photoCell=_photoCell;
-@synthesize temperatureCell=_temperatureCell;
 @synthesize servingsCell=_servingsCell;
 @synthesize addIngredientCell = _addIngredientCell;
 @synthesize sections=_sections;
-@synthesize extraFields=_extraFields;
 
 - (void)dealloc {
-  [_extraFields release];
   [_recipeNameCell release];
   [_totalPrepTimeCell release];
-  [_cookTimeCell release];
-  [_sitTimeCell release];
   [_categoryCell release];
-  [_addFieldCell release];
   [_preperationCell release];
   [_photoCell release];
-  [_temperatureCell release];
   [_servingsCell release];
   [_sections release];
   [_addIngredientCell release];
@@ -51,35 +41,27 @@ const int kMiscFieldSection = 1;
 - (void) setupSections {
   self.sections = [NSArray arrayWithObjects:
     [NSArray arrayWithObjects: _recipeNameCell, _totalPrepTimeCell, nil], 
-    [NSMutableArray arrayWithObjects: _categoryCell, _preperationCell, _addFieldCell, nil],
+    [NSArray arrayWithObjects: _categoryCell, _servingsCell, _preperationCell, _photoCell, nil],
     _viewModel.ingredients, nil];
-  
-  self.extraFields = [NSMutableDictionary 
-    dictionaryWithObjects: [NSArray arrayWithObjects:_temperatureCell, _cookTimeCell, _sitTimeCell, _servingsCell, _photoCell, nil]
-                  forKeys: [NSArray arrayWithObjects:@"Cook Temperature", @"Cook Time", @"Sit Time", @"Servings", @"Photo", nil]];
 }
 
-- (void) addExtraField:(NSString *) fieldName {
-  UITableViewCell *extraField = [_extraFields valueForKey: fieldName];
-  [_extraFields removeObjectForKey: fieldName];
-  
-  NSMutableArray *section = [_sections objectAtIndex: kMiscFieldSection];
-  [section insertObject:extraField atIndex: [section count] - 1];
+- (IBAction)addIngredientTouchedDown:(UIButton *)sender {
+  UITableViewCell *cell = [self findParentCell: sender];
+  [cell setSelected:YES animated:NO];
+  [cell setSelected:NO animated:YES];
+}
 
-  [self.tableView reloadData];
-  if([_extraFields count] == 0) {
-    [self removeExtraFieldButton];
+- (UITableViewCell *) findParentCell: (UIView *) view {
+  while(view.superview != nil) {
+    if(view.superview.class == UITableViewCell.class) {
+      return (UITableViewCell *)view.superview;
+    }
+    view = view.superview;
   }
+  return nil;
 }
 
-- (void) removeExtraFieldButton {
-  NSMutableArray *section = [_sections objectAtIndex: kMiscFieldSection];
-  [section removeObjectAtIndex: [section count] - 1];
-  NSIndexPath *index = [NSIndexPath indexPathForRow:[section count] - 1 inSection: kMiscFieldSection];
-  [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:NO];
-}
-
-- (IBAction)addIngredientTouched:(id)sender {
+- (IBAction)addIngredientTouched:(UIButton *)sender {
   [self addIngredient];
 }
 
@@ -91,6 +73,8 @@ const int kMiscFieldSection = 1;
   
   return ingredient;
 }
+
+#pragma mark table view delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if(section == kIngredientsSection) {
@@ -110,12 +94,7 @@ const int kMiscFieldSection = 1;
   return @"";
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if(indexPath.section == kMiscFieldSection) {
-    NSArray *section = [_sections objectAtIndex: indexPath.section];
-    if([section objectAtIndex: indexPath.row] == _photoCell) return 240.0f;    
-  }
-  
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {  
   return 40.0f;
 }
 
@@ -146,11 +125,10 @@ const int kMiscFieldSection = 1;
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {    
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [_viewModel.ingredients removeObjectAtIndex: indexPath.row];
-    NSArray *rowsToDelete = [NSArray arrayWithObject:indexPath];
-    [tableView deleteRowsAtIndexPaths: rowsToDelete withRowAnimation:UITableViewRowAnimationFade];
+    [tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationFade];
   }
 }
 

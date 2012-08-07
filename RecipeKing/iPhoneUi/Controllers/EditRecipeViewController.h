@@ -14,41 +14,33 @@
 @class CategoryPickerController;
 @class TimePickerController;
 @class EditRecipeViewModel;
-@class ActionSheetTimePicker;
-@interface EditRecipeViewController : UITableViewController <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
+@class TimePicker;
+@class PhotoPicker;
+@class NumberPicker;
+@interface EditRecipeViewController : UITableViewController
 @property (retain, nonatomic) IBOutlet UIImageView *backgroundView;
-@property (retain, nonatomic) IBOutlet UIActionSheet *photoSourceOptions;
 @property (retain, nonatomic) id<PCategoryRepository> categoryRepository;
 @property (retain, nonatomic) id<PRecipeRepository> recipeRepository;
-@property (retain, nonatomic) IBOutlet EditRecipeViewModel *viewModel;
+@property (retain, nonatomic) EditRecipeViewModel *viewModel;
 @property (retain, nonatomic) UIBarButtonItem *doneButton;
 
 - (IBAction)categoryTouched:(UIButton *) sender;
 - (IBAction)preperationTimeTouched:(UIButton *)sender;
-- (IBAction)sitTimeTouched:(UIButton *)sender;
-- (IBAction)cookTimeTouched:(UIButton *)sender;
-- (IBAction)recipeNameChanged: (UITextField *) field;
+- (IBAction)photoTouched:(UIButton *)sender;
 - (IBAction)preperationTouched;
-
-- (IBAction)servingsChanged:(UITextField *)sender;
-- (IBAction)temperatureChanged:(UITextField *)sender;
-- (IBAction)photoFieldTouched:(UIButton *)sender;
-
-- (IBAction)addButtonTouchedDown:(UIButton *)sender;
-- (IBAction)addFieldTouched:(UIButton *)sender;
+- (IBAction)servingsTouched:(UIButton *)sender;
+- (IBAction)recipeNameChanged: (UITextField *) field;
 
 @property (retain, nonatomic) IBOutlet UITextField *recipeNameField;
 @property (retain, nonatomic) IBOutlet UILabel *prepTimePlaceHolderLabel;
 @property (retain, nonatomic) IBOutlet UILabel *prepTimeLabel;
-@property (retain, nonatomic) IBOutlet UILabel *sitTimeLabel;
-@property (retain, nonatomic) IBOutlet UILabel *cookTimeLabel;
-
 @property (retain, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (retain, nonatomic) IBOutlet UILabel *preperationLabel;
-@property (retain, nonatomic) IBOutlet UITextField *temperatureField;
-@property (retain, nonatomic) IBOutlet UITextField *servingsField;
-@property (retain, nonatomic) IBOutlet ActionSheetTimePicker *timePicker;
-
+@property (retain, nonatomic) IBOutlet UILabel *photoLabel;
+@property (retain, nonatomic) IBOutlet UILabel *servingsLabel;
+@property (retain, nonatomic) IBOutlet TimePicker *timePicker;
+@property (retain, nonatomic) IBOutlet PhotoPicker *photoPicker;
+@property (retain, nonatomic) IBOutlet NumberPicker *numberPicker;
 
 @property (retain, nonatomic) IBOutlet EditRecipeTableController *editRecipeTable;
 @end

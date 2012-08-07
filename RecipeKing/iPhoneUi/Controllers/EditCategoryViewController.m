@@ -6,19 +6,17 @@
 //  Copyright (c) 2012 leescode.com. All rights reserved.
 //
 
-#import "EditCategoryController.h"
+#import "EditCategoryViewController.h"
 #import "UINavigationBarSkinned.h"
+#import "NSString-Extensions.h"
 
-@interface EditCategoryController ()
-
-@end
-
-@implementation EditCategoryController
+@implementation EditCategoryViewController
 @synthesize categoryInput = _categoryInput;
-@synthesize categoryValue = _categoryValue;
 @synthesize doneButton = _doneButton;
 @synthesize navigationBar = _navigationBar;
+@synthesize existingCategories=_existingCategories;
 @synthesize onDoneTouched;
+
 - (void)viewDidUnload {
   [self setCategoryInput:nil];
   [self setNavigationBar:nil];
@@ -27,17 +25,20 @@
 
 - (void)dealloc {
   [_categoryInput release];
-  [_categoryValue release];
-  [onDoneTouched release];
   [_navigationBar release];
+  [_existingCategories release];
+  [onDoneTouched release];
   [super dealloc];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  _categoryInput.text = _categoryValue;
-  [_categoryInput becomeFirstResponder];  
+  [_categoryInput becomeFirstResponder];
   [self categoryChanged];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (IBAction) cancelTouched {
@@ -53,10 +54,6 @@
   [_doneButton setEnabled: [self isCategoryNameValid]];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   if([self isCategoryNameValid] == NO) {
     return NO;
@@ -68,8 +65,16 @@
 }
 
 - (BOOL) isCategoryNameValid {
-  NSString *name = _categoryInput.text;
-  return [name length] && ![name isEqualToString: _categoryValue];
+  NSString *category = _categoryInput.text;
+  if([NSString isEmpty: category]) return NO;
+  
+  if([category caseInsensitiveCompare:@"None"] == NSOrderedSame) return NO;
+  
+  for(NSString *c in self.existingCategories) {
+    if([c caseInsensitiveCompare:category] == NSOrderedSame) return NO;
+  }
+  
+  return YES;
 }
 
 @end

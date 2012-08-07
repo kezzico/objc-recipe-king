@@ -21,7 +21,8 @@
 @property (nonatomic) NSInteger sitTime;
 @property (nonatomic) NSInteger servings;
 
-@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) UIImage *photo;
+@property (nonatomic, retain) UIImage *photoThumbnail;
 @property (nonatomic, retain) NSArray *ingredients;
 
 @end

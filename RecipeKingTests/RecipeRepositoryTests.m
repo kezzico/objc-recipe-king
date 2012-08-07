@@ -37,15 +37,11 @@
   Recipe *newRecipe = [_repository newRecipe];
   newRecipe.name = @"Test Recipe";
   newRecipe.preperationTime = [NSNumber numberWithInt:300];
-  newRecipe.cookTime = [NSNumber numberWithInt:230];
-  newRecipe.cookTemperature = @"350";
   newRecipe.preperation = @"Test it";
   [_repository save];
   
   Recipe *result = [_repository recipeWithId: newRecipe.objectID];
   STAssertEqualObjects(newRecipe.name, result.name, @"names do not match");
-  STAssertEqualObjects(newRecipe.cookTime, result.cookTime, @"cook times do not match");
-  STAssertEqualObjects(newRecipe.cookTemperature, result.cookTemperature, @"cook temperatures do not match");
   STAssertEqualObjects(newRecipe.preperation, result.preperation, @"instructions do not match");
 }
 

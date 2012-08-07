@@ -12,15 +12,10 @@
 @property (nonatomic, retain) NSManagedObjectID *recipeId;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *category;
-@property (nonatomic, retain) NSString *cookTemperature;
 @property (nonatomic, retain) NSString *preperation;
-
 @property (nonatomic) NSInteger preperationTime;
-@property (nonatomic) NSInteger cookTime;
-@property (nonatomic) NSInteger sitTime;
 @property (nonatomic) NSInteger servings;
-
-@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) UIImage *photo;
 @property (nonatomic, retain) NSMutableArray *ingredients;
 
 @end

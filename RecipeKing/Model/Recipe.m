@@ -14,19 +14,14 @@
 @implementation Recipe
 @dynamic name;
 @dynamic category;
-@dynamic cookTemperature;
-@dynamic image;
+@dynamic photo;
 @dynamic preperation;
 @dynamic ingredients;
 @dynamic preperationTime;
-@dynamic cookTime;
-@dynamic sitTime;
 @dynamic servings;
 
 - (void) removeAllIngredients {
-  for(Ingredient *igt in self.ingredients) {
-    [self removeIngredientsObject:igt];
-  }
+  [self removeIngredients: self.ingredients];
 }
 
 - (Ingredient *) ingredientAtIndex:(NSInteger) index {
