@@ -54,12 +54,12 @@
 }
 
 + (EditCategoryViewController *) buildEditCategoryViewController {
-  return [[[EditCategoryViewController alloc] initWithNibName: @"EditCategoryController" bundle: nil] autorelease];
+  return [[[EditCategoryViewController alloc] initWithNibName: @"EditCategoryViewController" bundle: nil] autorelease];
 }
 
 + (ImageViewController *) imageViewControllerWithImage: (UIImage *) image {
-  ImageViewController *vc = [[[ImageViewController alloc] initWithNibName:@"RecipeImageViewController" bundle:nil] autorelease];
-  vc.imageView.image = image;
+  ImageViewController *vc = [[[ImageViewController alloc] initWithNibName:@"ImageViewController" bundle:nil] autorelease];
+  vc.image = image;
   return vc;
 }
 

@@ -72,7 +72,10 @@
     [categoryRepository setCategory: v.category forRecipe:r];
   }
   
-  [r removeAllIngredients];
+  for(Ingredient *ig in r.ingredients) {
+    [r.managedObjectContext deleteObject:ig];
+  }
+  
   for(IngredientViewModel *iv in v.ingredients) {
     if([NSString isEmpty:iv.name]) continue;
     [r addIngredientWithName:iv.name quantity:iv.quantity];

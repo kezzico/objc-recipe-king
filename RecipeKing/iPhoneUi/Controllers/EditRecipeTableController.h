@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class EditRecipeViewModel;
 @interface EditRecipeTableController : NSObject <UITableViewDataSource, UITableViewDelegate>
+- (void) unload;
 - (void) setupSections;
 - (IBAction)addIngredientTouched:(UIButton *)sender;
 - (IBAction)addIngredientTouchedDown:(UIButton *)sender;
@@ -21,6 +22,5 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *photoCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *servingsCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *addIngredientCell;
-
 @property (retain, nonatomic) NSArray *sections;
 @end

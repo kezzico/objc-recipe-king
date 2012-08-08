@@ -30,9 +30,4 @@
 - (void)removeIngredientsObject:(Ingredient *)value;
 - (void)addIngredients:(NSSet *)values;
 - (void)removeIngredients:(NSSet *)values;
-- (void)removeAllIngredients;
 @end
-
-
-
-

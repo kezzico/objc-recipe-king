@@ -425,7 +425,7 @@
 							</object>
 							<object class="IBUIImageView" id="968460049">
 								<reference key="NSNextResponder" ref="184393063"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{271, 11}, {18, 18}}</string>
 								<reference key="NSSuperview" ref="184393063"/>
 								<reference key="NSWindow"/>
@@ -1569,7 +1569,6 @@
 						<string key="preperationTimeTouched:">UIButton</string>
 						<string key="preperationTouched">id</string>
 						<string key="recipeNameChanged:">UITextField</string>
-						<string key="servingsChanged:">UITextField</string>
 						<string key="servingsTouched:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -1593,10 +1592,6 @@
 							<string key="name">recipeNameChanged:</string>
 							<string key="candidateClassName">UITextField</string>
 						</object>
-						<object class="IBActionInfo" key="servingsChanged:">
-							<string key="name">servingsChanged:</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
 						<object class="IBActionInfo" key="servingsTouched:">
 							<string key="name">servingsTouched:</string>
 							<string key="candidateClassName">UIButton</string>
@@ -1613,7 +1608,6 @@
 						<string key="prepTimePlaceHolderLabel">UILabel</string>
 						<string key="preperationLabel">UILabel</string>
 						<string key="recipeNameField">UITextField</string>
-						<string key="servingsField">UITextField</string>
 						<string key="servingsLabel">UILabel</string>
 						<string key="timePicker">TimePicker</string>
 					</dictionary>
@@ -1656,10 +1650,6 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="recipeNameField">
 							<string key="name">recipeNameField</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="servingsField">
-							<string key="name">servingsField</string>
 							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="servingsLabel">

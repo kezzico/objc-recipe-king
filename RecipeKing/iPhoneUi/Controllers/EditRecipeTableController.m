@@ -38,6 +38,16 @@ const int kMiscFieldSection = 1;
   [super dealloc];
 }
 
+- (void) unload {
+  [self setTableView:nil];
+  [self setRecipeNameCell:nil];
+  [self setCategoryCell:nil];
+  [self setPreperationCell:nil];
+  [self setPhotoCell:nil];
+  [self setServingsCell:nil];
+  [self setAddIngredientCell:nil];
+}
+
 - (void) setupSections {
   self.sections = [NSArray arrayWithObjects:
     [NSArray arrayWithObjects: _recipeNameCell, _totalPrepTimeCell, nil], 

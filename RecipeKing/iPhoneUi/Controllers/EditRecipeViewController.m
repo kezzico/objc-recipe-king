@@ -17,6 +17,7 @@
 #import "Container.h"
 #import "ControllerFactory.h"
 #import "NSString-Extensions.h"
+#import "UIImage+Extensions.h"
 #import "TimePicker.h"
 #import "PhotoPicker.h"
 #import "NumberPicker.h"
@@ -58,10 +59,10 @@
 }
 
 - (void)viewDidUnload {
+  [self.editRecipeTable unload];
   [self setEditRecipeTable:nil];
   [self setDoneButton: nil];
   [self setBackgroundView:nil];
-  [self setViewModel:nil];
   [self setPreperationLabel:nil];
   [self setCategoryLabel:nil];
   [self setRecipeNameField:nil];
@@ -79,6 +80,7 @@
 }
 
 - (void)viewDidLoad {
+  NSLog(@"load");
   [super viewDidLoad];
   self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   
@@ -221,7 +223,7 @@
   self.photoPicker.showRemovePhotoOption = _viewModel.photo != nil;
   [self.photoPicker showPicker];
   self.photoPicker.onImageChosen = ^(UIImage *photo) {
-    _viewModel.photo = photo;
+    _viewModel.photo = [photo imageByScalingAndCroppingForSize:CGSizeMake(640, 640)];
     [self updateImageField];
   };
 }

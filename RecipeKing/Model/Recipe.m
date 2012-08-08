@@ -20,10 +20,6 @@
 @dynamic preperationTime;
 @dynamic servings;
 
-- (void) removeAllIngredients {
-  [self removeIngredients: self.ingredients];
-}
-
 - (Ingredient *) ingredientAtIndex:(NSInteger) index {
   for(Ingredient *igt in self.ingredients) {
     if([igt.index integerValue] == index) return igt;

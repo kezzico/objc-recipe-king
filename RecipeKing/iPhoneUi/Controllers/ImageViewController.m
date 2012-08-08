@@ -9,10 +9,16 @@
 #import "ImageViewController.h"
 
 @implementation ImageViewController
+@synthesize image=_image;
+- (void) dealloc {
+  [_image release];
+  [super dealloc];
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.contentMode = UIViewContentModeScaleAspectFill;
+  self.imageView.image = self.image;
+  self.view.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (UIImageView *) imageView {
