@@ -9,10 +9,10 @@
 #import "PreperationCell.h"
 
 @implementation PreperationCell
-@synthesize preperationLabel;
+@synthesize preparationLabel;
 
 - (void)dealloc {
-  [preperationLabel release];
+  [preparationLabel release];
   [super dealloc];
 }
 
@@ -32,12 +32,12 @@
   return [text sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lbm];
 }
 
-- (void) setPreperation: (NSString *) preperation {
-  self.preperationLabel.text = preperation;
+- (void) setPreparation: (NSString *) text {
+  self.preparationLabel.text = text;
   
-  CGRect frame = self.preperationLabel.frame;
-  frame.size = [PreperationCell labelSize:preperation];
-  self.preperationLabel.frame = frame;
+  CGRect frame = self.preparationLabel.frame;
+  frame.size = [PreperationCell labelSize:text];
+  self.preparationLabel.frame = frame;
 }
 
 @end

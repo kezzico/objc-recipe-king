@@ -11,7 +11,7 @@
 @implementation ListRecipe
 @synthesize recipeId;
 @synthesize name;
-@synthesize preperationTime;
+@synthesize preparationTime;
 
 - (void) dealloc {
   [recipeId release];

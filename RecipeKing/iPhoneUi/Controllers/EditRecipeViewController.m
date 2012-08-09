@@ -27,7 +27,7 @@
 @synthesize prepTimePlaceHolderLabel = _prepTimePlaceHolderLabel;
 @synthesize prepTimeLabel = _prepTimeLabel;
 @synthesize categoryLabel = _categoryLabel;
-@synthesize preperationLabel = _preperationLabel;
+@synthesize preparationLabel = _preparationLabel;
 @synthesize photoLabel = _photoLabel;
 @synthesize servingsLabel = _servingsLabel;
 @synthesize viewModel = _viewModel;
@@ -46,7 +46,7 @@
   [_viewModel release];
   [_backgroundView release];
   [_recipeRepository release];
-  [_preperationLabel release];
+  [_preparationLabel release];
   [_categoryLabel release];
   [_recipeNameField release];
   [_prepTimePlaceHolderLabel release];
@@ -63,12 +63,11 @@
   [self setEditRecipeTable:nil];
   [self setDoneButton: nil];
   [self setBackgroundView:nil];
-  [self setPreperationLabel:nil];
+  [self setPreparationLabel:nil];
   [self setCategoryLabel:nil];
   [self setRecipeNameField:nil];
   [self setPrepTimePlaceHolderLabel:nil];
   [self setPrepTimeLabel:nil];
-  [self setPhotoPicker:nil];
   [self setPhotoLabel:nil];
   [self setNumberPicker:nil];
   [self setServingsLabel:nil];
@@ -80,7 +79,6 @@
 }
 
 - (void)viewDidLoad {
-  NSLog(@"load");
   [super viewDidLoad];
   self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   
@@ -94,7 +92,7 @@
 
 - (void) updateFields {
   self.recipeNameField.text = _viewModel.name;
-  self.preperationLabel.text = _viewModel.preperation;
+  self.preparationLabel.text = _viewModel.preparation;
   [self updateCategoryField];
   [self updateServingsField];
   [self updatePreperationTimeLabel];
@@ -107,13 +105,13 @@
 }
 
 - (void) updatePreperationTimeLabel {
-  if(_viewModel.preperationTime == 0) {
+  if(_viewModel.preparationTime == 0) {
     [self.prepTimeLabel setHidden:YES];
     [self.prepTimePlaceHolderLabel setHidden:NO];
   } else {
     [self.prepTimeLabel setHidden:NO];
     [self.prepTimePlaceHolderLabel setHidden:YES];
-    self.prepTimeLabel.text = [NSString stringFromTime: _viewModel.preperationTime];
+    self.prepTimeLabel.text = [NSString stringFromTime: _viewModel.preparationTime];
   }
 }
 
@@ -164,16 +162,16 @@
   [self dismissModalViewControllerAnimated: YES];
 }
 
-- (IBAction) preperationTouched {
+- (IBAction) preparationTouched {
   [self.view endEditing:YES];
   
   EditPreperationController *vc = [[[EditPreperationController alloc] 
     initWithNibName: @"EditPreperationController" bundle: nil] autorelease];
   
-  [vc setPreperationText: _viewModel.preperation];
+  [vc setPreperationText: _viewModel.preparation];
   vc.onDoneTouched = ^(NSString *value){
-    _preperationLabel.text = value;
-    _viewModel.preperation = value;
+    _preparationLabel.text = value;
+    _viewModel.preparation = value;
   };
   
   [self.navigationController pushViewController: vc animated: YES];
@@ -201,12 +199,12 @@
   };
 }
 
-- (IBAction) preperationTimeTouched:(UIButton *)sender {
+- (IBAction) preparationTimeTouched:(UIButton *)sender {
   [self.view endEditing:YES];
   _timePicker.title = @"Preperation Time";
-  _timePicker.value = _viewModel.preperationTime;
+  _timePicker.value = _viewModel.preparationTime;
   _timePicker.onTimeSelected = ^(NSInteger time) {
-    _viewModel.preperationTime = time;
+    _viewModel.preparationTime = time;
     [self updatePreperationTimeLabel];
   };
   
@@ -222,6 +220,7 @@
   [self.view endEditing:YES];
   self.photoPicker.showRemovePhotoOption = _viewModel.photo != nil;
   [self.photoPicker showPicker];
+  
   self.photoPicker.onImageChosen = ^(UIImage *photo) {
     _viewModel.photo = [photo imageByScalingAndCroppingForSize:CGSizeMake(640, 640)];
     [self updateImageField];

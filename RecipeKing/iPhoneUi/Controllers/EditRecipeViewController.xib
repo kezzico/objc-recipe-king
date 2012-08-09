@@ -538,7 +538,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Preperation</string>
+								<string key="IBUIText">Preparation</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
@@ -908,14 +908,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">preperationLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="366854800"/>
-					</object>
-					<int key="connectionID">161</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">categoryLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="275163220"/>
@@ -988,6 +980,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">preparationLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="366854800"/>
+					</object>
+					<int key="connectionID">280</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="408406720"/>
 						<reference key="destination" ref="287731885"/>
@@ -1053,14 +1053,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">preperationCell</string>
-						<reference key="source" ref="287731885"/>
-						<reference key="destination" ref="1057142895"/>
-					</object>
-					<int key="connectionID">122</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">servingsCell</string>
 						<reference key="source" ref="287731885"/>
 						<reference key="destination" ref="1025753837"/>
@@ -1092,6 +1084,14 @@
 					<int key="connectionID">264</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">preparationCell</string>
+						<reference key="source" ref="287731885"/>
+						<reference key="destination" ref="1057142895"/>
+					</object>
+					<int key="connectionID">277</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">addIngredientTouched:</string>
 						<reference key="source" ref="571561585"/>
@@ -1111,12 +1111,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">preperationTouched</string>
+						<string key="label">preparationTouched</string>
 						<reference key="source" ref="25229859"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">275</int>
+					<int key="connectionID">279</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1129,12 +1129,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">preperationTimeTouched:</string>
+						<string key="label">preparationTimeTouched:</string>
 						<reference key="source" ref="136832930"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">230</int>
+					<int key="connectionID">278</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1490,7 +1490,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">276</int>
+			<int key="maxID">280</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1515,7 +1515,7 @@
 						<string key="addIngredientCell">UITableViewCell</string>
 						<string key="categoryCell">UITableViewCell</string>
 						<string key="photoCell">UITableViewCell</string>
-						<string key="preperationCell">UITableViewCell</string>
+						<string key="preparationCell">UITableViewCell</string>
 						<string key="recipeNameCell">UITableViewCell</string>
 						<string key="servingsCell">UITableViewCell</string>
 						<string key="tableView">UITableView</string>
@@ -1534,8 +1534,8 @@
 							<string key="name">photoCell</string>
 							<string key="candidateClassName">UITableViewCell</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="preperationCell">
-							<string key="name">preperationCell</string>
+						<object class="IBToOneOutletInfo" key="preparationCell">
+							<string key="name">preparationCell</string>
 							<string key="candidateClassName">UITableViewCell</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="recipeNameCell">
@@ -1566,8 +1566,8 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="categoryTouched:">UIButton</string>
 						<string key="photoTouched:">UIButton</string>
-						<string key="preperationTimeTouched:">UIButton</string>
-						<string key="preperationTouched">id</string>
+						<string key="preparationTimeTouched:">UIButton</string>
+						<string key="preparationTouched">id</string>
 						<string key="recipeNameChanged:">UITextField</string>
 						<string key="servingsTouched:">UIButton</string>
 					</dictionary>
@@ -1580,12 +1580,12 @@
 							<string key="name">photoTouched:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBActionInfo" key="preperationTimeTouched:">
-							<string key="name">preperationTimeTouched:</string>
+						<object class="IBActionInfo" key="preparationTimeTouched:">
+							<string key="name">preparationTimeTouched:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBActionInfo" key="preperationTouched">
-							<string key="name">preperationTouched</string>
+						<object class="IBActionInfo" key="preparationTouched">
+							<string key="name">preparationTouched</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="recipeNameChanged:">
@@ -1606,7 +1606,7 @@
 						<string key="photoPicker">PhotoPicker</string>
 						<string key="prepTimeLabel">UILabel</string>
 						<string key="prepTimePlaceHolderLabel">UILabel</string>
-						<string key="preperationLabel">UILabel</string>
+						<string key="preparationLabel">UILabel</string>
 						<string key="recipeNameField">UITextField</string>
 						<string key="servingsLabel">UILabel</string>
 						<string key="timePicker">TimePicker</string>
@@ -1644,8 +1644,8 @@
 							<string key="name">prepTimePlaceHolderLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="preperationLabel">
-							<string key="name">preperationLabel</string>
+						<object class="IBToOneOutletInfo" key="preparationLabel">
+							<string key="name">preparationLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="recipeNameField">

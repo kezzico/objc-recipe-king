@@ -14,9 +14,9 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *cookTemperature;
-@property (nonatomic, retain) NSString *preperation;
+@property (nonatomic, retain) NSString *preparation;
 
-@property (nonatomic) NSInteger preperationTime;
+@property (nonatomic) NSInteger preparationTime;
 @property (nonatomic) NSInteger cookTime;
 @property (nonatomic) NSInteger sitTime;
 @property (nonatomic) NSInteger servings;

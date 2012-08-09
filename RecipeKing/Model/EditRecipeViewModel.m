@@ -13,17 +13,17 @@
 @synthesize recipeId;
 @synthesize name;
 @synthesize category;
-@synthesize preperation;
+@synthesize preparation;
 @synthesize photo;
 @synthesize ingredients;
-@synthesize preperationTime;
+@synthesize preparationTime;
 @synthesize servings;
 
 - (void) dealloc {
   [recipeId release];
   [name release];
   [category release];
-  [preperation release];
+  [preparation release];
   [photo release];
   [ingredients release];
   [super dealloc];

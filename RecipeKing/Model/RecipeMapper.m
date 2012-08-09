@@ -38,11 +38,11 @@
   v.name = r.name;
   v.category = [r.category name];
   v.photo = [UIImage imageWithData: r.photo];
-  v.preperation = r.preperation;
+  v.preparation = r.preparation;
   v.recipeId = r.objectID;
   
   v.servings = [r.servings integerValue];
-  v.preperationTime = [r.preperationTime integerValue];
+  v.preparationTime = [r.preparationTime integerValue];
 
   NSArray *ingredients = [self sortIngredientsToArray: r.ingredients];
   for(Ingredient *ingredient in ingredients) {
@@ -63,9 +63,9 @@
 
 - (void) editViewModel: (EditRecipeViewModel *) v toRecipe: (Recipe *) r {
   r.name = v.name;
-  r.preperation = v.preperation;
+  r.preparation = v.preparation;
   
-  r.preperationTime = [NSNumber numberWithInteger: v.preperationTime];
+  r.preparationTime = [NSNumber numberWithInteger: v.preparationTime];
   r.servings = [NSNumber numberWithInteger: v.servings];
   r.photo = UIImagePNGRepresentation(v.photo);
   if([NSString isEmpty:v.category] == NO) {
@@ -86,10 +86,10 @@
   RecipeViewModel *v = [[[RecipeViewModel alloc] init] autorelease];
   v.name = r.name;
   v.category = r.category.name;
-  v.preperation = r.preperation;
+  v.preparation = r.preparation;
   v.recipeId = r.objectID;
   
-  v.preperationTime = [r.preperationTime integerValue];
+  v.preparationTime = [r.preparationTime integerValue];
   v.servings = [r.servings integerValue];
 
   v.photo = [UIImage imageWithData:r.photo];

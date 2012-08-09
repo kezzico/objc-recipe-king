@@ -15,9 +15,9 @@
 @dynamic name;
 @dynamic category;
 @dynamic photo;
-@dynamic preperation;
+@dynamic preparation;
 @dynamic ingredients;
-@dynamic preperationTime;
+@dynamic preparationTime;
 @dynamic servings;
 
 - (Ingredient *) ingredientAtIndex:(NSInteger) index {

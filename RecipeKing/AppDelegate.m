@@ -11,6 +11,9 @@
 #import "RecipeListViewController.h"
 #import "RecipeRepository.h"
 #import "UINavigationBarSkinned.h"
+#import "DatabaseMigrator.h"
+#import "Container.h"
+#import "PCategoryRepository.h"
 
 @implementation AppDelegate
 @synthesize window = _window;
@@ -22,13 +25,9 @@
   [super dealloc];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  NSString *importFile = [launchOptions valueForKey: @"URL"];
-  if(importFile) {
-    // todo: import recipe
-  }
-  
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [self migrateFromVersion1];
+  [self addCategoriesOnFirstRun];
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.backgroundColor = [UIColor whiteColor];
   
@@ -40,9 +39,27 @@
   return YES;
 }
 
-- (BOOL) application: (UIApplication *) application handleOpenURL:(NSURL *) url {
-  // todo: import file
-  return YES;
+- (void) migrateFromVersion1 {
+  DatabaseMigrator *migrator = [[[DatabaseMigrator alloc] init] autorelease];
+  if([migrator shouldMigrateDatabase]) {
+    [migrator migratev1RecipeTov2];
+    [migrator deletev1Database];
+  }
+}
+
+- (void) addCategoriesOnFirstRun {
+  if([[NSUserDefaults standardUserDefaults] boolForKey:@"isNotFirstRun"] == NO) {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isNotFirstRun"];
+    id<PCategoryRepository> repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
+    [repository add:@"Appetizer"];
+    [repository add:@"Bread"];
+    [repository add:@"Breakfast"];
+    [repository add:@"Dessert"];
+    [repository add:@"Drinks"];
+    [repository add:@"Salad"];
+    [repository add:@"Seafood"];
+    [repository add:@"Pasta"];    
+  }
 }
 
 @end

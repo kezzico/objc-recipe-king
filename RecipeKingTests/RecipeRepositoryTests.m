@@ -36,13 +36,13 @@
 - (void) testShouldSaveRecipe {
   Recipe *newRecipe = [_repository newRecipe];
   newRecipe.name = @"Test Recipe";
-  newRecipe.preperationTime = [NSNumber numberWithInt:300];
-  newRecipe.preperation = @"Test it";
+  newRecipe.preparationTime = [NSNumber numberWithInt:300];
+  newRecipe.preparation = @"Test it";
   [_repository save];
   
   Recipe *result = [_repository recipeWithId: newRecipe.objectID];
   STAssertEqualObjects(newRecipe.name, result.name, @"names do not match");
-  STAssertEqualObjects(newRecipe.preperation, result.preperation, @"instructions do not match");
+  STAssertEqualObjects(newRecipe.preparation, result.preparation, @"instructions do not match");
 }
 
 - (void) testShouldSaveRecipeWithCategory {

@@ -13,6 +13,6 @@
 
 @property (nonatomic, retain) NSManagedObjectID *recipeId;
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic) NSInteger preperationTime;
+@property (nonatomic) NSInteger preparationTime;
 
 @end

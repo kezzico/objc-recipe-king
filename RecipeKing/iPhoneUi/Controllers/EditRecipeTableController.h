@@ -18,7 +18,7 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *recipeNameCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *totalPrepTimeCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *categoryCell;
-@property (retain, nonatomic) IBOutlet UITableViewCell *preperationCell;
+@property (retain, nonatomic) IBOutlet UITableViewCell *preparationCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *photoCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *servingsCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *addIngredientCell;

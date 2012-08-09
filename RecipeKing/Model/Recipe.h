@@ -16,9 +16,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) RecipeCategory *category;
 @property (nonatomic, retain) NSData * photo;
-@property (nonatomic, retain) NSString * preperation;
+@property (nonatomic, retain) NSString * preparation;
 @property (nonatomic, retain) NSSet *ingredients;
-@property (nonatomic, retain) NSNumber * preperationTime;
+@property (nonatomic, retain) NSNumber * preparationTime;
 @property (nonatomic, retain) NSNumber * servings;
 @end
 

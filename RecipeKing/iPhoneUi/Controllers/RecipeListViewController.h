@@ -11,9 +11,11 @@
 
 @class RecipeListSearchController;
 @class RecipeListViewModel;
+@class RateMyAppController;
 @interface RecipeListViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet RecipeListSearchController *recipeSearchController;
 @property (nonatomic, retain) id<PRecipeRepository> repository;
 @property (nonatomic, retain) RecipeListViewModel *viewModel;
+@property (retain, nonatomic) IBOutlet RateMyAppController *rateMyAppController;
 @end

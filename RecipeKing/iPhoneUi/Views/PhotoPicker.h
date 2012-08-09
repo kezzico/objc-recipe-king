@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class PhotoPicker;
 @interface PhotoPicker : NSObject <UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate> {
   NSInteger takePhotoIndex, choosePhotoIndex, removePhotoIndex;
 }

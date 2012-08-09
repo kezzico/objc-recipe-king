@@ -19,7 +19,7 @@ const int kMiscFieldSection = 1;
 @synthesize recipeNameCell=_recipeNameCell;
 @synthesize totalPrepTimeCell=_totalPrepTimeCell;
 @synthesize categoryCell=_categoryCell;
-@synthesize preperationCell=_preperationCell;
+@synthesize preparationCell=_preparationCell;
 @synthesize photoCell=_photoCell;
 @synthesize servingsCell=_servingsCell;
 @synthesize addIngredientCell = _addIngredientCell;
@@ -29,7 +29,7 @@ const int kMiscFieldSection = 1;
   [_recipeNameCell release];
   [_totalPrepTimeCell release];
   [_categoryCell release];
-  [_preperationCell release];
+  [_preparationCell release];
   [_photoCell release];
   [_servingsCell release];
   [_sections release];
@@ -42,7 +42,7 @@ const int kMiscFieldSection = 1;
   [self setTableView:nil];
   [self setRecipeNameCell:nil];
   [self setCategoryCell:nil];
-  [self setPreperationCell:nil];
+  [self setPreparationCell:nil];
   [self setPhotoCell:nil];
   [self setServingsCell:nil];
   [self setAddIngredientCell:nil];
@@ -51,7 +51,7 @@ const int kMiscFieldSection = 1;
 - (void) setupSections {
   self.sections = [NSArray arrayWithObjects:
     [NSArray arrayWithObjects: _recipeNameCell, _totalPrepTimeCell, nil], 
-    [NSArray arrayWithObjects: _categoryCell, _servingsCell, _preperationCell, _photoCell, nil],
+    [NSArray arrayWithObjects: _categoryCell, _servingsCell, _preparationCell, _photoCell, nil],
     _viewModel.ingredients, nil];
 }
 

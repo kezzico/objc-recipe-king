@@ -13,8 +13,8 @@
 @synthesize name;
 @synthesize category;
 @synthesize cookTemperature;
-@synthesize preperation;
-@synthesize preperationTime;
+@synthesize preparation;
+@synthesize preparationTime;
 @synthesize cookTime;
 @synthesize sitTime;
 @synthesize servings;
@@ -27,7 +27,7 @@
   [name release];
   [category release];
   [cookTemperature release];
-  [preperation release];
+  [preparation release];
   [photo release];
   [photoThumbnail release];
   [ingredients release];

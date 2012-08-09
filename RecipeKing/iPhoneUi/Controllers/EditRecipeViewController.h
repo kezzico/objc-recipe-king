@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PRecipeRepository.h"
 #import "PCategoryRepository.h"
-
 @class EditRecipeTableController;
 @class CategoryPickerController;
 @class TimePickerController;
@@ -25,9 +24,9 @@
 @property (retain, nonatomic) UIBarButtonItem *doneButton;
 
 - (IBAction)categoryTouched:(UIButton *) sender;
-- (IBAction)preperationTimeTouched:(UIButton *)sender;
+- (IBAction)preparationTimeTouched:(UIButton *)sender;
 - (IBAction)photoTouched:(UIButton *)sender;
-- (IBAction)preperationTouched;
+- (IBAction)preparationTouched;
 - (IBAction)servingsTouched:(UIButton *)sender;
 - (IBAction)recipeNameChanged: (UITextField *) field;
 
@@ -35,7 +34,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *prepTimePlaceHolderLabel;
 @property (retain, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (retain, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (retain, nonatomic) IBOutlet UILabel *preperationLabel;
+@property (retain, nonatomic) IBOutlet UILabel *preparationLabel;
 @property (retain, nonatomic) IBOutlet UILabel *photoLabel;
 @property (retain, nonatomic) IBOutlet UILabel *servingsLabel;
 @property (retain, nonatomic) IBOutlet TimePicker *timePicker;

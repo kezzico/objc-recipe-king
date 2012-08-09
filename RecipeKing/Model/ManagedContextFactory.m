@@ -36,8 +36,8 @@ static ManagedContextFactory *contextfactory;
 }
 
 - (NSURL *) storeUrl {
-  NSURL *docsDir = [[[NSFileManager defaultManager] URLsForDirectory: NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
-  return [docsDir URLByAppendingPathComponent: @"RecipeKing.sqlite"];
+  NSURL *libraryUrl = [[[NSFileManager defaultManager] URLsForDirectory: NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
+  return [libraryUrl URLByAppendingPathComponent: @"RecipeKing.sqlite"];
 }
 
 - (void) copyDatabaseToDocuments {

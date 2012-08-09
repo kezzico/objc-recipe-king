@@ -25,18 +25,21 @@
 @synthesize tableView=_tableView;
 @synthesize recipeSearchController=_recipeSearchController;
 @synthesize viewModel=_viewModel;
+@synthesize rateMyAppController = _rateMyAppController;
 
 - (void) dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   [_tableView release];
   [_recipeSearchController release];
   [_viewModel release];
+  [_rateMyAppController release];
   [super dealloc];
 }
 
 - (void)viewDidUnload {
   [self setTableView:nil];
   [self setRecipeSearchController:nil];
+  [self setRateMyAppController:nil];
   [super viewDidUnload];
 }
 
@@ -64,7 +67,7 @@
 - (void) addRecipeTouched {
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForNewRecipe];
   UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: [vc autorelease]];
-  [self presentViewController: nc animated: YES completion:nil];
+  [self presentViewController: nc animated: YES completion:^{}];
 }
 
 - (void) recipeChanged:(NSNotification *) notification {
@@ -122,7 +125,7 @@
   
   ListRecipe *recipe = [self.viewModel.recipesAndCategories objectAtIndex: row];
   cell.recipeNameLabel.text = recipe.name;
-  cell.preperationTimeLabel.text = [NSString stringFromTime: recipe.preperationTime];
+  cell.preparationTimeLabel.text = [NSString stringFromTime: recipe.preparationTime];
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   
   return cell;

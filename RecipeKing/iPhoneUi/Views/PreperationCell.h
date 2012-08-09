@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PreperationCell : UITableViewCell
-@property (retain, nonatomic) IBOutlet UILabel *preperationLabel;
+@property (retain, nonatomic) IBOutlet UILabel *preparationLabel;
 + (CGFloat) heightWithText: (NSString *) text;
-- (void) setPreperation: (NSString *) text;
+- (void) setPreparation: (NSString *) text;
 @end

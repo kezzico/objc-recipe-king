@@ -70,14 +70,14 @@
   UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
   imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
   imagePicker.delegate = self;
-  [self.controller presentViewController: imagePicker animated: YES completion:nil];
+  [self.controller presentViewController: imagePicker animated:YES completion:^{}];
 }
 
 - (void) showCamera {
   UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
   imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
   imagePicker.delegate = self;
-  [self.controller presentViewController: imagePicker animated: YES completion:nil];
+  [self.controller.navigationController pushViewController:imagePicker animated:YES];
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger) buttonIndex {
@@ -90,8 +90,8 @@
 }
 
 - (void) imagePickerController:(UIImagePickerController *) imagePicker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-  [self.controller dismissModalViewControllerAnimated: YES];
   onImageChosen(image);
+  [self.controller dismissModalViewControllerAnimated: YES];
 }
 
 @end

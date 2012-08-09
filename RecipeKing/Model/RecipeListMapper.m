@@ -27,7 +27,7 @@
     
     ListRecipe *rl = [[[ListRecipe alloc] init] autorelease];
     rl.name = r.name;
-    rl.preperationTime = [r.preperationTime integerValue];
+    rl.preparationTime = [r.preparationTime integerValue];
     rl.recipeId = r.objectID;
     
     [output addObject: rl];
