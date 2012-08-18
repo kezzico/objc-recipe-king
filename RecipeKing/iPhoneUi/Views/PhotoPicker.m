@@ -56,7 +56,7 @@
 - (void) showPicker {
   [self setupPhotoSourceOptions];
   if([self isCameraAvailable] == NO && self.showRemovePhotoOption == NO) {
-    [self showSavedPhotoMenu];
+    [self showSavedPhotoLibrary];
   } else {
     [_photoSourceOptions showInView: self.controller.view];
   }
@@ -66,7 +66,7 @@
   return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
-- (void) showSavedPhotoMenu {
+- (void) showSavedPhotoLibrary {
   UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
   imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
   imagePicker.delegate = self;
@@ -77,12 +77,12 @@
   UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
   imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
   imagePicker.delegate = self;
-  [self.controller.navigationController pushViewController:imagePicker animated:YES];
+  [self.controller presentViewController: imagePicker animated:YES completion:^{}];
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger) buttonIndex {
   if(buttonIndex == takePhotoIndex) [self showCamera];
-  if(buttonIndex == choosePhotoIndex) [self showSavedPhotoMenu];
+  if(buttonIndex == choosePhotoIndex) [self showSavedPhotoLibrary];
   if(buttonIndex == removePhotoIndex) onImageChosen(nil);
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *) imagePicker {

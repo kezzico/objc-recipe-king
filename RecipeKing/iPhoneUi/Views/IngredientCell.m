@@ -27,6 +27,23 @@
   return self;
 }
 
+- (void) setQuantityWidth: (CGFloat) width {
+  CGRect qframe = self.quantityLabel.frame;
+  CGRect nframe = self.nameLabel.frame;
+  
+  qframe.size.width = width;
+  nframe.size.width = self.frame.size.width - (20.f + width);
+  nframe.origin.x = 10.f + width;
+  
+  self.quantityLabel.frame = qframe;
+  self.nameLabel.frame = nframe;
+}
+
+- (CGFloat) screenWidth {
+  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
+  return isPortraitMode ? 320 : 480;
+}
+
 + (CGFloat) height {
   return 20.f;
 }

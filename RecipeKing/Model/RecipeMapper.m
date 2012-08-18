@@ -91,9 +91,10 @@
   
   v.preparationTime = [r.preparationTime integerValue];
   v.servings = [r.servings integerValue];
-
   v.photo = [UIImage imageWithData:r.photo];
   v.photoThumbnail = [v.photo imageByScalingAndCroppingForSize: CGSizeMake(60, 60)];
+  v.widestQuantity = [self findWidestQuantity: r.ingredients];
+  
   NSArray *ingredients = [self sortIngredientsToArray: r.ingredients];
   v.ingredients = [ingredients mapObjectsMutable:^(Ingredient *ingredient) {
     IngredientViewModel *iv = [[[IngredientViewModel alloc] init] autorelease];
@@ -103,6 +104,19 @@
   }];
   
   return v;
+}
+
+- (CGFloat) findWidestQuantity:(NSSet *) ingredients {
+  CGFloat longest = 0.f;
+  CGSize maxSize = CGSizeMake(200, 20);
+  UIFont *font = [UIFont systemFontOfSize:13];
+  UILineBreakMode lbm = UILineBreakModeClip;
+  
+  for(Ingredient *ig in ingredients) {
+    CGFloat size = [[ig.quantity trim] sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lbm].width;
+    if(size > longest) longest = size;
+  }
+  return longest + 10.f;
 }
 
 @end

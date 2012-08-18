@@ -20,6 +20,7 @@
 @property (nonatomic) NSInteger cookTime;
 @property (nonatomic) NSInteger sitTime;
 @property (nonatomic) NSInteger servings;
+@property (nonatomic) CGFloat widestQuantity;
 
 @property (nonatomic, retain) UIImage *photo;
 @property (nonatomic, retain) UIImage *photoThumbnail;

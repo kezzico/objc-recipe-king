@@ -13,5 +13,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *quantityLabel;
 @property (retain, nonatomic) IBOutlet UIView *view;
 - (id) initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void) setQuantityWidth: (CGFloat) width;
 + (CGFloat) height;
 @end

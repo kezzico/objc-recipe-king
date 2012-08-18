@@ -35,7 +35,6 @@
 @synthesize viewModel=_viewModel;
 
 - (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
   [_viewModel release];
   [titleCell release];
   [ingredientsHeaderCell release];
@@ -53,6 +52,7 @@
 }
 
 - (void)viewDidUnload {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
   [self setTitleCell:nil];
   [self setIngredientsHeaderCell:nil];
   [self setPreparationHeaderCell:nil];
@@ -130,7 +130,6 @@
   CGRect titleFrame = self.titleView.frame;
   titleFrame.size.width = [self screenWidth] - 80.f;
   self.titleView.frame = titleFrame;
-
 }
 
 - (void) hidePhoto {
@@ -219,8 +218,9 @@
   }
   
   IngredientViewModel *ingredient = [self.viewModel.ingredients objectAtIndex:indexPath.row - 2];
-  cell.nameLabel.text = ingredient.name;
-  cell.quantityLabel.text = ingredient.quantity;
+  cell.nameLabel.text = [ingredient.name trim];
+  cell.quantityLabel.text = [ingredient.quantity trim];
+  [cell setQuantityWidth: _viewModel.widestQuantity];
   return cell;
 }
 
