@@ -40,14 +40,6 @@ static ManagedContextFactory *contextfactory;
   return [libraryUrl URLByAppendingPathComponent: @"RecipeKing.sqlite"];
 }
 
-- (void) copyDatabaseToDocuments {
-  NSError *error = nil;
-  NSURL *initialStoreURL = [[NSBundle mainBundle] URLForResource:@"RecipeKing" withExtension:@"sqlite"];
-  [self deleteStoreCoordinator];
-  [[NSFileManager defaultManager] copyItemAtURL:initialStoreURL toURL: [self storeUrl] error:&error];
-  if(error) NSLog(@"%@", error);
-}
-
 - (void) deleteStoreCoordinator {
   [[NSFileManager defaultManager] removeItemAtURL: [self storeUrl] error: nil];
 }
@@ -71,14 +63,6 @@ static ManagedContextFactory *contextfactory;
 
 + (void) deleteStoreCoordinator {
   [contextfactory deleteStoreCoordinator];
-}
-
-+ (void) createStoreCoordinator {
-  [contextfactory setupStoreCoordinator];
-}
-
-+ (NSString *) storePath {
-  return [[contextfactory storeUrl] path];
 }
 
 @end

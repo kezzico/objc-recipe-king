@@ -11,7 +11,7 @@
 #import "EditRecipeTableController.h"
 #import "CategoryListController.h"
 #import "IngredientViewModel.h"
-#import "EditPreperationController.h"
+#import "EditPreparationController.h"
 #import "UIView+Extensions.h"
 #import "RecipeMapper.h"
 #import "Container.h"
@@ -165,10 +165,8 @@
 - (IBAction) preparationTouched {
   [self.view endEditing:YES];
   
-  EditPreperationController *vc = [[[EditPreperationController alloc] 
-    initWithNibName: @"EditPreperationController" bundle: nil] autorelease];
-  
-  [vc setPreperationText: _viewModel.preparation];
+  EditPreparationController *vc = [ControllerFactory buildPreparationController];
+  vc.preparation = _viewModel.preparation;
   vc.onDoneTouched = ^(NSString *value){
     _preparationLabel.text = value;
     _viewModel.preparation = value;

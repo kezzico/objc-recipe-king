@@ -17,6 +17,7 @@
 #import "CategoryListController.h"
 #import "EditCategoryViewController.h"
 #import "ImageViewController.h"
+#import "EditPreparationController.h"
 
 @implementation ControllerFactory
 + (RecipeViewController *) buildViewControllerForRecipe: (Recipe *) recipe {
@@ -61,6 +62,10 @@
   ImageViewController *vc = [[[ImageViewController alloc] initWithNibName:@"ImageViewController" bundle:nil] autorelease];
   vc.image = image;
   return vc;
+}
+
++ (EditPreparationController *) buildPreparationController {
+  return [[[EditPreparationController alloc] initWithNibName: @"EditPreparationController" bundle: nil] autorelease];
 }
 
 @end
