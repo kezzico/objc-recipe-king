@@ -29,8 +29,9 @@
 }
 
 - (void) drawRect:(CGRect)rect {
-  BOOL isPortrait = UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
-  if(isPortrait) {
+//  [UIApplication statusBarOrientation]
+//  BOOL isPortrait = UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
+  if([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait) {
     [_backgroundImagePortrait drawInRect: self.bounds];
   } else {
     [_backgroundImageLandscape drawInRect: self.bounds];
