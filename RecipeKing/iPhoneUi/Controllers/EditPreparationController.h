@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditPreperationController : UIViewController
+@interface EditPreparationController : UIViewController <UITextViewDelegate>
 
-- (void) setPreperationText: (NSString *) value;
+@property (retain, nonatomic) NSString *preparation;
+@property (retain, nonatomic) IBOutlet UITextView *textField;
 @property (copy, nonatomic) void (^onDoneTouched)( NSString *value);
 @end

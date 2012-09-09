@@ -12,6 +12,7 @@
 @class EditRecipeViewController;
 @class CategoryListController;
 @class EditCategoryViewController;
+@class EditPreparationController;
 @class ImageViewController;
 @class Recipe;
 
@@ -23,4 +24,5 @@
 + (CategoryListController *) buildCategoryListViewController;
 + (EditCategoryViewController *) buildEditCategoryViewController;
 + (ImageViewController *) imageViewControllerWithImage: (UIImage *) image;
++ (EditPreparationController *) buildPreparationController;
 @end
