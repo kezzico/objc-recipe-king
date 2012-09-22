@@ -39,12 +39,11 @@
   v.category = [r.category name];
   v.photo = [UIImage imageWithData: r.photo];
   v.preparation = r.preparation;
-  v.recipeId = r.objectID;
   
   v.servings = [r.servings integerValue];
   v.preparationTime = [r.preparationTime integerValue];
 
-  NSArray *ingredients = [self sortIngredientsToArray: r.ingredients];
+  NSArray *ingredients = nil;
   for(Ingredient *ingredient in ingredients) {
     IngredientViewModel *iv = [[[IngredientViewModel alloc] init] autorelease];
     iv.name = ingredient.name;
@@ -73,7 +72,7 @@
   }
   
   for(Ingredient *ig in r.ingredients) {
-    [r.managedObjectContext deleteObject:ig];
+//    [r.managedObjectContext deleteObject:ig];
   }
   
   for(IngredientViewModel *iv in v.ingredients) {
@@ -87,15 +86,14 @@
   v.name = r.name;
   v.category = r.category.name;
   v.preparation = r.preparation;
-  v.recipeId = r.objectID;
   
   v.preparationTime = [r.preparationTime integerValue];
   v.servings = [r.servings integerValue];
   v.photo = [UIImage imageWithData:r.photo];
   v.photoThumbnail = [v.photo imageByScalingAndCroppingForSize: CGSizeMake(60, 60)];
-  v.widestQuantity = [self findWidestQuantity: r.ingredients];
+//  v.widestQuantity = [self findWidestQuantity: r.ingredients];
   
-  NSArray *ingredients = [self sortIngredientsToArray: r.ingredients];
+  NSArray *ingredients = nil;
   v.ingredients = [ingredients mapObjectsMutable:^(Ingredient *ingredient) {
     IngredientViewModel *iv = [[[IngredientViewModel alloc] init] autorelease];
     iv.name = ingredient.name;

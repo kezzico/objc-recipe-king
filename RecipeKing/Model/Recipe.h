@@ -7,27 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @class RecipeCategory, Ingredient;
 
-@interface Recipe : NSManagedObject
+@interface Recipe : NSObject
 
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString *recipeId;
+@property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) RecipeCategory *category;
-@property (nonatomic, retain) NSData * photo;
-@property (nonatomic, retain) NSString * preparation;
-@property (nonatomic, retain) NSSet *ingredients;
-@property (nonatomic, retain) NSNumber * preparationTime;
-@property (nonatomic, retain) NSNumber * servings;
-@end
-
-@interface Recipe (CoreDataGeneratedAccessors)
-
-- (void)addIngredientsObject:(Ingredient *)value;
-- (void)addIngredientWithName:(NSString *) name quantity:(NSString *) quantity;
-- (Ingredient *)ingredientAtIndex:(NSInteger) index;
-- (void)removeIngredientsObject:(Ingredient *)value;
-- (void)addIngredients:(NSSet *)values;
-- (void)removeIngredients:(NSSet *)values;
+@property (nonatomic, retain) NSData *photo;
+@property (nonatomic, retain) NSString *preparation;
+@property (nonatomic, retain) NSArray *ingredients;
+@property (nonatomic, retain) NSNumber *preparationTime;
+@property (nonatomic, retain) NSNumber *servings;
 @end

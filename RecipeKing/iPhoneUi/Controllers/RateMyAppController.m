@@ -27,7 +27,7 @@
 - (void) recipeChanged: (NSNotification *) notification {
   if(self.didAskForRating == YES) return;
 
-  NSInteger numRecipes = [[_repository allRecipes] count];
+  NSInteger numRecipes = [[_repository recipes] count];
   if(numRecipes < 3) return;
   [self askForRating];
   

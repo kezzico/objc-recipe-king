@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @interface RecipeViewModel : NSObject
-@property (nonatomic, retain) NSManagedObjectID *recipeId;
+@property (nonatomic, retain) NSString *recipeId;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *cookTemperature;

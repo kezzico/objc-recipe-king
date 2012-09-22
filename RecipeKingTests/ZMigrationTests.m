@@ -8,22 +8,17 @@
 
 #import "ZMigrationTests.h"
 #import "DatabaseMigrator.h"
-#import "ManagedContextFactory.h"
 
 @implementation ZMigrationTests
 
-+ (void) setUp {
-  [ManagedContextFactory resetStoreCoordinator];
-}
-
 - (void) _testMigratingDatabase {
-  DatabaseMigrator *migrator = [[[DatabaseMigrator alloc] init] autorelease];
-  BOOL shouldMigrate = [migrator shouldMigrateDatabase];
-
-  STAssertTrue(shouldMigrate, @"should be true");
-  
-  [migrator migratev1RecipeTov2];
-  [migrator deletev1Database];
+//  DatabaseMigrator *migrator = [[[DatabaseMigrator alloc] init] autorelease];
+//  BOOL shouldMigrate = [migrator shouldMigrateDatabase];
+//
+//  STAssertTrue(shouldMigrate, @"should be true");
+//  
+//  [migrator migratev1RecipeTov2];
+//  [migrator deletev1Database];
 }
 
 @end

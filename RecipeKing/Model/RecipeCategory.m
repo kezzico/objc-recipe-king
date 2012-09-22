@@ -7,10 +7,6 @@
 //
 
 #import "RecipeCategory.h"
-#import "Recipe.h"
-
 
 @implementation RecipeCategory
-@dynamic name;
-@dynamic recipes;
 @end

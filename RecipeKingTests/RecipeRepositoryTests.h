@@ -9,8 +9,5 @@
 #import <SenTestingKit/SenTestingKit.h>
 @class CategoryRepository;
 @class RecipeRepository;
-@interface RecipeRepositoryTests : SenTestCase {
-  RecipeRepository *_repository;
-  CategoryRepository *_categoryRepository;
-}
+@interface RecipeRepositoryTests : SenTestCase
 @end

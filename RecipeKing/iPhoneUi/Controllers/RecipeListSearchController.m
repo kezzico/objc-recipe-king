@@ -55,7 +55,6 @@
   self.recipes = [recipes mapObjects:^(Recipe *r) {
     ListRecipe *recipe = [[[ListRecipe alloc] init] autorelease];
     recipe.name = r.name;
-    recipe.recipeId = r.objectID;
     return recipe;
   }];
 }

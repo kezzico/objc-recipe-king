@@ -41,10 +41,15 @@
 
 - (void) migrateFromVersion1 {
   DatabaseMigrator *migrator = [[[DatabaseMigrator alloc] init] autorelease];
-  if([migrator shouldMigrateDatabase]) {
-    [migrator migratev1RecipeTov2];
+  if([migrator shouldMigrateV1Database]) {
+    [migrator migratev1RecipeTov3];
     [migrator deletev1Database];
   }
+  if([migrator shouldMigrateV2Database]) {
+    [migrator migratev2RecipeTov3];
+    [migrator deletev2Database];
+  }
+  
 }
 
 - (void) addCategoriesOnFirstRun {

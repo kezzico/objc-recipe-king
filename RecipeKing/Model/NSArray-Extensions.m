@@ -17,7 +17,9 @@
 - (NSMutableArray *) mapObjectsMutable:(objectMapper) mapper {
   NSMutableArray *output = [[[NSMutableArray alloc] initWithCapacity:[self count]] autorelease];
   for(id obj in self) {
-    [output addObject: mapper(obj)];
+    id objToAdd = mapper(obj);
+    if(objToAdd == nil) continue;
+    [output addObject: objToAdd];
   }
   
   return output;

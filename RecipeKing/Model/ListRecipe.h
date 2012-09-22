@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @interface ListRecipe : NSObject
 
-@property (nonatomic, retain) NSManagedObjectID *recipeId;
+@property (nonatomic, retain) NSString *recipeId;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic) NSInteger preparationTime;
 

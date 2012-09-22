@@ -7,15 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @class Recipe;
 @protocol PRecipeRepository <NSObject>
-@required
-- (NSArray *) allRecipes;
+- (NSArray *) recipes;
 - (NSArray *) filter: (NSString *) search;
-- (void) save;
-- (void) remove: (NSManagedObjectID *) recipeId;
-- (Recipe *) recipeWithId: (NSManagedObjectID *) recipeId;
-- (Recipe *) newRecipe;
+- (void) saveRecipe:(Recipe *) recipe;
+- (void) deleteRecipe:(NSString *) recipeId;
+- (Recipe *) recipeWithId: (NSString *) recipeId;
 @end

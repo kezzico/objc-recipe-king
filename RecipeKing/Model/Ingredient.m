@@ -9,12 +9,13 @@
 #import "Ingredient.h"
 #import "Recipe.h"
 
-
 @implementation Ingredient
 
-@dynamic index;
-@dynamic name;
-@dynamic quantity;
-@dynamic recipe;
++ (Ingredient *) ingredientWithName:(NSString *) name quantity:(NSString *) quantity {
+  Ingredient *ingredient = [[[Ingredient alloc] init] autorelease];
+  ingredient.name = name;
+  ingredient.quantity = quantity;
+  return ingredient;
+}
 
 @end

@@ -7,15 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@class Recipe;
-
-@interface Ingredient : NSManagedObject
-
-@property (nonatomic, retain) NSNumber * index;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * quantity;
-@property (nonatomic, retain) Recipe *recipe;
-
+@interface Ingredient : NSObject
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *quantity;
++ (Ingredient *) ingredientWithName:(NSString *) name quantity:(NSString *) quantity;
 @end

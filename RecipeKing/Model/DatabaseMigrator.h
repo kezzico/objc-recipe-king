@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import <sqlite3.h>
 
 @interface DatabaseMigrator : NSObject
-- (BOOL) shouldMigrateDatabase;
-- (void) migratev1RecipeTov2;
+- (BOOL) shouldMigrateV1Database;
+- (BOOL) shouldMigrateV2Database;
+- (void) migratev1RecipeTov3;
+- (void) migratev2RecipeTov3;
 - (void) deletev1Database;
+- (void) deletev2Database;
 @end

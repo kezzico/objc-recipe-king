@@ -76,7 +76,7 @@
 
 - (void) refreshRecipes {
   RecipeListMapper *mapper = [[[RecipeListMapper alloc] init] autorelease];
-  NSArray *recipes = [mapper recipeListToViewModel: [_repository allRecipes]];
+  NSArray *recipes = [mapper recipeListToViewModel: [_repository recipes]];
   _viewModel.recipesAndCategories = [NSMutableArray arrayWithArray:recipes];
   [self.tableView reloadData];
 }

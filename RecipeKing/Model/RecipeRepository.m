@@ -6,71 +6,62 @@
 //  Copyright (c) 2012 leescode.com. All rights reserved.
 //
 
-#import "ManagedContextFactory.h"
 #import "RecipeRepository.h"
-#import "Recipe.h"
 #import "NSString-Extensions.h"
+#import "NSArray-Extensions.h"
+#import "RecipePersister.h"
+#import "Ingredient.h"
+#import "Recipe.h"
 
-static NSString *recipeEntityName = @"Recipe";
 @implementation RecipeRepository
-@synthesize context;
-
-- (void) dealloc {
-  [context release];
-  [super dealloc];
-}
 
 - (id) init {
-  if((self = [super init])) {
-    self.context = [ManagedContextFactory buildContext];
+  if(self = [super init]) {
+    self.persister = [[[RecipePersister alloc] init] autorelease];
   }
+  
   return self;
 }
 
-- (NSArray *) allRecipes {
+- (NSArray *) recipes {
   return [self filter: nil];
 }
 
 - (NSArray *) filter: (NSString *) search {
-  NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-  NSEntityDescription *entity = [NSEntityDescription entityForName:recipeEntityName inManagedObjectContext: self.context];
-  [fetchRequest setEntity:entity];
-  
+  NSArray *output = [NSArray arrayWithArray: self.trackedRecipes];
   if([NSString isEmpty: search] == NO) {
     NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name contains[c] %@", search];
-    [fetchRequest setPredicate:predicate];
+    output = [output filteredArrayUsingPredicate:predicate];
   }
-  
   NSSortDescriptor *orderByCategory = [[[NSSortDescriptor alloc] initWithKey:@"category.name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
   NSSortDescriptor *orderByName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
-  [fetchRequest setSortDescriptors: [NSArray arrayWithObjects: orderByCategory, orderByName, nil]];
-  NSArray *output = [self.context executeFetchRequest:fetchRequest error: nil];
   
-  return output;
+  return [output sortedArrayUsingDescriptors:@[orderByCategory, orderByName]];
 }
 
-- (void) save {
-  NSError *error = nil;
-  [self.context save: &error];
-  if(error) NSLog(@"%@", error);
+- (void) saveRecipe:(Recipe *) recipe {
+  [self.trackedRecipes addObject: recipe];
+  [self.persister saveRecipe: recipe];
 }
 
-- (void) remove: (NSManagedObjectID *) recipeId {
-  NSError *error = nil;  
-  [self.context deleteObject: [self.context objectWithID: recipeId]];
-  [self.context save: &error];
-  if(error) NSLog(@"%@", error);
+- (void) deleteRecipe:(NSString *) recipeId {
+  Recipe *recipe = [self recipeWithId: recipeId];
+  [self.trackedRecipes removeObject: recipe];
 }
 
-- (Recipe *) recipeWithId: (NSManagedObjectID *) recipeId {
-  return (Recipe *)[self.context objectWithID: recipeId];
-}
-
-- (Recipe *) newRecipe {
-  Recipe *recipe = [NSEntityDescription
-    insertNewObjectForEntityForName: recipeEntityName
-    inManagedObjectContext: self.context];
+- (Recipe *) recipeWithId: (NSString *) recipeId {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat: @"recipeId = %@", recipeId];
+  Recipe *recipe = [[self.trackedRecipes filteredArrayUsingPredicate:predicate] firstObject];
   return recipe;
+}
+
+- (NSArray *) trackedRecipes {
+  if(_trackedRecipes == nil /* or it's expired */) {
+    [_trackedRecipes release];
+    _trackedRecipes = [[[self.persister loadRecipes] mutableCopy] retain];
+  }
+  
+  return _trackedRecipes;
 }
 
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import "PRecipeRepository.h"
+@class RecipePersister;
 @interface RecipeRepository : NSObject <PRecipeRepository>
-@property (nonatomic, retain) NSManagedObjectContext *context;
-
+@property (nonatomic, retain) NSMutableArray *trackedRecipes;
+@property (nonatomic, retain) RecipePersister *persister;
 @end

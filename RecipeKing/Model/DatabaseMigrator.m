@@ -7,19 +7,22 @@
 //
 
 #import "DatabaseMigrator.h"
-#import "ManagedContextFactory.h"
 #import "NSString-Extensions.h"
-#import "Recipe.h"
 #import "Ingredient.h"
+#import "Recipe.h"
 
 typedef const unsigned char uchar;
 @implementation DatabaseMigrator
 
-- (BOOL) shouldMigrateDatabase {
+- (BOOL) shouldMigrateV1Database {
   return [[NSFileManager defaultManager] fileExistsAtPath: self.v1DatabasePath];
 }
 
-- (void) migratev1RecipeTov2 {
+- (BOOL) shouldMigrateV2Database {
+  return [[NSFileManager defaultManager] fileExistsAtPath: self.v2DatabasePath];
+}
+
+- (void) migratev1RecipeTov3 {
   sqlite3 *database;
   int status = sqlite3_open([self.v1DatabasePath UTF8String], &database);
   if(status != SQLITE_OK) return;
@@ -30,6 +33,19 @@ typedef const unsigned char uchar;
   
   [self saveRecipes: recipes withIngredients:ingredients];
 }
+
+- (void) migratev2RecipeTov3 {
+  sqlite3 *database;
+  int status = sqlite3_open([self.v1DatabasePath UTF8String], &database);
+  if(status != SQLITE_OK) return;
+  
+  NSArray *recipes = [self queryRecipesInDatabase:database];
+  NSArray *ingredients = [self queryIngredientsInDatabase:database];
+  sqlite3_close(database);
+  
+  [self saveRecipes: recipes withIngredients:ingredients];
+}
+
 
 - (NSArray *) queryRecipesInDatabase:(sqlite3*) database {
   
@@ -121,31 +137,36 @@ typedef const unsigned char uchar;
 }
 
 - (void) saveRecipes:(NSArray *) recipes withIngredients:(NSArray *) ingredients {
-  NSManagedObjectContext *context = [ManagedContextFactory buildContext];
-  for(NSDictionary *r in recipes) {
-    NSNumber *pk = [r valueForKey:@"primarykey"];
-    Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext: context];
-    recipe.name = [r valueForKey:@"name"];
-    recipe.preparation = [r valueForKey:@"preparation"];
-    recipe.photo = [r valueForKey:@"photo"];
-    recipe.preparationTime = [r valueForKey:@"preptime"];
-    
-    for(NSDictionary *igt in ingredients) {
-      NSNumber *fk = [igt valueForKey:@"recipeId"];
-      if([fk isEqual:pk]) {
-        NSString *name = [igt valueForKey:@"name"];
-        NSString *quantity = [igt valueForKey:@"quantity"];
-        [recipe addIngredientWithName:name quantity:quantity];
-      }
-    }
-  }
-  
-  [context save:nil];
+//  NSManagedObjectContext *context = [ManagedContextFactory buildContext];
+//  for(NSDictionary *r in recipes) {
+//    NSNumber *pk = [r valueForKey:@"primarykey"];
+//    Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext: context];
+//    recipe.name = [r valueForKey:@"name"];
+//    recipe.preparation = [r valueForKey:@"preparation"];
+//    recipe.photo = [r valueForKey:@"photo"];
+//    recipe.preparationTime = [r valueForKey:@"preptime"];
+//    
+//    for(NSDictionary *igt in ingredients) {
+//      NSNumber *fk = [igt valueForKey:@"recipeId"];
+//      if([fk isEqual:pk]) {
+//        NSString *name = [igt valueForKey:@"name"];
+//        NSString *quantity = [igt valueForKey:@"quantity"];
+//        [recipe addIngredientWithName:name quantity:quantity];
+//      }
+//    }
+//  }
+//  
+//  [context save:nil];
 }
 
 - (NSString *) v1DatabasePath {
   NSURL *docsDir = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
   return [[docsDir URLByAppendingPathComponent: @"RecipeKing.sqlite"] path];
+}
+
+- (NSString *) v2DatabasePath {
+  NSURL *libraryDir = [[[NSFileManager defaultManager] URLsForDirectory: NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
+  return [[libraryDir URLByAppendingPathComponent: @"RecipeKing.sqlite"] path];
 }
 
 @end
