@@ -13,10 +13,9 @@
 
 static NSString *recipeEntityName = @"Recipe";
 @implementation RecipeRepository
-@synthesize context;
 
 - (void) dealloc {
-  [context release];
+  [_context release];
   [super dealloc];
 }
 

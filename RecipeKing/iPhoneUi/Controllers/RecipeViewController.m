@@ -19,6 +19,8 @@
 #import "EditRecipeViewController.h"
 #import "UINavigationBarSkinned.h"
 #import "RecipeMapper.h"
+#import "ScreenHelper.h"
+
 @implementation RecipeViewController
 @synthesize titleCell;
 @synthesize ingredientsHeaderCell;
@@ -48,6 +50,7 @@
   [recipePhotoButton release];
   [titleView release];
   [repository release];
+  [_toolbarCell release];
   [super dealloc];
 }
 
@@ -64,6 +67,7 @@
   [self setServingsLabel:nil];
   [self setRecipePhotoButton:nil];
   [self setTitleView:nil];
+  [self setToolbarCell:nil];
   [super viewDidUnload];
 }
 
@@ -128,7 +132,7 @@
   [self.recipePhotoButton setBackgroundImage:_viewModel.photoThumbnail forState:UIControlStateNormal];
 
   CGRect titleFrame = self.titleView.frame;
-  titleFrame.size.width = [self screenWidth] - 80.f;
+  titleFrame.size.width = [ScreenHelper screenWidth] - 80.f;
   self.titleView.frame = titleFrame;
 }
 
@@ -136,13 +140,8 @@
   [self.recipePhotoButton setHidden:YES];
 
   CGRect titleFrame = self.titleView.frame;
-  titleFrame.size.width = [self screenWidth];
+  titleFrame.size.width = [ScreenHelper screenWidth];
   self.titleView.frame = titleFrame;
-}
-
-- (CGFloat) screenWidth {
-  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
-  return isPortraitMode ? 320 : 480;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -150,7 +149,8 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 1 + [self numIngredientCells] + [self numPreperationCells];
+  const NSInteger toolBarAndHeader = 2;
+  return toolBarAndHeader + [self numIngredientCells] + [self numPreparationCells];
 }
 
 - (NSInteger) numIngredientCells {
@@ -159,7 +159,7 @@
   return 0;
 }
 
-- (NSInteger) numPreperationCells {
+- (NSInteger) numPreparationCells {
   NSInteger total = 0;
   if([self shouldShowPreperationCell]) total++;
   return total > 0 ? total + 1 : 0;
@@ -169,12 +169,20 @@
   return 1 + [self numIngredientCells];
 }
 
+- (NSInteger) toolbarIndex {
+  NSInteger total = 0;
+  total += [self numPreparationCells];
+  total += [self numIngredientCells];
+  return total + 1;
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if([self isIndexPathForTitleCell: indexPath]) return 80.f;
   if([self isIndexPathForIngredientHeaderCell: indexPath]) return 30.f;
   if([self isIndexPathForIngredientCell: indexPath]) return [IngredientCell height];
   if([self isIndexPathForPreperationHeaderCell: indexPath]) return 30.f;
   if([self isIndexPathForPreperationCell: indexPath]) return [PreperationCell heightWithText: _viewModel.preparation];
+  if([self isIndexPathForToolbarCell: indexPath]) return 40.f;
   return 0.f;
 }
 
@@ -188,10 +196,13 @@
   return indexPath.row > 1 && indexPath.row < [self preparationIndex];
 }
 - (BOOL) isIndexPathForPreperationHeaderCell:(NSIndexPath *) indexPath {
-  return indexPath.row == [self preparationIndex];
+  return indexPath.row == [self preparationIndex] && [self shouldShowPreperationCell];;
 }
 - (BOOL) isIndexPathForPreperationCell: (NSIndexPath *) indexPath {
   return indexPath.row == [self preparationIndex] + 1 && [self shouldShowPreperationCell];
+}
+- (BOOL) isIndexPathForToolbarCell: (NSIndexPath *) indexPath {
+  return indexPath.row == [self toolbarIndex];
 }
 - (BOOL) shouldShowPreperationCell {
   return [NSString isEmpty: _viewModel.preparation] == NO;
@@ -207,6 +218,7 @@
     [self.preparationCell setPreparation: _viewModel.preparation];
     return self.preparationCell;
   }
+  if([self isIndexPathForToolbarCell: indexPath]) return self.toolbarCell;
   return nil;
 }
 
@@ -222,6 +234,9 @@
   cell.quantityLabel.text = [ingredient.quantity trim];
   [cell setQuantityWidth: _viewModel.widestQuantity];
   return cell;
+}
+
+- (IBAction)shareTouched:(id)sender {
 }
 
 - (IBAction)photoTouched:(id)sender {

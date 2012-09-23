@@ -56,6 +56,12 @@
   Recipe *result = [_repository recipeWithId: newRecipe.objectID];
   NSString *resultCategory = result.category.name;
   STAssertEqualObjects(categoryName, resultCategory, @"Category names do not much");
+  
+  [_categoryRepository setCategory: nil forRecipe: newRecipe];
+  [_repository save];
+  
+  result = [_repository recipeWithId: newRecipe.objectID];
+  STAssertNil(result.category, @"should be nil");
 }
 
 - (void)testShouldGetRecipes {

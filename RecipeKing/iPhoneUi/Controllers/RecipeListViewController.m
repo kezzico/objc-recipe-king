@@ -66,7 +66,7 @@
 
 - (void) addRecipeTouched {
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForNewRecipe];
-  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: [vc autorelease]];
+  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
   [self presentViewController: nc animated: YES completion:^{}];
 }
 
@@ -156,6 +156,10 @@
     NSArray *rowsToDelete = [self removeRecipeAtIndex: indexPath];
     [tableView deleteRowsAtIndexPaths: rowsToDelete withRowAnimation:UITableViewRowAnimationFade];
   }
+}
+
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
+  return [self isRowRecipeCell: indexPath.row];
 }
 
 - (NSArray *) removeRecipeAtIndex: (NSIndexPath *) indexPath {

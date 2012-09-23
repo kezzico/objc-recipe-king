@@ -35,13 +35,13 @@
 }
 
 + (EditRecipeViewController *) buildEditViewControllerForNewRecipe {
-  EditRecipeViewController *vc = [[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil];
+  EditRecipeViewController *vc = [[[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil] autorelease];
   vc.viewModel = [[[EditRecipeViewModel alloc] init] autorelease];
   return vc;
 }
 
 + (EditRecipeViewController *) buildEditViewControllerForRecipe:(Recipe *) recipe {
-  EditRecipeViewController *vc = [[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil];
+  EditRecipeViewController *vc = [[[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil] autorelease];
   RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
   vc.viewModel = [mapper editViewModelFromRecipe:recipe];
   return vc;
@@ -50,7 +50,6 @@
 + (CategoryListController *) buildCategoryListViewController {
   CategoryListController *categoryList = [[[CategoryListController alloc]
     initWithNibName: @"CategoryListController" bundle: nil] autorelease];
-  
   return categoryList;
 }
 

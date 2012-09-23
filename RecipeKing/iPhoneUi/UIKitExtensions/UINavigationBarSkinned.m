@@ -1,4 +1,5 @@
 #import "UINavigationBarSkinned.h"
+#import "ScreenHelper.h"
 
 @implementation UINavigationBarSkinned
 
@@ -9,10 +10,19 @@
   return output;
 }
 
+- (void) dealloc {
+  [_backgroundImagePortrait release];
+  [_backgroundImageLandscape release];
+  [_backgroundImageLandscapeWide release];
+  [super dealloc];
+}
+
 - (id) initWithCoder:(NSCoder *) aDecoder {
   if((self = [super initWithCoder: aDecoder])) {
-    _backgroundImageLandscape = [[UIImage imageNamed: @"navlandscape.png"] retain];
-    _backgroundImagePortrait = [[UIImage imageNamed: @"navportrait.png"] retain];
+    self.backgroundImageLandscapeWide = [UIImage imageNamed: @"navlandscapewide"];
+    self.backgroundImageLandscape = [UIImage imageNamed: @"navlandscape"];
+    self.backgroundImagePortrait = [UIImage imageNamed: @"navportrait"];
+    
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth
     | UIViewAutoresizingFlexibleBottomMargin
     | UIViewAutoresizingFlexibleRightMargin;
@@ -22,18 +32,13 @@
   return self;
 }
 
-- (void) dealloc {
-  [_backgroundImagePortrait release];
-  [_backgroundImageLandscape release];
-  [super dealloc];
-}
-
 - (void) drawRect:(CGRect)rect {
-  BOOL isPortrait = UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
-  if(isPortrait) {
-    [_backgroundImagePortrait drawInRect: self.bounds];
+  if([ScreenHelper isPortraitMode]) {
+    [self.backgroundImagePortrait drawInRect: self.bounds];
+  } else if([ScreenHelper isWideScreen]) {
+    [self.backgroundImageLandscapeWide drawInRect: self.bounds];
   } else {
-    [_backgroundImageLandscape drawInRect: self.bounds];
+    [self.backgroundImageLandscape drawInRect: self.bounds];
   }
 }
 

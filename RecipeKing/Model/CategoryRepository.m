@@ -86,6 +86,8 @@ static NSString *categoryEntityName = @"RecipeCategory";
 }
 
 - (RecipeCategory *) categoryForName: (NSString *) name inContext: (NSManagedObjectContext *) ctx {
+  if(name == nil) return nil;
+  
   NSError *error = nil;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName: categoryEntityName inManagedObjectContext: ctx];

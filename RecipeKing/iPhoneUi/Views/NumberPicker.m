@@ -7,15 +7,9 @@
 //
 
 #import "NumberPicker.h"
+#import "ScreenHelper.h"
 
 @implementation NumberPicker
-@synthesize title=_title;
-@synthesize picker=_picker;
-@synthesize titleButton=_titleButton;
-@synthesize actionSheet=_actionSheet;
-@synthesize view=_view;
-@synthesize number=_number;
-@synthesize onNumberSelected;
 
 - (void) dealloc {
   [_picker release];
@@ -23,7 +17,7 @@
   [_titleButton release];
   [_view release];
   [_actionSheet release];
-  [onNumberSelected release];
+  [_onNumberSelected release];
   [super dealloc];
 }
 
@@ -40,25 +34,31 @@
 
 - (void) showInView:(UIView *) viewToPresentFrom {
   [self.titleButton setTitle:self.title forState:UIControlStateDisabled];
-  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"\n\n\n" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
+  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
   [_actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
   [_actionSheet addSubview:self.view];
   
   [_actionSheet showInView: viewToPresentFrom];
-  [self fitToScreen];
+  [self fitToSize:viewToPresentFrom.frame.size];
+}
+
+- (void) fitToSize:(CGSize) size {
+  const CGFloat pickerHeight = 260.f;
+  self.actionSheet.frame = CGRectMake(0, 0, size.width, size.height);
+  self.view.frame = CGRectMake(0, size.height - pickerHeight, size.width, pickerHeight);
 }
 
 - (void) fitToScreen {
-  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
+  BOOL isPortraitMode = [ScreenHelper isPortraitMode];
   CGSize screenSize = isPortraitMode ? CGSizeMake(320, 480) : CGSizeMake(480, 320);
   CGFloat sheetHeight = (isPortraitMode ? screenSize.height : screenSize.width) - 47;
-  
-  _actionSheet.bounds = CGRectMake(0, 0, screenSize.width, sheetHeight);
-  _view.frame = CGRectMake(0, 0, screenSize.width, 260);
+ 
+  self.actionSheet.bounds = CGRectMake(0, 0, screenSize.width, sheetHeight);
+  self.view.frame = CGRectMake(0, 0, screenSize.width, 260);
 }
 
 - (IBAction)doneButtonTouched:(UIBarButtonItem *)sender {
-  onNumberSelected(_number);
+  _onNumberSelected(self.number);
   [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 

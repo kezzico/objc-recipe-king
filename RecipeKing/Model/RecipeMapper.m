@@ -68,9 +68,7 @@
   r.preparationTime = [NSNumber numberWithInteger: v.preparationTime];
   r.servings = [NSNumber numberWithInteger: v.servings];
   r.photo = UIImagePNGRepresentation(v.photo);
-  if([NSString isEmpty:v.category] == NO) {
-    [categoryRepository setCategory: v.category forRecipe:r];
-  }
+  [categoryRepository setCategory: v.category forRecipe:r];
   
   for(Ingredient *ig in r.ingredients) {
     [r.managedObjectContext deleteObject:ig];

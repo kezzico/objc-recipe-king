@@ -1,3 +1,4 @@
+#import "UINavigationBarSkinned.h"
 #import "CategoryListController.h"
 #import "CategoryRepository.h"
 #import "EditCategoryViewController.h"
@@ -5,13 +6,11 @@
 #import "Container.h"
 
 @implementation CategoryListController
-@synthesize repository=_repository;
-@synthesize categories=_categories;
-@synthesize onCategorySelected;
+
 - (void) dealloc {
   [_categories release];
   [_repository release];
-  [onCategorySelected release];
+  [_onCategorySelected release];
   [super dealloc];
 }
 
@@ -34,7 +33,8 @@
 
 - (void) addCategoryTouched {
   EditCategoryViewController *vc = [ControllerFactory buildEditCategoryViewController];
-  [self presentViewController: vc animated: YES completion:^{}];
+  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
+  [self presentViewController: nc animated: YES completion:^{}];
   
   vc.existingCategories = _categories;
   vc.onDoneTouched = ^(NSString *value) {
@@ -52,7 +52,7 @@
   NSInteger r = indexPath.row;
   NSString *value = r == [_categories count] ? nil : [_categories objectAtIndex: r];
   [self.navigationController popViewControllerAnimated:YES];
-  onCategorySelected(value);
+  _onCategorySelected(value);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

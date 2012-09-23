@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationBarSkinned : UINavigationBar {
-  UIImage *_backgroundImageLandscape;
-  UIImage *_backgroundImagePortrait;
-}
+@interface UINavigationBarSkinned : UINavigationBar
+@property (nonatomic, retain) UIImage *backgroundImageLandscape;
+@property (nonatomic, retain) UIImage *backgroundImageLandscapeWide;
+@property (nonatomic, retain) UIImage *backgroundImagePortrait;
 
 + (UINavigationController *) navigationControllerWithRoot: (UIViewController *) rootViewController;
 

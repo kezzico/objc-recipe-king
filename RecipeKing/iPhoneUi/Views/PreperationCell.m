@@ -7,6 +7,7 @@
 //
 
 #import "PreperationCell.h"
+#import "ScreenHelper.h"
 
 @implementation PreperationCell
 @synthesize preparationLabel;
@@ -22,8 +23,7 @@
 }
 
 + (CGSize) labelSize: (NSString *) text {
-  UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-  CGFloat width = UIDeviceOrientationIsPortrait(orientation) ? 300 : 460;
+  CGFloat width = [ScreenHelper widthForPortrait:300 landscape:460 wideLandscape: 560];
   
   CGSize maxSize = CGSizeMake(width, INFINITY);
   UIFont *font = [UIFont systemFontOfSize:13];

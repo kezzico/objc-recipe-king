@@ -11,43 +11,47 @@
 #import "NSString-Extensions.h"
 
 @implementation EditCategoryViewController
-@synthesize categoryInput = _categoryInput;
-@synthesize doneButton = _doneButton;
-@synthesize navigationBar = _navigationBar;
-@synthesize existingCategories=_existingCategories;
-@synthesize onDoneTouched;
 
 - (void)viewDidUnload {
   [self setCategoryInput:nil];
-  [self setNavigationBar:nil];
   [super viewDidUnload];
 }
 
 - (void)dealloc {
   [_categoryInput release];
-  [_navigationBar release];
   [_existingCategories release];
-  [onDoneTouched release];
+  [_onDoneTouched release];
   [super dealloc];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [_categoryInput becomeFirstResponder];
+  [self setupMenuButtons];
+  [self.categoryInput becomeFirstResponder];
   [self categoryChanged];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+- (void) setupMenuButtons {
+  UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
+                      initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self
+                      action:@selector(cancelTouched)] autorelease];
+  
+  self.doneButton = [[[UIBarButtonItem alloc]
+                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self
+                      action:@selector(doneTouched)] autorelease];
+  
+  self.navigationItem.rightBarButtonItem = self.doneButton;
+  self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
-- (IBAction) cancelTouched {
+
+- (void) cancelTouched {
   [self dismissModalViewControllerAnimated: YES];  
 }
 
-- (IBAction) doneTouched {
+- (void) doneTouched {
   [self dismissModalViewControllerAnimated: YES];
-  if(onDoneTouched) onDoneTouched(_categoryInput.text);
+  if(_onDoneTouched) _onDoneTouched(_categoryInput.text);
 }
 
 - (IBAction) categoryChanged {
@@ -60,7 +64,7 @@
   }
   
   [self dismissModalViewControllerAnimated: YES];
-  if(onDoneTouched) onDoneTouched(_categoryInput.text);  
+  if(_onDoneTouched) _onDoneTouched(_categoryInput.text);
   return YES;
 }
 

@@ -10,11 +10,10 @@
 @class UINavigationBarSkinned;
 @interface EditCategoryViewController : UIViewController <UINavigationBarDelegate, UITextFieldDelegate>
 - (IBAction)categoryChanged;
-- (IBAction)doneTouched;
-- (IBAction)cancelTouched;
+- (void)doneTouched;
+- (void)cancelTouched;
 @property (retain, nonatomic) NSArray *existingCategories;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-@property (retain, nonatomic) IBOutlet UINavigationBarSkinned *navigationBar;
+@property (retain, nonatomic) UIBarButtonItem *doneButton;
 @property (retain, nonatomic) IBOutlet UITextField *categoryInput;
 @property (copy, nonatomic) void (^onDoneTouched)( NSString *value);
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "IngredientCell.h"
+#import "ScreenHelper.h"
 
 @implementation IngredientCell
 @synthesize nameLabel;
@@ -37,11 +38,6 @@
   
   self.quantityLabel.frame = qframe;
   self.nameLabel.frame = nframe;
-}
-
-- (CGFloat) screenWidth {
-  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
-  return isPortraitMode ? 320 : 480;
 }
 
 + (CGFloat) height {

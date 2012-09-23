@@ -7,6 +7,7 @@
 //
 
 #import "EditPreparationController.h"
+#import "ScreenHelper.h"
 
 @implementation EditPreparationController
 @synthesize textField;
@@ -26,14 +27,15 @@
 }
 
 - (void) viewDidLoad {
+  [super viewDidLoad];
   [self.navigationItem setHidesBackButton:YES animated:NO];
   
-  [self.textField becomeFirstResponder];
   self.textField.text = self.preparation;
-  [self sizeToFit];
-  
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched)];
   self.navigationItem.rightBarButtonItem = doneButton;
+  
+  [self.textField becomeFirstResponder];
+  [self sizeToFit];
 }
 
 - (void) doneTouched {
@@ -50,9 +52,8 @@
 }
 
 - (void) sizeToFit {
-  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
   CGRect tframe = textField.frame;
-  tframe.size.height = isPortraitMode ? 200 : 104;
+  tframe.size.height = [ScreenHelper heightForPortrait:200 landscape:104 tallPortrait:288];
   textField.frame = tframe;
 }
 

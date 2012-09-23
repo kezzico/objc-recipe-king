@@ -7,17 +7,9 @@
 //
 
 #import "TimePicker.h"
+#import "ScreenHelper.h"
 
 @implementation TimePicker
-@synthesize minsLabel = _minsLabel;
-@synthesize title=_title;
-@synthesize picker=_picker;
-@synthesize titleButton=_titleButton;
-@synthesize actionSheet=_actionSheet;
-@synthesize view=_view;
-@synthesize hour=_hour;
-@synthesize minute=_minute;
-@synthesize onTimeSelected;
 
 - (void) dealloc {
   [_picker release];
@@ -25,7 +17,7 @@
   [_titleButton release];
   [_view release];
   [_actionSheet release];
-  [onTimeSelected release];
+  [_onTimeSelected release];
   [_minsLabel release];
   [super dealloc];
 }
@@ -41,35 +33,32 @@
   self.hour = time / 100;
   self.minute = time % 100;
   
-  [_picker selectRow: self.hour inComponent: 0  animated: NO];
-  [_picker selectRow: self.minute inComponent: 1  animated: NO];
+  [self.picker selectRow: self.hour inComponent:0 animated: NO];
+  [self.picker selectRow: self.minute inComponent:1 animated: NO];
 }
 
 - (void) showInView:(UIView *) viewToPresentFrom {
   [self.titleButton setTitle:self.title forState:UIControlStateDisabled];
-  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"\n\n\n" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
-  [_actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-  [_actionSheet addSubview:self.view];
+  self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
+  [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+  [self.actionSheet addSubview:self.view];
   
-  [_actionSheet showInView: viewToPresentFrom];
-  [self fitToScreen];
+  [self.actionSheet showInView: viewToPresentFrom];
+  [self fitToSize: viewToPresentFrom.frame.size];
 }
 
-- (void) fitToScreen {
-  BOOL isPortraitMode = UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation]);
-  CGSize screenSize = isPortraitMode ? CGSizeMake(320, 480) : CGSizeMake(480, 320);
-  CGFloat sheetHeight = (isPortraitMode ? screenSize.height : screenSize.width) - 47;
+- (void) fitToSize:(CGSize) size {
+  const CGFloat pickerHeight = 260.f;
+  self.actionSheet.frame = CGRectMake(0, 0, size.width, size.height);
+  self.view.frame = CGRectMake(0, size.height - pickerHeight, size.width, pickerHeight);
   
-  _actionSheet.bounds = CGRectMake(0, 0, screenSize.width, sheetHeight);
-  _view.frame = CGRectMake(0, 0, screenSize.width, 260);
-  
-  CGRect minsLabelFrame = _minsLabel.frame;
-  minsLabelFrame.origin.x = isPortraitMode ? 200.f : 280.f;
-  _minsLabel.frame = minsLabelFrame;
+  CGRect minsLabelFrame = self.minsLabel.frame;
+  minsLabelFrame.origin.x = [ScreenHelper widthForPortrait:200.f landscape:280.f wideLandscape:324.f];
+  self.minsLabel.frame = minsLabelFrame;
 }
 
 - (IBAction)doneButtonTouched:(UIBarButtonItem *)sender {
-  onTimeSelected(_hour * 100 + _minute);
+  _onTimeSelected(_hour * 100 + _minute);
   [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
