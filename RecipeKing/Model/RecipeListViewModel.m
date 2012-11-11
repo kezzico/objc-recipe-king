@@ -9,9 +9,9 @@
 #import "RecipeListViewModel.h"
 
 @implementation RecipeListViewModel
-@synthesize recipesAndCategories;
+
 - (void) dealloc {
-  [recipesAndCategories release];
+  [_recipesAndCategories release];
   [super dealloc];
 }
 @end

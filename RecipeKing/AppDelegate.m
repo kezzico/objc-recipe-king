@@ -28,6 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self migrateFromVersion1];
   [self addCategoriesOnFirstRun];
+  [self syncRecipes];
+  
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.backgroundColor = [UIColor whiteColor];
   
@@ -45,6 +47,11 @@
     [migrator migratev1RecipeTov2];
     [migrator deletev1Database];
   }
+}
+
+- (void) syncRecipes {
+  id<PRecipeRepository> repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
+  [repository sync];
 }
 
 - (void) addCategoriesOnFirstRun {

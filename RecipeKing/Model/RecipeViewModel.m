@@ -9,28 +9,15 @@
 #import "RecipeViewModel.h"
 
 @implementation RecipeViewModel
-@synthesize recipeId;
-@synthesize name;
-@synthesize category;
-@synthesize cookTemperature;
-@synthesize preparation;
-@synthesize preparationTime;
-@synthesize cookTime;
-@synthesize sitTime;
-@synthesize servings;
-@synthesize photo;
-@synthesize photoThumbnail;
-@synthesize ingredients;
 
 - (void) dealloc {
-  [recipeId release];
-  [name release];
-  [category release];
-  [cookTemperature release];
-  [preparation release];
-  [photo release];
-  [photoThumbnail release];
-  [ingredients release];
+  [_name release];
+  [_category release];
+  [_cookTemperature release];
+  [_preparation release];
+  [_photo release];
+  [_photoThumbnail release];
+  [_ingredients release];
   [super dealloc];
 }
 

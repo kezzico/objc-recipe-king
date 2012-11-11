@@ -10,66 +10,130 @@
 #import "RecipeRepository.h"
 #import "Recipe.h"
 #import "NSString-Extensions.h"
+#import "NSArray-Extensions.h"
+#import "RecipeSerializer.h"
 
-static NSString *recipeEntityName = @"Recipe";
 @implementation RecipeRepository
 
-- (void) dealloc {
-  [_context release];
-  [super dealloc];
+- (NSArray *) recipeNames {
+  NSArray *recipes = [self entitiesNamed:@"Recipe" sortWith:nil];
+  return [recipes mapObjects:^(Recipe *recipe) {
+    return recipe.name;
+  }];
 }
 
-- (id) init {
-  if((self = [super init])) {
-    self.context = [ManagedContextFactory buildContext];
+- (NSArray *) recipesGroupedByCategory {
+  NSArray *sortDescriptors = @[
+    [NSSortDescriptor sortDescriptorWithKey:@"category.name" ascending:YES selector:@selector(caseInsensitiveCompare:)],
+    [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]
+  ];
+  
+  return [self entitiesNamed:@"Recipe" matching:nil sortWith: sortDescriptors];
+}
+
+- (NSArray *) filter: (NSString *) filter {
+  NSArray *sortDescriptors = @[
+    [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]
+  ];
+  
+  NSPredicate *predicate = nil;
+  if([NSString isEmpty: filter] == NO) {
+    predicate = [NSPredicate predicateWithFormat: @"name contains[c] %@ or category.name contains[c] %@", filter, filter];
   }
-  return self;
-}
-
-- (NSArray *) allRecipes {
-  return [self filter: nil];
-}
-
-- (NSArray *) filter: (NSString *) search {
-  NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-  NSEntityDescription *entity = [NSEntityDescription entityForName:recipeEntityName inManagedObjectContext: self.context];
-  [fetchRequest setEntity:entity];
   
-  if([NSString isEmpty: search] == NO) {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name contains[c] %@", search];
-    [fetchRequest setPredicate:predicate];
+  return [self entitiesNamed:@"Recipe" matching:predicate sortWith: sortDescriptors];
+}
+
+- (Recipe *) recipeWithName:(NSString *) name {
+  if(name == nil) return nil;
+  Recipe *recipe = (Recipe *)[self firstEntityNamed:@"Recipe" withAttribute:@"name" equalTo:name];
+  if(recipe == nil) {
+    recipe = (Recipe *)[self insertEntityWithName:@"Recipe"];
+    recipe.name = name;
   }
   
-  NSSortDescriptor *orderByCategory = [[[NSSortDescriptor alloc] initWithKey:@"category.name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
-  NSSortDescriptor *orderByName = [[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)] autorelease];
-  [fetchRequest setSortDescriptors: [NSArray arrayWithObjects: orderByCategory, orderByName, nil]];
-  NSArray *output = [self.context executeFetchRequest:fetchRequest error: nil];
-  
-  return output;
-}
-
-- (void) save {
-  NSError *error = nil;
-  [self.context save: &error];
-  if(error) NSLog(@"%@", error);
-}
-
-- (void) remove: (NSManagedObjectID *) recipeId {
-  NSError *error = nil;  
-  [self.context deleteObject: [self.context objectWithID: recipeId]];
-  [self.context save: &error];
-  if(error) NSLog(@"%@", error);
-}
-
-- (Recipe *) recipeWithId: (NSManagedObjectID *) recipeId {
-  return (Recipe *)[self.context objectWithID: recipeId];
-}
-
-- (Recipe *) newRecipe {
-  Recipe *recipe = [NSEntityDescription
-    insertNewObjectForEntityForName: recipeEntityName
-    inManagedObjectContext: self.context];
   return recipe;
+}
+
+- (void) remove: (Recipe *) recipe {
+  NSURL *recipeUrl = [self urlForRecipeName:recipe.name];
+  [[NSFileManager defaultManager] removeItemAtURL:recipeUrl error:nil];
+  [self removeEntity: recipe];
+}
+
+- (void) sync {
+  NSArray *allRecipes = [self entitiesNamed:@"Recipe" matching:nil sortWith:nil];
+
+  // find all recipe files without a matching recipe and persist them locally
+  for (NSURL *recipePath in [self allRecipeUrlsInDocumentsDirectory]) {
+    NSString *recipeName = [[recipePath lastPathComponent] stringByDeletingPathExtension];
+    if([self recipeWithNameExists: recipeName] == YES) continue;
+    Recipe *recipe = [self recipeWithName:recipeName];
+    [self loadRecipeFromFile:recipe];
+  }
+  
+  // sync all local and remote changes
+  for(Recipe *recipe in allRecipes) {
+    if(recipe.lastEdit == nil || [self wasRecipeModifiedLocally: recipe]) {
+      recipe.lastEdit = [NSDate date];
+      [self saveRecipeToFile: recipe];
+    } else if([self wasRecipeModifiedRemotely: recipe]) {
+      [self loadRecipeFromFile: recipe];
+    } else if([self wasRecipeRemovedRemotely: recipe]) {
+      [self removeEntity: recipe];
+    }
+  }
+  
+  [self save];
+}
+
+- (NSArray *) allRecipeUrlsInDocumentsDirectory {
+  NSURL *documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+  NSArray *urls = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:documentsDirectory includingPropertiesForKeys:nil options:0 error:nil];
+  urls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension = %@", @"recipeking"]];
+
+  return urls;
+}
+
+- (BOOL) recipeWithNameExists: (NSString *) name {
+  return [self firstEntityNamed:@"Recipe" withAttribute:@"name" equalTo: name] != nil;
+}
+
+- (void) saveRecipeToFile:(Recipe *) recipe {
+  RecipeSerializer *serializer = [RecipeSerializer serializer];
+  NSData *recipeJson = [serializer serialize: recipe];
+  NSURL *recipeUrl = [self urlForRecipeName: recipe.name];
+  [recipeJson writeToURL:recipeUrl atomically:YES];
+}
+
+- (BOOL) wasRecipeModifiedRemotely: (Recipe *) recipe {
+  // TODO: need to do some magic with file dates
+  return NO;
+}
+
+- (BOOL) wasRecipeModifiedLocally: (Recipe *) recipe {
+  if([self.context.updatedObjects containsObject: recipe]) return YES;
+  if([self.context.insertedObjects containsObject: recipe]) return YES;
+  return NO;
+}
+
+- (BOOL) wasRecipeRemovedRemotely: (Recipe *) recipe {
+  NSString *path = [[self urlForRecipeName:recipe.name] path];
+  return [[NSFileManager defaultManager] fileExistsAtPath: path] == NO;
+}
+
+- (void) loadRecipeFromFile: (Recipe *) recipe {
+  NSURL *recipeUrl = [self urlForRecipeName:recipe.name];
+  NSData *json = [NSData dataWithContentsOfURL:recipeUrl];
+
+  RecipeSerializer *serializer = [RecipeSerializer serializer];
+  [serializer restore:json];
+}
+
+- (NSURL *) urlForRecipeName:(NSString *) name {
+  NSURL *docs = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+  NSURL *recipeUrl = [docs URLByAppendingPathComponent: [name stringByAppendingString:@".recipeking"]];
+  return recipeUrl;
 }
 
 @end

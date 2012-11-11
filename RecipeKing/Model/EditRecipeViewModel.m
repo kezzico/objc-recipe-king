@@ -10,28 +10,19 @@
 #import "IngredientViewModel.h"
 
 @implementation EditRecipeViewModel
-@synthesize recipeId;
-@synthesize name;
-@synthesize category;
-@synthesize preparation;
-@synthesize photo;
-@synthesize ingredients;
-@synthesize preparationTime;
-@synthesize servings;
 
 - (void) dealloc {
-  [recipeId release];
-  [name release];
-  [category release];
-  [preparation release];
-  [photo release];
-  [ingredients release];
+  [_name release];
+  [_category release];
+  [_preparation release];
+  [_photo release];
+  [_ingredients release];
   [super dealloc];
 }
 
 - (id) init {
   if(self = [super init]) {
-    self.ingredients = [[[NSMutableArray alloc] init] autorelease];
+    self.ingredients = [NSMutableArray array];
   }
   return self;
 }

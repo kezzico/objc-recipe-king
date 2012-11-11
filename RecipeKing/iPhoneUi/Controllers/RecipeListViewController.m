@@ -76,7 +76,7 @@
 
 - (void) refreshRecipes {
   RecipeListMapper *mapper = [[[RecipeListMapper alloc] init] autorelease];
-  NSArray *recipes = [mapper recipeListToViewModel: [_repository allRecipes]];
+  NSArray *recipes = [mapper recipeListToViewModel: [_repository recipesGroupedByCategory]];
   _viewModel.recipesAndCategories = [NSMutableArray arrayWithArray:recipes];
   [self.tableView reloadData];
 }
@@ -88,7 +88,7 @@
 }
 
 - (void) presentRecipe:(ListRecipe *) recipe {
-  Recipe *r = [self.repository recipeWithId:recipe.recipeId];
+  Recipe *r = [self.repository recipeWithName:recipe.name];
   RecipeViewController *vc = [ControllerFactory buildViewControllerForRecipe: r];
   [self.navigationController pushViewController:vc animated:YES];
 }
@@ -163,9 +163,11 @@
 }
 
 - (NSArray *) removeRecipeAtIndex: (NSIndexPath *) indexPath {
-  ListRecipe *recipe = [self.viewModel.recipesAndCategories objectAtIndex: indexPath.row];
-  [_repository remove: recipe.recipeId];
-  [_viewModel.recipesAndCategories removeObject: recipe];
+  ListRecipe *listRecipe = [self.viewModel.recipesAndCategories objectAtIndex: indexPath.row];
+  Recipe *recipe = [self.repository recipeWithName: listRecipe.name];
+  [self.repository remove: recipe];
+  
+  [_viewModel.recipesAndCategories removeObject: listRecipe];
   
   NSMutableArray *rowsToRemove = [NSMutableArray arrayWithObject: indexPath];
   for(int i=0;i<[_viewModel.recipesAndCategories count];i++) {

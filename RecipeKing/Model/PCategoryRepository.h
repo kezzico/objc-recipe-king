@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 @class Recipe;
 @protocol PCategoryRepository <NSObject>
-- (NSArray *) allCategories;
+- (NSArray *) categories;
 - (void) add: (NSString *) name;
 - (void) remove: (NSString *) name;
-- (void) rename: (NSString *) oldname to: (NSString *) newname;
 - (void) setCategory: (NSString *) name forRecipe: (Recipe *) recipe;
 @end

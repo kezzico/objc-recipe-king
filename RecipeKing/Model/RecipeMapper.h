@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PCategoryRepository.h"
+#import "PRecipeRepository.h"
 
 @class Recipe;
 @class EditRecipeViewModel;
@@ -16,8 +17,12 @@
 
 - (EditRecipeViewModel *) editViewModelFromRecipe: (Recipe *) r;
 - (RecipeViewModel *) viewModelFromRecipe: (Recipe *) r;
-- (void) editViewModel: (EditRecipeViewModel *) v toRecipe: (Recipe *) r;
+- (Recipe *) recipeFromEditViewModel: (EditRecipeViewModel *) v;
+- (EditRecipeViewModel *) editRecipeViewModel;
+- (NSString *) recipeToText: (Recipe *) recipe;
++ (RecipeMapper *) mapper;
 
 @property (nonatomic, retain) id<PCategoryRepository> categoryRepository;
+@property (nonatomic, retain) id<PRecipeRepository> recipeRepository;
 
 @end

@@ -27,20 +27,20 @@
 - (void) testShouldAddCategory {
   NSString *expectedResult = @"testcategory";
   [_repository add: expectedResult];
-  NSArray *result =[_repository allCategories];
+  NSArray *result =[_repository categories];
   STAssertTrue([result containsObject: expectedResult], @"test category not listed");
 }
 
 - (void) testShouldNotAddCategoryWithSameName {
   NSString *categoryName = @"testcategory";
   [_repository add: categoryName];
-  NSArray *result = [_repository allCategories];
+  NSArray *result = [_repository categories];
   STAssertTrue([result count] == 1, @"should be only 1");
 }
 
 - (void) testShouldRemoveCategory {
   [_repository remove: @"testcategory"];
-  NSArray *result =[_repository allCategories];
+  NSArray *result =[_repository categories];
   STAssertFalse([result containsObject: @"testcategory"], @"test category not removed");
 }
 

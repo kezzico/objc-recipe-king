@@ -19,6 +19,7 @@
 @dynamic ingredients;
 @dynamic preparationTime;
 @dynamic servings;
+@dynamic lastEdit;
 
 - (Ingredient *) ingredientAtIndex:(NSInteger) index {
   for(Ingredient *igt in self.ingredients) {

@@ -36,13 +36,15 @@
 
 + (EditRecipeViewController *) buildEditViewControllerForNewRecipe {
   EditRecipeViewController *vc = [[[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil] autorelease];
-  vc.viewModel = [[[EditRecipeViewModel alloc] init] autorelease];
+  RecipeMapper *mapper = [RecipeMapper mapper];
+  vc.viewModel = [mapper editRecipeViewModel];
+  
   return vc;
 }
 
 + (EditRecipeViewController *) buildEditViewControllerForRecipe:(Recipe *) recipe {
   EditRecipeViewController *vc = [[[EditRecipeViewController alloc] initWithNibName: @"EditRecipeViewController" bundle:nil] autorelease];
-  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
+  RecipeMapper *mapper = [RecipeMapper mapper];
   vc.viewModel = [mapper editViewModelFromRecipe:recipe];
   return vc;
 }

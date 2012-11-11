@@ -9,12 +9,10 @@
 #import "IngredientViewModel.h"
 
 @implementation IngredientViewModel
-@synthesize name;
-@synthesize quantity;
 
 - (void) dealloc {
-  [name release];
-  [quantity release];
+  [_name release];
+  [_quantity release];
   [super dealloc];
 }
 

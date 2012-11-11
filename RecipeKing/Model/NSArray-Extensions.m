@@ -2,7 +2,7 @@
 //  NSMutableArray-Extensions.m
 //  CheapoAir
 //
-//  Created by Marc Magruder on 5/23/12.
+//  Created by Lee Irvine on 5/23/12.
 //  Copyright (c) 2012 Fareportal. All rights reserved.
 //
 

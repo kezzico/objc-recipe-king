@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSSet *ingredients;
 @property (nonatomic, retain) NSNumber * preparationTime;
 @property (nonatomic, retain) NSNumber * servings;
+@property (nonatomic, retain) NSDate * lastEdit;
 @end
 
 @interface Recipe (CoreDataGeneratedAccessors)

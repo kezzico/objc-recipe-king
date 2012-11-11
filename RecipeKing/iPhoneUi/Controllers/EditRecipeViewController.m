@@ -21,6 +21,8 @@
 #import "TimePicker.h"
 #import "PhotoPicker.h"
 #import "NumberPicker.h"
+#import "Recipe.h"
+#import "jsonHelper.h"
 
 @implementation EditRecipeViewController
 @synthesize recipeNameField = _recipeNameField;
@@ -58,7 +60,7 @@
   [super dealloc];
 }
 
-- (void)viewDidUnload {
+- (void) viewDidUnload {
   [self.editRecipeTable unload];
   [self setEditRecipeTable:nil];
   [self setDoneButton: nil];
@@ -74,11 +76,11 @@
   [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
   [super viewDidLoad];
   self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   
@@ -124,17 +126,22 @@
 }
 
 - (void) saveRecipe {
-  Recipe *recipe = nil;
-  if(self.viewModel.recipeId != nil) {
-    recipe = [self.recipeRepository recipeWithId:self.viewModel.recipeId];
-  } else {
-    recipe = [self.recipeRepository newRecipe];
+  if([_viewModel.oldName isEqual:_viewModel.name] == NO && _viewModel.oldName) {
+    Recipe *recipe = [self.recipeRepository recipeWithName:_viewModel.oldName];
+    [self.recipeRepository remove:recipe];
   }
+
+  RecipeMapper *mapper = [RecipeMapper mapper];
+  [mapper recipeFromEditViewModel:self.viewModel];
+  [self.recipeRepository sync];
   
-  RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
-  [mapper editViewModel:self.viewModel toRecipe:recipe];
-  [self.recipeRepository save];
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeChanged" object:self];
+  
+  NSDictionary *postInfo = @{
+    @"oldname" : valueOrNull(_viewModel.oldName),
+    @"newname" : _viewModel.name
+  };
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeChanged" object:nil userInfo: postInfo];
 }
 
 - (void) setupNavigationBar {
@@ -150,7 +157,19 @@
 }
 
 - (BOOL) isRecipeNameValid {
-  return [NSString isEmpty:_viewModel.name] == NO;
+  NSString *name = [_viewModel.name lowercaseString];
+  if([NSString isEmpty: name]) return NO;
+  if([self isRecipeNameAvailable: name] == NO) return NO;
+  return YES;
+}
+
+- (BOOL) isRecipeNameAvailable: (NSString *) recipeName {
+  recipeName = [recipeName lowercaseString];
+  for(NSString *unavailableName in _viewModel.unavailableRecipeNames) {
+    if([recipeName isEqual: [unavailableName lowercaseString]]) return NO;
+  }
+  
+  return YES;
 }
 
 - (void)doneTouched {
@@ -209,7 +228,7 @@
   [_timePicker showInView:self.view];
 }
 
-- (IBAction)recipeNameChanged: (UITextField *) field {
+- (IBAction) recipeNameChanged: (UITextField *) field {
   self.viewModel.name = field.text;
   [_doneButton setEnabled: [self isRecipeNameValid]];
 }

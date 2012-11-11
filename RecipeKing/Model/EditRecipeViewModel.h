@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 @interface EditRecipeViewModel : NSObject
-@property (nonatomic, retain) NSManagedObjectID *recipeId;
+@property (nonatomic, retain) NSString *oldName;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *preparation;
@@ -17,5 +17,5 @@
 @property (nonatomic) NSInteger servings;
 @property (nonatomic, retain) UIImage *photo;
 @property (nonatomic, retain) NSMutableArray *ingredients;
-
+@property (nonatomic, retain) NSArray *unavailableRecipeNames;
 @end

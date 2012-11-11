@@ -28,10 +28,10 @@
   [crepository add: @"Chinese"];
   [crepository add: @"Desert"];
 
-  Recipe *recipe1 = [rrepository newRecipe];
-  Recipe *recipe2 = [rrepository newRecipe];
-  Recipe *recipe3 = [rrepository newRecipe];
-  Recipe *recipe4 = [rrepository newRecipe];
+  Recipe *recipe1 = [rrepository recipeWithName:@"r1"];
+  Recipe *recipe2 = [rrepository recipeWithName:@"r2"];
+  Recipe *recipe3 = [rrepository recipeWithName:@"r3"];
+  Recipe *recipe4 = [rrepository recipeWithName:@"r4"];
 
   recipe1.name = @"Stir Fry";
   [crepository setCategory: @"Chinese" forRecipe: recipe1];
@@ -66,7 +66,7 @@
 }
 
 - (void) testShouldMapListOfRecipesToViewModels {
-  NSArray *recipes = [_recipeRepository allRecipes];
+  NSArray *recipes = [_recipeRepository recipesGroupedByCategory];
   NSArray *result = [_listMapper recipeListToViewModel: recipes];
   
   STAssertTrue([result count] == 6, @"got %d", [result count]);
@@ -81,7 +81,7 @@
 }
 
 - (void) testMappingRecipeToRecipeViewModel {
-  Recipe *recipe = [[_recipeRepository allRecipes] objectAtIndex:1];
+  Recipe *recipe = [_recipeRepository recipesGroupedByCategory][1];
   RecipeViewModel *result = [_recipeMapper viewModelFromRecipe:recipe];
   
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
@@ -100,7 +100,7 @@
 }
 
 - (void) testMappingRecipeToEditViewModel {
-  Recipe *recipe = [[_recipeRepository allRecipes] objectAtIndex:1];
+  Recipe *recipe = [_recipeRepository recipesGroupedByCategory][1];
   EditRecipeViewModel *result = [_recipeMapper editViewModelFromRecipe:recipe];
   
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
@@ -119,7 +119,6 @@
 }
 
 - (void) testMappingEditViewModelToRecipe {
-  Recipe *result = [_recipeRepository newRecipe];
   EditRecipeViewModel *recipe = [[[EditRecipeViewModel alloc] init] autorelease];
   
   recipe.name = @"Test Recipe";
@@ -134,7 +133,7 @@
   ingredient.name = @"Shrimp";
   ingredient.quantity = @"4";
   
-  [_recipeMapper editViewModel:recipe toRecipe:result];
+  Recipe *result = [_recipeMapper recipeFromEditViewModel: recipe];
 
   STAssertEqualObjects(recipe.name, result.name, @"got %@", result.name);
   STAssertEqualObjects(recipe.category, result.category.name, @"got %@", result.category.name);

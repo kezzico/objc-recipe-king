@@ -94,14 +94,14 @@
 }
 
 - (void) editRecipeTouched {
-  Recipe *recipe = [self.repository recipeWithId:_viewModel.recipeId];
+  Recipe *recipe = [self.repository recipeWithName:_viewModel.name];
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForRecipe: recipe];
   UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
   [self presentViewController:nc animated:YES completion:^{}];
 }
 
 - (void) refresh {
-  Recipe *recipe = [self.repository recipeWithId:_viewModel.recipeId];
+  Recipe *recipe = [self.repository recipeWithName:_viewModel.name];
   RecipeMapper *mapper = [[[RecipeMapper alloc] init] autorelease];
   self.viewModel = [mapper viewModelFromRecipe:recipe];
   [self updateFields];
@@ -110,6 +110,13 @@
 }
 
 - (void) recipeChanged:(NSNotification *) notification {
+  NSString *oldName = [notification.userInfo valueForKey:@"oldname"];
+  NSString *newName = [notification.userInfo valueForKey:@"newname"];
+  
+  if([_viewModel.name isEqual: oldName]) {
+    _viewModel.name = newName;
+  }
+  
   [self refresh];
 }
 
