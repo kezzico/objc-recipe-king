@@ -10,14 +10,11 @@
 #import "ScreenHelper.h"
 
 @implementation EditPreparationController
-@synthesize textField;
-@synthesize onDoneTouched;
-@synthesize preparation;
 
 - (void) dealloc {
-  [onDoneTouched release];
-  [textField release];
-  [preparation release];
+  [_onDoneTouched release];
+  [_textField release];
+  [_preparation release];
   [super dealloc];
 }
 
@@ -40,7 +37,7 @@
 
 - (void) doneTouched {
   [self.navigationController popViewControllerAnimated: YES];
-  onDoneTouched(self.preparation);
+  _onDoneTouched(self.preparation);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -52,9 +49,9 @@
 }
 
 - (void) sizeToFit {
-  CGRect tframe = textField.frame;
+  CGRect tframe = self.textField.frame;
   tframe.size.height = [ScreenHelper heightForPortrait:200 landscape:104 tallPortrait:288];
-  textField.frame = tframe;
+  self.textField.frame = tframe;
 }
 
 - (void) textViewDidChange:(UITextView *)textView {

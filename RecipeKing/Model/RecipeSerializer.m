@@ -15,6 +15,13 @@
 #import "jsonHelper.h"
 #import "NSString-Extensions.h"
 
+typedef struct {
+  char magic[4];
+  char version[4];
+  uint recipesize;
+  uint photosize;
+} recipeHeader;
+
 @implementation RecipeSerializer
 
 + (RecipeSerializer *) serializer {
@@ -36,12 +43,27 @@
 }
 
 - (NSData *) serialize: (Recipe *) recipe {
+  NSData *recipedata = [self recipeToJson: recipe];
+  recipeHeader header;
+  memcpy(header.magic, "RCPK", 4);
+  memcpy(header.version, "3.0\0", 4);
+  header.recipesize = [recipedata length];
+  header.photosize = [recipe.photo length];
+  
+  NSMutableData *serializedrecipe = [NSMutableData dataWithBytes:&header length:sizeof(header)];
+  [serializedrecipe appendData: recipedata];
+  if(recipe.photo) {
+    [serializedrecipe appendData: recipe.photo];
+  }
+  
+  return [NSData dataWithData: serializedrecipe];
+}
+
+- (NSData *) recipeToJson:(Recipe *) recipe {
   NSSortDescriptor *ingredientsort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
   NSArray *ingredients = [recipe.ingredients sortedArrayUsingDescriptors:@[ingredientsort]];
- 
-// TODO: need to save and restore photos to a folder
+
   NSDictionary *d = @{
-    @"appversion" : @"3.0",
     @"name" : valueOrNull(recipe.name),
     @"category" : valueOrNull(recipe.category.name),
     @"preparation" : valueOrNull(recipe.preparation),
@@ -58,18 +80,34 @@
   return [NSJSONSerialization dataWithJSONObject:d options:0 error:nil];
 }
 
-- (Recipe *) restore: (NSData *) data {  
-  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error: nil];
+- (Recipe *) restore: (NSData *) data {
+  recipeHeader header;
+  uint headersize = sizeof(recipeHeader);
+  [data getBytes: &header length: headersize];
+  
+  if(memcmp(header.magic, "RCPK", 4)) return nil;
+  
+  NSData *recipedata = [data subdataWithRange:NSMakeRange(headersize, header.recipesize)];
+  Recipe *recipe = [self recipeFromJson: recipedata];
+  
+  if(header.photosize > 0) {
+    recipe.photo = [data subdataWithRange:NSMakeRange(headersize + header.recipesize, header.photosize)];
+  }
+  
+  return recipe;
+}
+
+- (Recipe *) recipeFromJson:(NSData *) data {
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData: data options:0 error: nil];
   NSString *name = [json valueForKey:@"name"];
   
   if(json == nil || name == nil) return nil;
-  
+
   Recipe *recipe = [_recipeRepository recipeWithName: name];
   
   NSString *category = valueOrNil([json valueForKey:@"category"]);
   [self.categoryRepository setCategory:category forRecipe:recipe];
   
-  // TODO: need to save and restore photos to a folder
   recipe.preparation = valueOrNil([json valueForKey:@"preparation"]);
   recipe.preparationTime = valueOrNil([json valueForKey:@"preparationTime"]);
   recipe.servings = valueOrNil([json valueForKey:@"servings"]);

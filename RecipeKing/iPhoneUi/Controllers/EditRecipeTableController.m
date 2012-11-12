@@ -15,15 +15,6 @@ const int kIngredientsSection = 2;
 const int kMiscFieldSection = 1;
 
 @implementation EditRecipeTableController
-@synthesize tableView = _tableView;
-@synthesize recipeNameCell=_recipeNameCell;
-@synthesize totalPrepTimeCell=_totalPrepTimeCell;
-@synthesize categoryCell=_categoryCell;
-@synthesize preparationCell=_preparationCell;
-@synthesize photoCell=_photoCell;
-@synthesize servingsCell=_servingsCell;
-@synthesize addIngredientCell = _addIngredientCell;
-@synthesize sections=_sections;
 
 - (void)dealloc {
   [_recipeNameCell release];

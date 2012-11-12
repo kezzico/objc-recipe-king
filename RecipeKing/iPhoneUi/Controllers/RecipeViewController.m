@@ -22,34 +22,21 @@
 #import "ScreenHelper.h"
 
 @implementation RecipeViewController
-@synthesize titleCell;
-@synthesize ingredientsHeaderCell;
-@synthesize preparationHeaderCell;
-@synthesize categoryView;
-@synthesize servingsView;
-@synthesize servingsLabel;
-@synthesize recipeNameLabel;
-@synthesize preparationTimeLabel;
-@synthesize recipePhotoButton;
-@synthesize preparationCell;
-@synthesize titleView;
-@synthesize repository;
-@synthesize viewModel=_viewModel;
 
 - (void)dealloc {
   [_viewModel release];
-  [titleCell release];
-  [ingredientsHeaderCell release];
-  [preparationHeaderCell release];
-  [categoryView release];
-  [recipeNameLabel release];
-  [preparationTimeLabel release];
-  [preparationCell release];
-  [servingsView release];
-  [servingsLabel release];
-  [recipePhotoButton release];
-  [titleView release];
-  [repository release];
+  [_titleCell release];
+  [_ingredientsHeaderCell release];
+  [_preparationHeaderCell release];
+  [_categoryView release];
+  [_recipeNameLabel release];
+  [_preparationTimeLabel release];
+  [_preparationCell release];
+  [_servingsView release];
+  [_servingsLabel release];
+  [_recipePhotoButton release];
+  [_titleView release];
+  [_repository release];
   [_toolbarCell release];
   [super dealloc];
 }

@@ -107,8 +107,12 @@
 }
 
 - (BOOL) wasRecipeModifiedRemotely: (Recipe *) recipe {
-  // TODO: need to do some magic with file dates
-  return NO;
+  NSURL *recipeUrl = [self urlForRecipeName: recipe.name];
+  NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath: [recipeUrl path] error:nil];
+  NSDate *localLastEdit = recipe.lastEdit;
+  NSDate *remoteLastEdit = [attributes fileModificationDate];
+
+  return [remoteLastEdit compare: localLastEdit] == NSOrderedDescending;
 }
 
 - (BOOL) wasRecipeModifiedLocally: (Recipe *) recipe {
