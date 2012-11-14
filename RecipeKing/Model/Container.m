@@ -43,14 +43,14 @@ static Container *sharedContainer = nil;
 }
 
 - (void) registerProtocol: (Protocol *) proto toClass: (Class) class {
-  Dependency *dependency = [[Dependency alloc] init];
+  Dependency *dependency = [[[Dependency alloc] init] autorelease];
   dependency->class = class;
   NSString *key = NSStringFromProtocol(proto);
   [_components setValue: dependency forKey: key];
 }
 
 - (void) registerProtocol:(Protocol *)proto toInstance:(id)obj {
-  Dependency *dependency = [[Dependency alloc] init];
+  Dependency *dependency = [[[Dependency alloc] init] autorelease];
   dependency->class = [obj class];
   dependency->instance = [obj retain];
   

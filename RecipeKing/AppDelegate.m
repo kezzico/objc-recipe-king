@@ -28,9 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [self migrateFromVersion1];
   [self addCategoriesOnFirstRun];
-  [self syncRecipes];
   
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
   self.window.backgroundColor = [UIColor whiteColor];
   
   RecipeListViewController *recipeListController = [ControllerFactory buildViewControllerForRecipeList];
@@ -54,18 +53,15 @@
   [repository sync];
 }
 
+- (void) applicationDidBecomeActive:(UIApplication *)application {
+  [self syncRecipes];
+}
+
 - (void) addCategoriesOnFirstRun {
   if([[NSUserDefaults standardUserDefaults] boolForKey:@"isNotFirstRun"] == NO) {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isNotFirstRun"];
     id<PCategoryRepository> repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
-    [repository add:@"Appetizer"];
-    [repository add:@"Bread"];
-    [repository add:@"Breakfast"];
-    [repository add:@"Dessert"];
-    [repository add:@"Drinks"];
-    [repository add:@"Salad"];
-    [repository add:@"Seafood"];
-    [repository add:@"Pasta"];    
+    [repository addDefaultCategories];
   }
 }
 

@@ -17,6 +17,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *titleButton;
 @property (retain, nonatomic) IBOutlet UIView *view;
 @property (copy, nonatomic) void(^onTimeSelected)(NSInteger time);
+@property (retain, nonatomic) IBOutlet UILabel *hoursLabel;
 @property (retain, nonatomic) IBOutlet UILabel *minsLabel;
 - (IBAction)doneButtonTouched:(UIBarButtonItem *)sender;
 - (void) showInView:(UIView *) viewToPresentFrom;

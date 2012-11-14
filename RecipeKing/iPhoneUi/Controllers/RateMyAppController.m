@@ -35,12 +35,12 @@
 }
 
 - (void) askForRating {
-  NSString *message = @"Thank you for using Recipe King. Please leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";
-  NSString *okText = @"Rate It!";
-  NSString *cancelText = @"No, Thanks";
+  NSString *message = _L(@"PleaseRateMessage");
+  NSString *okText = _L(@"RateItButton");
+  NSString *cancelText = _L(@"NoThanksButton");
   
   [AlertHandler alertWithMessage:message okText:okText cancelText:cancelText okTouched:^{
-    NSURL *appUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/recipe-king/id493431587?ls=1&mt=8"];
+    NSURL *appUrl = [NSURL URLWithString: @"https://itunes.apple.com/app/id493431587"];
     [[UIApplication sharedApplication] openURL: appUrl];
   }];
 }

@@ -42,4 +42,14 @@
   return category;
 }
 
+- (void) addDefaultCategories {
+  [self add:_L(@"BreadCategory")];
+  [self add:_L(@"BreakfastCategory")];
+  [self add:_L(@"DessertCategory")];
+  [self add:_L(@"DrinksCategory")];
+  [self add:_L(@"SaladCategory")];
+  [self add:_L(@"SeafoodCategory")];
+  [self add:_L(@"PastaCategory")];
+}
+
 @end

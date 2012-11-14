@@ -20,6 +20,7 @@
 #import "UINavigationBarSkinned.h"
 #import "RecipeMapper.h"
 #import "ScreenHelper.h"
+#import "RVActionButtonsSheet.h"
 
 @implementation RecipeViewController
 
@@ -57,6 +58,9 @@
   [self setToolbarCell:nil];
   [super viewDidUnload];
 }
+// TODO: copy recipe
+//UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//pasteboard.string = @"paste me somewhere";
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
@@ -231,6 +235,11 @@
 }
 
 - (IBAction)shareTouched:(id)sender {
+  NSArray *buttonTitles = @[@"Mail", @"Message",@"Copy"];
+  NSArray *buttonIcons = @[@"mail", @"sms", @"copy"];
+  RVActionButtonsSheet *actionSheet = [[RVActionButtonsSheet alloc] initWithDelegate:self cancelButtonTitle:@"Cancel"
+    otherButtonTitles:buttonTitles otherButtonImageNames:buttonIcons inView:self.view];
+  [actionSheet showInView:self.view];
 }
 
 - (IBAction)photoTouched:(id)sender {

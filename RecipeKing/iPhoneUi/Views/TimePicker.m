@@ -19,14 +19,21 @@
   [_actionSheet release];
   [_onTimeSelected release];
   [_minsLabel release];
+  [_hoursLabel release];
   [super dealloc];
 }
 
 - (id) init {
   if(self = [super init]) {
     [[NSBundle mainBundle] loadNibNamed: @"TimePicker" owner: self options: nil];
+    [self localizeText];
   }
   return self;
+}
+
+- (void) localizeText {
+  self.hoursLabel.text = _L(@"Hours");
+  self.minsLabel.text = _L(@"Minutes");
 }
 
 - (void) setValue:(NSInteger) time {
@@ -38,7 +45,8 @@
 }
 
 - (void) showInView:(UIView *) viewToPresentFrom {
-  [self.titleButton setTitle:self.title forState:UIControlStateDisabled];
+  [self.titleButton setTitle:self.title forState:UIControlStateNormal];
+  [self.titleButton sizeToFit];
   self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
   [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
   [self.actionSheet addSubview:self.view];

@@ -49,8 +49,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recipeChanged:)
-     name:@"recipeChanged" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:@"recipes synced" object:nil];
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   [self createAddRecipeButton];
   [self refreshRecipes];
@@ -70,7 +69,7 @@
   [self presentViewController: nc animated: YES completion:^{}];
 }
 
-- (void) recipeChanged:(NSNotification *) notification {
+- (void) update:(NSNotification *) notification {
   [self refreshRecipes];
 }
 

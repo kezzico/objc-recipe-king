@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  RecipeKing
+
+  Created by Lee Irvine on 11/13/12.
+  Copyright (c) 2012 leescode. All rights reserved.
+*/
+
+"Ingredients" = "Ingredients";
+"NoPhotoSet" = "No Photo added";
+"PhotoSet" = "Photo added";
+"EmptyCategory" = "None";
+"PreparationTime" = "Preparation Time";
+"Servings" = "servings";
+"Hours" = "Hours";
+"Minutes" = "Mins";
+"BreadCategory" = "Bread";
+"BreakfastCategory" = "Breakfast";
+"DessertCategory" = "Dessert";
+"DrinksCategory" = "Drinks";
+"SaladCategory" = "Salad";
+"SeafoodCategory" = "Seafood";
+"PastaCategory" = "Pasta";
+
+"RateItButton" = "Rate It!";
+"NoThanksButton" = "No, Thanks";
+"PleaseRateMessage" = "Thank you for using Recipe King. Please leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";

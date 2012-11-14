@@ -57,6 +57,7 @@
   [_photoLabel release];
   [_numberPicker release];
   [_servingsLabel release];
+  [_photoLabel release];
   [super dealloc];
 }
 
@@ -73,6 +74,7 @@
   [self setPhotoLabel:nil];
   [self setNumberPicker:nil];
   [self setServingsLabel:nil];
+  [self setPhotoLabel:nil];
   [super viewDidUnload];
 }
 
@@ -118,11 +120,11 @@
 }
 
 - (void) updateCategoryField {
-  self.categoryLabel.text = _viewModel.category == nil ? @"None" : _viewModel.category;
+  self.categoryLabel.text = _viewModel.category == nil ? _L(@"EmptyCategory") : _viewModel.category;
 }
 
 - (void) updateImageField {
-  self.photoLabel.text = _viewModel.photo == nil ? @"No photo added" : @"Photo set";
+  self.photoLabel.text = _viewModel.photo == nil ? _L(@"NoPhotoSet") : _L(@"PhotoSet");
 }
 
 - (void) saveRecipe {
@@ -196,7 +198,7 @@
 
 - (IBAction)servingsTouched:(UIButton *)sender {
   [self.view endEditing:YES];
-  _numberPicker.title = @"Servings";
+  _numberPicker.title = _L(@"Servings");
   _numberPicker.value = _viewModel.servings;
   _numberPicker.onNumberSelected = ^(NSInteger number) {
     _viewModel.servings = number;
@@ -218,7 +220,7 @@
 
 - (IBAction) preparationTimeTouched:(UIButton *)sender {
   [self.view endEditing:YES];
-  _timePicker.title = @"Preperation Time";
+  _timePicker.title = _L(@"PreparationTime");
   _timePicker.value = _viewModel.preparationTime;
   _timePicker.onTimeSelected = ^(NSInteger time) {
     _viewModel.preparationTime = time;

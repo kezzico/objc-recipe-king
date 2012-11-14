@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  RecipeKing
+
+  Created by Lee Irvine on 11/13/12.
+  Copyright (c) 2012 leescode. All rights reserved.
+*/
+
+"Ingredients" = "Ingredientes";
+"NoPhotoSet" = "No foto presente";
+"PhotoSet" = "Foto presente";
+"EmptyCategory" = "Ninguno";
+"PreparationTime" = "Tiempo de Preparación";
+"Servings" = "porciones";
+"Hours" = "Horas";
+"Minutes" = "Mins";
+"BreadCategory" = "Pan";
+"BreakfastCategory" = "Desayuno";
+"DessertCategory" = "Postre";
+"DrinksCategory" = "Bebidas";
+"SaladCategory" = "Ensalada";
+"SeafoodCategory" = "Mariscos";
+"PastaCategory" = "Pasta";
+
+"RateItButton" = "Votalo!";
+"NoThanksButton" = "No, Gracias";
+// TODO: translate to spanish.
+"PleaseRateMessage" = "Thank you for using Recipe King. Please leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";

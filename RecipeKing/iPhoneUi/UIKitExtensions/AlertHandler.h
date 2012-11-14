@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AlertHandler : NSObject <UIAlertViewDelegate>
-@property (nonatomic, retain) void(^onOkTouched)();
+@property (nonatomic, copy) void(^onOkTouched)();
 + (void) alertWithMessage: (NSString *) message;
 + (void) alertWithMessage:(NSString *)message okTouched:(void (^)()) callback;
 + (void) alertWithMessage:(NSString *)message okText:(NSString *) okText cancelText: (NSString *) cancelText okTouched:(void (^)()) callback;

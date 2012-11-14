@@ -29,11 +29,11 @@
 }
 
 - (void) setValue:(NSInteger) number {
-  [_picker selectRow: number inComponent: 0  animated: NO];
+  [_picker selectRow: number inComponent:0  animated: NO];
 }
 
 - (void) showInView:(UIView *) viewToPresentFrom {
-  [self.titleButton setTitle:self.title forState:UIControlStateDisabled];
+  [self.titleButton setTitle:self.title forState:UIControlStateNormal];
   self.actionSheet = [[[UIActionSheet alloc] initWithTitle:@"" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
   [_actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
   [_actionSheet addSubview:self.view];

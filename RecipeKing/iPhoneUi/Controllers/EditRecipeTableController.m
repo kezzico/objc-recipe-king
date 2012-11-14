@@ -90,7 +90,7 @@ const int kMiscFieldSection = 1;
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
   switch (section) {
-    case kIngredientsSection: return @"Ingredients";
+    case kIngredientsSection: return _L(@"Ingredients");
   }
   return @"";
 }

@@ -13,4 +13,5 @@
 - (void) add: (NSString *) name;
 - (void) remove: (NSString *) name;
 - (void) setCategory: (NSString *) name forRecipe: (Recipe *) recipe;
+- (void) addDefaultCategories;
 @end

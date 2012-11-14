@@ -32,10 +32,11 @@
   if(delegate == nil) delegate = [[AlertHandler alloc] init];
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Recipe King" message: message delegate:delegate cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];  
-  delegate.onOkTouched = [^{ 
+  delegate.onOkTouched = ^{
     callback();
     [alert autorelease];
-  } copy];
+  };
+  
   [alert show];
 }
 
@@ -44,10 +45,11 @@
   if(delegate == nil) delegate = [[AlertHandler alloc] init];
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Recipe King" message: message delegate:delegate cancelButtonTitle:cancelText otherButtonTitles:okText, nil];
-  delegate.onOkTouched = [^{
+  delegate.onOkTouched = ^{
     callback();
     [alert autorelease];
-  } copy];
+  };
+  
   [alert show];
 }
 

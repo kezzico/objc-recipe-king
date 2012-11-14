@@ -10,6 +10,7 @@
 - (void) dealloc {
   [_categories release];
   [_repository release];
+  [_recipeRepository release];
   [_onCategorySelected release];
   [super dealloc];
 }
@@ -18,7 +19,7 @@
   [super viewDidLoad];
   [self.navigationItem setHidesBackButton:YES animated:NO];
   self.repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
-  
+  self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   [self refreshCategories];
   [self createAddCategoryButton];
 }
@@ -72,7 +73,7 @@
   }
   
   if([_categories count] == indexPath.row) {
-    cell.textLabel.text = @"None";
+    cell.textLabel.text = _L(@"EmptyCategory");
   } else {
     cell.textLabel.text = _categories[indexPath.row];
   }
@@ -84,6 +85,8 @@
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [_repository remove: _categories[indexPath.row]];
     self.categories = [_repository categories];
+    [_recipeRepository sync];
+
     [tableView deleteRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"categoryChange" object: self];
   }

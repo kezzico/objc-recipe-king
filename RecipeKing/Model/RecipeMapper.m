@@ -51,7 +51,7 @@
   v.servings = [r.servings integerValue];
   v.preparationTime = [r.preparationTime integerValue];
   
-  NSMutableArray *recipeNames = [[self.recipeRepository recipeNames] mutableCopy];
+  NSMutableArray *recipeNames = [[[self.recipeRepository recipeNames] mutableCopy] autorelease];
   [recipeNames removeObject:r.name];
   v.unavailableRecipeNames = [NSArray arrayWithArray: recipeNames];
   

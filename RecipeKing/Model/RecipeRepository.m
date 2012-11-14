@@ -79,12 +79,14 @@
       [self saveRecipeToFile: recipe];
     } else if([self wasRecipeModifiedRemotely: recipe]) {
       [self loadRecipeFromFile: recipe];
+      recipe.lastEdit = [NSDate date];
     } else if([self wasRecipeRemovedRemotely: recipe]) {
       [self removeEntity: recipe];
     }
   }
   
   [self save];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipes synced" object:nil userInfo: nil];
 }
 
 - (NSArray *) allRecipeUrlsInDocumentsDirectory {

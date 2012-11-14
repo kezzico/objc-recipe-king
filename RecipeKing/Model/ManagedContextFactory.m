@@ -46,8 +46,9 @@ static ManagedContextFactory *contextfactory;
 
 - (void) setupStoreCoordinator {
   NSError *error = nil;
+  NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,NSInferMappingModelAutomaticallyOption:@YES};
   _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: _managedObjectModel];
-  [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL: [self storeUrl] options:nil error:&error];
+  [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL: [self storeUrl] options:options error:&error];
   if(error) NSLog(@"%@", error);
 }
 

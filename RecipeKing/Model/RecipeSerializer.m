@@ -111,9 +111,8 @@ typedef struct {
   recipe.preparation = valueOrNil([json valueForKey:@"preparation"]);
   recipe.preparationTime = valueOrNil([json valueForKey:@"preparationTime"]);
   recipe.servings = valueOrNil([json valueForKey:@"servings"]);
-  
-  NSArray *ingredients = valueOrNil([recipe valueForKey:@"ingredients"]);
-  
+  NSArray *ingredients = valueOrNil([json valueForKey:@"ingredients"]);
+
   for(Ingredient *ig in recipe.ingredients) {
     [recipe.managedObjectContext deleteObject:ig];
   }

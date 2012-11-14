@@ -28,7 +28,7 @@
   [self.navigationItem setHidesBackButton:YES animated:NO];
   
   self.textField.text = self.preparation;
-  UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched)];
+  UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched)] autorelease];
   self.navigationItem.rightBarButtonItem = doneButton;
   
   [self.textField becomeFirstResponder];
