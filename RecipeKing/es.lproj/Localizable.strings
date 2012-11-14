@@ -7,8 +7,6 @@
 */
 
 "Ingredients" = "Ingredientes";
-"NoPhotoSet" = "No foto presente";
-"PhotoSet" = "Foto presente";
 "EmptyCategory" = "Ninguno";
 "PreparationTime" = "Tiempo de Preparación";
 "Servings" = "porciones";
@@ -21,6 +19,13 @@
 "SaladCategory" = "Ensalada";
 "SeafoodCategory" = "Mariscos";
 "PastaCategory" = "Pasta";
+
+"NoPhotoSet" = "Añade foto";
+"PhotoSet" = "Edita foto";
+"ChoosePhoto" = "Seleccionar foto";
+"TakePhoto" = "Hacer foto";
+"RemovePhoto" = "Eliminar foto";
+"Cancel" = "Cancelar";
 
 "RateItButton" = "Votalo!";
 "NoThanksButton" = "No, Gracias";

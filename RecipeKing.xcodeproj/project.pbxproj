@@ -276,7 +276,7 @@
 		9BF9BC9A1548DA3600DBADFD /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		9BF9BC9B1548DA3600DBADFD /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		9BFEEB8C1651F845009F17E0 /* RecipeKing-2.3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RecipeKing-2.3.sqlite"; sourceTree = "<group>"; };
-		9BFEEB9116520777009F17E0 /* RecipeKing 3.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RecipeKing 3.0.xcdatamodel"; sourceTree = "<group>"; };
+		9BFEEB9116520777009F17E0 /* RecipeKing 3.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "RecipeKing 3.0.xcdatamodel"; sourceTree = "<group>"; };
 		9BFEEB991652AB46009F17E0 /* RecipeKing-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RecipeKing-Info.plist"; sourceTree = "<group>"; };
 		9BFEEB9B1652ACC8009F17E0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BFEEBA01652ADB7009F17E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1210,8 +1210,8 @@
 					"\"$(SRCROOT)/Library\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4EFBBC4-0975-4257-9A08-E4F673E1CCEE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4EFBBC4-0975-4257-9A08-E4F673E1CCEE";
+				PROVISIONING_PROFILE = "B43294D5-2055-4205-84FD-322D5E8C8FD0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B43294D5-2055-4205-84FD-322D5E8C8FD0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

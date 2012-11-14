@@ -31,7 +31,7 @@
   removePhotoIndex = 2;
   
   if([self isCameraAvailable] == YES) {
-    [_photoSourceOptions addButtonWithTitle: @"Take Photo"];
+    [_photoSourceOptions addButtonWithTitle: _L(@"TakePhoto")];
     cancelIndex++;
   } else {
     takePhotoIndex = -1;
@@ -39,16 +39,16 @@
     removePhotoIndex--;
   }
   
-  [_photoSourceOptions addButtonWithTitle: @"Choose Photo"];
+  [_photoSourceOptions addButtonWithTitle: _L(@"ChoosePhoto")];
   
   if(self.showRemovePhotoOption == YES) {
-    [_photoSourceOptions addButtonWithTitle: @"Remove Photo"];
+    [_photoSourceOptions addButtonWithTitle: _L(@"RemovePhoto")];
     cancelIndex++;
   } else {
     removePhotoIndex = -1;
   }
   
-  [_photoSourceOptions addButtonWithTitle: @"Cancel"];
+  [_photoSourceOptions addButtonWithTitle: _L(@"Cancel")];
   _photoSourceOptions.cancelButtonIndex = cancelIndex;
   _photoSourceOptions.delegate = self;
 }
