@@ -125,11 +125,30 @@
 }
 
 - (NSString *) recipeToText: (Recipe *) recipe {
+  NSMutableString *recipeText = [NSMutableString string];
   
-  return nil;
+  if([recipe.ingredients count] > 0) {
+    [recipeText appendFormat: @"%@\n", _L(@"SharedIngredients")];
+    for(Ingredient *ingr in recipe.ingredients) {
+      NSString *comma = [NSString isEmpty:ingr.quantity] == NO ? @", " : @"";
+      NSString *qty = [NSString isEmpty:ingr.quantity] == NO ? ingr.quantity : @"";
+      [recipeText appendFormat:@" - %@%@%@\n", qty, comma, ingr.name];
+    }
+  }
+  
+  if([NSString isEmpty: recipe.preparation] == NO) {
+    if([NSString isEmpty: recipeText] == NO) [recipeText appendString:@"\n"];
+    [recipeText appendString: _L(@"SharedPreparation")];
+    
+    if([recipe.preparationTime intValue] > 0) {
+      [recipeText appendFormat:@" - %@", [NSString stringFromTime: [recipe.preparationTime intValue]]];
+    }
+    
+    [recipeText appendFormat:@"\n%@", recipe.preparation];
+  }
+  
+  return [NSString stringWithString: recipeText];
 }
-
-
 
 - (CGFloat) findWidestQuantity:(NSSet *) ingredients {
   CGFloat longest = 0.f;

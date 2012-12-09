@@ -13,14 +13,19 @@
 @synthesize recipeSelected;
 
 - (void) dealloc {
-  [recipeSelected release];
   [_recipes release];
+  [recipeSelected release];
   [_searchController release];
   [_repository release];
   [super dealloc];
 }
+- (void) didUnload {
+  self.recipes = nil;
+  self.searchController = nil;
+  self.recipeSelected = nil;
+}
 
-- (void) awakeFromNib {
+- (void) didLoad {
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
 }
 

@@ -12,6 +12,7 @@
 #import "NSString-Extensions.h"
 #import "NSArray-Extensions.h"
 #import "RecipeSerializer.h"
+#import "DirectoryWatcher.h"
 
 @implementation RecipeRepository
 
@@ -62,6 +63,8 @@
 }
 
 - (void) sync {
+  [self stopTrackingChanges];
+  
   NSArray *allRecipes = [self entitiesNamed:@"Recipe" matching:nil sortWith:nil];
 
   // find all recipe files without a matching recipe and persist them locally
@@ -86,12 +89,35 @@
   }
   
   [self save];
+  [self trackChanges];
   [[NSNotificationCenter defaultCenter] postNotificationName:@"recipes synced" object:nil userInfo: nil];
 }
 
+- (void) stopTrackingChanges {
+  [self.directoryWatcher invalidate];
+  self.directoryWatcher = nil;
+}
+
+- (void) trackChanges {
+  NSString *docs = [[self documentsUrl] path];
+  self.directoryWatcher = [DirectoryWatcher watchFolderWithPath:docs delegate:self];
+}
+
+- (void) directoryDidChange:(DirectoryWatcher *)folderWatcher {
+  static BOOL waitingForSync = NO;
+  if(waitingForSync == NO) {
+    waitingForSync = YES;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.f * NSEC_PER_SEC), dispatch_get_current_queue(), ^(void) {
+      waitingForSync = NO;
+      [self sync];
+    });
+
+  }
+}
+
 - (NSArray *) allRecipeUrlsInDocumentsDirectory {
-  NSURL *documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-  NSArray *urls = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:documentsDirectory includingPropertiesForKeys:nil options:0 error:nil];
+  NSArray *urls = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self documentsUrl] includingPropertiesForKeys:nil options:0 error:nil];
   urls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension = %@", @"recipeking"]];
 
   return urls;
@@ -137,9 +163,13 @@
 }
 
 - (NSURL *) urlForRecipeName:(NSString *) name {
-  NSURL *docs = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+  NSURL *docs = [self documentsUrl];
   NSURL *recipeUrl = [docs URLByAppendingPathComponent: [name stringByAppendingString:@".recipeking"]];
   return recipeUrl;
+}
+
+- (NSURL *) documentsUrl {
+  return [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

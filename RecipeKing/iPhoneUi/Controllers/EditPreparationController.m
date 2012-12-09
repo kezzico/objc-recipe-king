@@ -7,6 +7,7 @@
 //
 
 #import "EditPreparationController.h"
+#import "NavigationController.h"
 #import "ScreenHelper.h"
 
 @implementation EditPreparationController
@@ -15,33 +16,32 @@
   [_onDoneTouched release];
   [_textField release];
   [_preparation release];
+  [_doneButtonPortrait release];
+  [_doneButtonLandscape release];
   [super dealloc];
 }
 
 - (void)viewDidUnload {
   [self setTextField:nil];
+  [self setDoneButtonPortrait:nil];
+  [self setDoneButtonLandscape:nil];
   [super viewDidUnload];
 }
 
 - (void) viewDidLoad {
   [super viewDidLoad];
-  [self.navigationItem setHidesBackButton:YES animated:NO];
-  
+  [self.navcontroller hideBackButton: YES];
   self.textField.text = self.preparation;
-  UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched)] autorelease];
-  self.navigationItem.rightBarButtonItem = doneButton;
-  
   [self.textField becomeFirstResponder];
   [self sizeToFit];
+  
+  [self.doneButtonLandscape setTitle:_L(@"Done") forState:UIControlStateNormal];
+  [self.doneButtonPortrait setTitle:_L(@"Done") forState:UIControlStateNormal];
 }
 
-- (void) doneTouched {
-  [self.navigationController popViewControllerAnimated: YES];
+- (IBAction) doneTouched:(id)sender {
+  [self.navcontroller popViewController];
   _onDoneTouched(self.preparation);
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation) fromInterfaceOrientation {

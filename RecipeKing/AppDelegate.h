@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class NavigationController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (nonatomic, retain) UINavigationController *navController;
+@property (nonatomic, retain) NavigationController *navController;
 @property (nonatomic, retain) UIWindow *window;
 
 @end

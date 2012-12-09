@@ -8,7 +8,9 @@
 
 #import "PRecipeRepository.h"
 #import "Repository.h"
+#import "DirectoryWatcher.h"
 
-@interface RecipeRepository : Repository <PRecipeRepository>
+@interface RecipeRepository : Repository <PRecipeRepository, DirectoryWatcherDelegate>
+@property (nonatomic, retain) DirectoryWatcher *directoryWatcher;
 - (NSURL *) urlForRecipeName:(NSString *) name;
 @end

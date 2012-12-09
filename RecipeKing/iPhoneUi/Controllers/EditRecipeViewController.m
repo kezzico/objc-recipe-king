@@ -23,30 +23,15 @@
 #import "NumberPicker.h"
 #import "Recipe.h"
 #import "jsonHelper.h"
+#import "NavigationController.h"
+#import "EditRecipeLocalizationController.h"
 
 @implementation EditRecipeViewController
-@synthesize recipeNameField = _recipeNameField;
-@synthesize prepTimePlaceHolderLabel = _prepTimePlaceHolderLabel;
-@synthesize prepTimeLabel = _prepTimeLabel;
-@synthesize categoryLabel = _categoryLabel;
-@synthesize preparationLabel = _preparationLabel;
-@synthesize photoLabel = _photoLabel;
-@synthesize servingsLabel = _servingsLabel;
-@synthesize viewModel = _viewModel;
-@synthesize doneButton = _doneButton;
-@synthesize editRecipeTable = _editRecipeTable;
-@synthesize backgroundView = _backgroundView;
-@synthesize recipeRepository = _recipeRepository;
-@synthesize timePicker=_timePicker;
-@synthesize photoPicker = _photoPicker;
-@synthesize numberPicker = _numberPicker;
 
 - (void) dealloc {
   [_timePicker release];
-  [_doneButton release];
   [_editRecipeTable release];
   [_viewModel release];
-  [_backgroundView release];
   [_recipeRepository release];
   [_preparationLabel release];
   [_categoryLabel release];
@@ -58,14 +43,17 @@
   [_numberPicker release];
   [_servingsLabel release];
   [_photoLabel release];
+  [_tableView release];
+  [_localizer release];
+  [_doneButtonPortrait release];
+  [_doneButtonLandscape release];
   [super dealloc];
 }
 
 - (void) viewDidUnload {
+  [self.localizer didUnload];
   [self.editRecipeTable unload];
   [self setEditRecipeTable:nil];
-  [self setDoneButton: nil];
-  [self setBackgroundView:nil];
   [self setPreparationLabel:nil];
   [self setCategoryLabel:nil];
   [self setRecipeNameField:nil];
@@ -75,6 +63,10 @@
   [self setNumberPicker:nil];
   [self setServingsLabel:nil];
   [self setPhotoLabel:nil];
+  [self setTableView:nil];
+  [self setLocalizer:nil];
+  [self setDoneButtonPortrait:nil];
+  [self setDoneButtonLandscape:nil];
   [super viewDidUnload];
 }
 
@@ -84,14 +76,14 @@
 
 - (void) viewDidLoad {
   [super viewDidLoad];
+  [self.localizer didLoad];
   self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   
-  [self.tableView setBackgroundView: _backgroundView];
-  [self setupNavigationBar];
   [self updateFields];
   
   _editRecipeTable.viewModel = self.viewModel;
   [_editRecipeTable setupSections];
+  [self enableDoneButton:[self isRecipeNameValid]];
 }
 
 - (void) updateFields {
@@ -146,18 +138,6 @@
   [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeChanged" object:nil userInfo: postInfo];
 }
 
-- (void) setupNavigationBar {
-  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] 
-    initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTouched)];
-
-  _doneButton = [[UIBarButtonItem alloc] 
-    initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched)];
-  
-  self.navigationItem.leftBarButtonItem = [cancelButton autorelease];
-  self.navigationItem.rightBarButtonItem = _doneButton;
-  [_doneButton setEnabled: [self isRecipeNameValid]];
-}
-
 - (BOOL) isRecipeNameValid {
   NSString *name = [_viewModel.name lowercaseString];
   if([NSString isEmpty: name]) return NO;
@@ -174,13 +154,13 @@
   return YES;
 }
 
-- (void)doneTouched {
+- (IBAction) doneTouched:(id) sender {
   [self saveRecipe];
-  [self dismissModalViewControllerAnimated: YES];
+  [self.navcontroller dismissModalViewControllerAnimated: YES];
 }
 
-- (void)cancelTouched {
-  [self dismissModalViewControllerAnimated: YES];
+- (IBAction)cancelTouched:(id)sender {
+  [self.navcontroller dismissModalViewControllerAnimated: YES];
 }
 
 - (IBAction) preparationTouched {
@@ -193,7 +173,7 @@
     _viewModel.preparation = value;
   };
   
-  [self.navigationController pushViewController: vc animated: YES];
+  [self.navcontroller pushViewController:vc];
 }
 
 - (IBAction)servingsTouched:(UIButton *)sender {
@@ -211,7 +191,8 @@
 - (IBAction) categoryTouched: (UIButton *) sender {
   [self.view endEditing:YES];
   CategoryListController *vc = [ControllerFactory buildCategoryListViewController];
-  [self.navigationController pushViewController: vc animated: YES];
+  vc.selectedCategory = _viewModel.category;
+  [self.navcontroller pushViewController: vc];
   vc.onCategorySelected = ^(NSString *category) {
     _viewModel.category = category;
     [self updateCategoryField];
@@ -232,11 +213,17 @@
 
 - (IBAction) recipeNameChanged: (UITextField *) field {
   self.viewModel.name = field.text;
-  [_doneButton setEnabled: [self isRecipeNameValid]];
+  [self enableDoneButton:[self isRecipeNameValid]];
+}
+
+- (void) enableDoneButton:(BOOL) enable {
+  self.doneButtonLandscape.enabled = enable;
+  self.doneButtonPortrait.enabled = enable;
 }
 
 - (IBAction)photoTouched:(UIButton *)sender {
   [self.view endEditing:YES];
+  self.photoPicker.controller = self.navcontroller;
   self.photoPicker.showRemovePhotoOption = _viewModel.photo != nil;
   [self.photoPicker showPicker];
   

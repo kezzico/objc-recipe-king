@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ImageViewController : UIViewController
+#import "ContentViewController.h"
+@interface ImageViewController : ContentViewController
 @property (nonatomic, retain) UIImage *image;
 - (UIImageView *) imageView;
 @end

@@ -12,6 +12,7 @@
 + (BOOL) isPortraitMode;
 + (BOOL) isWideScreen;
 + (CGSize) screenSize;
++ (CGSize) screenSizeForOrientation:(UIInterfaceOrientation) orientation;
 + (CGFloat) screenWidth;
 + (CGFloat) widthForPortrait:(CGFloat) pwidth landscape:(CGFloat) lwidth wideLandscape:(CGFloat) wwidth;
 + (CGFloat) heightForPortrait:(CGFloat) pheight landscape:(CGFloat) lheight tallPortrait:(CGFloat) theight;

@@ -10,7 +10,6 @@
 #import "RecipeListMapper.h"
 #import "EditRecipeViewController.h"
 #import "RecipeListViewModel.h"
-#import "UINavigationBarSkinned.h"
 #import "RecipeViewController.h"
 #import "RecipeMapper.h"
 #import "ListRecipe.h"
@@ -20,6 +19,7 @@
 #import "NSString-Extensions.h"
 #import "CategoryCell.h"
 #import "RecipeListSearchController.h"
+#import "NavigationController.h"
 
 @implementation RecipeListViewController
 @synthesize tableView=_tableView;
@@ -37,6 +37,8 @@
 }
 
 - (void)viewDidUnload {
+  [self.recipeSearchController didUnload];
+  self.recipeSearchController = nil;
   [self setTableView:nil];
   [self setRecipeSearchController:nil];
   [self setRateMyAppController:nil];
@@ -51,22 +53,18 @@
   [super viewDidLoad];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:@"recipes synced" object:nil];
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
-  [self createAddRecipeButton];
   [self refreshRecipes];
-  [self setupSearchBar];
-}
-
-- (void) createAddRecipeButton {
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-    target:self action:@selector(addRecipeTouched)];
+  [self.recipeSearchController didLoad];
   
-  self.navigationItem.rightBarButtonItem = [addButton autorelease];
+  self.recipeSearchController.recipeSelected = ^(ListRecipe *recipe) {
+    [self presentRecipe:recipe];
+  };
 }
 
-- (void) addRecipeTouched {
+- (IBAction) addRecipeTouched:(id) sender {
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForNewRecipe];
-  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
-  [self presentViewController: nc animated: YES completion:^{}];
+  NavigationController *nc = [NavigationController navWithRoot:vc];
+  [self.navcontroller presentViewController: nc animated: YES completion:^{}];
 }
 
 - (void) update:(NSNotification *) notification {
@@ -80,16 +78,10 @@
   [self.tableView reloadData];
 }
 
-- (void) setupSearchBar {
-  self.recipeSearchController.recipeSelected = ^(ListRecipe *recipe) {
-    [self presentRecipe:recipe];
-  };
-}
-
 - (void) presentRecipe:(ListRecipe *) recipe {
   Recipe *r = [self.repository recipeWithName:recipe.name];
   RecipeViewController *vc = [ControllerFactory buildViewControllerForRecipe: r];
-  [self.navigationController pushViewController:vc animated:YES];
+  [self.navcontroller pushViewController:vc];
 }
 
 #pragma mark table view delegate

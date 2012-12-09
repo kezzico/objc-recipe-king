@@ -7,13 +7,16 @@
 //
 
 #import "EditCategoryViewController.h"
-#import "UINavigationBarSkinned.h"
 #import "NSString-Extensions.h"
 
 @implementation EditCategoryViewController
 
 - (void)viewDidUnload {
   [self setCategoryInput:nil];
+  [self setDoneButtonPortrait:nil];
+  [self setDoneButtonLandscape:nil];
+  [self setCancelButtonPortrait:nil];
+  [self setCancelButtonLandscape:nil];
   [super viewDidUnload];
 }
 
@@ -21,41 +24,36 @@
   [_categoryInput release];
   [_existingCategories release];
   [_onDoneTouched release];
+  [_doneButtonPortrait release];
+  [_doneButtonLandscape release];
+  [_cancelButtonPortrait release];
+  [_cancelButtonLandscape release];
   [super dealloc];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setupMenuButtons];
+  self.categoryInput.placeholder = _L(@"CategoryName");
+  [self.doneButtonLandscape setTitle:_L(@"Done") forState:UIControlStateNormal];
+  [self.doneButtonPortrait setTitle:_L(@"Done") forState:UIControlStateNormal];
+  [self.cancelButtonLandscape setTitle:_L(@"Cancel") forState:UIControlStateNormal];
+  [self.cancelButtonPortrait setTitle:_L(@"Cancel") forState:UIControlStateNormal];
+  
   [self.categoryInput becomeFirstResponder];
   [self categoryChanged];
 }
 
-- (void) setupMenuButtons {
-  UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
-                      initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self
-                      action:@selector(cancelTouched)] autorelease];
-  
-  self.doneButton = [[[UIBarButtonItem alloc]
-                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self
-                      action:@selector(doneTouched)] autorelease];
-  
-  self.navigationItem.rightBarButtonItem = self.doneButton;
-  self.navigationItem.leftBarButtonItem = cancelButton;
+- (IBAction)cancelTouched:(id)sender {
+  [self.navcontroller dismissModalViewControllerAnimated: YES];
 }
 
-
-- (void) cancelTouched {
-  [self dismissModalViewControllerAnimated: YES];  
-}
-
-- (void) doneTouched {
-  [self dismissModalViewControllerAnimated: YES];
+- (IBAction)doneTouched:(id)sender {
+  [self.navcontroller dismissModalViewControllerAnimated: YES];
   if(_onDoneTouched) _onDoneTouched(_categoryInput.text);
 }
 
 - (IBAction) categoryChanged {
-  [_doneButton setEnabled: [self isCategoryNameValid]];
+  [self enableDoneButton: [self isCategoryNameValid]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -63,9 +61,14 @@
     return NO;
   }
   
-  [self dismissModalViewControllerAnimated: YES];
+  [self.navcontroller dismissModalViewControllerAnimated: YES];
   if(_onDoneTouched) _onDoneTouched(_categoryInput.text);
   return YES;
+}
+
+- (void) enableDoneButton:(BOOL) enable {
+  self.doneButtonLandscape.enabled = enable;
+  self.doneButtonPortrait.enabled = enable;
 }
 
 - (BOOL) isCategoryNameValid {

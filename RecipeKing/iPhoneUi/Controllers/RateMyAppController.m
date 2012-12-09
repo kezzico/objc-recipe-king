@@ -9,6 +9,7 @@
 #import "RateMyAppController.h"
 #import "AlertHandler.h"
 #import "Container.h"
+#import "FlurryManager.h"
 
 @implementation RateMyAppController
 @synthesize repository=_repository;
@@ -42,6 +43,7 @@
   [AlertHandler alertWithMessage:message okText:okText cancelText:cancelText okTouched:^{
     NSURL *appUrl = [NSURL URLWithString: @"https://itunes.apple.com/app/id493431587"];
     [[UIApplication sharedApplication] openURL: appUrl];
+    [[FlurryManager shared] logEvent:@"rate app touched"];
   }];
 }
 

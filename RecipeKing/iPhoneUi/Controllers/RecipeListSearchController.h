@@ -4,6 +4,8 @@
 @class RecipeListController;
 @class ListRecipe;
 @interface RecipeListSearchController : NSObject <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+- (void) didLoad;
+- (void) didUnload;
 @property (nonatomic, retain) NSArray *recipes;
 @property (nonatomic, retain) id<PRecipeRepository> repository;
 @property (nonatomic, copy) void(^recipeSelected)(ListRecipe *recipe);

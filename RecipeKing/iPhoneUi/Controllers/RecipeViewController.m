@@ -17,10 +17,10 @@
 #import "ControllerFactory.h"
 #import "Container.h"
 #import "EditRecipeViewController.h"
-#import "UINavigationBarSkinned.h"
 #import "RecipeMapper.h"
 #import "ScreenHelper.h"
-#import "RVActionButtonsSheet.h"
+#import "SharingController.h"
+#import "NavigationController.h"
 
 @implementation RecipeViewController
 
@@ -38,12 +38,17 @@
   [_recipePhotoButton release];
   [_titleView release];
   [_repository release];
-  [_toolbarCell release];
+  [_sharingController release];
+  [_tableView release];
   [super dealloc];
 }
 
 - (void)viewDidUnload {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [self.sharingController didUnload];
+  self.sharingController = nil;
+  self.repository = nil;
+  
   [self setTitleCell:nil];
   [self setIngredientsHeaderCell:nil];
   [self setPreparationHeaderCell:nil];
@@ -55,15 +60,9 @@
   [self setServingsLabel:nil];
   [self setRecipePhotoButton:nil];
   [self setTitleView:nil];
-  [self setToolbarCell:nil];
+  [self setSharingController:nil];
+  [self setTableView:nil];
   [super viewDidUnload];
-}
-// TODO: copy recipe
-//UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-//pasteboard.string = @"paste me somewhere";
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -75,20 +74,15 @@
     name:@"recipeChanged" object:nil];
   
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
+  self.sharingController.recipe = [self.repository recipeWithName:_viewModel.name];
   [self updateFields];
-  [self createEditRecipeButton];
 }
 
-- (void) createEditRecipeButton {
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editRecipeTouched)];
-  self.navigationItem.rightBarButtonItem = [addButton autorelease];
-}
-
-- (void) editRecipeTouched {
+- (IBAction)editRecipeTouched:(id)sender {
   Recipe *recipe = [self.repository recipeWithName:_viewModel.name];
   EditRecipeViewController *vc = [ControllerFactory buildEditViewControllerForRecipe: recipe];
-  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
-  [self presentViewController:nc animated:YES completion:^{}];
+  NavigationController *nc = [NavigationController navWithRoot:vc];
+  [self.navcontroller presentViewController:nc animated:YES completion:^{}];
 }
 
 - (void) refresh {
@@ -147,8 +141,7 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  const NSInteger toolBarAndHeader = 2;
-  return toolBarAndHeader + [self numIngredientCells] + [self numPreparationCells];
+  return [self numIngredientCells] + [self numPreparationCells] + 1;
 }
 
 - (NSInteger) numIngredientCells {
@@ -167,20 +160,12 @@
   return 1 + [self numIngredientCells];
 }
 
-- (NSInteger) toolbarIndex {
-  NSInteger total = 0;
-  total += [self numPreparationCells];
-  total += [self numIngredientCells];
-  return total + 1;
-}
-
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   if([self isIndexPathForTitleCell: indexPath]) return 80.f;
   if([self isIndexPathForIngredientHeaderCell: indexPath]) return 30.f;
   if([self isIndexPathForIngredientCell: indexPath]) return [IngredientCell height];
   if([self isIndexPathForPreperationHeaderCell: indexPath]) return 30.f;
   if([self isIndexPathForPreperationCell: indexPath]) return [PreperationCell heightWithText: _viewModel.preparation];
-  if([self isIndexPathForToolbarCell: indexPath]) return 40.f;
   return 0.f;
 }
 
@@ -199,9 +184,6 @@
 - (BOOL) isIndexPathForPreperationCell: (NSIndexPath *) indexPath {
   return indexPath.row == [self preparationIndex] + 1 && [self shouldShowPreperationCell];
 }
-- (BOOL) isIndexPathForToolbarCell: (NSIndexPath *) indexPath {
-  return indexPath.row == [self toolbarIndex];
-}
 - (BOOL) shouldShowPreperationCell {
   return [NSString isEmpty: _viewModel.preparation] == NO;
 }
@@ -216,7 +198,6 @@
     [self.preparationCell setPreparation: _viewModel.preparation];
     return self.preparationCell;
   }
-  if([self isIndexPathForToolbarCell: indexPath]) return self.toolbarCell;
   return nil;
 }
 
@@ -234,17 +215,9 @@
   return cell;
 }
 
-- (IBAction)shareTouched:(id)sender {
-  NSArray *buttonTitles = @[@"Mail", @"Message",@"Copy"];
-  NSArray *buttonIcons = @[@"mail", @"sms", @"copy"];
-  RVActionButtonsSheet *actionSheet = [[RVActionButtonsSheet alloc] initWithDelegate:self cancelButtonTitle:@"Cancel"
-    otherButtonTitles:buttonTitles otherButtonImageNames:buttonIcons inView:self.view];
-  [actionSheet showInView:self.view];
-}
-
 - (IBAction)photoTouched:(id)sender {
-  UIViewController *vc = [ControllerFactory imageViewControllerWithImage:_viewModel.photo];
-  [self.navigationController pushViewController:vc animated:YES];
+  ContentViewController *vc = [ControllerFactory imageViewControllerWithImage:_viewModel.photo];
+  [self.navcontroller pushViewController:vc];
 }
 
 @end

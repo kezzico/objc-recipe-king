@@ -21,7 +21,7 @@
 
 - (NSString *) search:(NSString *)regex replace:(NSString *)s {
   NSRegularExpression *r = [NSRegularExpression regularExpressionWithPattern:regex options:0 error:nil];
-  NSString *output = [r stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:@""];
+  NSString *output = [r stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:s];
   return output;
 }
 

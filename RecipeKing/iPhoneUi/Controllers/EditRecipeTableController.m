@@ -40,10 +40,10 @@ const int kMiscFieldSection = 1;
 }
 
 - (void) setupSections {
-  self.sections = [NSArray arrayWithObjects:
-    [NSArray arrayWithObjects: _recipeNameCell, _totalPrepTimeCell, nil], 
-    [NSArray arrayWithObjects: _categoryCell, _servingsCell, _preparationCell, _photoCell, nil],
-    _viewModel.ingredients, nil];
+  self.sections = @[
+    @[ _recipeNameCell, _totalPrepTimeCell],
+    @[ _categoryCell, _servingsCell, _preparationCell, _photoCell],
+    _viewModel.ingredients];
 }
 
 - (IBAction)addIngredientTouchedDown:(UIButton *)sender {
@@ -70,7 +70,7 @@ const int kMiscFieldSection = 1;
   IngredientViewModel *ingredient = [[[IngredientViewModel alloc] init] autorelease];
   [_viewModel.ingredients addObject: ingredient];
   NSIndexPath *index = [NSIndexPath indexPathForRow:[_viewModel.ingredients count] - 1 inSection: kIngredientsSection];
-  [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:YES];
+  [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:YES];
   
   return ingredient;
 }

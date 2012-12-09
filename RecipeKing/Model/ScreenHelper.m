@@ -38,6 +38,14 @@
   }
 }
 
++ (CGSize) screenSizeForOrientation:(UIInterfaceOrientation) orientation {
+  if([ScreenHelper isWideScreen]) {
+    return UIInterfaceOrientationIsPortrait(orientation) ? CGSizeMake(320, 568) : CGSizeMake(568, 320);
+  } else {
+    return UIInterfaceOrientationIsPortrait(orientation) ? CGSizeMake(320, 480) : CGSizeMake(480, 320);
+  }
+}
+
 + (BOOL) isPortraitMode {
   return UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
 }

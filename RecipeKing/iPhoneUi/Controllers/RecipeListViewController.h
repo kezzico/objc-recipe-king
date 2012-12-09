@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "PRecipeRepository.h"
+#import "ContentViewController.h"
 
 @class RecipeListSearchController;
 @class RecipeListViewModel;
 @class RateMyAppController;
-@interface RecipeListViewController : UIViewController
+@interface RecipeListViewController : ContentViewController;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet RecipeListSearchController *recipeSearchController;
 @property (nonatomic, retain) id<PRecipeRepository> repository;

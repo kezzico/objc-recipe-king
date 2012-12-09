@@ -13,4 +13,5 @@
   #import <Foundation/Foundation.h>
   #import <CoreData/CoreData.h>
   #define _L(s) (NSLocalizedString(s, nil))
+  #define rads(theta) (M_PI * theta / 180.0)
 #endif

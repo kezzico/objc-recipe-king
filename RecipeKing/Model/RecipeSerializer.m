@@ -111,6 +111,7 @@ typedef struct {
   recipe.preparation = valueOrNil([json valueForKey:@"preparation"]);
   recipe.preparationTime = valueOrNil([json valueForKey:@"preparationTime"]);
   recipe.servings = valueOrNil([json valueForKey:@"servings"]);
+  recipe.lastEdit = [NSDate date];
   NSArray *ingredients = valueOrNil([json valueForKey:@"ingredients"]);
 
   for(Ingredient *ig in recipe.ingredients) {

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface EditPreparationController : UIViewController <UITextViewDelegate>
+#import "ContentViewController.h"
+@interface EditPreparationController : ContentViewController <UITextViewDelegate>
 
 @property (retain, nonatomic) NSString *preparation;
+@property (retain, nonatomic) IBOutlet UIButton *doneButtonPortrait;
+@property (retain, nonatomic) IBOutlet UIButton *doneButtonLandscape;
 @property (retain, nonatomic) IBOutlet UITextView *textField;
 @property (copy, nonatomic) void (^onDoneTouched)( NSString *value);
 @end

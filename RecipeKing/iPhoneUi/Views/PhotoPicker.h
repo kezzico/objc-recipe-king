@@ -12,7 +12,7 @@
   NSInteger takePhotoIndex, choosePhotoIndex, removePhotoIndex;
 }
 @property (retain, nonatomic) UIActionSheet *photoSourceOptions;
-@property (retain, nonatomic) IBOutlet UIViewController *controller;
+@property (retain, nonatomic) UIViewController *controller;
 @property (nonatomic) BOOL showRemovePhotoOption;
 @property (copy, nonatomic) void(^onImageChosen)(UIImage *photo);
 - (void) showPicker;

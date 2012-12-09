@@ -1,9 +1,9 @@
-#import "UINavigationBarSkinned.h"
 #import "CategoryListController.h"
 #import "CategoryRepository.h"
 #import "EditCategoryViewController.h"
 #import "ControllerFactory.h"
 #import "Container.h"
+#import "NavigationController.h"
 
 @implementation CategoryListController
 
@@ -12,48 +12,49 @@
   [_repository release];
   [_recipeRepository release];
   [_onCategorySelected release];
+  [_tableView release];
   [super dealloc];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self.navigationItem setHidesBackButton:YES animated:NO];
   self.repository = [[Container shared] resolve:@protocol(PCategoryRepository)];
   self.recipeRepository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   [self refreshCategories];
-  [self createAddCategoryButton];
 }
 
-- (void) createAddCategoryButton {
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-    initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
-    action:@selector(addCategoryTouched)];
-  
-  self.navigationItem.rightBarButtonItem = [addButton autorelease];
-  
-}
-
-- (void) addCategoryTouched {
+- (IBAction) addCategoryTouched:(id)sender {
   EditCategoryViewController *vc = [ControllerFactory buildEditCategoryViewController];
-  UINavigationController *nc = [UINavigationBarSkinned navigationControllerWithRoot: vc];
-  [self presentViewController: nc animated: YES completion:^{}];
-  
+  NavigationController *nc = [NavigationController navWithRoot:vc];
   vc.existingCategories = _categories;
   vc.onDoneTouched = ^(NSString *value) {
     [_repository add: value];
     [self refreshCategories];
   };
+  
+  [self.navcontroller presentViewController: nc animated: YES completion:^{}];  
 }
 
 - (void) refreshCategories {
   self.categories = [_repository categories];
   [self.tableView reloadData];
+  [self selectCategoryWithName: self.selectedCategory];
+}
+
+- (void) selectCategoryWithName:(NSString *) name {
+  NSInteger categoryIndex = [self.categories indexOfObject:name];
+  if(categoryIndex > [self.categories count]) {
+    categoryIndex = [self.categories count];
+  }
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForItem:categoryIndex inSection:0];
+  [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   NSInteger r = indexPath.row;
   NSString *value = r == [_categories count] ? nil : _categories[r];
-  [self.navigationController popViewControllerAnimated:YES];
+  [self.navcontroller popViewController];
   _onCategorySelected(value);
 }
 
@@ -70,6 +71,7 @@
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   if(cell == nil) {
     cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: cellIdentifier] autorelease];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
   }
   
   if([_categories count] == indexPath.row) {
@@ -100,4 +102,8 @@
   return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)viewDidUnload {
+  [self setTableView:nil];
+  [super viewDidUnload];
+}
 @end

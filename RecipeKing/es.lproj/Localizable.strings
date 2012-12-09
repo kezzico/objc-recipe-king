@@ -6,6 +6,9 @@
   Copyright (c) 2012 leescode. All rights reserved.
 */
 
+"SharedIngredients" = "Ingredientes";
+"SharedPreparation" = "Preparaćion";
+
 "Ingredients" = "Ingredientes";
 "EmptyCategory" = "Ninguno";
 "PreparationTime" = "Tiempo de Preparación";
@@ -19,15 +22,25 @@
 "SaladCategory" = "Ensalada";
 "SeafoodCategory" = "Mariscos";
 "PastaCategory" = "Pasta";
+"Back" = "Atras";
 
 "NoPhotoSet" = "Añade foto";
 "PhotoSet" = "Edita foto";
 "ChoosePhoto" = "Seleccionar foto";
 "TakePhoto" = "Hacer foto";
 "RemovePhoto" = "Eliminar foto";
+"Done" = "OK";
 "Cancel" = "Cancelar";
 
 "RateItButton" = "Votalo!";
 "NoThanksButton" = "No, Gracias";
 // TODO: translate to spanish.
-"PleaseRateMessage" = "Thank you for using Recipe King. Please leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";
+"PleaseRateMessage" = "Gracias para usando Receta Rey. Si Por favor leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";
+"DownloadRecipeFromEmail" = "<br/><br/>Open this recipe using <a href='%@'>Recipe King</a>. Available on the Apple App Store";
+
+"RecipeName" = "receta nombre";
+"Category" = "categoría";
+"Preparation" = "preparaćion";
+"Photo" = "foto";
+"AddIngredient" = "añade ingredient";
+"CategoryName" = "nombre de categoría";
