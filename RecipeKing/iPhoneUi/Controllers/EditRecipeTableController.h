@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class EditRecipeViewModel;
+@class EditIngredientCell;
 @interface EditRecipeTableController : NSObject <UITableViewDataSource, UITableViewDelegate>
 - (void) unload;
 - (void) setupSections;

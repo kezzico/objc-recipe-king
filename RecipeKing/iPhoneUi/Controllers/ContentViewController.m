@@ -26,4 +26,8 @@
   [super viewDidUnload];
 }
 
+- (void) didShowKeyboardWithHeight:(CGFloat) height {
+  
+}
+
 @end

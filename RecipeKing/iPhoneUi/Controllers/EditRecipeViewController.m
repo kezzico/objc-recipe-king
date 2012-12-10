@@ -178,7 +178,7 @@
 
 - (IBAction)servingsTouched:(UIButton *)sender {
   [self.view endEditing:YES];
-  _numberPicker.title = _L(@"Servings");
+  _numberPicker.title = _L(@"ServingsTitle");
   _numberPicker.value = _viewModel.servings;
   _numberPicker.onNumberSelected = ^(NSInteger number) {
     _viewModel.servings = number;
@@ -236,6 +236,21 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [self.view endEditing:YES];
   return NO;
+}
+
+- (void) didShowKeyboardWithHeight:(CGFloat) height {
+  NSIndexPath *indexpath = [self findFirstResponderCell];
+  [self.tableView scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+
+- (NSIndexPath *) findFirstResponderCell {
+  UIView *view = [self.view findFirstResponder];
+  while(view && [[view class] isSubclassOfClass: [UITableViewCell class]] == NO) {
+    view = view.superview;
+  }
+  
+  if(view == nil) return nil;
+  return [self.tableView indexPathForRowAtPoint: view.center];
 }
 
 @end

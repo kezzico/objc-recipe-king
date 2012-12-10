@@ -40,6 +40,11 @@
   [_repository release];
   [_sharingController release];
   [_tableView release];
+  [_ingredientsLabel release];
+  [_preparationLabel release];
+  [_mailLabel release];
+  [_messageLabel release];
+  [_recipeCopyLabel release];
   [super dealloc];
 }
 
@@ -62,6 +67,11 @@
   [self setTitleView:nil];
   [self setSharingController:nil];
   [self setTableView:nil];
+  [self setIngredientsLabel:nil];
+  [self setPreparationLabel:nil];
+  [self setMailLabel:nil];
+  [self setMessageLabel:nil];
+  [self setRecipeCopyLabel:nil];
   [super viewDidUnload];
 }
 
@@ -76,6 +86,15 @@
   self.repository = [[Container shared] resolve:@protocol(PRecipeRepository)];
   self.sharingController.recipe = [self.repository recipeWithName:_viewModel.name];
   [self updateFields];
+  [self localizeText];
+}
+
+- (void) localizeText {
+  self.ingredientsLabel.text = _L(@"Ingredients");
+  self.preparationLabel.text = _L(@"SharedPreparation");
+  self.mailLabel.text = _L(@"Mail");
+  self.messageLabel.text = _L(@"Message");
+  self.recipeCopyLabel.text = _L(@"Copy");
 }
 
 - (IBAction)editRecipeTouched:(id)sender {

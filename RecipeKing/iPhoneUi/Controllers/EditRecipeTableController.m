@@ -71,8 +71,14 @@ const int kMiscFieldSection = 1;
   [_viewModel.ingredients addObject: ingredient];
   NSIndexPath *index = [NSIndexPath indexPathForRow:[_viewModel.ingredients count] - 1 inSection: kIngredientsSection];
   [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:YES];
+  [self scrolltoLastIngredient];
   
   return ingredient;
+}
+
+- (void) scrolltoLastIngredient {
+  NSIndexPath *index = [NSIndexPath indexPathForRow:[_viewModel.ingredients count] inSection: kIngredientsSection];
+  [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 #pragma mark table view delegate
@@ -123,6 +129,7 @@ const int kMiscFieldSection = 1;
   IngredientViewModel *ingredient = [_viewModel.ingredients objectAtIndex: row];
   cell.viewModel = ingredient;
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  
   return cell;
 }
 

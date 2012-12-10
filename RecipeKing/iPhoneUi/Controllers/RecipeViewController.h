@@ -29,6 +29,11 @@
 @property (retain, nonatomic) IBOutlet UIView *titleView;
 @property (retain, nonatomic) IBOutlet SharingController *sharingController;
 @property (retain, nonatomic) id<PRecipeRepository> repository;
+@property (retain, nonatomic) IBOutlet UILabel *ingredientsLabel;
+@property (retain, nonatomic) IBOutlet UILabel *preparationLabel;
+@property (retain, nonatomic) IBOutlet UILabel *mailLabel;
+@property (retain, nonatomic) IBOutlet UILabel *messageLabel;
+@property (retain, nonatomic) IBOutlet UILabel *recipeCopyLabel;
 - (IBAction)editRecipeTouched:(id)sender;
 - (IBAction)photoTouched:(id)sender;
 @end

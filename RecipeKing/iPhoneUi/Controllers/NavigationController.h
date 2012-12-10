@@ -23,10 +23,10 @@
 @property (retain, nonatomic) IBOutlet UIView *contentView;
 @property (retain, nonatomic) IBOutlet UIView *titlebarLeft;
 @property (retain, nonatomic) IBOutlet UIView *titlebarRight;
-@property (retain, nonatomic) Stack *controllerStack;
 @property (retain, nonatomic) IBOutlet UIView *backButtonViewPortrait;
 @property (retain, nonatomic) IBOutlet UIView *backButtonViewLandscape;
 @property (retain, nonatomic) IBOutlet UIButton *backButtonPortrait;
 @property (retain, nonatomic) IBOutlet UIButton *backButtonLandscape;
+@property (retain, nonatomic) Stack *controllerStack;
 - (void) hideBackButton:(BOOL) hide;
 @end

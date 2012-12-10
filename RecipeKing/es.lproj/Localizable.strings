@@ -13,6 +13,7 @@
 "EmptyCategory" = "Ninguno";
 "PreparationTime" = "Tiempo de Preparación";
 "Servings" = "porciones";
+"ServingsTitle" = "Porciones";
 "Hours" = "Horas";
 "Minutes" = "Mins";
 "BreadCategory" = "Pan";
@@ -32,11 +33,11 @@
 "Done" = "OK";
 "Cancel" = "Cancelar";
 
-"RateItButton" = "Votalo!";
+"RateItButton" = "¡Votalo!";
 "NoThanksButton" = "No, Gracias";
 // TODO: translate to spanish.
-"PleaseRateMessage" = "Gracias para usando Receta Rey. Si Por favor leave a positive rating if you have found it useful. It won't take more than a minute. Thanks for your support!";
-"DownloadRecipeFromEmail" = "<br/><br/>Open this recipe using <a href='%@'>Recipe King</a>. Available on the Apple App Store";
+"PleaseRateMessage" = "¡Gracias por usar receta rey. Por favor, deje su calificación positiva si lo haya encontrado útil. que no nos llevará más de un minuto. gracias por su apoyo!";
+"DownloadRecipeFromEmail" = "<br/><br/>abrir esta receta por usar <a href='%@'>Receta Rey</a>. Disposible en la App Store de Apple";
 
 "RecipeName" = "receta nombre";
 "Category" = "categoría";
@@ -44,3 +45,7 @@
 "Photo" = "foto";
 "AddIngredient" = "añade ingredient";
 "CategoryName" = "nombre de categoría";
+
+"Message" = "Mensajer";
+"Copy" = "Copiar";
+"Mail" = "Mail";

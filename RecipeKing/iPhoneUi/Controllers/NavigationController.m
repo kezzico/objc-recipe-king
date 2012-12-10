@@ -58,8 +58,9 @@
 }
 
 - (void) viewDidLoad {
-  [self addController: [self.controllerStack pop]];
-  [self adjustForOrientation];
+  ContentViewController *vc = [self.controllerStack pop];
+  vc.view.frame = [self onScreenFrame];
+  [self addController: vc];
   [self localizeText];
 }
 
@@ -68,6 +69,7 @@
   UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
   _keyboardoffset = UIInterfaceOrientationIsPortrait(orientation) ? keyboardframe.size.height : keyboardframe.size.width;
   [self adjustHeightsForOrientation: orientation];
+  [self.controller didShowKeyboardWithHeight: _keyboardoffset];
 }
 
 - (void) willHideKeyboard:(NSNotification *) notification {
@@ -95,6 +97,8 @@
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation) toInterfaceOrientation duration:(NSTimeInterval) duration {
   _rotating = YES;
+  _keyboardoffset = 0.f;
+
   [self adjustTitlebarImageForOrientation: toInterfaceOrientation];
   [UIView animateWithDuration:duration animations:^{
     [self adjustHeightsForOrientation: toInterfaceOrientation];
@@ -187,7 +191,6 @@
 
 - (void) pushViewController: (ContentViewController *) controller {
   ContentViewController *current = self.controller;
-  
   [self addController:controller];
   
   controller.view.frame = self.rightOfScreenFrame;
@@ -199,7 +202,6 @@
   } completion:^(BOOL complete) {
     if(complete == NO) return;
     [current.view removeFromSuperview];
-    
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self addButtonsForOrientation:orientation];
     self.titlebarRight.alpha = 1.f;

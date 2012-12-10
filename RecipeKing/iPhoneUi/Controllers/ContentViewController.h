@@ -14,4 +14,5 @@
 @property (nonatomic, retain) IBOutlet UIView *leftButtonsLandscape;
 @property (nonatomic, retain) IBOutlet UIView *rightButtonsPortrait;
 @property (nonatomic, retain) IBOutlet UIView *rightButtonsLandscape;
+- (void) didShowKeyboardWithHeight:(CGFloat) height;
 @end
