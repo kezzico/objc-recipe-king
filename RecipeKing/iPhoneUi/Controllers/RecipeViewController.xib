@@ -43,7 +43,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableViewCell" id="123859784">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="913744963">
@@ -318,6 +318,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 80}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="913744963"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -325,7 +326,7 @@
 				<real value="90" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUITableViewCell" id="709701955">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="971541014">
@@ -401,6 +402,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 30}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="971541014"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -408,7 +410,7 @@
 				<real value="30" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUITableViewCell" id="38750960">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="767436258">
@@ -484,6 +486,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 30}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="767436258"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -491,7 +494,7 @@
 				<real value="30" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUITableViewCell" id="82276692">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="589987912">
@@ -546,6 +549,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 40}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="589987912"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -553,7 +557,7 @@
 				<real value="40" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUIView" id="870541875">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="18924954">
@@ -711,6 +715,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 99}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="18924954"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -721,7 +726,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="367499213">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUITableView" id="568744504">
@@ -743,6 +748,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 416}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="568744504"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -753,7 +759,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="365443138">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">289</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="919267576">
@@ -812,6 +818,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{72, 29}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="800262078"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -827,7 +834,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="468873361">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">289</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="908459788">
@@ -897,6 +904,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{72, 24}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="514845797"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -1556,300 +1564,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">136</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">ActionSheet</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">cancelTouched:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">cancelTouched:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">cancelTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="contentView">UIView</string>
-						<string key="shadowView">UIView</string>
-						<string key="sheetView">UIView</string>
-						<string key="view">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="contentView">
-							<string key="name">contentView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="shadowView">
-							<string key="name">shadowView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="sheetView">
-							<string key="name">sheetView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="view">
-							<string key="name">view</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ActionSheet.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ContentViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="leftButtonsLandscape">UIView</string>
-						<string key="leftButtonsPortrait">UIView</string>
-						<string key="rightButtonsLandscape">UIView</string>
-						<string key="rightButtonsPortrait">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="leftButtonsLandscape">
-							<string key="name">leftButtonsLandscape</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="leftButtonsPortrait">
-							<string key="name">leftButtonsPortrait</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="rightButtonsLandscape">
-							<string key="name">rightButtonsLandscape</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="rightButtonsPortrait">
-							<string key="name">rightButtonsPortrait</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ContentViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">PreperationCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">preparationLabel</string>
-						<string key="NS.object.0">UILabel</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">preparationLabel</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">preparationLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PreperationCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RecipeCategoryView</string>
-					<string key="superclassName">UIView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">nameLabel</string>
-						<string key="NS.object.0">UILabel</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">nameLabel</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">nameLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/RecipeCategoryView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RecipeViewController</string>
-					<string key="superclassName">ContentViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="editRecipeTouched:">id</string>
-						<string key="photoTouched:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="editRecipeTouched:">
-							<string key="name">editRecipeTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="photoTouched:">
-							<string key="name">photoTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="categoryView">RecipeCategoryView</string>
-						<string key="copyLabel">UILabel</string>
-						<string key="ingredientsHeaderCell">UITableViewCell</string>
-						<string key="ingredientsLabel">UILabel</string>
-						<string key="mailLabel">UILabel</string>
-						<string key="messageLabel">UILabel</string>
-						<string key="preparationCell">PreperationCell</string>
-						<string key="preparationHeaderCell">UITableViewCell</string>
-						<string key="preparationLabel">UILabel</string>
-						<string key="preparationTimeLabel">UILabel</string>
-						<string key="recipeNameLabel">UILabel</string>
-						<string key="recipePhotoButton">UIButton</string>
-						<string key="servingsLabel">UILabel</string>
-						<string key="servingsView">UIView</string>
-						<string key="sharingController">SharingController</string>
-						<string key="tableView">UITableView</string>
-						<string key="titleCell">UITableViewCell</string>
-						<string key="titleView">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="categoryView">
-							<string key="name">categoryView</string>
-							<string key="candidateClassName">RecipeCategoryView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="copyLabel">
-							<string key="name">copyLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="ingredientsHeaderCell">
-							<string key="name">ingredientsHeaderCell</string>
-							<string key="candidateClassName">UITableViewCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="ingredientsLabel">
-							<string key="name">ingredientsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mailLabel">
-							<string key="name">mailLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="messageLabel">
-							<string key="name">messageLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preparationCell">
-							<string key="name">preparationCell</string>
-							<string key="candidateClassName">PreperationCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preparationHeaderCell">
-							<string key="name">preparationHeaderCell</string>
-							<string key="candidateClassName">UITableViewCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preparationLabel">
-							<string key="name">preparationLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preparationTimeLabel">
-							<string key="name">preparationTimeLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recipeNameLabel">
-							<string key="name">recipeNameLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="recipePhotoButton">
-							<string key="name">recipePhotoButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="servingsLabel">
-							<string key="name">servingsLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="servingsView">
-							<string key="name">servingsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="sharingController">
-							<string key="name">sharingController</string>
-							<string key="candidateClassName">SharingController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tableView">
-							<string key="name">tableView</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="titleCell">
-							<string key="name">titleCell</string>
-							<string key="candidateClassName">UITableViewCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="titleView">
-							<string key="name">titleView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/RecipeViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SharingController</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="copyTouched:">id</string>
-						<string key="mailTouched:">id</string>
-						<string key="messageTouched:">id</string>
-						<string key="shareTouched:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="copyTouched:">
-							<string key="name">copyTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="mailTouched:">
-							<string key="name">mailTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="messageTouched:">
-							<string key="name">messageTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="shareTouched:">
-							<string key="name">shareTouched:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="actionSheet">ActionSheet</string>
-						<string key="mailButton">UIButton</string>
-						<string key="messageButton">UIButton</string>
-						<string key="parentController">ContentViewController</string>
-						<string key="shareButtons">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="actionSheet">
-							<string key="name">actionSheet</string>
-							<string key="candidateClassName">ActionSheet</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mailButton">
-							<string key="name">mailButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="messageButton">
-							<string key="name">messageButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="parentController">
-							<string key="name">parentController</string>
-							<string key="candidateClassName">ContentViewController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="shareButtons">
-							<string key="name">shareButtons</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SharingController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

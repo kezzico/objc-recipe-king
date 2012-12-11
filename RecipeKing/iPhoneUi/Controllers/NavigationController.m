@@ -31,6 +31,7 @@
   [_backButtonViewLandscape release];
   [_backButtonPortrait release];
   [_backButtonLandscape release];
+  [_loadingShadow release];
   [super dealloc];
 }
 
@@ -44,6 +45,7 @@
   [self setBackButtonViewLandscape:nil];
   [self setBackButtonLandscape:nil];
   [self setBackButtonPortrait:nil];
+  [self setLoadingShadow:nil];
   [super viewDidUnload];
 }
 
@@ -269,6 +271,14 @@
   _hideBackButton = hide;
   UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
   [self addButtonsForOrientation:orientation];
+}
+
+- (void) showLoading {
+  self.loadingShadow.hidden = NO;
+}
+
+- (void) hideLoading {
+  self.loadingShadow.hidden = YES;
 }
 
 @end

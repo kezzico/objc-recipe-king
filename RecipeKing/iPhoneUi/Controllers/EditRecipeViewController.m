@@ -25,6 +25,7 @@
 #import "jsonHelper.h"
 #import "NavigationController.h"
 #import "EditRecipeLocalizationController.h"
+#import "FlurryManager.h"
 
 @implementation EditRecipeViewController
 
@@ -128,14 +129,6 @@
   RecipeMapper *mapper = [RecipeMapper mapper];
   [mapper recipeFromEditViewModel:self.viewModel];
   [self.recipeRepository sync];
-  
-  
-  NSDictionary *postInfo = @{
-    @"oldname" : valueOrNull(_viewModel.oldName),
-    @"newname" : _viewModel.name
-  };
-  
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeChanged" object:nil userInfo: postInfo];
 }
 
 - (BOOL) isRecipeNameValid {
@@ -155,8 +148,17 @@
 }
 
 - (IBAction) doneTouched:(id) sender {
-  [self saveRecipe];
-  [self.navcontroller dismissModalViewControllerAnimated: YES];
+  [self.navcontroller showLoading];
+  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+  dispatch_async(queue, ^{
+    [self saveRecipe];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.navcontroller hideLoading];
+      NSDictionary *postInfo = @{ @"oldname" : valueOrNull(_viewModel.oldName), @"newname" : _viewModel.name };
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"recipeChanged" object:nil userInfo: postInfo];
+      [self.navcontroller dismissModalViewControllerAnimated: YES];
+    });
+  });
 }
 
 - (IBAction)cancelTouched:(id)sender {
@@ -228,6 +230,7 @@
   [self.photoPicker showPicker];
   
   self.photoPicker.onImageChosen = ^(UIImage *photo) {
+    [[FlurryManager shared] logEvent:@"added image to recipe"];
     _viewModel.photo = [photo imageByScalingAndCroppingForSize:CGSizeMake(640, 640)];
     [self updateImageField];
   };

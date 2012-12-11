@@ -27,6 +27,9 @@
 @property (retain, nonatomic) IBOutlet UIView *backButtonViewLandscape;
 @property (retain, nonatomic) IBOutlet UIButton *backButtonPortrait;
 @property (retain, nonatomic) IBOutlet UIButton *backButtonLandscape;
+@property (retain, nonatomic) IBOutlet UIView *loadingShadow;
 @property (retain, nonatomic) Stack *controllerStack;
 - (void) hideBackButton:(BOOL) hide;
+- (void) showLoading;
+- (void) hideLoading;
 @end

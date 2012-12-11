@@ -24,9 +24,9 @@ static FlurryManager *manager;
 }
 
 + (void) startsession {
-//#ifndef DEBUG
+#ifndef DEBUG
   manager = [[FlurryManager alloc] init];
-//#endif
+#endif
 }
 
 - (void) logEvent: (NSString *) event {
