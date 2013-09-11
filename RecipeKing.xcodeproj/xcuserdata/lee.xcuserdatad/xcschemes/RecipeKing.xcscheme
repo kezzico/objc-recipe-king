@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0450"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BFFAA8B14DCF83100E4F74C"
+               BlueprintIdentifier = "9BEDED8917E110710030986B"
                BuildableName = "RecipeKing.app"
                BlueprintName = "RecipeKing"
                ReferencedContainer = "container:RecipeKing.xcodeproj">
@@ -24,7 +24,7 @@
    </BuildAction>
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BFFAAA614DCF83200E4F74C"
-               BuildableName = "RecipeKingTests.octest"
+               BlueprintIdentifier = "9BEDEDA417E110710030986B"
+               BuildableName = "RecipeKingTests.xctest"
                BlueprintName = "RecipeKingTests"
                ReferencedContainer = "container:RecipeKing.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BFFAA8B14DCF83100E4F74C"
+            BlueprintIdentifier = "9BEDED8917E110710030986B"
             BuildableName = "RecipeKing.app"
             BlueprintName = "RecipeKing"
             ReferencedContainer = "container:RecipeKing.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BFFAA8B14DCF83100E4F74C"
+            BlueprintIdentifier = "9BEDED8917E110710030986B"
             BuildableName = "RecipeKing.app"
             BlueprintName = "RecipeKing"
             ReferencedContainer = "container:RecipeKing.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BFFAA8B14DCF83100E4F74C"
+            BlueprintIdentifier = "9BEDED8917E110710030986B"
             BuildableName = "RecipeKing.app"
             BlueprintName = "RecipeKing"
             ReferencedContainer = "container:RecipeKing.xcodeproj">

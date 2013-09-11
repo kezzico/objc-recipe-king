@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01428AB7DD804AA3943F58C4 /* DBTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 770D4A5A53674FCEAFCFAC8E /* DBTable.h */; };
+		09687CE8800F49C5B0343DCE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */; };
+		18DC23727FFC4F25A18279B8 /* libPods-FlurrySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */; };
+		1EEB6E5F4DF34F739DD95CE1 /* DBList.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E40803781F4F7792D23E3E /* DBList.h */; };
+		28D1AF60DFF24384966C982C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03FA6D940844033ABC25273 /* CoreGraphics.framework */; };
+		2DB5470F0FA847B2BC656A1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */; };
+		4056E69EBF7241BB8261A12A /* DBError.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FA57EB7000482396F17FE7 /* DBError.h */; };
+		4C846530011B4F34B32C8A30 /* DBPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 26CBA900DF434CFEA4492AE3 /* DBPath.h */; };
+		60DEBF312986422ABCFDE3A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
+		617BA1ED472E46EBA44D842F /* DBRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = BE567AB51E9A480DA338D7A6 /* DBRecord.h */; };
+		6573467C92C243FB8A229B78 /* DBAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 547F12334B844460A498B9ED /* DBAccountInfo.h */; };
+		6E1DF3F1B8374CECB117C99E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
+		800A0533D2584615869BDF9E /* Pods-FlurrySDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */; };
+		822B1ACF519042849237ED5E /* DBAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 80607C556148457D8BA2DB40 /* DBAccount.h */; };
+		83152284574F439AA8154F76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227100C2341B448183818BF8 /* Security.framework */; };
+		844F9903955044589C8C8EF7 /* DBFilesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 42416AEAA6304136AEB10116 /* DBFilesystem.h */; };
+		8B6C0C7DF8CC4A159B697F4F /* Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = CACBF35E0349482FBFBBF580 /* Dropbox.h */; };
+		8B75F1B9894243C5B0F7F5D8 /* DBFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */; };
+		8FB1D6B4797C40ACA6EF2409 /* DBDatastoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */; };
+		93132BAF79D84258A12E5EB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F90E2B135AE4186955697A8 /* QuartzCore.framework */; };
+		9464D9840E5345ED9227EC42 /* libPods-Dropbox-Sync-API-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */; };
+		9EC156F91B2C48C0AA4DBDF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
+		B613A973A76D4E48A0E150E3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12FA63023114E4EAE4E5630 /* Dropbox.framework */; };
+		C63D589FA4764E0581C0EBE7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA144703E1849DB92C8CE1C /* CFNetwork.framework */; };
+		D6401C54C45746DEB1F82E32 /* DBFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B807704C0C27462792BA7C22 /* DBFile.h */; };
+		D9656B7B9FED42C3B80D016A /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = A015EB5C951B4437B888D6E8 /* Flurry.h */; };
+		E10F97BCC3984716BC1FC4DF /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 792AB184ED2B44119C901BB8 /* Pods-dummy.m */; };
+		E7095BBCC46547B3ABE30215 /* DBFileStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = A87778E195604F3583D0692B /* DBFileStatus.h */; };
+		E9DB5DF447184EE0A69B284E /* DBAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */; };
+		EA7057729EB54863AC52C5DA /* Pods-Dropbox-Sync-API-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */; };
+		F420631E93A14546A49B833E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227100C2341B448183818BF8 /* Security.framework */; };
+		F53B5D8F446D442F8733DB1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9806254B9D804758946268DE /* UIKit.framework */; };
+		FCF828F37A1C49189B5662CD /* DBDatastore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2418BF7050D04088B119E349 /* DBDatastore.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7633B505D62B4D7E9B9E9B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2495A5F5F7403EA533E53F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9FCAC89193642E48FEE4803;
+			remoteInfo = "Pods-Dropbox-Sync-API-SDK";
+		};
+		9C756B46D43C4EA48BDD616E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD2495A5F5F7403EA533E53F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EED8920125A74A2FACA0551A;
+			remoteInfo = "Pods-FlurrySDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08D7D2FB07554CBF9CA2626B /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework"; sourceTree = "<group>"; };
+		0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlurrySDK-Private.xcconfig"; sourceTree = "<group>"; };
+		168497B11CFD465988B99F3E /* Pods-FlurrySDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlurrySDK-prefix.pch"; sourceTree = "<group>"; };
+		1F90E2B135AE4186955697A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		227100C2341B448183818BF8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		2418BF7050D04088B119E349 /* DBDatastore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBDatastore.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBDatastore.h"; sourceTree = "<group>"; };
+		26CBA900DF434CFEA4492AE3 /* DBPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBPath.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBPath.h"; sourceTree = "<group>"; };
+		327B28F586934EB093B96A94 /* Pods-FlurrySDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlurrySDK.xcconfig"; sourceTree = "<group>"; };
+		3C9EC12648394D5A8A512107 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
+		3EDB410623A84F96B46F7E4D /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		42416AEAA6304136AEB10116 /* DBFilesystem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFilesystem.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFilesystem.h"; sourceTree = "<group>"; };
+		42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dropbox-Sync-API-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44FA57EB7000482396F17FE7 /* DBError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBError.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBError.h"; sourceTree = "<group>"; };
+		547F12334B844460A498B9ED /* DBAccountInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccountInfo.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccountInfo.h"; sourceTree = "<group>"; };
+		5901CA6776A14E6DAC3262FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlurrySDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlurrySDK-dummy.m"; sourceTree = "<group>"; };
+		69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccountManager.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccountManager.h"; sourceTree = "<group>"; };
+		6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dropbox-Sync-API-SDK-Private.xcconfig"; sourceTree = "<group>"; };
+		6E52B7F6DF754749A81BADF8 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		76BD4C2ED8D241D89A86008D /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		770D4A5A53674FCEAFCFAC8E /* DBTable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBTable.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBTable.h"; sourceTree = "<group>"; };
+		792AB184ED2B44119C901BB8 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		7DA144703E1849DB92C8CE1C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		80607C556148457D8BA2DB40 /* DBAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccount.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccount.h"; sourceTree = "<group>"; };
+		8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFileInfo.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFileInfo.h"; sourceTree = "<group>"; };
+		943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		9806254B9D804758946268DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9B43A0834C4148559F340390 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A015EB5C951B4437B888D6E8 /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		A3334AAFF8464D079CF3E812 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dropbox-Sync-API-SDK-dummy.m"; sourceTree = "<group>"; };
+		A87778E195604F3583D0692B /* DBFileStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFileStatus.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFileStatus.h"; sourceTree = "<group>"; };
+		A9E40803781F4F7792D23E3E /* DBList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBList.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBList.h"; sourceTree = "<group>"; };
+		B807704C0C27462792BA7C22 /* DBFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFile.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFile.h"; sourceTree = "<group>"; };
+		BE567AB51E9A480DA338D7A6 /* DBRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBRecord.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBRecord.h"; sourceTree = "<group>"; };
+		C03FA6D940844033ABC25273 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		C438BBF53AD64804811172D0 /* Pods-Dropbox-Sync-API-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Dropbox-Sync-API-SDK-prefix.pch"; sourceTree = "<group>"; };
+		CACBF35E0349482FBFBBF580 /* Dropbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Dropbox.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/Dropbox.h"; sourceTree = "<group>"; };
+		CF470D791C9943D4B82884F3 /* Pods-Dropbox-Sync-API-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dropbox-Sync-API-SDK.xcconfig"; sourceTree = "<group>"; };
+		E12FA63023114E4EAE4E5630 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Dropbox.framework; sourceTree = DEVELOPER_DIR; };
+		E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBDatastoreManager.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBDatastoreManager.h"; sourceTree = "<group>"; };
+		E6F4BFF608594BB88FBA2B37 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15250469DF5E4BCA84CF024D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC156F91B2C48C0AA4DBDF4 /* Foundation.framework in Frameworks */,
+				2DB5470F0FA847B2BC656A1C /* SystemConfiguration.framework in Frameworks */,
+				F53B5D8F446D442F8733DB1A /* UIKit.framework in Frameworks */,
+				83152284574F439AA8154F76 /* Security.framework in Frameworks */,
+				28D1AF60DFF24384966C982C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4902075BADF54C5CBFD0FA6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E1DF3F1B8374CECB117C99E /* Foundation.framework in Frameworks */,
+				C63D589FA4764E0581C0EBE7 /* CFNetwork.framework in Frameworks */,
+				F420631E93A14546A49B833E /* Security.framework in Frameworks */,
+				09687CE8800F49C5B0343DCE /* SystemConfiguration.framework in Frameworks */,
+				93132BAF79D84258A12E5EB5 /* QuartzCore.framework in Frameworks */,
+				B613A973A76D4E48A0E150E3 /* Dropbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8FD9046B3F4A6F9A92E2C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60DEBF312986422ABCFDE3A0 /* Foundation.framework in Frameworks */,
+				9464D9840E5345ED9227EC42 /* libPods-Dropbox-Sync-API-SDK.a in Frameworks */,
+				18DC23727FFC4F25A18279B8 /* libPods-FlurrySDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01085F008A964345BCB46C97 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E520475308B34ABAA7AB2E86 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		011F94A6C1EA439B94323E2D /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				80607C556148457D8BA2DB40 /* DBAccount.h */,
+				547F12334B844460A498B9ED /* DBAccountInfo.h */,
+				69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */,
+				2418BF7050D04088B119E349 /* DBDatastore.h */,
+				E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */,
+				44FA57EB7000482396F17FE7 /* DBError.h */,
+				B807704C0C27462792BA7C22 /* DBFile.h */,
+				8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */,
+				A87778E195604F3583D0692B /* DBFileStatus.h */,
+				42416AEAA6304136AEB10116 /* DBFilesystem.h */,
+				A9E40803781F4F7792D23E3E /* DBList.h */,
+				26CBA900DF434CFEA4492AE3 /* DBPath.h */,
+				BE567AB51E9A480DA338D7A6 /* DBRecord.h */,
+				770D4A5A53674FCEAFCFAC8E /* DBTable.h */,
+				CACBF35E0349482FBFBBF580 /* Dropbox.h */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		34B06E8342C24B6EAFBFACA1 /* Dropbox-Sync-API-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				C43F140EB43B4B9ABE58EDA7 /* Products */,
+				F530C305F41C41F795421392 /* Resources */,
+				011F94A6C1EA439B94323E2D /* Source Files */,
+				71097FE02F7B43D4966522BD /* Support Files */,
+			);
+			path = "Dropbox-Sync-API-SDK";
+			sourceTree = "<group>";
+		};
+		35D9A6ADBA39479682A8A7E8 = {
+			isa = PBXGroup;
+			children = (
+				9A22B2B8A74D43FDA605DAE0 /* Frameworks */,
+				4990B07628474158B860B483 /* Pods */,
+				A59A4A48FC974649AAA6FE4E /* Products */,
+				01085F008A964345BCB46C97 /* Targets Support Files */,
+				6E52B7F6DF754749A81BADF8 /* Podfile */,
+			);
+			sourceTree = "<group>";
+		};
+		42130B930C44455EA93CC002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4990B07628474158B860B483 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34B06E8342C24B6EAFBFACA1 /* Dropbox-Sync-API-SDK */,
+				EE62B4B72CD7449F846181F3 /* FlurrySDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4CBA5036EEC34022A99F72DB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */,
+				698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */,
+				168497B11CFD465988B99F3E /* Pods-FlurrySDK-prefix.pch */,
+				327B28F586934EB093B96A94 /* Pods-FlurrySDK.xcconfig */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		71097FE02F7B43D4966522BD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */,
+				A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */,
+				C438BBF53AD64804811172D0 /* Pods-Dropbox-Sync-API-SDK-prefix.pch */,
+				CF470D791C9943D4B82884F3 /* Pods-Dropbox-Sync-API-SDK.xcconfig */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		9A22B2B8A74D43FDA605DAE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DA144703E1849DB92C8CE1C /* CFNetwork.framework */,
+				C03FA6D940844033ABC25273 /* CoreGraphics.framework */,
+				E12FA63023114E4EAE4E5630 /* Dropbox.framework */,
+				5901CA6776A14E6DAC3262FB /* Foundation.framework */,
+				1F90E2B135AE4186955697A8 /* QuartzCore.framework */,
+				227100C2341B448183818BF8 /* Security.framework */,
+				943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */,
+				9806254B9D804758946268DE /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A59A4A48FC974649AAA6FE4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B43A0834C4148559F340390 /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C43F140EB43B4B9ABE58EDA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E520475308B34ABAA7AB2E86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3334AAFF8464D079CF3E812 /* Pods-acknowledgements.markdown */,
+				3EDB410623A84F96B46F7E4D /* Pods-acknowledgements.plist */,
+				792AB184ED2B44119C901BB8 /* Pods-dummy.m */,
+				76BD4C2ED8D241D89A86008D /* Pods-environment.h */,
+				E6F4BFF608594BB88FBA2B37 /* Pods-resources.sh */,
+				3C9EC12648394D5A8A512107 /* Pods.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE62B4B72CD7449F846181F3 /* FlurrySDK */ = {
+			isa = PBXGroup;
+			children = (
+				42130B930C44455EA93CC002 /* Products */,
+				FAFA3397364843F88208D2A3 /* Source Files */,
+				4CBA5036EEC34022A99F72DB /* Support Files */,
+			);
+			path = FlurrySDK;
+			sourceTree = "<group>";
+		};
+		F530C305F41C41F795421392 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				08D7D2FB07554CBF9CA2626B /* Dropbox.framework */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FAFA3397364843F88208D2A3 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				A015EB5C951B4437B888D6E8 /* Flurry.h */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1277250CD31D45ADB68CCB4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822B1ACF519042849237ED5E /* DBAccount.h in Headers */,
+				6573467C92C243FB8A229B78 /* DBAccountInfo.h in Headers */,
+				E9DB5DF447184EE0A69B284E /* DBAccountManager.h in Headers */,
+				FCF828F37A1C49189B5662CD /* DBDatastore.h in Headers */,
+				8FB1D6B4797C40ACA6EF2409 /* DBDatastoreManager.h in Headers */,
+				4056E69EBF7241BB8261A12A /* DBError.h in Headers */,
+				D6401C54C45746DEB1F82E32 /* DBFile.h in Headers */,
+				8B75F1B9894243C5B0F7F5D8 /* DBFileInfo.h in Headers */,
+				E7095BBCC46547B3ABE30215 /* DBFileStatus.h in Headers */,
+				844F9903955044589C8C8EF7 /* DBFilesystem.h in Headers */,
+				1EEB6E5F4DF34F739DD95CE1 /* DBList.h in Headers */,
+				4C846530011B4F34B32C8A30 /* DBPath.h in Headers */,
+				617BA1ED472E46EBA44D842F /* DBRecord.h in Headers */,
+				01428AB7DD804AA3943F58C4 /* DBTable.h in Headers */,
+				8B6C0C7DF8CC4A159B697F4F /* Dropbox.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28882419F4594917AEF6A1C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9656B7B9FED42C3B80D016A /* Flurry.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4B98E3E5D8914018AC569D7C /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68D9A118F4A74B9A8F4EA5C0 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				B88D6C9733924B458F74EB42 /* Sources */,
+				4F8FD9046B3F4A6F9A92E2C6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87F14DB9F77E4DBDA86EFB7F /* PBXTargetDependency */,
+				5E3143F6521340519F9A7ECF /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 9B43A0834C4148559F340390 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DB47A6DF0384CBC8A4A4F41 /* Build configuration list for PBXNativeTarget "Pods-Dropbox-Sync-API-SDK" */;
+			buildPhases = (
+				7CFC067E6E8446E9900572B4 /* Sources */,
+				4902075BADF54C5CBFD0FA6F /* Frameworks */,
+				1277250CD31D45ADB68CCB4D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Dropbox-Sync-API-SDK";
+			productName = "Pods-Dropbox-Sync-API-SDK";
+			productReference = 42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EED8920125A74A2FACA0551A /* Pods-FlurrySDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F7213BB83C44E4DBE64DA4F /* Build configuration list for PBXNativeTarget "Pods-FlurrySDK" */;
+			buildPhases = (
+				F3FFECADAE12476B9C6ABA7F /* Sources */,
+				15250469DF5E4BCA84CF024D /* Frameworks */,
+				28882419F4594917AEF6A1C1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FlurrySDK";
+			productName = "Pods-FlurrySDK";
+			productReference = 5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD2495A5F5F7403EA533E53F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = FF1DF51E66D141B88876CC2E /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 35D9A6ADBA39479682A8A7E8;
+			productRefGroup = A59A4A48FC974649AAA6FE4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */,
+				EED8920125A74A2FACA0551A /* Pods-FlurrySDK */,
+				4B98E3E5D8914018AC569D7C /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7CFC067E6E8446E9900572B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA7057729EB54863AC52C5DA /* Pods-Dropbox-Sync-API-SDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B88D6C9733924B458F74EB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10F97BCC3984716BC1FC4DF /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3FFECADAE12476B9C6ABA7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800A0533D2584615869BDF9E /* Pods-FlurrySDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E3143F6521340519F9A7ECF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EED8920125A74A2FACA0551A /* Pods-FlurrySDK */;
+			targetProxy = 9C756B46D43C4EA48BDD616E /* PBXContainerItemProxy */;
+		};
+		87F14DB9F77E4DBDA86EFB7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */;
+			targetProxy = 7633B505D62B4D7E9B9E9B1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11DF4C8EE3C442A0B8975DBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Dropbox-Sync-API-SDK-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AFA77FC04254A88912D66C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Dropbox-Sync-API-SDK-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6C0D948F14534729A7C7A050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		748B31030EA64729BEEAD3BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-FlurrySDK-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B05C96DB5309441693905DB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9EC12648394D5A8A512107 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B45810E22ED24DEC901A21B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-FlurrySDK-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B96FA9E1152A49CD812EB17F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		C5BF5B6D8ECC498FAFE59E78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9EC12648394D5A8A512107 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DB47A6DF0384CBC8A4A4F41 /* Build configuration list for PBXNativeTarget "Pods-Dropbox-Sync-API-SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11DF4C8EE3C442A0B8975DBB /* Release */,
+				5AFA77FC04254A88912D66C6 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F7213BB83C44E4DBE64DA4F /* Build configuration list for PBXNativeTarget "Pods-FlurrySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B45810E22ED24DEC901A21B1 /* Release */,
+				748B31030EA64729BEEAD3BD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68D9A118F4A74B9A8F4EA5C0 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B05C96DB5309441693905DB7 /* Release */,
+				C5BF5B6D8ECC498FAFE59E78 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF1DF51E66D141B88876CC2E /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96FA9E1152A49CD812EB17F /* Debug */,
+				6C0D948F14534729A7C7A050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD2495A5F5F7403EA533E53F /* Project object */;
+}

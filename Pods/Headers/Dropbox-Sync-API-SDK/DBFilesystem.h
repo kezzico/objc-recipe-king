@@ -1,0 +1,1 @@
+../../Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFilesystem.h

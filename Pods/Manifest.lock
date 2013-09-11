@@ -1,0 +1,13 @@
+PODS:
+  - Dropbox-Sync-API-SDK (2.0.0-b5)
+  - FlurrySDK (4.2.3)
+
+DEPENDENCIES:
+  - Dropbox-Sync-API-SDK (~> 2.0.0-b5)
+  - FlurrySDK (~> 4.2.3)
+
+SPEC CHECKSUMS:
+  Dropbox-Sync-API-SDK: 42c24f2f7cf44f4b0e4ceec2112b05a7900cf38d
+  FlurrySDK: 20b3fd669eeafd005ca8ff65a1406d1befbc8031
+
+COCOAPODS: 0.24.0
