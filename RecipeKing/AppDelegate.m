@@ -9,9 +9,9 @@
 // $ [sudo] gem install cocoapods
 // $ pod setup
 // https://www.dropbox.com/developers/datastore/tutorial/ios
-
+// [UIApplication sharedApplication].idleTimerDisabled = YES;
 #import "AppDelegate.h"
-#import <Dropbox/Dropbox.h>
+
 
 @implementation AppDelegate
 
@@ -38,10 +38,39 @@
 - (void) doDropbox {
   DBAccountManager* accountMgr = [[DBAccountManager alloc] initWithAppKey:@"t0qt7vgqkd2lpty" secret:@"wvj9x76ponpbyui"];
   [DBAccountManager setSharedManager:accountMgr];
-
+  
   DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
   if (account) {
-    NSLog(@"App already linked");
+    NSError *error = nil;
+    NSInteger r = arc4random() % 100;
+    self.store = [DBDatastore openDefaultStoreForAccount:account error:&error];
+    DBTable *table = [self.store getTable:@"recipes"];
+    
+    [table insert:@{@"name": [NSString stringWithFormat:@"Brownies - %d", r]}];
+    
+    [self.store addObserver:self block:^{
+      NSLog(@"stuff happened? %d", self.store.status);
+      if((self.store.status & DBDatastoreIncoming) != 0 || (self.store.status & DBDatastoreOutgoing) != 0) {
+        NSError *error = nil;
+        [self.store sync:&error];
+        if(error != nil) {
+          NSLog(@"error! %@", error);
+          return;
+        }
+      }
+      
+      NSArray *tables = [self.store getTables:nil];
+      for(DBTable *table in tables) {
+        NSLog(@"table: %@", table.tableId);
+        NSArray *recipes = [table query:nil error:nil];
+        for(DBRecord *record in recipes) {
+          NSLog(@"%@", [record.fields valueForKey:@"name"]);
+        }
+      }
+      
+      
+    }];
+    
   } else {
     [[DBAccountManager sharedManager] linkFromController:self.controller];
   }

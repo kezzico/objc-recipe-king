@@ -20,6 +20,16 @@
 		9BEDEDB117E110710030986B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDEDAF17E110710030986B /* InfoPlist.strings */; };
 		9BEDEDB317E110710030986B /* RecipeKingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDB217E110710030986B /* RecipeKingTests.m */; };
 		9BEDEDBD17E112710030986B /* root.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDEDBC17E112710030986B /* root.xib */; };
+		9BEDEDCA17E377B40030986B /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDC917E377B40030986B /* Repository.m */; };
+		9BEDEDCE17E377E10030986B /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDCD17E377E10030986B /* Stack.m */; };
+		9BEDEDD117E377F00030986B /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDD017E377F00030986B /* UIImage+Extensions.m */; };
+		9BEDEDD417E378210030986B /* ManagedContextFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDD317E378210030986B /* ManagedContextFactory.m */; };
+		9BEDEDD917E378290030986B /* NSArray-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDD617E378290030986B /* NSArray-Extensions.m */; };
+		9BEDEDDA17E378290030986B /* NSString-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDD817E378290030986B /* NSString-Extensions.m */; };
+		9BEDEDE017E37AE30030986B /* LocalRecipeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDDF17E37AE30030986B /* LocalRecipeStorage.m */; };
+		9BEDEDE617E389AD0030986B /* RecipeStorageMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDE517E389AD0030986B /* RecipeStorageMediator.m */; };
+		9BEDEDEA17E38B5A0030986B /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDE917E38B5A0030986B /* Recipe.m */; };
+		9BEDEDED17E3A22A0030986B /* DropboxRecipeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEDEC17E3A22A0030986B /* DropboxRecipeStorage.m */; };
 		D132E575F0824B38AF451ACB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144C4007381B40EEA53D0DF7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +62,27 @@
 		9BEDEDB017E110710030986B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BEDEDB217E110710030986B /* RecipeKingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeKingTests.m; sourceTree = "<group>"; };
 		9BEDEDBC17E112710030986B /* root.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = root.xib; sourceTree = "<group>"; };
+		9BEDEDC817E377B40030986B /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
+		9BEDEDC917E377B40030986B /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
+		9BEDEDCC17E377E10030986B /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		9BEDEDCD17E377E10030986B /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		9BEDEDCF17E377F00030986B /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
+		9BEDEDD017E377F00030986B /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
+		9BEDEDD217E378210030986B /* ManagedContextFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedContextFactory.h; sourceTree = "<group>"; };
+		9BEDEDD317E378210030986B /* ManagedContextFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedContextFactory.m; sourceTree = "<group>"; };
+		9BEDEDD517E378290030986B /* NSArray-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-Extensions.h"; sourceTree = "<group>"; };
+		9BEDEDD617E378290030986B /* NSArray-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-Extensions.m"; sourceTree = "<group>"; };
+		9BEDEDD717E378290030986B /* NSString-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-Extensions.h"; sourceTree = "<group>"; };
+		9BEDEDD817E378290030986B /* NSString-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-Extensions.m"; sourceTree = "<group>"; };
+		9BEDEDDE17E37AE30030986B /* LocalRecipeStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalRecipeStorage.h; sourceTree = "<group>"; };
+		9BEDEDDF17E37AE30030986B /* LocalRecipeStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalRecipeStorage.m; sourceTree = "<group>"; };
+		9BEDEDE417E389AD0030986B /* RecipeStorageMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeStorageMediator.h; sourceTree = "<group>"; };
+		9BEDEDE517E389AD0030986B /* RecipeStorageMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeStorageMediator.m; sourceTree = "<group>"; };
+		9BEDEDE717E38A830030986B /* RecipeStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeStorage.h; sourceTree = "<group>"; };
+		9BEDEDE817E38B5A0030986B /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		9BEDEDE917E38B5A0030986B /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		9BEDEDEB17E3A22A0030986B /* DropboxRecipeStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxRecipeStorage.h; sourceTree = "<group>"; };
+		9BEDEDEC17E3A22A0030986B /* DropboxRecipeStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxRecipeStorage.m; sourceTree = "<group>"; };
 		A7E7BB8B4003468C98694CD7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +146,11 @@
 		9BEDED9317E110710030986B /* RecipeKing */ = {
 			isa = PBXGroup;
 			children = (
+				9BEDEDC717E377710030986B /* Resources */,
+				9BEDEDCB17E377C50030986B /* Infrastructure */,
+				9BEDEDC217E377640030986B /* Controllers */,
+				9BEDEDC317E377640030986B /* Domain */,
+				9BEDEDC617E377640030986B /* Views */,
 				9BEDED9C17E110710030986B /* AppDelegate.h */,
 				9BEDED9D17E110710030986B /* AppDelegate.m */,
 				9BEDED9F17E110710030986B /* Images.xcassets */,
@@ -151,6 +187,78 @@
 				9BEDEDAF17E110710030986B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BEDEDC217E377640030986B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9BEDEDC317E377640030986B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDEDC417E377640030986B /* Models */,
+				9BEDEDC517E377640030986B /* Persistence */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9BEDEDC417E377640030986B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDEDE817E38B5A0030986B /* Recipe.h */,
+				9BEDEDE917E38B5A0030986B /* Recipe.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9BEDEDC517E377640030986B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDEDD217E378210030986B /* ManagedContextFactory.h */,
+				9BEDEDD317E378210030986B /* ManagedContextFactory.m */,
+				9BEDEDC817E377B40030986B /* Repository.h */,
+				9BEDEDC917E377B40030986B /* Repository.m */,
+				9BEDEDE417E389AD0030986B /* RecipeStorageMediator.h */,
+				9BEDEDE517E389AD0030986B /* RecipeStorageMediator.m */,
+				9BEDEDE717E38A830030986B /* RecipeStorage.h */,
+				9BEDEDEB17E3A22A0030986B /* DropboxRecipeStorage.h */,
+				9BEDEDEC17E3A22A0030986B /* DropboxRecipeStorage.m */,
+				9BEDEDDE17E37AE30030986B /* LocalRecipeStorage.h */,
+				9BEDEDDF17E37AE30030986B /* LocalRecipeStorage.m */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		9BEDEDC617E377640030986B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9BEDEDC717E377710030986B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9BEDEDCB17E377C50030986B /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDEDD517E378290030986B /* NSArray-Extensions.h */,
+				9BEDEDD617E378290030986B /* NSArray-Extensions.m */,
+				9BEDEDD717E378290030986B /* NSString-Extensions.h */,
+				9BEDEDD817E378290030986B /* NSString-Extensions.m */,
+				9BEDEDCF17E377F00030986B /* UIImage+Extensions.h */,
+				9BEDEDD017E377F00030986B /* UIImage+Extensions.m */,
+				9BEDEDCC17E377E10030986B /* Stack.h */,
+				9BEDEDCD17E377E10030986B /* Stack.m */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +392,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEDEDCE17E377E10030986B /* Stack.m in Sources */,
+				9BEDEDE017E37AE30030986B /* LocalRecipeStorage.m in Sources */,
+				9BEDEDE617E389AD0030986B /* RecipeStorageMediator.m in Sources */,
+				9BEDEDD917E378290030986B /* NSArray-Extensions.m in Sources */,
 				9BEDED9E17E110710030986B /* AppDelegate.m in Sources */,
+				9BEDEDD417E378210030986B /* ManagedContextFactory.m in Sources */,
+				9BEDEDCA17E377B40030986B /* Repository.m in Sources */,
+				9BEDEDED17E3A22A0030986B /* DropboxRecipeStorage.m in Sources */,
+				9BEDEDEA17E38B5A0030986B /* Recipe.m in Sources */,
+				9BEDEDDA17E378290030986B /* NSString-Extensions.m in Sources */,
+				9BEDEDD117E377F00030986B /* UIImage+Extensions.m in Sources */,
 				9BEDED9A17E110710030986B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
