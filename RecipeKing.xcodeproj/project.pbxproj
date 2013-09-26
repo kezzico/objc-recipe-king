@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BEA5D7017E5E375000B0E18 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA5D6F17E5E375000B0E18 /* RootViewController.m */; };
+		9BEA5D7717E61A40000B0E18 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA5D7617E61A40000B0E18 /* UIColor+Extensions.m */; };
 		9BEDED8E17E110710030986B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEDED8D17E110710030986B /* Foundation.framework */; };
 		9BEDED9017E110710030986B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEDED8F17E110710030986B /* CoreGraphics.framework */; };
 		9BEDED9217E110710030986B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEDED9117E110710030986B /* UIKit.framework */; };
@@ -35,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		144C4007381B40EEA53D0DF7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BEA5D6E17E5E375000B0E18 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		9BEA5D6F17E5E375000B0E18 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		9BEA5D7517E61A40000B0E18 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		9BEA5D7617E61A40000B0E18 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		9BEDED8A17E110710030986B /* RecipeKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BEDED8D17E110710030986B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BEDED8F17E110710030986B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +126,10 @@
 				9BEDED9F17E110710030986B /* Images.xcassets */,
 				9BEDED9417E110710030986B /* Supporting Files */,
 				9BEDEDBC17E112710030986B /* root.xib */,
+				9BEA5D6E17E5E375000B0E18 /* RootViewController.h */,
+				9BEA5D6F17E5E375000B0E18 /* RootViewController.m */,
+				9BEA5D7517E61A40000B0E18 /* UIColor+Extensions.h */,
+				9BEA5D7617E61A40000B0E18 /* UIColor+Extensions.m */,
 			);
 			path = RecipeKing;
 			sourceTree = "<group>";
@@ -286,6 +296,8 @@
 			files = (
 				9BEDED9E17E110710030986B /* AppDelegate.m in Sources */,
 				9BEDED9A17E110710030986B /* main.m in Sources */,
+				9BEA5D7017E5E375000B0E18 /* RootViewController.m in Sources */,
+				9BEA5D7717E61A40000B0E18 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

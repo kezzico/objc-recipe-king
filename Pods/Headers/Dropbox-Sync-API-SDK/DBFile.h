@@ -1,1 +1,1 @@
-../../Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFile.h
+../../Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBFile.h

@@ -1,695 +1,1819 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		01428AB7DD804AA3943F58C4 /* DBTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 770D4A5A53674FCEAFCFAC8E /* DBTable.h */; };
-		09687CE8800F49C5B0343DCE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */; };
-		18DC23727FFC4F25A18279B8 /* libPods-FlurrySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */; };
-		1EEB6E5F4DF34F739DD95CE1 /* DBList.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E40803781F4F7792D23E3E /* DBList.h */; };
-		28D1AF60DFF24384966C982C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03FA6D940844033ABC25273 /* CoreGraphics.framework */; };
-		2DB5470F0FA847B2BC656A1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */; };
-		4056E69EBF7241BB8261A12A /* DBError.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FA57EB7000482396F17FE7 /* DBError.h */; };
-		4C846530011B4F34B32C8A30 /* DBPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 26CBA900DF434CFEA4492AE3 /* DBPath.h */; };
-		60DEBF312986422ABCFDE3A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
-		617BA1ED472E46EBA44D842F /* DBRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = BE567AB51E9A480DA338D7A6 /* DBRecord.h */; };
-		6573467C92C243FB8A229B78 /* DBAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 547F12334B844460A498B9ED /* DBAccountInfo.h */; };
-		6E1DF3F1B8374CECB117C99E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
-		800A0533D2584615869BDF9E /* Pods-FlurrySDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */; };
-		822B1ACF519042849237ED5E /* DBAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 80607C556148457D8BA2DB40 /* DBAccount.h */; };
-		83152284574F439AA8154F76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227100C2341B448183818BF8 /* Security.framework */; };
-		844F9903955044589C8C8EF7 /* DBFilesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 42416AEAA6304136AEB10116 /* DBFilesystem.h */; };
-		8B6C0C7DF8CC4A159B697F4F /* Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = CACBF35E0349482FBFBBF580 /* Dropbox.h */; };
-		8B75F1B9894243C5B0F7F5D8 /* DBFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */; };
-		8FB1D6B4797C40ACA6EF2409 /* DBDatastoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */; };
-		93132BAF79D84258A12E5EB5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F90E2B135AE4186955697A8 /* QuartzCore.framework */; };
-		9464D9840E5345ED9227EC42 /* libPods-Dropbox-Sync-API-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */; };
-		9EC156F91B2C48C0AA4DBDF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5901CA6776A14E6DAC3262FB /* Foundation.framework */; };
-		B613A973A76D4E48A0E150E3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12FA63023114E4EAE4E5630 /* Dropbox.framework */; };
-		C63D589FA4764E0581C0EBE7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA144703E1849DB92C8CE1C /* CFNetwork.framework */; };
-		D6401C54C45746DEB1F82E32 /* DBFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B807704C0C27462792BA7C22 /* DBFile.h */; };
-		D9656B7B9FED42C3B80D016A /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = A015EB5C951B4437B888D6E8 /* Flurry.h */; };
-		E10F97BCC3984716BC1FC4DF /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 792AB184ED2B44119C901BB8 /* Pods-dummy.m */; };
-		E7095BBCC46547B3ABE30215 /* DBFileStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = A87778E195604F3583D0692B /* DBFileStatus.h */; };
-		E9DB5DF447184EE0A69B284E /* DBAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */; };
-		EA7057729EB54863AC52C5DA /* Pods-Dropbox-Sync-API-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */; };
-		F420631E93A14546A49B833E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227100C2341B448183818BF8 /* Security.framework */; };
-		F53B5D8F446D442F8733DB1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9806254B9D804758946268DE /* UIKit.framework */; };
-		FCF828F37A1C49189B5662CD /* DBDatastore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2418BF7050D04088B119E349 /* DBDatastore.h */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7633B505D62B4D7E9B9E9B1D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD2495A5F5F7403EA533E53F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B9FCAC89193642E48FEE4803;
-			remoteInfo = "Pods-Dropbox-Sync-API-SDK";
-		};
-		9C756B46D43C4EA48BDD616E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD2495A5F5F7403EA533E53F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EED8920125A74A2FACA0551A;
-			remoteInfo = "Pods-FlurrySDK";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		08D7D2FB07554CBF9CA2626B /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework"; sourceTree = "<group>"; };
-		0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlurrySDK-Private.xcconfig"; sourceTree = "<group>"; };
-		168497B11CFD465988B99F3E /* Pods-FlurrySDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlurrySDK-prefix.pch"; sourceTree = "<group>"; };
-		1F90E2B135AE4186955697A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		227100C2341B448183818BF8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		2418BF7050D04088B119E349 /* DBDatastore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBDatastore.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBDatastore.h"; sourceTree = "<group>"; };
-		26CBA900DF434CFEA4492AE3 /* DBPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBPath.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBPath.h"; sourceTree = "<group>"; };
-		327B28F586934EB093B96A94 /* Pods-FlurrySDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlurrySDK.xcconfig"; sourceTree = "<group>"; };
-		3C9EC12648394D5A8A512107 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
-		3EDB410623A84F96B46F7E4D /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		42416AEAA6304136AEB10116 /* DBFilesystem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFilesystem.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFilesystem.h"; sourceTree = "<group>"; };
-		42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dropbox-Sync-API-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		44FA57EB7000482396F17FE7 /* DBError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBError.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBError.h"; sourceTree = "<group>"; };
-		547F12334B844460A498B9ED /* DBAccountInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccountInfo.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccountInfo.h"; sourceTree = "<group>"; };
-		5901CA6776A14E6DAC3262FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlurrySDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlurrySDK-dummy.m"; sourceTree = "<group>"; };
-		69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccountManager.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccountManager.h"; sourceTree = "<group>"; };
-		6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dropbox-Sync-API-SDK-Private.xcconfig"; sourceTree = "<group>"; };
-		6E52B7F6DF754749A81BADF8 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		76BD4C2ED8D241D89A86008D /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		770D4A5A53674FCEAFCFAC8E /* DBTable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBTable.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBTable.h"; sourceTree = "<group>"; };
-		792AB184ED2B44119C901BB8 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		7DA144703E1849DB92C8CE1C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		80607C556148457D8BA2DB40 /* DBAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBAccount.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBAccount.h"; sourceTree = "<group>"; };
-		8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFileInfo.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFileInfo.h"; sourceTree = "<group>"; };
-		943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		9806254B9D804758946268DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		9B43A0834C4148559F340390 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A015EB5C951B4437B888D6E8 /* Flurry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
-		A3334AAFF8464D079CF3E812 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dropbox-Sync-API-SDK-dummy.m"; sourceTree = "<group>"; };
-		A87778E195604F3583D0692B /* DBFileStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFileStatus.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFileStatus.h"; sourceTree = "<group>"; };
-		A9E40803781F4F7792D23E3E /* DBList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBList.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBList.h"; sourceTree = "<group>"; };
-		B807704C0C27462792BA7C22 /* DBFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBFile.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBFile.h"; sourceTree = "<group>"; };
-		BE567AB51E9A480DA338D7A6 /* DBRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBRecord.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBRecord.h"; sourceTree = "<group>"; };
-		C03FA6D940844033ABC25273 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		C438BBF53AD64804811172D0 /* Pods-Dropbox-Sync-API-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Dropbox-Sync-API-SDK-prefix.pch"; sourceTree = "<group>"; };
-		CACBF35E0349482FBFBBF580 /* Dropbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Dropbox.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/Dropbox.h"; sourceTree = "<group>"; };
-		CF470D791C9943D4B82884F3 /* Pods-Dropbox-Sync-API-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dropbox-Sync-API-SDK.xcconfig"; sourceTree = "<group>"; };
-		E12FA63023114E4EAE4E5630 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Dropbox.framework; sourceTree = DEVELOPER_DIR; };
-		E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DBDatastoreManager.h; path = "dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework/Headers/DBDatastoreManager.h"; sourceTree = "<group>"; };
-		E6F4BFF608594BB88FBA2B37 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		15250469DF5E4BCA84CF024D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9EC156F91B2C48C0AA4DBDF4 /* Foundation.framework in Frameworks */,
-				2DB5470F0FA847B2BC656A1C /* SystemConfiguration.framework in Frameworks */,
-				F53B5D8F446D442F8733DB1A /* UIKit.framework in Frameworks */,
-				83152284574F439AA8154F76 /* Security.framework in Frameworks */,
-				28D1AF60DFF24384966C982C /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4902075BADF54C5CBFD0FA6F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6E1DF3F1B8374CECB117C99E /* Foundation.framework in Frameworks */,
-				C63D589FA4764E0581C0EBE7 /* CFNetwork.framework in Frameworks */,
-				F420631E93A14546A49B833E /* Security.framework in Frameworks */,
-				09687CE8800F49C5B0343DCE /* SystemConfiguration.framework in Frameworks */,
-				93132BAF79D84258A12E5EB5 /* QuartzCore.framework in Frameworks */,
-				B613A973A76D4E48A0E150E3 /* Dropbox.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F8FD9046B3F4A6F9A92E2C6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60DEBF312986422ABCFDE3A0 /* Foundation.framework in Frameworks */,
-				9464D9840E5345ED9227EC42 /* libPods-Dropbox-Sync-API-SDK.a in Frameworks */,
-				18DC23727FFC4F25A18279B8 /* libPods-FlurrySDK.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		01085F008A964345BCB46C97 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E520475308B34ABAA7AB2E86 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		011F94A6C1EA439B94323E2D /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				80607C556148457D8BA2DB40 /* DBAccount.h */,
-				547F12334B844460A498B9ED /* DBAccountInfo.h */,
-				69E2CBE633D54E0C967F2C5A /* DBAccountManager.h */,
-				2418BF7050D04088B119E349 /* DBDatastore.h */,
-				E25C3FA7C44B432EB11B4E9A /* DBDatastoreManager.h */,
-				44FA57EB7000482396F17FE7 /* DBError.h */,
-				B807704C0C27462792BA7C22 /* DBFile.h */,
-				8F9E6C7DDAA64AD9A2D26E5B /* DBFileInfo.h */,
-				A87778E195604F3583D0692B /* DBFileStatus.h */,
-				42416AEAA6304136AEB10116 /* DBFilesystem.h */,
-				A9E40803781F4F7792D23E3E /* DBList.h */,
-				26CBA900DF434CFEA4492AE3 /* DBPath.h */,
-				BE567AB51E9A480DA338D7A6 /* DBRecord.h */,
-				770D4A5A53674FCEAFCFAC8E /* DBTable.h */,
-				CACBF35E0349482FBFBBF580 /* Dropbox.h */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		34B06E8342C24B6EAFBFACA1 /* Dropbox-Sync-API-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				C43F140EB43B4B9ABE58EDA7 /* Products */,
-				F530C305F41C41F795421392 /* Resources */,
-				011F94A6C1EA439B94323E2D /* Source Files */,
-				71097FE02F7B43D4966522BD /* Support Files */,
-			);
-			path = "Dropbox-Sync-API-SDK";
-			sourceTree = "<group>";
-		};
-		35D9A6ADBA39479682A8A7E8 = {
-			isa = PBXGroup;
-			children = (
-				9A22B2B8A74D43FDA605DAE0 /* Frameworks */,
-				4990B07628474158B860B483 /* Pods */,
-				A59A4A48FC974649AAA6FE4E /* Products */,
-				01085F008A964345BCB46C97 /* Targets Support Files */,
-				6E52B7F6DF754749A81BADF8 /* Podfile */,
-			);
-			sourceTree = "<group>";
-		};
-		42130B930C44455EA93CC002 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4990B07628474158B860B483 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				34B06E8342C24B6EAFBFACA1 /* Dropbox-Sync-API-SDK */,
-				EE62B4B72CD7449F846181F3 /* FlurrySDK */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		4CBA5036EEC34022A99F72DB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */,
-				698AF18D012748F7A13B3512 /* Pods-FlurrySDK-dummy.m */,
-				168497B11CFD465988B99F3E /* Pods-FlurrySDK-prefix.pch */,
-				327B28F586934EB093B96A94 /* Pods-FlurrySDK.xcconfig */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		71097FE02F7B43D4966522BD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */,
-				A6C39CB754A04922A67A4AB5 /* Pods-Dropbox-Sync-API-SDK-dummy.m */,
-				C438BBF53AD64804811172D0 /* Pods-Dropbox-Sync-API-SDK-prefix.pch */,
-				CF470D791C9943D4B82884F3 /* Pods-Dropbox-Sync-API-SDK.xcconfig */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		9A22B2B8A74D43FDA605DAE0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7DA144703E1849DB92C8CE1C /* CFNetwork.framework */,
-				C03FA6D940844033ABC25273 /* CoreGraphics.framework */,
-				E12FA63023114E4EAE4E5630 /* Dropbox.framework */,
-				5901CA6776A14E6DAC3262FB /* Foundation.framework */,
-				1F90E2B135AE4186955697A8 /* QuartzCore.framework */,
-				227100C2341B448183818BF8 /* Security.framework */,
-				943B17A51B9C4917B77A3583 /* SystemConfiguration.framework */,
-				9806254B9D804758946268DE /* UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A59A4A48FC974649AAA6FE4E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9B43A0834C4148559F340390 /* libPods.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C43F140EB43B4B9ABE58EDA7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E520475308B34ABAA7AB2E86 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A3334AAFF8464D079CF3E812 /* Pods-acknowledgements.markdown */,
-				3EDB410623A84F96B46F7E4D /* Pods-acknowledgements.plist */,
-				792AB184ED2B44119C901BB8 /* Pods-dummy.m */,
-				76BD4C2ED8D241D89A86008D /* Pods-environment.h */,
-				E6F4BFF608594BB88FBA2B37 /* Pods-resources.sh */,
-				3C9EC12648394D5A8A512107 /* Pods.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		EE62B4B72CD7449F846181F3 /* FlurrySDK */ = {
-			isa = PBXGroup;
-			children = (
-				42130B930C44455EA93CC002 /* Products */,
-				FAFA3397364843F88208D2A3 /* Source Files */,
-				4CBA5036EEC34022A99F72DB /* Support Files */,
-			);
-			path = FlurrySDK;
-			sourceTree = "<group>";
-		};
-		F530C305F41C41F795421392 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				08D7D2FB07554CBF9CA2626B /* Dropbox.framework */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		FAFA3397364843F88208D2A3 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				A015EB5C951B4437B888D6E8 /* Flurry.h */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		1277250CD31D45ADB68CCB4D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				822B1ACF519042849237ED5E /* DBAccount.h in Headers */,
-				6573467C92C243FB8A229B78 /* DBAccountInfo.h in Headers */,
-				E9DB5DF447184EE0A69B284E /* DBAccountManager.h in Headers */,
-				FCF828F37A1C49189B5662CD /* DBDatastore.h in Headers */,
-				8FB1D6B4797C40ACA6EF2409 /* DBDatastoreManager.h in Headers */,
-				4056E69EBF7241BB8261A12A /* DBError.h in Headers */,
-				D6401C54C45746DEB1F82E32 /* DBFile.h in Headers */,
-				8B75F1B9894243C5B0F7F5D8 /* DBFileInfo.h in Headers */,
-				E7095BBCC46547B3ABE30215 /* DBFileStatus.h in Headers */,
-				844F9903955044589C8C8EF7 /* DBFilesystem.h in Headers */,
-				1EEB6E5F4DF34F739DD95CE1 /* DBList.h in Headers */,
-				4C846530011B4F34B32C8A30 /* DBPath.h in Headers */,
-				617BA1ED472E46EBA44D842F /* DBRecord.h in Headers */,
-				01428AB7DD804AA3943F58C4 /* DBTable.h in Headers */,
-				8B6C0C7DF8CC4A159B697F4F /* Dropbox.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		28882419F4594917AEF6A1C1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9656B7B9FED42C3B80D016A /* Flurry.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		4B98E3E5D8914018AC569D7C /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 68D9A118F4A74B9A8F4EA5C0 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				B88D6C9733924B458F74EB42 /* Sources */,
-				4F8FD9046B3F4A6F9A92E2C6 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				87F14DB9F77E4DBDA86EFB7F /* PBXTargetDependency */,
-				5E3143F6521340519F9A7ECF /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 9B43A0834C4148559F340390 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0DB47A6DF0384CBC8A4A4F41 /* Build configuration list for PBXNativeTarget "Pods-Dropbox-Sync-API-SDK" */;
-			buildPhases = (
-				7CFC067E6E8446E9900572B4 /* Sources */,
-				4902075BADF54C5CBFD0FA6F /* Frameworks */,
-				1277250CD31D45ADB68CCB4D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Dropbox-Sync-API-SDK";
-			productName = "Pods-Dropbox-Sync-API-SDK";
-			productReference = 42638923F058449D8756F1BF /* libPods-Dropbox-Sync-API-SDK.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		EED8920125A74A2FACA0551A /* Pods-FlurrySDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7213BB83C44E4DBE64DA4F /* Build configuration list for PBXNativeTarget "Pods-FlurrySDK" */;
-			buildPhases = (
-				F3FFECADAE12476B9C6ABA7F /* Sources */,
-				15250469DF5E4BCA84CF024D /* Frameworks */,
-				28882419F4594917AEF6A1C1 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-FlurrySDK";
-			productName = "Pods-FlurrySDK";
-			productReference = 5E7A7B005FDF4D8AA1829A93 /* libPods-FlurrySDK.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		DD2495A5F5F7403EA533E53F /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0500;
-			};
-			buildConfigurationList = FF1DF51E66D141B88876CC2E /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 35D9A6ADBA39479682A8A7E8;
-			productRefGroup = A59A4A48FC974649AAA6FE4E /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */,
-				EED8920125A74A2FACA0551A /* Pods-FlurrySDK */,
-				4B98E3E5D8914018AC569D7C /* Pods */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		7CFC067E6E8446E9900572B4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EA7057729EB54863AC52C5DA /* Pods-Dropbox-Sync-API-SDK-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B88D6C9733924B458F74EB42 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E10F97BCC3984716BC1FC4DF /* Pods-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3FFECADAE12476B9C6ABA7F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				800A0533D2584615869BDF9E /* Pods-FlurrySDK-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5E3143F6521340519F9A7ECF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EED8920125A74A2FACA0551A /* Pods-FlurrySDK */;
-			targetProxy = 9C756B46D43C4EA48BDD616E /* PBXContainerItemProxy */;
-		};
-		87F14DB9F77E4DBDA86EFB7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B9FCAC89193642E48FEE4803 /* Pods-Dropbox-Sync-API-SDK */;
-			targetProxy = 7633B505D62B4D7E9B9E9B1D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		11DF4C8EE3C442A0B8975DBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Dropbox-Sync-API-SDK-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5AFA77FC04254A88912D66C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4767E4CB014C16A109D866 /* Pods-Dropbox-Sync-API-SDK-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Dropbox-Sync-API-SDK-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		6C0D948F14534729A7C7A050 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Release;
-		};
-		748B31030EA64729BEEAD3BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-FlurrySDK-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B05C96DB5309441693905DB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C9EC12648394D5A8A512107 /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B45810E22ED24DEC901A21B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BF67CE46EE244F89F0E383F /* Pods-FlurrySDK-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-FlurrySDK-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B96FA9E1152A49CD812EB17F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Debug;
-		};
-		C5BF5B6D8ECC498FAFE59E78 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C9EC12648394D5A8A512107 /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		0DB47A6DF0384CBC8A4A4F41 /* Build configuration list for PBXNativeTarget "Pods-Dropbox-Sync-API-SDK" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				11DF4C8EE3C442A0B8975DBB /* Release */,
-				5AFA77FC04254A88912D66C6 /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F7213BB83C44E4DBE64DA4F /* Build configuration list for PBXNativeTarget "Pods-FlurrySDK" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B45810E22ED24DEC901A21B1 /* Release */,
-				748B31030EA64729BEEAD3BD /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		68D9A118F4A74B9A8F4EA5C0 /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B05C96DB5309441693905DB7 /* Release */,
-				C5BF5B6D8ECC498FAFE59E78 /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FF1DF51E66D141B88876CC2E /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B96FA9E1152A49CD812EB17F /* Debug */,
-				6C0D948F14534729A7C7A050 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = DD2495A5F5F7403EA533E53F /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>01B6F76F326143578A1C7EB6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>02C3BBEF7F6E4D1493835260</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-Dropbox-Sync-API-SDK-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>044C2CF1E4764DFE9DF3878D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BD25B6CAC7C747CBA40A43C4</string>
+				<string>D2F228E1BC094C9192C85EA9</string>
+				<string>D9E76D31D7B54261806BF2FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>049D2E9C9F4E44158A8875EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>064705F1E3954133B0DF0730</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C915F9339E21412DB3681501</string>
+				<string>D7F409B8625E493F9CF9710C</string>
+				<string>6045EA6AD7C44F89B243B610</string>
+				<string>87285C1A9E7A4AC284AD719E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Dropbox-Sync-API-SDK</string>
+			<key>path</key>
+			<string>Dropbox-Sync-API-SDK</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>07EE0B1223BF4840912128D1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4722360FD8974E6AB0BBD656</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0EA7116F417F43CCA604151A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Dropbox.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Dropbox.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>10303147A9C34E0A8CB1C2C3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBError.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBError.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1184B5CA6E6F4B9DB1501426</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-environment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>16C436CD0B9D4889AD7731DD</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Security.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>192753CB842E4593866D0C40</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6CB2374B4C984B0BAE709FDF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1B1E554344634CD9B417E7F4</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>667D8147D0924E5B81A752E6</string>
+			<key>buildPhases</key>
+			<array>
+				<string>28D582D7EDF843D3A9CBDAB2</string>
+				<string>5375F7DC57914630BF7E0547</string>
+				<string>485A41EC0EAD4300B59212F3</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-FlurrySDK</string>
+			<key>productName</key>
+			<string>Pods-FlurrySDK</string>
+			<key>productReference</key>
+			<string>A61D561025E048448E39F550</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>1D2A8C9952A94139B61FC035</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DBFACD11118F40EA8DD623FD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FC7AEC1FEC541E8A635D4B7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>22C83B562C9D465082993AFC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7DBC72A454764C05ABA3887E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>28D582D7EDF843D3A9CBDAB2</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E676884F77EA4B0A925A5E21</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>2A0CA8E8207C4BB3ADE8BC38</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>AD87A2D6673E402E95DF9A2D</string>
+			<key>targetProxy</key>
+			<string>89B323FEC5284E0B954D630E</string>
+		</dict>
+		<key>2AEC99C782AB4CFCA5BA8BEE</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>2E1FED05BE5A4B35A2D56DDE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>16C436CD0B9D4889AD7731DD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2E2A14A336134A798037F6AA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Flurry.h</string>
+			<key>path</key>
+			<string>Flurry/Flurry.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>323AF0D541EC40CCB43B186E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBFilesystem.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBFilesystem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3245380CCACA41509E9DF1DD</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3324AFB963F148FA94F44506</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7071895FA6E14EF9B9FCE5E5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-Dropbox-Sync-API-SDK-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>33CA61A94B8B40D0967BB5D2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>56189E108DC7450B956F01A1</string>
+				<string>3C1CB69C4C544204A62B09DE</string>
+				<string>0EA7116F417F43CCA604151A</string>
+				<string>2AEC99C782AB4CFCA5BA8BEE</string>
+				<string>81A0E0255FA84BA7A686E23E</string>
+				<string>16C436CD0B9D4889AD7731DD</string>
+				<string>568E74B5B28F44ABB87AF7F5</string>
+				<string>6CB2374B4C984B0BAE709FDF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3675B3015A16476B93E89B2D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6F102DEC947F4373BD681AA1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38CBFD09F1DE432F8AEA54F5</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7071895FA6E14EF9B9FCE5E5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-Dropbox-Sync-API-SDK-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3C1A5C45E8AB4C04A97B2F44</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Dropbox.framework</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3C1CB69C4C544204A62B09DE</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>3C63753B5EFA40109738F7DB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3C1CB69C4C544204A62B09DE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3E235804A68645F1B8BD2689</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3EBB624067B648CA92AC4A0E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-FlurrySDK-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3EBF2F2B6DC94FF5834B3335</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A61D561025E048448E39F550</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>42ACACA475C242579D0D0879</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBDatastoreManager.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBDatastoreManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4722360FD8974E6AB0BBD656</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBDatastore.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBDatastore.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>485A41EC0EAD4300B59212F3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BF0E749FFD6D466D90FCBA40</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>51446D60DD0F48B1B106B7DE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F51B0BA403C440D0883C5C9D</string>
+				<string>1D2A8C9952A94139B61FC035</string>
+				<string>A4214C37F35D4E8FB5BF6120</string>
+				<string>07EE0B1223BF4840912128D1</string>
+				<string>EC097CC26C0D4A0EB9C65C96</string>
+				<string>F9041D7D9F1F4D5795EA5075</string>
+				<string>7460C5D7F588405899F6EACC</string>
+				<string>64F291F9052E40FCB8F3B5A3</string>
+				<string>75EC15D7EB3C4761A499BB2A</string>
+				<string>C8D3AD680C6E42C59FE56CA1</string>
+				<string>C6E60EBD00EF4AB192ED965E</string>
+				<string>9F6E1368CF204EF79C972EC8</string>
+				<string>95EE6CF7461A43EBAE900AB6</string>
+				<string>67C4AB8F67414A4092750698</string>
+				<string>5403A804F7EC4786BF905894</string>
+				<string>22C83B562C9D465082993AFC</string>
+				<string>B41E9602B66A403482DE9347</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5375F7DC57914630BF7E0547</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F7EE984AADBA4D2F849F4B48</string>
+				<string>6F547CB9B2E04110AF9F4A11</string>
+				<string>192753CB842E4593866D0C40</string>
+				<string>E665AFE0AB1D4790B36E3786</string>
+				<string>3C63753B5EFA40109738F7DB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5403A804F7EC4786BF905894</key>
+		<dict>
+			<key>fileRef</key>
+			<string>82F5C8D473F349A5B7F9ABBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>541556A9D1C043FA961323E8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3E235804A68645F1B8BD2689</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>56189E108DC7450B956F01A1</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CFNetwork.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>568E74B5B28F44ABB87AF7F5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>SystemConfiguration.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>5DBE952847434780B466161B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5F42AAAB658D435E8789EC7E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBAccount.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBAccount.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6045EA6AD7C44F89B243B610</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5F42AAAB658D435E8789EC7E</string>
+				<string>DBFACD11118F40EA8DD623FD</string>
+				<string>E1633E1295D641F6AEBB0D60</string>
+				<string>4722360FD8974E6AB0BBD656</string>
+				<string>955EF7074AB649ECA3DE9BE3</string>
+				<string>42ACACA475C242579D0D0879</string>
+				<string>10303147A9C34E0A8CB1C2C3</string>
+				<string>7D9DAD5205F74E9990C9555C</string>
+				<string>7822FC139486426C9DD19ACE</string>
+				<string>BE275543D85D4F5983392160</string>
+				<string>323AF0D541EC40CCB43B186E</string>
+				<string>B2F01C33D5E14A25BD8D0022</string>
+				<string>F958AF7C2F7542CDA43BBE66</string>
+				<string>742FF58E9113434B832AE5E7</string>
+				<string>82F5C8D473F349A5B7F9ABBB</string>
+				<string>7DBC72A454764C05ABA3887E</string>
+				<string>D2644CBA57B14E3BBA240FC6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Source Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>64F291F9052E40FCB8F3B5A3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7D9DAD5205F74E9990C9555C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>667D8147D0924E5B81A752E6</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>79AD5B29AFDA45BBB80F9227</string>
+				<string>A844482D399243F3BCA67B51</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>67C4AB8F67414A4092750698</key>
+		<dict>
+			<key>fileRef</key>
+			<string>742FF58E9113434B832AE5E7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>687F59712A3E467D85DEDAC6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>56189E108DC7450B956F01A1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6A0166EB75B049A598A5F5F0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-FlurrySDK-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6CB2374B4C984B0BAE709FDF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>6E384DF8E3E74B6B8C79688C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AEC99C782AB4CFCA5BA8BEE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6F102DEC947F4373BD681AA1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-Dropbox-Sync-API-SDK-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6F416EA10D4044EEAFE04D94</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>727584C9C372411BA1CE0838</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>1B1E554344634CD9B417E7F4</string>
+			<key>remoteInfo</key>
+			<string>Pods-FlurrySDK</string>
+		</dict>
+		<key>6F547CB9B2E04110AF9F4A11</key>
+		<dict>
+			<key>fileRef</key>
+			<string>568E74B5B28F44ABB87AF7F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7071895FA6E14EF9B9FCE5E5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-Dropbox-Sync-API-SDK-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>71472B7D2DED41FFA379AC50</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E3E48E4864B04DC7A81BF327</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>727584C9C372411BA1CE0838</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0450</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>973443072AC1415986E1AB46</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>D59CC9ECDA6144DE9EDC2996</string>
+			<key>productRefGroup</key>
+			<string>541556A9D1C043FA961323E8</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>AD87A2D6673E402E95DF9A2D</string>
+				<string>1B1E554344634CD9B417E7F4</string>
+				<string>F1576CDC7F43418081732502</string>
+			</array>
+		</dict>
+		<key>742FF58E9113434B832AE5E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBRecord.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBRecord.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7435C6903A8F4FBE964665D1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7460C5D7F588405899F6EACC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10303147A9C34E0A8CB1C2C3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>75EC15D7EB3C4761A499BB2A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7822FC139486426C9DD19ACE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7822FC139486426C9DD19ACE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBFileInfo.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBFileInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79AD5B29AFDA45BBB80F9227</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>FA89AF12712B428D87D5D770</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-FlurrySDK-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>7D9DAD5205F74E9990C9555C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBFile.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBFile.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DBC72A454764C05ABA3887E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBUtil.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBUtil.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>81A0E0255FA84BA7A686E23E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>QuartzCore.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>82711E25C88A4BAE93F58DA1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Dropbox-Sync-API-SDK.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>82F5C8D473F349A5B7F9ABBB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBTable.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBTable.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>87285C1A9E7A4AC284AD719E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7071895FA6E14EF9B9FCE5E5</string>
+				<string>6F102DEC947F4373BD681AA1</string>
+				<string>02C3BBEF7F6E4D1493835260</string>
+				<string>AE12DA7D880F4C0E85AB33B6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>89517664316D4A9BA915618F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3324AFB963F148FA94F44506</string>
+				<string>38CBFD09F1DE432F8AEA54F5</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>89B323FEC5284E0B954D630E</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>727584C9C372411BA1CE0838</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>AD87A2D6673E402E95DF9A2D</string>
+			<key>remoteInfo</key>
+			<string>Pods-Dropbox-Sync-API-SDK</string>
+		</dict>
+		<key>8DF0D31CD3294701A1B09640</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AD106E33D900439DB1B1F35A</string>
+				<string>B41F85D5087345979C285C0E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>902230A9D7C94FDEA136FBF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DD8E6A8694BA4439BBE68235</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92B3127A94924CF1887045B7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92E83274B7BF4D1395DE0E32</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6E384DF8E3E74B6B8C79688C</string>
+				<string>687F59712A3E467D85DEDAC6</string>
+				<string>2E1FED05BE5A4B35A2D56DDE</string>
+				<string>CF7146C2708B4C5486C4F1E8</string>
+				<string>EF5C075D67214525A038F5D1</string>
+				<string>E7E671E4ACEE475B92581ED4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>95593BFC9124438F8DB68DE0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3EBF2F2B6DC94FF5834B3335</string>
+				<string>A0D073AFFE18490086B800E8</string>
+				<string>DB50385865EE4A31B5937FC8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>FlurrySDK</string>
+			<key>path</key>
+			<string>FlurrySDK</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>955EF7074AB649ECA3DE9BE3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBDatastoreInfo.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBDatastoreInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95EE6CF7461A43EBAE900AB6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F958AF7C2F7542CDA43BBE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>973443072AC1415986E1AB46</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3245380CCACA41509E9DF1DD</string>
+				<string>F92984FE7D5A4554ACC0CC0F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>9ACB5E78F7BC44A3A5BE2F7A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>1B1E554344634CD9B417E7F4</string>
+			<key>targetProxy</key>
+			<string>6F416EA10D4044EEAFE04D94</string>
+		</dict>
+		<key>9DAF899DE3ED499181B0B09C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-FlurrySDK.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9F6E1368CF204EF79C972EC8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B2F01C33D5E14A25BD8D0022</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A0D073AFFE18490086B800E8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2E2A14A336134A798037F6AA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Source Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A4214C37F35D4E8FB5BF6120</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E1633E1295D641F6AEBB0D60</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A61D561025E048448E39F550</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-FlurrySDK.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A844482D399243F3BCA67B51</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>FA89AF12712B428D87D5D770</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-FlurrySDK-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AD106E33D900439DB1B1F35A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7435C6903A8F4FBE964665D1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AD87A2D6673E402E95DF9A2D</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>89517664316D4A9BA915618F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F51FF8C490FF4881A208F9D5</string>
+				<string>92E83274B7BF4D1395DE0E32</string>
+				<string>51446D60DD0F48B1B106B7DE</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-Dropbox-Sync-API-SDK</string>
+			<key>productName</key>
+			<string>Pods-Dropbox-Sync-API-SDK</string>
+			<key>productReference</key>
+			<string>82711E25C88A4BAE93F58DA1</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>AE12DA7D880F4C0E85AB33B6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-Dropbox-Sync-API-SDK.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B2F01C33D5E14A25BD8D0022</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBList.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBList.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B41E9602B66A403482DE9347</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D2644CBA57B14E3BBA240FC6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B41F85D5087345979C285C0E</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7435C6903A8F4FBE964665D1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BD25B6CAC7C747CBA40A43C4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AEC99C782AB4CFCA5BA8BEE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BE275543D85D4F5983392160</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBFileStatus.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBFileStatus.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BF0E749FFD6D466D90FCBA40</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2E2A14A336134A798037F6AA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C360E74B008D487195905F5A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>064705F1E3954133B0DF0730</string>
+				<string>95593BFC9124438F8DB68DE0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C6E60EBD00EF4AB192ED965E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>323AF0D541EC40CCB43B186E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C8D3AD680C6E42C59FE56CA1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BE275543D85D4F5983392160</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C915F9339E21412DB3681501</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>82711E25C88A4BAE93F58DA1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CF7146C2708B4C5486C4F1E8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>568E74B5B28F44ABB87AF7F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D2644CBA57B14E3BBA240FC6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Dropbox.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/Dropbox.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D2F228E1BC094C9192C85EA9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>82711E25C88A4BAE93F58DA1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D59CC9ECDA6144DE9EDC2996</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>33CA61A94B8B40D0967BB5D2</string>
+				<string>C360E74B008D487195905F5A</string>
+				<string>541556A9D1C043FA961323E8</string>
+				<string>902230A9D7C94FDEA136FBF6</string>
+				<string>1FC7AEC1FEC541E8A635D4B7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D7F409B8625E493F9CF9710C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3C1A5C45E8AB4C04A97B2F44</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D9E76D31D7B54261806BF2FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A61D561025E048448E39F550</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DB50385865EE4A31B5937FC8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FA89AF12712B428D87D5D770</string>
+				<string>6A0166EB75B049A598A5F5F0</string>
+				<string>3EBB624067B648CA92AC4A0E</string>
+				<string>9DAF899DE3ED499181B0B09C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>DBFACD11118F40EA8DD623FD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBAccountInfo.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBAccountInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DD8E6A8694BA4439BBE68235</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5DBE952847434780B466161B</string>
+				<string>01B6F76F326143578A1C7EB6</string>
+				<string>049D2E9C9F4E44158A8875EF</string>
+				<string>1184B5CA6E6F4B9DB1501426</string>
+				<string>92B3127A94924CF1887045B7</string>
+				<string>7435C6903A8F4FBE964665D1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E1633E1295D641F6AEBB0D60</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBAccountManager.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBAccountManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E3E48E4864B04DC7A81BF327</key>
+		<dict>
+			<key>fileRef</key>
+			<string>049D2E9C9F4E44158A8875EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E665AFE0AB1D4790B36E3786</key>
+		<dict>
+			<key>fileRef</key>
+			<string>16C436CD0B9D4889AD7731DD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E676884F77EA4B0A925A5E21</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A0166EB75B049A598A5F5F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E7E671E4ACEE475B92581ED4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0EA7116F417F43CCA604151A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EC097CC26C0D4A0EB9C65C96</key>
+		<dict>
+			<key>fileRef</key>
+			<string>955EF7074AB649ECA3DE9BE3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EF5C075D67214525A038F5D1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>81A0E0255FA84BA7A686E23E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F1576CDC7F43418081732502</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8DF0D31CD3294701A1B09640</string>
+			<key>buildPhases</key>
+			<array>
+				<string>71472B7D2DED41FFA379AC50</string>
+				<string>044C2CF1E4764DFE9DF3878D</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>2A0CA8E8207C4BB3ADE8BC38</string>
+				<string>9ACB5E78F7BC44A3A5BE2F7A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>3E235804A68645F1B8BD2689</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>F51B0BA403C440D0883C5C9D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5F42AAAB658D435E8789EC7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F51FF8C490FF4881A208F9D5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3675B3015A16476B93E89B2D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F7EE984AADBA4D2F849F4B48</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AEC99C782AB4CFCA5BA8BEE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F9041D7D9F1F4D5795EA5075</key>
+		<dict>
+			<key>fileRef</key>
+			<string>42ACACA475C242579D0D0879</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F92984FE7D5A4554ACC0CC0F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F958AF7C2F7542CDA43BBE66</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>DBPath.h</string>
+			<key>path</key>
+			<string>dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework/Headers/DBPath.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FA89AF12712B428D87D5D770</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-FlurrySDK-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>727584C9C372411BA1CE0838</string>
+</dict>
+</plist>

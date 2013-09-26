@@ -39,7 +39,7 @@ install_resource()
       ;;
   esac
 }
-install_resource "Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b5/Dropbox.framework"
+install_resource "Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework"
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rm -f "$RESOURCES_TO_COPY"
